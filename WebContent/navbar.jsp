@@ -7,6 +7,15 @@
 			<li class="nav-item">
 				<a class="nav-link" href="Https://covid.cd2h.org">N3C</a>
 			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="index.jsp">Exploration</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="admin.jsp">Administrative</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="public_health.jsp">Public Health</a>
+			</li>
 			<c:if test="${not empty admin}">
 				<li class="nav-item">
 					<a class="nav-link" href="dashboard.jsp">Dashboard</a>

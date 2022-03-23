@@ -15,33 +15,12 @@
 		</h2>
 	</div>
 
-	<div class="row large-mb">
-		<div class="col-xs-12 centered">
-			<div class="col-xs-3">
-				<p>To explore the data in N3C more deeply, try the <a href="https://covid.cd2h.org/dashboard">N3C Dashboard</a>.</p>
-				<p>To do your own research in the Enclave, <a href="https://covid.cd2h.org/enclave">register for access</a>.</p>
-			</div>
-			<div class="col-xs-6">
-				<jsp:include page="caption.jsp">
-					<jsp:param value="main-intro" name="tag" />
-				</jsp:include>
-			</div>
-		</div>
-	</div>
+
 	<div class="row large-mb">
 		<div class="col-xs-12 centered">
 			<div class="col-xs-2">&nbsp;</div>
 			<div class="col-xs-8">
-				<h3 class="header-text">How big is the N3C Enclave?</h3>
-				<c:import url="https://covid.cd2h.org/dashboard/graph_support/n3c_fact_sheet.jsp"/>
-			</div>
-		</div>
-	</div>
-	<div class="row large-mb">
-		<div class="col-xs-12 centered">
-			<div class="col-xs-2">&nbsp;</div>
-			<div class="col-xs-8">
-				<h3 class="header-text">Who are the Patients?</h3>
+				<h3 class="header-text">x Total Patients</h3>
 				<c:import url="https://labs.cd2h.org/n3c-cohort/demo1/dashboard.jsp"/>
 			</div>
 		</div>
@@ -50,7 +29,7 @@
 		<div class="col-xs-12 centered">
 			<div class="col-xs-2">&nbsp;</div>
 			<div class="col-xs-8">
-				<h3 class="header-text">Where are they from?</h3>
+				<h3 class="header-text">Geographic Distribution of N3C Data</h3>
 				<div id="graph"></div>
  			<jsp:include page="graph_support/site_map.jsp">
 				<jsp:param name="ld" value="300" />
@@ -67,7 +46,7 @@
 		<div class="col-xs-12 centered">
 			<div class="col-xs-2">&nbsp;</div>
 			<div class="col-xs-4">
-				<h3 class="header-text">Research Groups</h3>
+				<h3 class="header-text">N3C Projects</h3>
 				<div class="panel-body">
 					<div id="project-roster"></div>
 					<jsp:include page="tables/project_roster_styled.jsp"/>

@@ -13,13 +13,20 @@ WebContent/META-INF/MANIFEST.MF -text
 WebContent/WEB-INF/web.xml -text
 WebContent/caption.jsp -text
 WebContent/feeds/aggregated.jsp -text
+WebContent/feeds/map_data.jsp -text
 WebContent/feeds/ochinLocations.jsp -text
+WebContent/feeds/papers.jsp -text
+WebContent/feeds/project_roster.jsp -text
+WebContent/feeds/siteLocations.jsp -text
 WebContent/feeds/siteRoster.jsp -text
 WebContent/footer.jsp -text
+WebContent/graph_support/site_map.jsp -text
+WebContent/graph_support/us-states.json -text
 WebContent/head.jsp -text
 WebContent/images/favicon.ico -text
 WebContent/images/n3c_logo.png -text
 WebContent/index.jsp -text
+WebContent/index2.jsp -text
 WebContent/navbar.jsp -text
 WebContent/resources/DataTables/css/dataTables.bootstrap.css -text
 WebContent/resources/DataTables/css/dataTables.bootstrap.min.css -text
@@ -68,4 +75,6 @@ WebContent/resources/d3-tip.js -text
 WebContent/resources/d3.v4.min.js -text
 WebContent/resources/main_style.css -text
 WebContent/resources/n3c_login_style.css -text
+WebContent/tables/project_roster_styled.jsp -text
+WebContent/tables/publications_styled.jsp -text
 /pom.xml -text
