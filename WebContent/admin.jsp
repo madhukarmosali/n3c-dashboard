@@ -45,7 +45,7 @@
 			</div>
 			<div id="groups-projects" style="display:none;">
 				<jsp:include page="admin/projects.jsp"/>
-			</div style="display:none;">
+			</div>
 		</div>
 	</div>
 
