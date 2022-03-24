@@ -12,6 +12,11 @@
 WebContent/META-INF/MANIFEST.MF -text
 WebContent/WEB-INF/web.xml -text
 WebContent/admin.jsp -text
+WebContent/admin/domain_teams.jsp -text
+WebContent/admin/institutions.jsp -text
+WebContent/admin/map.jsp -text
+WebContent/admin/projects.jsp -text
+WebContent/admin/users.jsp -text
 WebContent/caption.jsp -text
 WebContent/feeds/aggregated.jsp -text
 WebContent/feeds/domain_team_roster.jsp -text
