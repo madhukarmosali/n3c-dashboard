@@ -35,6 +35,7 @@ WebContent/images/n3c_logo.png -text
 WebContent/index.jsp -text
 WebContent/index2.jsp -text
 WebContent/navbar.jsp -text
+WebContent/public-health.jsp -text
 WebContent/resources/DataTables/css/dataTables.bootstrap.css -text
 WebContent/resources/DataTables/css/dataTables.bootstrap.min.css -text
 WebContent/resources/DataTables/css/dataTables.bootstrap4.css -text

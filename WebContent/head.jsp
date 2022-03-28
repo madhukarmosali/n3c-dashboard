@@ -30,6 +30,7 @@
 	<link rel="stylesheet" id='font-awesome' href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<script src="<util:applicationRoot/>/resources/d3.v4.min.js"></script>
 	<script src="<util:applicationRoot/>/resources/d3-tip.js"></script>
+	<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 
 <style type="text/css" media="all">
 @import "<util:applicationRoot/>/resources/n3c_login_style.css";
