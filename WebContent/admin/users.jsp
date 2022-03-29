@@ -27,8 +27,8 @@
 </table>
 
 <div id="registration_line">
-	<c:import url="https://labs.cd2h.org/n3c-cohort/graphs/line_registrations.jsp">
-		<c:param name="data_page" value="https://labs.cd2h.org/n3c-cohort/feeds/line_dta_dua_regs.jsp" />
+	<c:import url="modules//line_registrations.jsp">
+		<c:param name="data_page" value="/feeds/line_dua_dta_regs.jsp" />
 		<c:param name="dom_element" value="#registration_line" />
 	</c:import>
 </div>

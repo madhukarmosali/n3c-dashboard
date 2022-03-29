@@ -1,6 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+
 
 <table class="table table-hover">
 	<thead>
@@ -27,8 +28,8 @@
 </table>
 
 <div id="dua_line">
-	<c:import url="https://labs.cd2h.org/n3c-cohort/graphs/line_data_dua.jsp">
-		<c:param name="data_page" value="https://labs.cd2h.org/n3c_-ohort/feeds/line_dta_dua_regs.jsp" />
-		<c:param name="dom_element" value="#dua_line" />
+	<c:import url="modules/line_data_dua.jsp">
+		<c:param name="data_page" value="/feeds/line_dua_dta_regs.jsp" />
+		<c:param name="dom_element" value="#dua_line"/>
 	</c:import>
 </div>

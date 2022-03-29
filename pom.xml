@@ -51,6 +51,11 @@
 			<artifactId>UtilTagLib</artifactId>
 			<version>1.0.4-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>org.tuckey</groupId>
+			<artifactId>urlrewritefilter</artifactId>
+			<version>4.0.4</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

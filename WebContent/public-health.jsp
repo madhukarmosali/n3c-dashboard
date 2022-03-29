@@ -74,12 +74,9 @@
 	</script>
 
 <body>
-	<jsp:include page="navbar.jsp" flush="true" />
-
-	<div class="container-fluid">
-		<h2 class="header-text"><img src="images/n3c_logo.png" class="n3c_logo_header" alt="N3C Logo"> The National <strong>COVID-19</strong> Cohort Collaborative (N3C)
-		</h2>
-	</div>
+	<jsp:include page="navbar.jsp" flush="true">
+  		<jsp:param name="page" value="health"/>
+	</jsp:include>
 
 	<c:import url="https://covid.cd2h.org/dashboard/graphs/public_health.jsp"/>
 

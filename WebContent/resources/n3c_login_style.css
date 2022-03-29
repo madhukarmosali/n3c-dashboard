@@ -1,90 +1,128 @@
-/* -------------- Tooltips ---------------------  */
-.tooltip {
-	background: #eee;
-	box-shadow: 0 0 5px #999999;
-	color: #333;
-	font-size: 14px;
-	left: 130px;
-	padding: 5px;
-	position: absolute;
-	text-align: center;
-	top: 95px;
-	width: 180px;
-	z-index: 10;
-	display: block;
-	opacity: 0;
-}
-.legend {
-	font-size: 14px;
-}
-rect {
-	cursor: pointer;
-	stroke-width: 2;
-}
-rect.disabled {
-	fill: transparent !important;
-}
-.d3-tip {
-  line-height: 1;
-  padding: 12px;
-  background: #eee;
-  color: #333;
-  border-radius: 2px;
+
+body{
+	font-size:15px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
-/* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: #eee;
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
+h1{
+	font-size: 2.8rem;
+	font-weight:500;
 }
 
-/* Style northward tooltips differently */
-.d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
+h2{
+	font-size: 2rem;
+	font-weight:400;
 }
 
-.bar:hover {
-  fill: #d0743c ;
-}
-
-/* -------------- Main ---------------------  */
-.supplemental-question-info{
-	font-size:14px; 
+h3{
+	font-size: 2rem;
 	font-weight:300;
-	margin-bottom:0px;
 }
 
-.n3c_alert{
-	text-align:center; 
-	color:#376076; 
-	background: #ecf2f3; 
-	padding: 15px; 
-	border-radius: 5px; 
-	font-size:14px;
+h4{
+	font-size: 1.3rem;
+	font-weight:400;
 }
 
-.accent-text{
-	color:#642A6B;
+h5{
+	font-size: 1.1rem;
+	font-weight:400;
 }
 
-.accent-text_2{
-	color:#376076;
+.container.content{
+	margin-bottom:100px;
+	margin-top:70px;
 }
 
+.text-max{
+	max-width:700px;
+}
+
+/* -------------- Tables ---------------------  */ 
+.table-expand a[aria-expanded = "true"]:after{
+	font-family: "Font Awesome\ 5 Free"; 
+	content: "\f056";
+  	font-weight: 900;
+}
+.table-expand a[aria-expanded = "false"]:after{
+	font-family: "Font Awesome\ 5 Free"; 
+	content: "\f055";
+	font-weight: 900;
+}
+
+/* -------------- Shortcuts ---------------------  */
+.display-none{
+	display:none;
+}
+
+@media (max-width: 768px){
+	.display-xs-none{
+		display:none !important;
+	}
+}
+
+/* -------------- Page Navigation ---------------------  */
+.page_nav{
+	margin-bottom: 50px;
+	justify-content: left;
+	text-align: left;
+	padding-left: 20px;
+	width: 100%;
+}
+
+.page_nav .btn{
+	margin: 10px;
+}
+
+/* -------------- Scroll down arrow ---------------------  */
+#scroll_down_arrow{
+     position: fixed;
+     bottom: 0;
+     right: 20px;
+     font-size:30px;
+     filter: alpha(opacity=30);
+     -moz-opacity: 0.3;
+     -khtml-opacity: 0.3;
+     opacity: 0.3;
+     z-index:1;
+}
+
+/* -------------- Button Tooltip ---------------------  */
+
+.tip i{
+	color:#ffd535;
+	font-size:1.3em;
+}
+
+.btn-tip{
+   	background-color: #f8f9fa!important;
+   	border-color: lightgray!important;
+}
+
+.btn-tip:hover{
+	background-color:#eff7ff!important;
+}
+	
+
+/* -------------- Fade in ---------------------  */
+	@keyframes fade-in {
+    	from {opacity: 0; transform: scale(.7,.7)}
+    	to {opacity: 1;}
+	}
+	.fade-in-element {
+  		animation: fade-in 1.4s;
+	}
+	.hidden {
+  		opacity: 0;
+	}
+
+/* -------------- Header Logo ---------------------  */
 .n3c_logo_navbar{
 	width:40px;
 	height:40px;
 }
-/* -------------- Header Logo ---------------------  */
+
 .n3c_logo_header{
 	width:20%; 
 	max-width:100px; 
@@ -98,12 +136,14 @@ rect.disabled {
 	margin-bottom:30px;
 }
 
+
 /* -------------- Footer ---------------------  */
-#footer {
+.footer {
     text-align:center;
     width:100%;
     padding:20px 0px 0px 0px;
  	bottom:0; 
+    overflow: hidden;
 }
 
 .foot li a:hover{
@@ -140,7 +180,47 @@ rect.disabled {
 	-webkit-text-fill-color: transparent;
 }
 
+.foot-logos a{
+	width: fit-content;
+}
+
+
+/* -------------- Accordion ---------------------  */
+.accordion-toggle:hover,
+.accordion-toggle:focus{
+	text-decoration:none;
+}
+
+
 /* -------------- Buttons ---------------------  */
+.btn{
+	cursor: pointer;
+	width: fit-content;
+}
+
+.btn-primary{
+	color: #64286b;
+	background-color: white;
+    border-color: #64286b;
+}
+
+.btn-primary:hover {
+    color: white;
+    background-color: #64286b;
+    border-color: #64286b;
+}
+
+.btn-primary:active {
+	color: white !important;
+    background-color: #64286b !important;
+    border-color: #64286b !important;
+    box-shadow:none !important;
+}
+
+.btn-primary:focus{
+	box-shadow:none;
+}
+
 .btn-n3c{
   border: none;
   background: rgba(100,42,107,1);
@@ -180,28 +260,17 @@ rect.disabled {
 
 /* -------------- Panel ---------------------  */
 
-.panel-primary{
-	border-color: rgba(100,42,107,1);
-}
+/* .panel-primary{ */
+/* 	border-color: rgba(100,42,107,1); */
+/* } */
 
 
-.panel-primary>.panel-heading{
-	background-color: rgba(100,42,107,1);
-	font-size: 14px;
-    font-weight: bold;
-}
+/* .panel-primary>.panel-heading{ */
+/* 	background-color: rgba(100,42,107,1); */
+/* 	font-size: 14px; */
+/*     font-weight: bold; */
+/* } */
 
-.panel-footer{
-    padding: 0px 15px 0px 15px;
-}
-
-/* -------------- Site Map ---------------------  */
-
-.compact {
-    font-family: tahoma;
-    font-size: 12px;
-    position: relative;
-    clear: both;
-    *zoom: 1;
-    zoom: 1;
-}
+/* .panel-footer{ */
+/*     padding: 0px 15px 0px 15px; */
+/* } */
