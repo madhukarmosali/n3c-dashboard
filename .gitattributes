@@ -45,6 +45,11 @@ WebContent/images/n3c_logo.png -text
 WebContent/images/spotlight_preview.png -text
 WebContent/index.jsp -text
 WebContent/index2.jsp -text
+WebContent/long-covid.jsp -text
+WebContent/long_covid/data.json -text
+WebContent/long_covid/fig4.jsp -text
+WebContent/long_covid/table1.html -text
+WebContent/long_covid/table2.html -text
 WebContent/modules/admin_fact.jsp -text
 WebContent/modules/admin_map.jsp -text
 WebContent/modules/domain_team_roster.jsp -text
