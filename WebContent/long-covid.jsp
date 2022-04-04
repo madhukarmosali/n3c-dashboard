@@ -40,9 +40,9 @@
 			<div class="col-12 col-lg-12">
 				<h3 class="header-text">Long-COVID</h3>
 				<div id="metric_btns" class="btn-select">
-					<a id="long-model-btn" class="btn btn-secondary active" role="button" onclick="toggle_long('model');">Model Features</a>
-					<a id="long-training-btn" class="btn btn-secondary" role="button" onclick="toggle_long('training');">Training Cohort Characteristics</a>
-					<a id="long-demographics-btn" class="btn btn-secondary" role="button" onclick="toggle_long('demographics');">Demographics</a>
+					<a id="long-model-btn" class="btn btn-primary active" role="button" onclick="toggle_long('model');">Model Features</a>
+					<a id="long-training-btn" class="btn btn-primary" role="button" onclick="toggle_long('training');">Training Cohort Characteristics</a>
+					<a id="long-demographics-btn" class="btn btn-primary" role="button" onclick="toggle_long('demographics');">Demographics</a>
 				</div>
 				<div id="long-model" style="display:block;">
 					<h4 class="header-text">Most important model features for predicting visit to a Long-COVID clinic.</h4>
@@ -73,6 +73,7 @@
 			$("#long-training-btn").removeClass("active");
 			$("#long-demographics").css('display', 'none');
 			$("#long-demographics-btn").removeClass("active");
+			cache_browser_history("long-covid", "long-covid/model")
 		}
 		if (selection == "training") {
 			$("#long-model").css('display', 'none');
@@ -81,6 +82,7 @@
 			$("#long-training-btn").addClass("active");
 			$("#long-demographics").css('display', 'none');
 			$("#long-demographics-btn").removeClass("active");
+			cache_browser_history("long-covid", "long-covid/training")
 		}
 		if (selection == "demographics") {
 			$("#long-model").css('display', 'none');
@@ -89,9 +91,22 @@
 			$("#long-training-btn").removeClass("active");
 			$("#long-demographics").css('display', 'block');
 			$("#long-demographics-btn").addClass("active");
+			cache_browser_history("long-covid", "long-covid/demographics")
 		}
 	}
 	
+
+	<c:choose>
+		<c:when test="${empty param.secondary_tab || param.secondary_tab == 'model' }">
+			toggle_long("model")
+		</c:when>
+		<c:when test="${param.secondary_tab == 'training' }">
+			toggle_long("training")
+		</c:when>
+		<c:when test="${param.secondary_tab == 'demographics' }">
+			toggle_long("demographics")
+		</c:when>
+	</c:choose>
 	</script>
 	
 </body>
