@@ -62,7 +62,8 @@ const auth2 = async () => {
     qlikWebIntegrationId: "F7FFR6c76j--BIS-D_ANmsEPU1-VIiXF",
     tenantDomain: "bpvjpykbczgl7xl.us.qlikcloud.com",
     appId: "196803b0-33c2-4492-ac3b-77f6318bce47",
-    jwtUrl: "https://utuwtwnthj.execute-api.us-east-1.amazonaws.com/Cores-test/qlik-test-api"
+    jwtUrl: "https://a90tcl01g8.execute-api.us-east-1.amazonaws.com/Test/qlik-update-ip",
+    jwtUrl2: "https://utuwtwnthj.execute-api.us-east-1.amazonaws.com/Cores-test/qlik-test-api"
   };
 
   const config = { tenantDomain, qlikWebIntegrationId, appId, currentLoginType };

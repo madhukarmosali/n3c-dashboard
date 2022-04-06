@@ -1,11 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="row">
-	<div class="col-xs-12 centered">
-		<h3>Geographic Distribution of Children with COVID-19 in N3C</h3>
-		<c:import
-			url="https://covid.cd2h.org/pediatrics-dashboard/release_date.jsp" />
-		<p>Click on an image to zoom.</p>
+	<div class="col-12 col-lg-12">
+		<h3 class="header-text">Geographic Distribution of Children with COVID-19 in N3C</h3>
+		<div class="centered">
+			<c:import url="https://covid.cd2h.org/pediatrics-dashboard/release_date.jsp" />
+			<p>Click on an image to zoom.</p>
+		</div>
 	</div>
 </div>
 

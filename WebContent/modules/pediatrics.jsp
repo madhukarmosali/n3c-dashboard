@@ -124,8 +124,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="col-xs-12 col-lg-10 viz-col">
+	<div class="col-xs-12 col-lg-12 viz-col">
 		<div class="col-xs-3">&nbsp;</div>
 		<div class="col-xs-8">
 			<p class="text-center font-weight-lighter pr-0 pb-0 mb-1" style="font-size:10pt;">This work is supported by the National Institutes of Health's 
@@ -134,6 +133,7 @@
 			Grant Number U24TR002306. This work is solely the responsibility of the creators and does not necessarily represent
 			the official views of the National Institutes of Health.</p>
 			</div>
+	</div>
 	</div>
 </div>
 <script>
