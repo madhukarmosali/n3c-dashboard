@@ -63,6 +63,7 @@ WebContent/long_covid/table1.html -text
 WebContent/long_covid/table2.html -text
 WebContent/modules/admin_fact.jsp -text
 WebContent/modules/admin_map.jsp -text
+WebContent/modules/collaboration_networks.jsp -text
 WebContent/modules/domain_team_roster.jsp -text
 WebContent/modules/explorer.jsp -text
 WebContent/modules/fact_sheet.jsp -text
