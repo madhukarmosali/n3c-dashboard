@@ -28,6 +28,11 @@ WebContent/feeds/map_data.jsp -text
 WebContent/feeds/ochinLocations.jsp -text
 WebContent/feeds/papers.jsp -text
 WebContent/feeds/positive_cases_by_date.jsp -text
+WebContent/feeds/project_challenge_graph.jsp -text
+WebContent/feeds/project_challenge_organization_graph.jsp -text
+WebContent/feeds/project_graph.jsp -text
+WebContent/feeds/project_operational_graph.jsp -text
+WebContent/feeds/project_organization_graph.jsp -text
 WebContent/feeds/project_roster.jsp -text
 WebContent/feeds/publications.jsp -text
 WebContent/feeds/questions.jsp -text
@@ -36,6 +41,7 @@ WebContent/feeds/siteLocations.jsp -text
 WebContent/feeds/siteRoster.jsp -text
 WebContent/feeds/us-states.json -text
 WebContent/footer.jsp -text
+WebContent/graph_support/forcePhoto.jsp -text
 WebContent/graph_support/site_map.jsp -text
 WebContent/graph_support/us-states.json -text
 WebContent/head.jsp -text
