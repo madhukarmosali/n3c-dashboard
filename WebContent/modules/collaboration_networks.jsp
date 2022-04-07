@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 <h3 class="header-text">Collaboration Networks</h3>
 <div class="row mb-5">
@@ -23,6 +24,7 @@
 		<div id="legend" style="display: block;"></div>
 	</div>
 </div>
+
 <div class="container content container-large">
 	<div id="content">
 		<div id="organization_graph" style="display: block;"></div>
@@ -32,6 +34,9 @@
 		<div id="challenge_org_graph" style="display: none;"></div>
 	</div>
 </div>
+
+<c:set var="root"><util:applicationRoot/></c:set>
+
 <c:url var="encodedMapURL" value="data.jsp">
 	<c:param name="detectionAlg" value="site" />
 	<c:param name="resolution" value="1" />
@@ -46,28 +51,28 @@
 	<jsp:param name="target" value="organization_graph" />
 	<jsp:param name="legend_div" value="legend" />
 	<jsp:param name="data_page"
-		value="feeds/project_organization_graph.jsp" />
+		value="${root}/feeds/project_organization_graph.jsp" />
 	<jsp:param name="detectionAlg" value="sites" />
 </jsp:include>
 <jsp:include page="../graph_support/forcePhoto.jsp" flush="true">
 	<jsp:param name="charge" value="-350" />
 	<jsp:param name="ld" value="70" />
 	<jsp:param name="target" value="collaboration_graph" />
-	<jsp:param name="data_page" value="feeds/project_graph.jsp" />
+	<jsp:param name="data_page" value="${root}/feeds/project_graph.jsp" />
 	<jsp:param name="detectionAlg" value="sites" />
 </jsp:include>
 <jsp:include page="../graph_support/forcePhoto.jsp" flush="true">
 	<jsp:param name="charge" value="-350" />
 	<jsp:param name="ld" value="70" />
 	<jsp:param name="target" value="operational_graph" />
-	<jsp:param name="data_page" value="feeds/project_operational_graph.jsp" />
+	<jsp:param name="data_page" value="${root}/feeds/project_operational_graph.jsp" />
 	<jsp:param name="detectionAlg" value="sites" />
 </jsp:include>
 <jsp:include page="../graph_support/forcePhoto.jsp" flush="true">
 	<jsp:param name="charge" value="-350" />
 	<jsp:param name="ld" value="70" />
 	<jsp:param name="target" value="challenge_graph" />
-	<jsp:param name="data_page" value="feeds/project_challenge_graph.jsp" />
+	<jsp:param name="data_page" value="${root}/feeds/project_challenge_graph.jsp" />
 	<jsp:param name="detectionAlg" value="sites" />
 </jsp:include>
 <jsp:include page="../graph_support/forcePhoto.jsp" flush="true">
@@ -75,7 +80,7 @@
 	<jsp:param name="ld" value="70" />
 	<jsp:param name="target" value="challenge_org_graph" />
 	<jsp:param name="data_page"
-		value="feeds/project_challenge_organization_graph.jsp" />
+		value="${root}/feeds/project_challenge_organization_graph.jsp" />
 	<jsp:param name="detectionAlg" value="sites" />
 </jsp:include>
 

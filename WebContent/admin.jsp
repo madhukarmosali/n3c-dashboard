@@ -118,11 +118,11 @@
 			</div>
 		</div>
 
-<!-- 		<div class="row mb-5"> -->
-<!-- 			<div class="col-12"> -->
-<%-- 				<c:import url="modules/collaboration_networks.jsp"/> --%>
-<!-- 			</div> -->
-<!-- 		</div> -->
+		<div class="row mb-5">
+			<div class="col-12">
+				<c:import url="modules/collaboration_networks.jsp"/>
+			</div>
+		</div>
 	</div>
 
 	<jsp:include page="footer.jsp" flush="true" />
@@ -135,12 +135,14 @@
 			$("#metrics-institutions-btn").addClass("active");
 			$("#metrics-users").css('display', 'none');
 			$("#metrics-users-btn").removeClass("active");
+			cache_browser_history("admin", "admin/institutions")
 		}
 		if (selection == "users") {
 			$("#metrics-institutions").css('display', 'none');
 			$("#metrics-institutions-btn").removeClass("active");
 			$("#metrics-users").css('display', 'block');
 			$("#metrics-users-btn").addClass("active");
+			cache_browser_history("admin", "admin/users")
 		}
 	}
 	
@@ -150,12 +152,14 @@
 			$("#graph-btn").addClass("active");
 			$("#site-roster").css('display', 'none');
 			$("#site-roster-btn").removeClass("active");
+			cache_browser_history("admin", "admin/map")
 		}
 		if (selection == "table") {
 			$("#graph").css('display', 'none');
 			$("#graph-btn").removeClass("active");
 			$("#site-roster").css('display', 'block');
 			$("#site-roster-btn").addClass("active");
+			cache_browser_history("admin", "admin/table")
 		}
 	}
 	
@@ -165,17 +169,37 @@
 			$("#domain-team-roster-btn").addClass("active");
 			$("#project-roster").css('display', 'none');
 			$("#project-roster-btn").removeClass("active");
-			
-			
+			cache_browser_history("admin", "admin/domain-teams")
 		}
 		if (selection == "projects") {
 			$("#domain-team-roster").css('display', 'none');
 			$("#domain-team-roster-btn").removeClass("active");
 			$("#project-roster").css('display', 'block');
 			$("#project-roster-btn").addClass("active");
+			cache_browser_history("admin", "admin/projects")
 		}
 	}
 	
+	<c:choose>
+		<c:when test="${empty param.secondary_tab || param.secondary_tab == 'institutions' }">
+			toggle_metrics("institutions")
+		</c:when>
+		<c:when test="${param.secondary_tab == 'users' }">
+			toggle_metrics("users")
+		</c:when>
+		<c:when test="${param.secondary_tab == 'map' }">
+			toggle_map("demographics")
+		</c:when>
+			<c:when test="${param.secondary_tab == 'table' }">
+			toggle_map("table")
+		</c:when>
+			<c:when test="${param.secondary_tab == 'domain-team' }">
+			toggle_groups("domain-team")
+		</c:when>
+			<c:when test="${param.secondary_tab == 'projects' }">
+			toggle_groups("projects")
+		</c:when>
+	</c:choose>
 	</script>
 	
 </body>
