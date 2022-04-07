@@ -80,13 +80,14 @@ $.getJSON("<util:applicationRoot/>/feeds/publications.jsp", function(data){
         			var combo = 
         				'<div class="panel-group" style="margin-bottom:0px;" id="pub'
         				+ id + '_pubs' +
-        				'"><div class="panel panel-default" style="background:none; border:none; box-shadow:none;"><div class="panel-heading" style="background:none; text-align:left;"><h4 class="mb-0">'
+        				'"><div class="panel panel-default" style="background:none; border:none; box-shadow:none;"><div class="panel-heading" style="background:none; text-align:left;"><div class="row"><div class="col-11"><h4 class="mb-3">'
         				+ title + 
-        				' </h4> <p class="mb-0" style="text-align: right; font-size:16px;"><a aria-expanded="false" class="accordion-toggle" data-toggle="collapse" data-parent="#'
+        				' </h4> <p class="' + row.type + '">' + row.type + '</p>'
+        				+ '</div><div class="col-1" style="margin: auto;"><p class="mb-0" style="text-align: right; font-size:16px;"><a aria-expanded="false" class="accordion-toggle" data-toggle="collapse" data-parent="#'
         				+ 'pub'+ id + '_pubs' + 
         				'" href="#'
         				+ 'pub'+ id + '_pub_description' +
-        				'"> </a></p><p class="' + row.type + '">' + row.type + '</p></div><div id="'
+        				'"> </a></p></div></div></div><div id="'
         				+ 'pub'+ id + '_pub_description' +
         				'" class="panel-collapse collapse"><div class="panel-body" style="border:none;">' + 
         				'<strong>Date:<\/strong> ' + date + ' <br> <strong>Authors: <\/strong> '

@@ -57,13 +57,13 @@ $.getJSON("<util:applicationRoot/>/feeds/project_roster.jsp", function(data){
         			var combo = 
         				'<div class="panel-group" style="margin-bottom:0px;" id="' 
         				+ id.replace(/\s+/g, '').toLowerCase() + '_accordion' +
-        				'"><div class="panel panel-default" style="background:none; border:none; box-shadow:none;"><div class="panel-heading" style="background:none; text-align:left;"><h4 class="mb-0">'
+        				'"><div class="panel panel-default" style="background:none; border:none; box-shadow:none;"><div class="panel-heading" style="background:none; text-align:left;"><div class="row" style="margin-right:0px;"><div class="col-11"><h4 class="mb-0">'
         				+ title + 
-        				' </h4> <p class="mb-0" style="text-align: right; font-size:16px;"><a aria-expanded="false" class="accordion-toggle" data-toggle="collapse" data-parent="#'
+        				' </h4></div> <div class="col-1" style="margin: auto;"> <p class="mb-0" style="text-align: right; font-size:16px;"><a aria-expanded="false" class="accordion-toggle" data-toggle="collapse" data-parent="#'
         				+ id.replace(/\s+/g, '').toLowerCase() + '_accordion' + 
         				'" href="#'
         				+ id.replace(/\s+/g, '').toLowerCase() + '_description' +
-        				'"> </a></p></div><div id="'
+        				'"> </a></p></div></div> </div><div id="'
         				+ id.replace(/\s+/g, '').toLowerCase() + '_description' +
         				'" class="panel-collapse collapse"><div class="panel-body" style="border:none;">'
         				+ desc + '<\/p>' + '<strong>Lead Investigator: ' + contact + '<\/strong> <br> <strong>Accessing Institution: ' + institution + '<\/strong> <br> ID: ' + id
