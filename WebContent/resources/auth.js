@@ -15,7 +15,7 @@ const auth = async () => {
   
   
   async function handleAutomaticLogin() {
-    const token = await (await fetch("https://utuwtwnthj.execute-api.us-east-1.amazonaws.com/Cores-test/qlik-test-api", {
+    const token = await (await fetch("https://a90tcl01g8.execute-api.us-east-1.amazonaws.com/Test/qlik-update-ip", {
       method: "GET",
       mode: "cors"
     }).then(resp => resp.json().then(data => data.body))); 

@@ -353,31 +353,31 @@ function refreshHistograms() {
     }
     d3.select("#age_histogram").select("svg").remove();
     if (doBar)
-    	localBarChart(ageArray,"#age_histogram",120);
+    	localBarChart(ageArray,"#age_histogram",135);
     else
     	localPieChart(ageArray,"#age_histogram");
 
     d3.select("#race_histogram").select("svg").remove();
     if (doBar)
-	    localBarChart(raceArray,"#race_histogram",120);
+	    localBarChart(raceArray,"#race_histogram",135);
     else
     	localPieChart(raceArray,"#race_histogram");
 
     d3.select("#ethnicity_histogram").select("svg").remove();
     if (doBar)
-	    localBarChart(ethnicityArray,"#ethnicity_histogram",120);
+	    localBarChart(ethnicityArray,"#ethnicity_histogram",135);
     else
     	localPieChart(ethnicityArray,"#ethnicity_histogram");
 
     d3.select("#gender_histogram").select("svg").remove();
     if (doBar)
-	    localBarChart(genderArray,"#gender_histogram",120);
+	    localBarChart(genderArray,"#gender_histogram",135);
     else
     	localPieChart(genderArray,"#gender_histogram");
 
     d3.select("#severity_histogram").select("svg").remove();
     if (doBar)
-	    localBarChart(severityArray,"#severity_histogram",120);
+	    localBarChart(severityArray,"#severity_histogram",135);
     else
     	localPieChart(severityArray,"#severity_histogram");
 }
@@ -563,7 +563,7 @@ function refreshSeverityArray(data) {
        		group = "Severe";
        		break;
        	case "Dead_w_COVID":
-       		group = "Dead w/ COVID";
+       		group = "Mortality";
        		break;
        	};
     	var count = data[i].patient_count;
