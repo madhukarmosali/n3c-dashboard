@@ -32,6 +32,10 @@
 	font-weight: 900;
 }
 
+#group-section h4{
+	font-size: 1rem;
+}
+
 
 
 </style>
@@ -51,7 +55,7 @@
   					<div class="card">
     					<div class="card-header" id="factheadingOne">
       						<h4 class="mb-0">Weekly Data Release Set:&nbsp;<span id="date">&nbsp;</span>
-        						<a href="" style="display:inline; float:right;" class="btn btn-link btn-block text-left collapsed icon-btn p-0 accordion-toggle" type="button" data-toggle="collapse" data-target="#factcollapseOne" aria-expanded="false" aria-controls="collapseOne">
+        						<a alt="expand/collapse fact sheet section button" href="" style="display:inline; float:right;" class="btn btn-link btn-block text-left collapsed icon-btn p-0 accordion-toggle" data-toggle="collapse" data-target="#factcollapseOne" aria-expanded="false" aria-controls="collapseOne">
           							<span>&nbsp;</span>
         						</a>
       						</h4>
@@ -71,8 +75,8 @@
 			<div class="col-12 col-lg-4">
 				<h3 class="header-text">Metrics</h3>
 				<div id="metric_btns" class="btn-select">
-					<a id="metrics-institutions-btn" class="btn btn-primary active" role="button" onclick="toggle_metrics('institutions');">Institutions</a>
-					<a id="metrics-users-btn" class="btn btn-primary" role="button" onclick="toggle_metrics('users');">Users</a>
+					<button id="metrics-institutions-btn" class="btn btn-primary active" role="button" onclick="toggle_metrics('institutions');">Institutions</button>
+					<button id="metrics-users-btn" class="btn btn-primary" role="button" onclick="toggle_metrics('users');">Users</button>
 				</div>
 				<div id="metrics-institutions" style="display:block;">
 					<jsp:include page="admin/institutions.jsp"/>
@@ -85,8 +89,8 @@
 			<div class="col-12 col-lg-4">
 				<h3 class="header-text">Institutions</h3>
 				<div id="inst_btns" class="btn-select">
-					<a id="graph-btn" class="btn btn-primary active" role="button" onclick="toggle_map('map');">Map</a>
-					<a id="site-roster-btn" class="btn btn-primary" role="button" onclick="toggle_map('table');">Table</a>
+					<button id="graph-btn" class="btn btn-primary active" role="button" onclick="toggle_map('map');">Map</button>
+					<button id="site-roster-btn" class="btn btn-primary" role="button" onclick="toggle_map('table');">Table</button>
 				</div>
 				<div>
 					<div id="graph" style="overflow:hidden; display:block;"></div>
@@ -95,11 +99,11 @@
 				</div>
 			</div>
 			
-			<div class="col-12 col-lg-4">
+			<div id="group-section" class="col-12 col-lg-4">
 				<h3 class="header-text">Groups</h3>
 				<div class="btn-select">
-					<a id="domain-team-roster-btn" class="btn btn-primary active" role="button" onclick="toggle_groups('domain-teams');">Domain Teams</a>
-					<a id="project-roster-btn" class="btn btn-primary" role="button" onclick="toggle_groups('projects');">Projects</a>
+					<button id="domain-team-roster-btn" class="btn btn-primary active" role="button" onclick="toggle_groups('domain-teams');">Domain Teams</button>
+					<button id="project-roster-btn" class="btn btn-primary" role="button" onclick="toggle_groups('projects');">Projects</button>
 				</div>
 				<div id="domain-team-roster" style="display:block;">
 					<c:import url="modules/domain_team_roster.jsp"/>
