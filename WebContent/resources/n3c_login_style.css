@@ -1,6 +1,4 @@
-
 body{
-	font-size:15px;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
   Helvetica, Arial, "Lucida Grande", sans-serif;
 }
@@ -38,6 +36,20 @@ h5{
 .text-max{
 	max-width:700px;
 }
+
+/* -------------- Container ---------------------  */ 
+@media (min-width: 1200px){
+	.container-large {
+   		max-width: 1200px;
+	}
+}
+
+@media (min-width: 1400px){
+	.container-large {
+    	max-width: 1400px;
+	}
+}
+
 
 /* -------------- Tables ---------------------  */ 
 .table-expand a[aria-expanded = "true"]:after{

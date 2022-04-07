@@ -61,49 +61,50 @@
 <body>
 	<jsp:include page="navbar.jsp" flush="true" />
 	
-	<div class="row" style="padding-top:40px; padding-bottom:40px; width:100%;">
-		<div class="head col-12 col-sm-2 col-md-2 col-lg-2 col-xl-1 bkg-img">
-		</div>
-		<div class="head head-text col-12 col-sm-10 col-md-10 col-lg-10 col-xl-11">
-			<div class="n3c-page-head">			
-				<h1>The National COVID Cohort Collaborative (N3C)</h1>
-				<hr>
-				<h3 class="hidden">Your Trusted Comprehensive Source for COVID&#x2011;19 Patient-Centric Data.</h3>
-				<br>
-				<a href="https://covid.cd2h.org/" role="button" class="btn btn-primary btn-lg btn-n3c">Learn More</a>
-			</div>
-		</div>
-	</div>
-
+	<div class="container container-large">
 	
-	<div class="container content">
-		<div class="row n3c-page-header" padding-top:20px; padding-bottom:20px;">
-			<div class="col-12 col-md-4 display-xs-none" style="text-align:center; padding-right:0px; display:flex;">
-				<img alt="Spotlight Dashboard Preview" style="width:100%; heigh:auto; margin:auto; border:1px solid lightgray;" src="<util:applicationRoot/>/images/spotlight_preview.png"/>
-			</div>
-			<div class="col-12 col-md-8" style="display:flex; padding:0px">
-				<div style="background: #f8f9fa; padding: 20px; display: flex; flex-direction: column; margin: auto;">
-					<h3>In the Spotlight</h3>
-					<h4>The N3C Pediatrics Dashboard</h4>
-					<p>Funded in part by the National Institutes of Health's Eunice Kennedy Shriver 
-					National Institute of Child Health and Human Development (NICHD), the N3C Pediatrics Dashboard seeks to
-					make information about the trajectories of pediatric COVID-19 hospitalization rates and disease severity 
-					readily available for national-level decision-making. The team is led by 
-					<a href="https://som.ucdenver.edu/Profiles/Faculty/Profile/22381">Tell Bennett, MD</a>, who has been a part 
-					of the N3C since its inception in March 2020. 
+		<div class="row" style="padding-top:40px; padding-bottom:40px; width:100%;">
+			<div class="head head-text col-12 col-md-10 col-lg-10 col-xl-11">
+				<div class="n3c-page-head">			
+					<h1>The National COVID Cohort Collaborative (N3C)</h1>
+					<hr>
+					<h3 class="hidden">Your Trusted Comprehensive Source for COVID&#x2011;19 Patient-Centric Data.</h3>
 					<br>
-					<br>
-					<a href="" role="button" class="btn btn-primary btn-sm btn-n3c">Learn More</a>
+					<a href="https://covid.cd2h.org/" role="button" class="btn btn-primary btn-lg btn-n3c">Learn More</a>
 				</div>
-			</div>	
+			</div>
 		</div>
+	
 		
+		<div class="container content">
+			<div class="row n3c-page-header" padding-top:20px; padding-bottom:20px;">
+				<div class="col-12 col-md-4 display-xs-none" style="text-align:center; padding-right:0px; display:flex;">
+					<img alt="Spotlight Dashboard Preview" style="width:100%; heigh:auto; margin:auto; border:1px solid lightgray;" src="<util:applicationRoot/>/images/spotlight_preview.png"/>
+				</div>
+				<div class="col-12 col-md-8" style="display:flex; padding:0px">
+					<div style="background: #f8f9fa; padding: 20px; display: flex; flex-direction: column; margin: auto;">
+						<h3>In the Spotlight</h3>
+						<h4>The N3C Pediatrics Dashboard</h4>
+						<p>Funded in part by the National Institutes of Health's Eunice Kennedy Shriver 
+						National Institute of Child Health and Human Development (NICHD), the N3C Pediatrics Dashboard seeks to
+						make information about the trajectories of pediatric COVID-19 hospitalization rates and disease severity 
+						readily available for national-level decision-making. The team is led by 
+						<a href="https://som.ucdenver.edu/Profiles/Faculty/Profile/22381">Tell Bennett, MD</a>, who has been a part 
+						of the N3C since its inception in March 2020. 
+						<br>
+						<br>
+						<a href="<util:applicationRoot/>/public-health/pediatrics/severity" role="button" class="btn btn-primary btn-sm btn-n3c">Learn More</a>
+					</div>
+				</div>	
+			</div>
+		</div>
+			
 		<div class="row n3c-page-header">
 			<h3>Explore our Dashboards:</h3>
 		</div>
-		
+			
 		<div class="row">
-			<div class="col-12 col-md-4 hidden">
+			<div class="col-12 col-lg-6 col-xl-3 hidden">
 				<div class="card" style="width: 100%;">
 					<img class="card-img-top" src="<util:applicationRoot/>/images/icons/explore.png" alt="Explore Icon">
 					<div class="card-body">
@@ -119,11 +120,11 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-12 col-md-4 hidden">
+			<div class="col-12 col-lg-6 col-xl-3 hidden">
 				<div class="card" style="width: 100%;">
 					<img class="card-img-top" src="<util:applicationRoot/>/images/icons/admin.png" alt="Admin Icon">
 					<div class="card-body">
- 						<h4 class="card-title"><a href="">Administration <i class="fa fa-external-link" aria-hidden="true"></i></a></h4>
+ 						<h4 class="card-title"><a href="<util:applicationRoot/>/admin">Administration <i class="fa fa-external-link" aria-hidden="true"></i></a></h4>
 						<h4 class="card-text">Track the latest status updates for N3C</h4>
 					</div>
 					<h5>Content:</h5>
@@ -137,11 +138,11 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-12 col-md-4 hidden">
+			<div class="col-12 col-lg-6 col-xl-3 hidden">
 				<div class="card" style="width: 100%;">
 					<img class="card-img-top" src="<util:applicationRoot/>/images/icons/health.png" alt="Health Icon">
 					<div class="card-body">
- 						<h4 class="card-title"><a href="">Public Health <i class="fa fa-external-link" aria-hidden="true"></i></a></h4>
+ 						<h4 class="card-title"><a href="<util:applicationRoot/>/public-health">Public Health <i class="fa fa-external-link" aria-hidden="true"></i></a></h4>
 						<h4 class="card-text">Browse public health questions and answers</h4>
 					</div>
 					<h5>Content:</h5>
@@ -152,9 +153,25 @@
 					</ul>
 				</div>
 			</div>		
+			<div class="col-12 col-lg-6 col-xl-3 hidden">
+				<div class="card" style="width: 100%;">
+					<img class="card-img-top" src="<util:applicationRoot/>/images/icons/covid.png" alt="Covid Icon">
+					<div class="card-body">
+ 						<h4 class="card-title"><a href="<util:applicationRoot/>/long-covid">Long-COVID <i class="fa fa-external-link" aria-hidden="true"></i></a></h4>
+						<h4 class="card-text">Learn about our Long-COVID models</h4>
+					</div>
+					<h5>Content:</h5>
+					<ul class="list-group list-group-flush">
+  						<li class="list-group-item">Most important model features</li>
+						<li class="list-group-item">Utilized Characteristics</li>
+						<li class="list-group-item">Long-COVID demographics</li>
+					</ul>
+				</div>
+			</div>		
 		</div>
-	
-	
+		
+		
+		</div>
 	</div>
 
 	<jsp:include page="footer.jsp" flush="true" />	
