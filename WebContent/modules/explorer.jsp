@@ -21,7 +21,7 @@
 	}
 	
 	.text-success{
-		color:#64286b !important;
+		color:#4E2D59 !important;
 	}
 	
 	.strong{
@@ -45,7 +45,7 @@
 			</div>
 			<div class="col-12 col-md-6">
 				<div class="selection-section">
-					<button class="btn btn-primary" onclick="uncheckAll();"><i class="fas fa-filter"></i> Reset Filters</button>
+					<button class="btn btn-secondary" onclick="uncheckAll();"><i class="fas fa-filter"></i> Reset Filters</button>
 				</div>
 			</div>
 		</div>
