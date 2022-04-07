@@ -14,6 +14,9 @@
         .tabulator-cell{
             padding: 1px !important;
         }
+        .tabulator-cell:nth-child(even){
+            border-right: white solid 1px !important;
+        }
         .tabulator-cell:first-child{
             padding: 1px 10px !important;
         }
@@ -21,18 +24,9 @@
             color: #444E86;
             text-align: center;
         }
- 
- 		.tooltip-inner.override{
- 			max-width: 200px;
-    		padding: 0px;
-    		color: #white;
-    		text-align: center;
-    		background-color: #black;
-    		border-radius: 0px;
- 		}
- 
-
-
+        path.domain{
+            stroke: transparent !important;
+        }
     </style>
 
     <div class="p-2">
@@ -81,10 +75,10 @@
                 </svg>
             </div>
         </div>
-        <div id="fig4" style="max-width:100%;"></div>
+        <div id="fig4" style="margin:auto;"></div>
     </div>
     
-    <script type="text/javascript">
+   <script type="text/javascript">
 
         var d3_hor_bar = function(cell, formatterParams, onRendered){
             let v = cell.getValue()
@@ -119,8 +113,7 @@
 
         var d3_dot = function(cell, formatterParams, onRendered){
             let v = cell.getValue()
-            
-
+            // console.log(`${v} values`)
             if (!v.includes('see discussion')) {
                 var width = 150;
                 var height = 20;
@@ -137,16 +130,17 @@
                         .domain([-v[3], v[3]])
                         .range([ 0, width]);
 
-                    //middle line
-                    svg.append("rect")
-                    .attr("x", x(1))
-                    .attr("y", 0)
-                    .attr("width", 1)
-                    .attr("height", height)
-                    .attr('fill', formatterParams.color)
-                    .attr('data-toggle', "tooltip")
-                    .attr('data-placement',"top")
-                    .attr('title', "1")
+                    var y = d3.scaleLinear()
+                        .domain([-3, 3])
+                        .range([ 0, height]);
+
+                    svg.append("line")
+                    .attr("x1", x(0))
+                    .attr("y1", y(-3))
+                    .attr("x2", x(0))
+                    .attr("y2", y(3))
+                    .style("stroke-dasharray","2,2")
+                    .style("stroke", formatterParams.color)
 
                     svg.append("g")
                         .attr("transform", "translate(0," + height/2 + ")")
@@ -168,7 +162,7 @@
                         .attr('fill', formatterParams.color)
                         .attr('data-toggle', "tooltip")
                         .attr('data-placement',"top")
-                        .attr('title', `\${v[0]} (\${v[1]} - \${v[2]})`)
+                        .attr('title', `${v[0]} (${v[1]} - ${v[2]})`)
                     //hide domain x-axis
                     d3.selectAll("path.domain")
                         .style("stroke","transparent");
@@ -185,8 +179,8 @@
         function draw(){
             var table = new Tabulator("#fig4", {
             // height:"500px",
-            data: tableData,
-            layout: "fitDataTable",
+            data:tableData,
+            layout:"fitDataTable",
             selectable:true, //make rows selectable
             addRowPos:"top",//when adding a new row, add it to the top of the table
             movableColumns:false,
@@ -429,8 +423,7 @@
         setTimeout(function(){
             $(function () {
                 $('[data-toggle="tooltip"]').tooltip({
-                    container: 'body',
-                    template: '<div class="tooltip" role="tooltip"><div class="tooltip-inner override"></div></div>'
+                    container: 'body'
                 })
             })
         }, 1000)        
