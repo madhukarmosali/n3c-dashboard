@@ -33,7 +33,7 @@ function init() {
 	     	columns: [
 	        	{ data: 'site', visible: true, orderable: true,
 	        		render: function ( data, type, row ) {
-	        			return '<a href="'+ row.url + '"><span style="color:#007bff";>' + row.site + '<\/span></a>';
+	        			return '<a href="'+ row.url + '"><span>' + row.site + '<\/span></a>';
 	             		}
 	        		},
 	        	{ data: 'type', visible: true, orderable: true },
@@ -240,9 +240,9 @@ function createD3Chart(sites_data){
 					.attr("d", function(d) {return d3.symbol().type(d3.symbolCircle).size("15")()})
 					.attr("transform", function(d, index) {return "translate(5, 48)";})
 	  				.attr("fill", "#64286b")
-				svg.append("text").attr("x", 15).attr("y", 8).text("Data Available").style("font-size", "15px").attr("alignment-baseline","middle")
-				svg.append("text").attr("x", 15).attr("y", 28).text("Data transfer signed, pending availability").style("font-size", "15px").attr("alignment-baseline","middle")
-				svg.append("text").attr("x", 15).attr("y", 48).text("OCHIN contributing site").style("font-size", "15px").attr("alignment-baseline","middle")
+				svg.append("text").attr("x", 15).attr("y", 11).text("Data Available").style("font-size", "15px").attr("alignment-baseline","middle")
+				svg.append("text").attr("x", 15).attr("y", 31).text("Data transfer signed, pending availability").style("font-size", "15px").attr("alignment-baseline","middle")
+				svg.append("text").attr("x", 15).attr("y", 51).text("OCHIN contributing site").style("font-size", "15px").attr("alignment-baseline","middle")
 			});
 			
 			
