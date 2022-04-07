@@ -44,7 +44,7 @@
 					<a id="long-training-btn" class="btn btn-primary" role="button" onclick="toggle_long('training');">Training Cohort Characteristics</a>
 					<a id="long-demographics-btn" class="btn btn-primary" role="button" onclick="toggle_long('demographics');">Demographics</a>
 				</div>
-				<div id="long-model" style="display:block;">
+				<div id="long-model" style="display:block; text-align:center;">
 					<h4 class="header-text">Most important model features for predicting visit to a Long-COVID clinic.</h4>
 					<jsp:include page="long_covid/fig4.jsp"/>
 				</div>
