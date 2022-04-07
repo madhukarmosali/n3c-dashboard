@@ -25,6 +25,10 @@
 }
 
 
+#long-training th{
+	word-break: break-word;
+}
+
 </style>
 
 <jsp:include page="head.jsp" flush="true" />
