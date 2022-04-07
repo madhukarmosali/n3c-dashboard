@@ -77,7 +77,7 @@ function localBarChart(data, domName, barLabelWidth) {
 			.attr('height', yScale.bandwidth())
 			.attr('width', function(d) { return x(barValue(d)); })
 			.attr('stroke', 'white')
-			.attr('fill', 'lightgray');
+			.attr('fill', '#767676');
 		// bar value labels
 		barsContainer.selectAll("text").data(data).enter().append("text")
 			.attr("x", function(d) { return x(barValue(d)); })
