@@ -42,6 +42,9 @@
 	    <form class="form-inline">
 	    	<button class="btn my-2 my-sm-0 btn-n3c" type="submit">Join N3C</button>
 	  	</form>
+	  	<li>
+	  		<a class="nav-link" href="https://covid.cd2h.org/"><i class="fa fa-home" aria-hidden="true"></i> N3C</a>
+	  	</li>
 	</ul>
   </div>
 </nav>
