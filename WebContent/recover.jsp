@@ -43,6 +43,12 @@
 		<div class="row">
 			<div class="col-12 col-lg-12">
 				<h3 class="header-text">RECOVER Long-COVID</h3>
+				<div id="long-model" style="display:block; text-align:center;">
+						<jsp:include page="caption.jsp">
+							<jsp:param value="n3c_recover.caption" name="schema" />
+							<jsp:param value="intro_paragraphs" name="tag" />
+						</jsp:include>
+				</div>
 				<div id="metric_btns" class="btn-select">
 					<a id="long-model-btn" class="btn btn-primary active" role="button" onclick="toggle_long('model');">Model Features</a>
 					<a id="long-training-btn" class="btn btn-primary" role="button" onclick="toggle_long('training');">Training Cohort Characteristics</a>
