@@ -24,13 +24,13 @@ button {
 </style>
 
 <div class="row stats">
-	<div class="col-xs-12 col-lg-12">
+	<div class="col-12 col-lg-12">
 		<div class="d3_question_header">
 		Patient Counts: First Diagnosis Versus Reinfected Patients Per COVID+ Cohort
 		</div>
 	
-		<div>
-			<div id="reinfection_kpi" class="col-xs-2" >
+		<div class="row">
+			<div id="reinfection_kpi" class="col-12 col-md-2" >
 				<jsp:include page="kpis/covid_positive.jsp"/>
 				<jsp:include page="kpis/covid_first_diagnosis.jsp"/>
 				<jsp:include page="kpis/covid_reinfections.jsp"/>
@@ -39,7 +39,7 @@ button {
 				</div>
 				<button id="reinfection1_btn" class="button"><i class="fa fa-filter" aria-hidden="true"></i> Clear all selections</button>
 			</div>
-			<div id="reinfection1" class="col-xs-10" >
+			<div id="reinfection1" class="col-12 col-md-10" >
 				<div id="reinfection1_graph"></div>
 				<c:set var="feedPath"><util:applicationRoot/>/feeds/reinfections_by_date.jsp</c:set>
 				<jsp:include page="time_line_2_column.jsp">
@@ -83,8 +83,8 @@ button {
 		<div class="d3_question_header">
 		Patient Counts: First Diagnosis Versus Number of Reinfections Per Day
 		</div>
-		<div>
-			<div id="reinfection_kpi" class="col-xs-2" >
+		<div class="row">
+			<div id="reinfection_kpi" class="col-12 col-md-2" >
 				<jsp:include page="kpis/covid_positive.jsp"/>
 				<jsp:include page="kpis/covid_first_diagnosis.jsp"/>
 				<div class="panel-body" style="color: #1E39F4">
@@ -92,7 +92,7 @@ button {
 				</div>
 				<button id="reinfection2_btn" class="button"><i class="fa fa-filter" aria-hidden="true"></i> Clear all selections</button>
 			</div>
-			<div id="reinfection2" class="col-xs-10" >
+			<div id="reinfection2" class="col-12 col-md-10" >
 			<div id="reinfection2_graph"></div>
 			<jsp:include page="time_line_2_column.jsp">
 				<jsp:param name="data_page" value="${feedPath}" />

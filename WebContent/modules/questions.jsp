@@ -18,6 +18,12 @@
 			display:none;
 		}
 	}
+	
+	#question-select .dropdown-menu{
+    	left: 50% !important;
+    	transform: translateX(-50%) !important;
+    	top: 100% !important;
+	}
 </style>
 
 
@@ -30,12 +36,12 @@
             			<p style="font-size:18px; font-weight:400; text-align:left; margin-top:30px;">N3C Public Health Questions provide high value snapshots of health data for policy makers, investigators, and entrepreneurs to facilitate further research questions for better health outcomes.</p>
         			</div>
         		</div>
-				<div id="question-select">
+				<div id="question-select" class="mb-4 mt-4">
 					<div id="question-button" class="btn-group">
-  						<button type="button" class="btn btn-lg btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  						<button type="button" class="btn btn-lg btn-secondary dropdown-toggle mx-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     						Choose a Question
   						</button>
-						<div class="dropdown-menu">
+						<div class="dropdown-menu mx-auto">
 							<div id="question-roster3"></div>
 							<jsp:include page="questions_styled.jsp?tertiary_tab=${param.tertiary_tab}"/>
 						</div>

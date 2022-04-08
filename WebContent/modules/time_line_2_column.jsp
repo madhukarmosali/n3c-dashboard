@@ -114,7 +114,7 @@
 
 <script>
 // set the dimensions and margins of the graph
-	var margin = {top: 20, right: 80, bottom: 140, left: 80},
+	var margin = {top: 40, right: 80, bottom: 140, left: 80},
 	    width = 960 - margin.left - margin.right,
 	    height = 600 - margin.top - margin.bottom;
 	

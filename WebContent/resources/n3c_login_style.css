@@ -35,15 +35,20 @@ h5{
 }
 
 .text-max{
-	max-width:700px;
+	max-width:750px;
 }
 
 .primary-font-color{
 	color: #4E2D59;
 }
 
-a, .btn-link{
+a, 
+.btn-link{
 	color: #1f86a6;
+}
+
+a.color-link{
+	color: #1f86a6 !important;
 }
 
 a:hover, .btn-link:hover{
@@ -222,7 +227,7 @@ a:hover, .btn-link:hover{
 	width: fit-content;
 }
 
-.btn-primary{
+.btn-primary, .btn-primary:visited{
 	color: #4B6169;
 	background-color: white;
     border-color: #4B6169;
@@ -256,7 +261,8 @@ a:hover, .btn-link:hover{
     border-color: #4B6169;
 }
 
-.btn-secondary{
+.btn-secondary, 
+.btn-secondary:visited{
 	color: #4E2D59;
 	background-color: white;
     border-color: #4E2D59;
