@@ -49,20 +49,54 @@
 					<a id="long-demographics-btn" class="btn btn-primary" role="button" onclick="toggle_long('demographics');">Demographics</a>
 				</div>
 				<div id="long-model" style="display:block; text-align:center;">
-					<h4 class="header-text">Most important model features for predicting visit to a Long-COVID clinic.</h4>
+					<h4 class="header-text">
+						<jsp:include page="caption.jsp">
+							<jsp:param value="n3c_recover.caption" name="schema" />
+							<jsp:param value="model_header" name="tag" />
+						</jsp:include>
+					</h4>
 					<jsp:include page="long_covid/fig4.jsp"/>
+					<jsp:include page="caption.jsp">
+						<jsp:param value="n3c_recover.caption" name="schema" />
+						<jsp:param value="model_footer" name="tag" />
+					</jsp:include>
 				</div>
 				<div id="long-training" style="display:none;">
-					<h4 class="header-text">Characteristics of the three-site cohort used for model training and testing.</h4>
+					<h4 class="header-text">
+						<jsp:include page="caption.jsp">
+							<jsp:param value="n3c_recover.caption" name="schema" />
+							<jsp:param value="training_header" name="tag" />
+						</jsp:include>
+					</h4>
 					<jsp:include page="long_covid/table1.html"/>
+					<jsp:include page="caption.jsp">
+						<jsp:param value="n3c_recover.caption" name="schema" />
+						<jsp:param value="training_footer" name="tag" />
+					</jsp:include>
 				</div>
 				<div id="long-demographics" style="display:none;">
-					<h4 class="header-text">Demographic breakdown of potential Long-COVID patients in the N3C cohort.</h4>
+					<h4 class="header-text">
+						<jsp:include page="caption.jsp">
+							<jsp:param value="n3c_recover.caption" name="schema" />
+							<jsp:param value="demographics_header" name="tag" />
+						</jsp:include>
+					</h4>
 					<jsp:include page="long_covid/table2.html"/>
+					<jsp:include page="caption.jsp">
+						<jsp:param value="n3c_recover.caption" name="schema" />
+						<jsp:param value="demographics_footer" name="tag" />
+					</jsp:include>
 				</div>
 			</div>
 			
 		</div>
+	</div>
+
+	<div style="display: block; text-align: center;">
+		<jsp:include page="caption.jsp">
+			<jsp:param value="n3c_recover.caption" name="schema" />
+			<jsp:param value="grant_ack" name="tag" />
+		</jsp:include>
 	</div>
 
 	<jsp:include page="footer.jsp" flush="true" />
