@@ -23,8 +23,8 @@
       <li class="nav-item <c:if test = "${param.page == 'health'}"> active </c:if>">
         <a class="nav-link" href="<util:applicationRoot/>/public-health">Public-Health</a>
       </li>
-      <li class="nav-item <c:if test = "${param.page == 'long-covid'}"> active </c:if>">
-        <a class="nav-link" href="<util:applicationRoot/>/long-covid">Long-COVID</a>
+      <li class="nav-item <c:if test = "${param.page == 'recover'}"> active </c:if>">
+        <a class="nav-link" href="<util:applicationRoot/>/recover">RECOVER</a>
       </li>
       <c:if test="${not empty admin}">
 				<li class="nav-item">

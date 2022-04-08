@@ -157,8 +157,8 @@
 				<div class="card" style="width: 100%;">
 					<img class="card-img-top" src="<util:applicationRoot/>/images/icons/covid.png" alt="Covid Icon">
 					<div class="card-body">
- 						<h4 class="card-title"><a href="<util:applicationRoot/>/long-covid">Long-COVID <i class="fa fa-external-link" aria-hidden="true"></i></a></h4>
-						<h4 class="card-text">Learn about our Long-COVID models</h4>
+ 						<h4 class="card-title"><a href="<util:applicationRoot/>/recover">RECOVER <i class="fa fa-external-link" aria-hidden="true"></i></a></h4>
+						<h4 class="card-text">Learn about our RECOVER Long-COVID models</h4>
 					</div>
 					<h5>Content:</h5>
 					<ul class="list-group list-group-flush">
