@@ -2,7 +2,7 @@
 
 
 <div class="row geo viz_section" id="contributing_sites" style="justify-content:center;">
-	<div class="col-12 col-sm-10">
+	<div class="col-12">
 		<div class="panel panel-primary">
 			<div>
 				<h4>N3C Contributing Sites

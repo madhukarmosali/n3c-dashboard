@@ -32,7 +32,7 @@
 		</div>
 		
 	<div class="container content">
-		<div id="data">
+		<div id="data" class="text-max mx-auto">
 			<div class="row text-center">
 				<div class="col-12">
 					<h3>How big is the N3C Data Enclave?</h3>
@@ -83,7 +83,7 @@
 					To explore the geographic coverage of our current partners, please see the map below.</h4>
 				</div>
 			</div>
-			<div class="section">
+			<div class="section mx-auto text-max">
 				<div class="col-12">
 					<c:import url="modules/site_map.jsp"/>
 				</div>
@@ -157,8 +157,9 @@
 				</div>
 			</div>
 		</div>
-		
 	</div>
+	
+	
 
 	<jsp:include page="footer.jsp" flush="true" />
 	

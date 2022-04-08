@@ -2,7 +2,7 @@
 
 
 <div style="text-align:center; width:100%; margin-top:30px;">
-	<div class="row" style="padding: 10px; padding-bottom:30px; padding-top:30px; width:100%;">
+	<div class="row mx-auto" style="padding: 10px; padding-bottom:30px; padding-top:30px; width:100%;">
 		<div class="col-12 text-max" style="text-align:left; margin:auto; margin-bottom:30px;">
 			<h4>Data within the N3C Data Enclave is provided by <span style="font-weight:700;"><span id="site_count">&nbsp;</span> 
 			sites</span> from across the nation and contains information about 

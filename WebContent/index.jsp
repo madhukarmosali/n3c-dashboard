@@ -70,7 +70,7 @@
 					<hr>
 					<h3 class="hidden">Your Trusted Comprehensive Source for COVID&#x2011;19 Patient-Centric Data.</h3>
 					<br>
-					<a href="https://covid.cd2h.org/" role="button" class="btn btn-primary btn-lg btn-n3c">Learn More</a>
+					<a href="https://covid.cd2h.org/" role="button" class="btn btn-lg btn-n3c">Learn More</a>
 				</div>
 			</div>
 		</div>
@@ -93,7 +93,7 @@
 						of the N3C since its inception in March 2020. 
 						<br>
 						<br>
-						<a href="<util:applicationRoot/>/public-health/pediatrics/severity" role="button" class="btn btn-primary btn-sm btn-n3c">Learn More</a>
+						<a href="<util:applicationRoot/>/public-health/pediatrics/severity" role="button" class="btn btn-sm btn-n3c">Learn More</a>
 					</div>
 				</div>	
 			</div>
@@ -147,9 +147,8 @@
 					</div>
 					<h5>Content:</h5>
 					<ul class="list-group list-group-flush">
-  						<li class="list-group-item">Public Health Dashboard</li>
+  						<li class="list-group-item">Public Health Dashboards</li>
 						<li class="list-group-item">Pediatrics Dashboard</li>
-						<li class="list-group-item">Long COVID Dashboard</li>
 					</ul>
 				</div>
 			</div>		
