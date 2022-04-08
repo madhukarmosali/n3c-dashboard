@@ -43,7 +43,7 @@
 		<div class="row">
 			<div class="col-12 col-lg-12">
 				<h3 class="header-text">RECOVER Long-COVID</h3>
-				<div id="long-model" style="display:block; text-align:center;">
+				<div style="display:block; text-align:center;">
 						<jsp:include page="caption.jsp">
 							<jsp:param value="n3c_recover.caption" name="schema" />
 							<jsp:param value="intro_paragraphs" name="tag" />
