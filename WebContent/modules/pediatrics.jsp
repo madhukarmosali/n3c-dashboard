@@ -87,7 +87,7 @@
 		</div>
 	</div>
 	
-	<div class="col-xs-12 col-lg-10 viz-col">
+	<div class="col-12 col-lg-10 viz-col">
 		<div class="panel panel-primary top_panel">
 			<div class="panel-body">
 				<div id="pediatrics-severity-tile" <c:if test="${active_tab != 'severity' }">style="display:none;"</c:if>>
@@ -124,7 +124,7 @@
 				</div>
 			</div>
 		</div>
-	<div class="col-xs-12 col-lg-12 viz-col">
+	<div class="col-12 viz-col">
 		<div class="col-xs-3">&nbsp;</div>
 		<div class="col-xs-8">
 			<p class="text-center font-weight-lighter pr-0 pb-0 mb-1" style="font-size:10pt;">This work is supported by the National Institutes of Health's 

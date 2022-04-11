@@ -33,7 +33,7 @@ function init() {
 	     	columns: [
 	        	{ data: 'site', visible: true, orderable: true,
 	        		render: function ( data, type, row ) {
-	        			return '<a href="'+ row.url + '"><span style="color:#007bff";>' + row.site + '<\/span></a>';
+	        			return '<a href="'+ row.url + '"><span>' + row.site + '<\/span></a>';
 	             		}
 	        		},
 	        	{ data: 'type', visible: true, orderable: true },

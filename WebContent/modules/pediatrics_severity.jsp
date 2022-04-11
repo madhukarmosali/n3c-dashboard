@@ -11,7 +11,7 @@
 </div>
 
 <div class="row">
-	<div class="col-xs-12 col-md-6">
+	<div class="col-12 col-md-6">
 		<h4 class="header-text">Pediatrics</h4>
 		<a
 			href="https://covid.cd2h.org/pediatrics-dashboard/downloads/peds_all_severity.svg"><img
@@ -19,7 +19,7 @@
 			src="https://covid.cd2h.org/pediatrics-dashboard/downloads/peds_all_severity.svg"
 			width="100%"></a>
 	</div>
-	<div class="col-xs-12 col-md-6">
+	<div class="col-12 col-md-6">
 		<h4 class="header-text">Adult</h4>
 		<a
 			href="https://covid.cd2h.org/pediatrics-dashboard/downloads/adult_all_severity.svg"><img
@@ -30,15 +30,15 @@
 	<div class="col-12 col-lg-12">
 		<h3 class="header-text">Dynamic Versions of the Above</h3>
 	</div>
-	<div class="col-xs-8, col-md-6">
+	<div class="col-8 col-md-6">
 		<h4 class="header-text">Pediatrics</h4>
 		<c:import url="https://covid.cd2h.org/pediatrics-dashboard/plotly/peds_all_severity.html" />
 	</div>
-	<div class="col-xs-8, col-md-6">
+	<div class="col-8 col-md-6">
 		<h4 class="header-text">Adult</h4>
 		<c:import url="https://covid.cd2h.org/pediatrics-dashboard/plotly/adult_all_severity.html" />
 	</div>
-	<div class="col-xs-12">
+	<div class="col-12">
 		<div class="col-xs-3">&nbsp;</div>
 		<div class="col-xs-6">
 			<c:import url="https://covid.cd2h.org/pediatrics-dashboard/caption.jsp?tag=severity" />
@@ -47,7 +47,7 @@
 </div>
 
 <div class="row section_spacing">
-	<div class="col-xs-12 col-md-8" style="margin: auto;">
+	<div class="col-12 col-md-8" style="margin: auto;">
 		<div class="centered">
 			<h4 class="header-text">Vasoactive and Mechanical Ventilation</h4>
 			<a

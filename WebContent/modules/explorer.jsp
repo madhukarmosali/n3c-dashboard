@@ -27,6 +27,12 @@
 	.strong{
 		font-weight: 600;
 	}
+	
+	#mode-pie, 
+	#mode-bar, 
+	#mode-table{
+		cursor: pointer;
+	}
 </style>
 
 <div class="row">

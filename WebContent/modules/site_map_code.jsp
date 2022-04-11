@@ -129,6 +129,8 @@ function createD3Chart(sites_data){
   			});
 
   			svg.call(zoom);
+  			
+  			
 			
 			// Color Scale For Legend and Map 
 			var color = d3.scaleOrdinal() 

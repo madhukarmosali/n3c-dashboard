@@ -3,13 +3,13 @@
 
     <style>
         .text-hosp div.tabulator-col-title{
-            color: #003f5c !important;
+            color: #767676 !important;
         }
         .text-non-hosp div.tabulator-col-title{
-            color: #995196 !important;
+            color: #4B6169 !important;
         }
         .text-all div.tabulator-col-title{
-            color: #DD5181 !important;
+            color:  #4E2D59 !important;
         }
         .tabulator-cell{
             padding: 1px !important;
@@ -21,7 +21,7 @@
             padding: 1px 10px !important;
         }
         .tabulator-col-title{
-            color: #444E86;
+            color: black;
             text-align: center;
         }
         path.domain{
@@ -40,9 +40,9 @@
                 <style type="text/css">
                     .st0{fill:#808080;}
                     .st1{fill:#EFEFEF;}
-                    .st2{fill:#995196;}
+                    .st2{fill:black;}
                     .st3{fill:#DDDDDD;}
-                    .info:hover{fill:rgb(250, 116, 116) !important;}
+                    .info:hover{fill:#767676 !important;}
                 </style>
                 <rect 
                 data-toggle="tooltip" 
@@ -162,7 +162,7 @@
                         .attr('fill', formatterParams.color)
                         .attr('data-toggle', "tooltip")
                         .attr('data-placement',"top")
-                        .attr('title', `${v[0]} (${v[1]} - ${v[2]})`)
+                        .attr('title', `\${v[0]} (\${v[1]} - \${v[2]})`)
                     //hide domain x-axis
                     d3.selectAll("path.domain")
                         .style("stroke","transparent");
@@ -211,7 +211,7 @@
                             formatterParams:{
                                 color: function(value){
                                     if(value !== "*"){
-                                        return '#995196'
+                                        return '#4B6169'
                                     }
                                 },
                                 max: nonHospMax
@@ -223,7 +223,7 @@
                             field:"nonhosp_odds_box",
                             formatter: d3_dot,
                             formatterParams:{
-                                color:'#995196',
+                                color:'#4B6169',
                             },
                             // headerSort:false
                             sorter:function(a, b, aRow, bRow, column, dir, sorterParams){
@@ -244,7 +244,7 @@
                             formatterParams:{
                                 color: function(value){
                                     if(value !== "*"){
-                                        return '#003f5c'
+                                        return '#767676'
                                     }
                                 },
                                 max: hospMax
@@ -256,7 +256,7 @@
                             field:"hosp_odds_box",
                             formatter: d3_dot,
                             formatterParams:{
-                                color:'#003f5c',
+                                color:'#767676',
                             },
                             // headerSort:false
                             sorter:function(a, b, aRow, bRow, column, dir, sorterParams){
@@ -277,7 +277,7 @@
                             formatterParams:{
                                 color: function(value){
                                     if(value !== "*"){
-                                        return '#DD5181'
+                                        return '#4E2D59'
                                     }
                                 },
                                 max: allMax
@@ -289,7 +289,7 @@
                             field:"all_odds_box",
                             formatter: d3_dot,
                             formatterParams:{
-                                color:'#DD5181',
+                                color:'#4E2D59',
                             },
                             // headerSort:false
                             sorter:function(a, b, aRow, bRow, column, dir, sorterParams){

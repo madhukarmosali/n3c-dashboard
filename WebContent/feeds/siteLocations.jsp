@@ -3,7 +3,7 @@
 
 <sql:query var="sites" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(foo)) from (
-		select site,id,type,data_model,status,latitude,longitude from n3c_maps.sites
+		select site,id,type,data_model,status,latitude,longitude,url from n3c_maps.sites
 	) as foo;
 </sql:query>
 
