@@ -121,6 +121,7 @@ WebContent/new_ph/pediatrics_summary_kpis.jsp -text
 WebContent/new_ph/pediatrics_summary_panel.jsp -text
 WebContent/new_ph/questions.jsp -text
 WebContent/new_ph/questions_styled.jsp -text
+WebContent/new_ph/reinfection_kpis.jsp -text
 WebContent/new_ph/reinfection_panel.jsp -text
 WebContent/new_ph/reinfection_time_series_kpis.jsp -text
 WebContent/new_ph/reinfection_time_series_panel.jsp -text

@@ -115,7 +115,7 @@ button {
 						<button id="${param.block}-severity-btn" class="btn btn-primary active" role="button" onclick="${param.block}_toggle('severity');">Severity</button>
 					</c:if>
 					<c:if test="${not empty param.age_panel}">
-						<button id="${param.block}-age-btn" class="btn btn-primary" role="button" href="y" src="x" onclick="${param.block}_toggle('age');">Age</button>
+						<button id="${param.block}-age-btn" class="btn btn-primary" role="button" onclick="${param.block}_toggle('age');">Age</button>
 					</c:if>
 					<c:if test="${not empty param.race_panel}">
 						<button id="${param.block}-race-btn" class="btn btn-primary" role="button" onclick="${param.block}_toggle('race');">Race</button>
@@ -261,16 +261,18 @@ button {
 		${param.block}_load(selection);
 	}
 
-	var crumbs = '';
+	// manage incremental loading of panels on inner nav bar clicks
+	//
+	var ${param.block}_crumbs = '';
 	
 	function ${param.block}_load(selection) {
 		var $this = $("#${param.block}-"+selection);
 		var which = $this.attr('src');
 
 		console.log("in main click", "${param.block}-"+selection, "which", which)
-		if (!crumbs.includes(selection)) {
+		if (!${param.block}_crumbs.includes(selection)) {
 			$this.load("<util:applicationRoot/>/new_ph/"+which);
-			crumbs = crumbs + selection;
+			${param.block}_crumbs = ${param.block}_crumbs + selection;
 			console.log({
 				which : which
 			});

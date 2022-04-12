@@ -49,6 +49,9 @@
 	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 </jsp:include>
+<script>
+	sotrovimab_4_toggle("severity");
+</script>
 <jsp:include page="block.jsp">
 	<jsp:param name="block" value="sotrovimab_5" />
 	<jsp:param name="block_header" value="Sotrovimab and Vaccination Status" />

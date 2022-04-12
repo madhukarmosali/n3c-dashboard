@@ -6,7 +6,7 @@
 	<jsp:param name="block" value="reinfection_1" />
 	<jsp:param name="block_header" value="Patient Counts: First Diagnosis Versus Reinfected Patients Per COVID+ Cohort" />
 
-	<jsp:param name="kpis" value="template_kpis.jsp" />
+	<jsp:param name="kpis" value="reinfection_kpis.jsp" />
 
 	<jsp:param name="simple_panel" value="test_panel.jsp?info=ethnicity" />
 
@@ -17,7 +17,7 @@
 	<jsp:param name="block" value="reinfection_2" />
 	<jsp:param name="block_header" value="Patient Counts: First Diagnosis Versus Number of Reinfections Per Day" />
 
-	<jsp:param name="kpis" value="template_kpis.jsp" />
+	<jsp:param name="kpis" value="reinfection_kpis.jsp" />
 
 	<jsp:param name="simple_panel" value="test_panel.jsp?info=ethnicity" />
 

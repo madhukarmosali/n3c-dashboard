@@ -21,6 +21,9 @@
 	<jsp:param name="datatable" value="../modules/reinfections_by_date.jsp" />
 	<jsp:param name="datatable_div" value="reinfections-by-date" />
 </jsp:include>
+<script>
+	delayed_mortality_1_toggle("age");
+</script>
 <jsp:include page="block.jsp">
 	<jsp:param name="block" value="delayed_mortality_2" />
 	<jsp:param name="block_header" value="Mortality: Delayed Mortality" />

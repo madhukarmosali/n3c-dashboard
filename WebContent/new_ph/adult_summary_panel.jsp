@@ -43,6 +43,9 @@
 	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 </jsp:include>
+<script>
+	adult_summary_2_toggle("severity");
+</script>
 <jsp:include page="block.jsp">
 	<jsp:param name="block" value="adult_summary_3" />
 	<jsp:param name="block_header" value="Demographics: Vaccinated and Comorbidities" />
@@ -61,6 +64,9 @@
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 	<jsp:param name="ethnicity_panel" value="test_panel.jsp?info=ethnicity" />
 </jsp:include>
+<script>
+	adult_summary_3_toggle("severity");
+</script>
 <jsp:include page="block.jsp">
 	<jsp:param name="block" value="adult_summary_4" />
 	<jsp:param name="block_header" value="Demographics: Unknown Vaccination and Comorbidities" />
@@ -77,6 +83,9 @@
 	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 </jsp:include>
+<script>
+	adult_summary_4_toggle("severity");
+</script>
 <jsp:include page="block.jsp">
 	<jsp:param name="block" value="adult_summary_5" />
 	<jsp:param name="block_header" value="Demographics: Ungrouped Comorbidities" />
@@ -93,3 +102,6 @@
 	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 </jsp:include>
+<script>
+	adult_summary_5_toggle("severity");
+</script>

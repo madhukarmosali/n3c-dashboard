@@ -22,3 +22,6 @@
 	<jsp:param name="datatable" value="../modules/reinfections_by_date.jsp" />
 	<jsp:param name="datatable_div" value="reinfections-by-date" />
 </jsp:include>
+<script>
+	smoking_1_toggle("severity");
+</script>
