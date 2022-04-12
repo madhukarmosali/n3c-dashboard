@@ -4,13 +4,13 @@
 
 <c:choose>
 	<c:when test="${param.iframe == 'summary'}">
-		<jsp:include page="adult_summary_panel.jsp"/>
+		<jsp:include page="adult_summary/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'pediatrics'}">
-		<jsp:include page="pediatrics_summary_panel.jsp"/>
+		<jsp:include page="pediatrics_summary/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'medications'}">
-		<jsp:include page="medications_panel.jsp"/>
+		<jsp:include page="medications/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'reinfection'}">
 		<jsp:include page="../modules/reinfection_timeline.jsp"/>
@@ -19,31 +19,31 @@
 		<jsp:include page="../modules/positive_timeline.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'severity-region'}">
-		<jsp:include page="severity_region_panel.jsp"/>
+		<jsp:include page="severity_region/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'diabetes-mellitus'}">
-		<jsp:include page="diabetes_panel.jsp"/>
+		<jsp:include page="diabetes/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'smoking'}">
-		<jsp:include page="smoking_panel.jsp"/>
+		<jsp:include page="smoking/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'hlh'}">
-		<jsp:include page="hlh_panel.jsp"/>
+		<jsp:include page="hlh/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'hss'}">
-		<jsp:include page="hss_panel.jsp"/>
+		<jsp:include page="hss/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'long-covid'}">
-		<jsp:include page="long_covid_panel.jsp"/>
+		<jsp:include page="long_covid/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'delayed-mortality'}">
-		<jsp:include page="delayed_mortality_panel.jsp"/>
+		<jsp:include page="delayed_mortality/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'reinfection-time-series'}">
-		<jsp:include page="reinfection_time_series_panel.jsp"/>
+		<jsp:include page="reinfection_time_series/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'sotrovimab'}">
-		<jsp:include page="sotrovimab_panel.jsp"/>
+		<jsp:include page="sotrovimab/panel.jsp"/>
 	</c:when>
 	<c:otherwise>
 		${param.iframe}
