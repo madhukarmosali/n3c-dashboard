@@ -21,8 +21,8 @@
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 	<jsp:param name="ethnicity_panel" value="test_panel.jsp?info=ethnicity" />
 
-	<jsp:param name="datatable" value="../modules/reinfections_by_date.jsp" />
-	<jsp:param name="datatable_div" value="reinfections-by-date" />
+	<jsp:param name="datatable" value="adult_summary/aggregated_table.jsp" />
+	<jsp:param name="datatable_div" value="aggregated" />
 </jsp:include>
 <script>
 	adult_summary_1_toggle("severity");

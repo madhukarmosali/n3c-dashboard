@@ -101,6 +101,8 @@ WebContent/modules/time_line_2_column.jsp -text
 WebContent/modules/verticalBarChart_local.jsp -text
 WebContent/navbar.jsp -text
 WebContent/new-ph.jsp -text
+WebContent/new_ph/adult_summary/aggregated_feed.jsp -text
+WebContent/new_ph/adult_summary/aggregated_table.jsp -text
 WebContent/new_ph/adult_summary/kpis.jsp -text
 WebContent/new_ph/adult_summary/panel.jsp -text
 WebContent/new_ph/block.jsp -text

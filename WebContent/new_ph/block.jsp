@@ -157,8 +157,8 @@ button {
 					<div class="col-xs-12 col-lg-12">
 						<div class="block_header"></div>
 						<div class="row">
-							<div class="col-lg-3">&nbsp;</div>
-							<div class="col-lg-7" id="${param.datatable_div}"></div>
+							<div class="col-lg-2">&nbsp;</div>
+							<div class="col-lg-8" id="${param.datatable_div}"></div>
 							<jsp:include page="${param.datatable}" />
 						</div>
 					</div>
