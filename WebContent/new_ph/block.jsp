@@ -214,6 +214,8 @@ button {
 		$('#${param.block}-race-select').multiselect('deselectAll');
 		$('#${param.block}-gender-select').multiselect('deselectAll');
 		$('#${param.block}-ethnicity-select').multiselect('deselectAll');
+		
+		$("#aggregated-table").DataTable().columns().search('').draw();
 	}
 	
 	function ${param.block}_toggle(selection) {
