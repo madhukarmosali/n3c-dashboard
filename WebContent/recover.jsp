@@ -81,7 +81,7 @@
 						<jsp:param value="model_header" name="tag" />
 					</jsp:include>
 					<jsp:include page="long_covid/fig4.jsp"/>
-					<div class="text-max mx-auto">
+					<div class="text-max mx-auto" style="text-align:left;">
 						<jsp:include page="caption.jsp">
 							<jsp:param value="n3c_recover.caption" name="schema" />
 							<jsp:param value="model_footer" name="tag" />
