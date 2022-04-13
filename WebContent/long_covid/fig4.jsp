@@ -75,7 +75,7 @@
                 </svg>
             </div>
         </div>
-        <div id="fig4" style="margin:auto;"></div>
+        <div id="fig4" style="margin:auto; max-width: 100%;"></div>
     </div>
     
    <script type="text/javascript">
@@ -428,3 +428,6 @@
             })
         }, 1000)        
     </script>
+
+    
+    

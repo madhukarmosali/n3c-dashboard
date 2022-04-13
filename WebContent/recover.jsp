@@ -29,6 +29,18 @@
 	word-break: break-word;
 }
 
+#recover-caption{
+	display:block;
+}
+
+#recover-caption h2{
+	font-size: 1.3rem;
+}
+
+#metric_btns{
+	margin-top:50px;
+}
+
 </style>
 
 <jsp:include page="head.jsp" flush="true" />
@@ -42,8 +54,11 @@
 		
 		<div class="row">
 			<div class="col-12 col-lg-12">
-				<h3 class="header-text">RECOVER Long-COVID</h3>
-				<div style="display:block; text-align:center;">
+				<div class="header-text">
+					<h3>RECOVER Long COVID</h3>
+					<h5>Expanding knowledge of Long COVID using N3C data</h5>
+				</div>
+				<div id="recover-caption" class="text-max mx-auto">
 						<jsp:include page="caption.jsp">
 							<jsp:param value="n3c_recover.caption" name="schema" />
 							<jsp:param value="intro_paragraphs" name="tag" />
@@ -66,10 +81,12 @@
 						<jsp:param value="model_header" name="tag" />
 					</jsp:include>
 					<jsp:include page="long_covid/fig4.jsp"/>
-					<jsp:include page="caption.jsp">
-						<jsp:param value="n3c_recover.caption" name="schema" />
-						<jsp:param value="model_footer" name="tag" />
-					</jsp:include>
+					<div class="text-max mx-auto">
+						<jsp:include page="caption.jsp">
+							<jsp:param value="n3c_recover.caption" name="schema" />
+							<jsp:param value="model_footer" name="tag" />
+						</jsp:include>
+					</div>
 				</div>
 				<div id="long-training" style="display:none;">
 					<h4 class="header-text">
@@ -83,10 +100,12 @@
 						<jsp:param value="training_header" name="tag" />
 					</jsp:include>
 					<jsp:include page="long_covid/table1.html"/>
-					<jsp:include page="caption.jsp">
-						<jsp:param value="n3c_recover.caption" name="schema" />
-						<jsp:param value="training_footer" name="tag" />
-					</jsp:include>
+					<div class="text-max mx-auto">
+						<jsp:include page="caption.jsp">
+							<jsp:param value="n3c_recover.caption" name="schema" />
+							<jsp:param value="training_footer" name="tag" />
+						</jsp:include>
+					</div>
 				</div>
 				<div id="long-demographics" style="display:none;">
 					<h4 class="header-text">
@@ -100,10 +119,12 @@
 						<jsp:param value="demographics_header" name="tag" />
 					</jsp:include>
 					<jsp:include page="long_covid/table2.html"/>
-					<jsp:include page="caption.jsp">
-						<jsp:param value="n3c_recover.caption" name="schema" />
-						<jsp:param value="demographics_footer" name="tag" />
-					</jsp:include>
+					<div class="text-max mx-auto">
+						<jsp:include page="caption.jsp">
+							<jsp:param value="n3c_recover.caption" name="schema" />
+							<jsp:param value="demographics_footer" name="tag" />
+						</jsp:include>
+					</div>
 				</div>
 			</div>
 			
@@ -117,7 +138,9 @@
 		</jsp:include>
 	</div>
 
+	
 	<jsp:include page="footer.jsp" flush="true" />
+
 	
 	<script>
 
@@ -129,7 +152,7 @@
 			$("#long-training-btn").removeClass("active");
 			$("#long-demographics").css('display', 'none');
 			$("#long-demographics-btn").removeClass("active");
-			cache_browser_history("recover", "recover/model")
+			cache_browser_history("recover", "recover/model");
 		}
 		if (selection == "training") {
 			$("#long-model").css('display', 'none');
@@ -138,7 +161,7 @@
 			$("#long-training-btn").addClass("active");
 			$("#long-demographics").css('display', 'none');
 			$("#long-demographics-btn").removeClass("active");
-			cache_browser_history("recover", "recover/training")
+			cache_browser_history("recover", "recover/training");
 		}
 		if (selection == "demographics") {
 			$("#long-model").css('display', 'none');
@@ -147,7 +170,7 @@
 			$("#long-training-btn").removeClass("active");
 			$("#long-demographics").css('display', 'block');
 			$("#long-demographics-btn").addClass("active");
-			cache_browser_history("recover", "recover/demographics")
+			cache_browser_history("recover", "recover/demographics");
 		}
 	}
 	
@@ -163,8 +186,10 @@
 			toggle_long("demographics")
 		</c:when>
 	</c:choose>
-	</script>
 	
+	</script>
+
+
 </body>
 </html>
 
