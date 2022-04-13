@@ -50,12 +50,12 @@ button {
 					<div class="panel-body border">
 						<h6>Severity</h6>
 						<select id="${param.block}-severity-select" multiple="multiple">
-							<option value="one">Unavailable</option>
-							<option value="two">Mortality</option>
-							<option value="three">ED Visit (not admitted)</option>
-							<option value="four">Severe Ventilation / ECMO / AKI</option>
-							<option value="five">Moderate Hospitalized</option>
-							<option value="six">Mild</option>
+							<option value="Unavailable">Unavailable</option>
+							<option value="Mortality">Mortality</option>
+							<option value="ED Visit (not admitted)">ED Visit (not admitted)</option>
+							<option value="Severe Ventilation/ECMO/AKI">Severe Ventilation/ECMO/AKI</option>
+							<option value="Moderate Hospitalized">Moderate Hospitalized</option>
+							<option value="Mild">Mild</option>
 						</select>
 					</div>
 				</c:if>
@@ -63,10 +63,10 @@ button {
 					<div class="panel-body border">
 						<h6>Age</h6>
 						<select id="${param.block}-age-select" multiple="multiple">
-							<option value="one">18-29</option>
-							<option value="two">30-49</option>
-							<option value="three">50-64</option>
-							<option value="four">65+</option>
+							<option value="18-29">18-29</option>
+							<option value="30-49">30-49</option>
+							<option value="50-64">50-64</option>
+							<option value="65+">65+</option>
 						</select>
 					</div>
 				</c:if>
@@ -74,12 +74,12 @@ button {
 					<div class="panel-body border">
 						<h6>Race</h6>
 						<select id="${param.block}-race-select" multiple="multiple">
-							<option value="one">Asian</option>
-							<option value="two">Black or African American</option>
-							<option value="three">Missing / Unknown</option>
-							<option value="four">Native Hawaiian or Other Pacific Islander</option>
-							<option value="five">Other</option>
-							<option value="six">White</option>
+							<option value="Asian">Asian</option>
+							<option value="Black or African American">Black or African American</option>
+							<option value="Missing/Unknown">Missing/Unknown</option>
+							<option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
+							<option value="Other">Other</option>
+							<option value="White">White</option>
 						</select>
 					</div>
 				</c:if>
@@ -87,9 +87,9 @@ button {
 					<div class="panel-body border">
 						<h6>Gender</h6>
 						<select id="${param.block}-gender-select" multiple="multiple">
-							<option value="one">Female</option>
-							<option value="two">Male</option>
-							<option value="three">Unknown / Not Reported</option>
+							<option value="Female">Female</option>
+							<option value="Male">Male</option>
+							<option value="Unknown / Not Reported">Unknown / Not Reported</option>
 						</select>
 					</div>
 				</c:if>
@@ -97,9 +97,9 @@ button {
 					<div class="panel-body border">
 						<h6>Ethnicity</h6>
 						<select id="${param.block}-ethnicity-select" multiple="multiple">
-							<option value="one">Hispanic or Latino</option>
-							<option value="two">Missing / Unknown</option>
-							<option value="three">Not Hispanic or Latino</option>
+							<option value="Hispanic or Latino">Hispanic or Latino</option>
+							<option value="Missing/Unknown">Missing/Unknown</option>
+							<option value="Not Hispanic or Latino">Not Hispanic or Latino</option>
 						</select>
 					</div>
 				</c:if>
@@ -169,6 +169,31 @@ button {
 </div>			
 
 <script>
+
+	$('#${param.block}-severity-select').change(function() {
+	    $("#aggregated-table").DataTable().column(4).search($(this).val().join('|'), true, false, true).draw();
+    	console.log("severity", $(this).val())
+  	});
+
+	$('#${param.block}-age-select').change(function() {
+	    $("#aggregated-table").DataTable().column(2).search($(this).val().join('|'), true, false, true).draw();
+    	console.log("age", $(this).val())
+  	});
+
+	$('#${param.block}-race-select').change(function() {
+	    $("#aggregated-table").DataTable().column(0).search($(this).val().join('|'), true, false, true).draw();
+    	console.log("race", $(this).val())
+  	});
+
+	$('#${param.block}-gender-select').change(function() {
+	    $("#aggregated-table").DataTable().column(3).search($(this).val().join('|'), true, false, true).draw();
+    	console.log("gender", $(this).val())
+  	});
+
+	$('#${param.block}-ethnicity-select').change(function() {
+	    $("#aggregated-table").DataTable().column(1).search($(this).val().join('|'), true, false, true).draw();
+    	console.log("ethnicity", $(this).val())
+  	});
 
 	$(document).ready(function() {       
 		$('#${param.block}-severity-select').multiselect({		
