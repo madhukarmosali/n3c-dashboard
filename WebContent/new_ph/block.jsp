@@ -159,7 +159,9 @@ button {
 						<div class="row">
 							<div class="col-lg-2">&nbsp;</div>
 							<div class="col-lg-8" id="${param.datatable_div}"></div>
-							<jsp:include page="${param.datatable}" />
+							<jsp:include page="${param.datatable}">
+								<jsp:param name="target_div" value="${param.datatable_div}"/>
+							</jsp:include>
 						</div>
 					</div>
 				</c:if>
@@ -171,27 +173,32 @@ button {
 <script>
 
 	$('#${param.block}-severity-select').change(function() {
-	    $("#aggregated-table").DataTable().column(4).search($(this).val().join('|'), true, false, true).draw();
+	    $("#${param.datatable_div}-table").DataTable().column(4).search($(this).val().join('|'), true, false, true).draw();
+	    ${param.block}_refreshHistograms();
     	console.log("severity", $(this).val())
   	});
 
 	$('#${param.block}-age-select').change(function() {
-	    $("#aggregated-table").DataTable().column(2).search($(this).val().join('|'), true, false, true).draw();
+	    $("#${param.datatable_div}-table").DataTable().column(2).search($(this).val().join('|'), true, false, true).draw();
+	    ${param.block}_refreshHistograms();
     	console.log("age", $(this).val())
   	});
 
 	$('#${param.block}-race-select').change(function() {
-	    $("#aggregated-table").DataTable().column(0).search($(this).val().join('|'), true, false, true).draw();
+	    $("#${param.datatable_div}-table").DataTable().column(0).search($(this).val().join('|'), true, false, true).draw();
+	    ${param.block}_refreshHistograms();
     	console.log("race", $(this).val())
   	});
 
 	$('#${param.block}-gender-select').change(function() {
-	    $("#aggregated-table").DataTable().column(3).search($(this).val().join('|'), true, false, true).draw();
+	    $("#${param.datatable_div}-table").DataTable().column(3).search($(this).val().join('|'), true, false, true).draw();
+	    ${param.block}_refreshHistograms();
     	console.log("gender", $(this).val())
   	});
 
 	$('#${param.block}-ethnicity-select').change(function() {
-	    $("#aggregated-table").DataTable().column(1).search($(this).val().join('|'), true, false, true).draw();
+	    $("#${param.datatable_div}-table").DataTable().column(1).search($(this).val().join('|'), true, false, true).draw();
+	    ${param.block}_refreshHistograms();
     	console.log("ethnicity", $(this).val())
   	});
 
@@ -215,9 +222,238 @@ button {
 		$('#${param.block}-gender-select').multiselect('deselectAll');
 		$('#${param.block}-ethnicity-select').multiselect('deselectAll');
 		
-		$("#aggregated-table").DataTable().columns().search('').draw();
+		$("#${param.datatable_div}-table").DataTable().columns().search('').draw();
+	    ${param.block}_refreshHistograms();
 	}
 	
+	var ${param.block}_ageArray = new Array();
+	var ${param.block}_raceArray = new Array();
+	var ${param.block}_ethnicityArray = new Array();
+	var ${param.block}_genderArray = new Array();
+	var ${param.block}_severityArray = new Array();
+
+	function ${param.block}_refreshHistograms() {
+	    var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();
+	    console.log("table data", data)
+	    ${param.block}_refreshAgeArray(data);
+	    ${param.block}_refreshRaceArray(data);
+	    ${param.block}_refreshEthnicityArray(data);
+	    ${param.block}_refreshGenderArray(data);
+	    ${param.block}_refreshSeverityArray(data);
+	}
+	
+	
+	function ${param.block}_refreshAgeArray(data) {
+		var aData = new Object;
+		$("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().each( function ( group, i ) {
+	    	var group = data[i].age_bin;
+	    	var count = data[i].patient_count;
+	        if (typeof aData[group] == 'undefined') {
+	            aData[group] = count;
+	         } else
+	        	 aData[group] += count;
+		});
+
+		${param.block}_ageArray = new Array();
+	    for(var i in aData) {
+	    	var obj = new Object();
+	    	Object.defineProperty(obj, 'element', {
+	    		  value: i
+	    		});
+	    	Object.defineProperty(obj, 'count', {
+	  		  value: aData[i]
+	  		});
+	    	${param.block}_ageArray.push(obj);
+	    }
+	    ${param.block}_ageArray.sort((a,b) => (a.element > b.element) ? 1 : ((b.element > a.element) ? -1 : 0));
+	    console.log("refreshed age", ${param.block}_ageArray);
+	}
+
+	function ${param.block}_refreshRaceArray(data) {
+		var aData = new Object;
+		var bData = new Object;
+		$("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().each( function ( group, i ) {
+	   	var group = data[i].race;
+	   	switch (data[i].race) {
+	   	case "White":
+	   		group = "White";
+	   		break;
+		case "Black or African American":
+			group = "Black";
+			break;
+		case "Asian":
+			group = "Asian";
+			break;
+	   	case "Native Hawaiian or Other Pacific Islander":
+	   		group = "NHPI";
+	   		break;
+	   	case "Other":
+	   		group = "Other";
+	   		break;
+	   	case "Missing/Unknown":
+	   		group = "Missing";
+	   		break;
+	   	};
+		var count = data[i].patient_count;
+		var seq = data[i].race_seq;
+	        if (typeof aData[group] == 'undefined') {
+	            aData[group] = count;
+	            bData[group] = seq;
+	         } else
+	        	 aData[group] += count;
+		});
+
+		${param.block}_raceArray = new Array();
+	    for(var i in aData) {
+	    	var obj = new Object();
+	    	Object.defineProperty(obj, 'element', {
+	    		  value: i
+	    		});
+	    	Object.defineProperty(obj, 'count', {
+	  		  value: aData[i]
+	  		});
+	    	Object.defineProperty(obj, 'seq', {
+	    		  value: bData[i]
+	    		});
+	    	${param.block}_raceArray.push(obj);
+	    }
+	    ${param.block}_raceArray.sort((a,b) => (a.seq > b.seq) ? 1 : ((b.seq > a.seq) ? -1 : 0));
+	    console.log("refreshed race", ${param.block}_raceArray);
+	}
+
+	function ${param.block}_refreshEthnicityArray(data) {
+		var aData = new Object;
+		var bData = new Object;
+		$("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().each( function ( group, i ) {
+	    	var group = data[i].ethnicity_abbrev;
+	    	var count = data[i].patient_count;
+	    	var seq = data[i].ethnicity_seq;
+	        if (typeof aData[group] == 'undefined') {
+	            aData[group] = count;
+	            bData[group] = seq;
+	         } else
+	        	 aData[group] += count;
+		});
+
+		${param.block}_ethnicityArray = new Array();
+	    for(var i in aData) {
+	    	var obj = new Object();
+	    	Object.defineProperty(obj, 'element', {
+	    		  value: i
+	    		});
+	    	Object.defineProperty(obj, 'count', {
+	  		  value: aData[i]
+	  		});
+	    	Object.defineProperty(obj, 'seq', {
+	  		  value: bData[i]
+	  		});
+	    	${param.block}_ethnicityArray.push(obj);
+	    }
+	    ${param.block}_ethnicityArray.sort((a,b) => (a.seq > b.seq) ? 1 : ((b.seq > a.seq) ? -1 : 0));
+	    console.log("refreshed ethnicity", ${param.block}_ethnicityArray);
+	}
+
+	function ${param.block}_refreshGenderArray(data) {
+		var aData = new Object;
+		var bData = new Object;
+		$("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().each( function ( group, i ) {
+	    	var group = data[i].gender;
+	       	switch (data[i].gender) {
+	       	case "MALE":
+	       		group = "Male";
+	       		break;
+	    	case "FEMALE":
+	    		group = "Female";
+	    		break;
+	    	case "OTHER":
+	    		group = "Other";
+	    		break;
+	       	case "Other":
+	       		group = "Other";
+	       		break;
+	       	case "Unkown":
+	       		group = "Unkown";
+	       		break;
+	       	case "Gender unkown":
+	       		group = "Unkown";
+	       		break;
+	       	};
+	    	var count = data[i].patient_count;
+	    	var seq = data[i].gender_seq;
+	      if (typeof aData[group] == 'undefined') {
+	            aData[group] = count;
+	            bData[group] = seq;
+	        } else
+	        	 aData[group] += count;
+		});
+
+		${param.block}_genderArray = new Array();
+	    for(var i in aData) {
+	    	var obj = new Object();
+	    	Object.defineProperty(obj, 'element', {
+	    		  value: i
+	    		});
+	    	Object.defineProperty(obj, 'count', {
+	  		  value: aData[i]
+	  		});
+	    	Object.defineProperty(obj, 'seq', {
+	    		  value: bData[i]
+	    		});
+	    	${param.block}_genderArray.push(obj);
+	    }
+	    ${param.block}_genderArray.sort((a,b) => (a.seq > b.seq) ? 1 : ((b.seq > a.seq) ? -1 : 0));
+	    console.log("refreshed gender", ${param.block}_genderArray);
+	}
+
+	function ${param.block}_refreshSeverityArray(data) {
+		var aData = new Object;
+		var bData = new Object;
+		$("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().each( function ( group, i ) {
+	    	var group = data[i].severity;
+	       	switch (data[i].severity) {
+	       	case "Mild":
+	       		group = "Mild";
+	       		break;
+	    	case "Mild_ED":
+	    		group = "Mild in ED ";
+	    		break;
+	    	case "Moderate":
+	    		group = "Moderate";
+	    		break;
+	       	case "Severe":
+	       		group = "Severe";
+	       		break;
+	       	case "Dead_w_COVID":
+	       		group = "Dead w/ COVID";
+	       		break;
+	       	};
+	    	var count = data[i].patient_count;
+	    	var seq = data[i].severity_seq;
+	        if (typeof aData[group] == 'undefined') {
+	            aData[group] = count;
+	            bData[group] = seq;
+	         } else
+	        	 aData[group] += count;
+		});
+
+		${param.block}_severityArray = new Array();
+	    for(var i in aData) {
+	    	var obj = new Object();
+	    	Object.defineProperty(obj, 'element', {
+	    		  value: i
+	    		});
+	    	Object.defineProperty(obj, 'count', {
+	  		  value: aData[i]
+	  		});
+	    	Object.defineProperty(obj, 'seq', {
+	  		  value: bData[i]
+	  		});
+	    	${param.block}_severityArray.push(obj);
+	    }
+	    ${param.block}_severityArray.sort((a,b) => (a.seq > b.seq) ? 1 : ((b.seq > a.seq) ? -1 : 0));
+	    console.log("refreshed severity", ${param.block}_severityArray);
+	}
+
 	function ${param.block}_toggle(selection) {
 		if (selection == "severity") {
 			$("#${param.block}-severity").css('display', 'block');

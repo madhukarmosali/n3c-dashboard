@@ -42,8 +42,10 @@ WebContent/feeds/siteRoster.jsp -text
 WebContent/feeds/us-states.json -text
 WebContent/footer.jsp -text
 WebContent/graph_support/forcePhoto.jsp -text
+WebContent/graph_support/pieChart_local.jsp -text
 WebContent/graph_support/site_map.jsp -text
 WebContent/graph_support/us-states.json -text
+WebContent/graph_support/verticalBarChart_local.jsp -text
 WebContent/head.jsp -text
 WebContent/images/favicon.ico -text
 WebContent/images/icons/admin.png -text
@@ -105,6 +107,7 @@ WebContent/new_ph/adult_summary/aggregated_feed.jsp -text
 WebContent/new_ph/adult_summary/aggregated_table.jsp -text
 WebContent/new_ph/adult_summary/kpis.jsp -text
 WebContent/new_ph/adult_summary/panel.jsp -text
+WebContent/new_ph/adult_summary/severity.jsp -text
 WebContent/new_ph/block.jsp -text
 WebContent/new_ph/delayed_mortality/kpis.jsp -text
 WebContent/new_ph/delayed_mortality/panel.jsp -text

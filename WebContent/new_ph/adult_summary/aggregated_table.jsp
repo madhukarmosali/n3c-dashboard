@@ -16,7 +16,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/adult_summary/aggregated_feed.jsp", fu
 	var table = document.createElement("table");
 	table.className = 'table table-hover compact site-wrapper';
 	table.style.width = '100%';
-	table.id="aggregated-table";
+	table.id="${param.target_div}-table";
 
 	var header= table.createTHead();
 	var header_row = header.insertRow(0); 
@@ -27,12 +27,12 @@ $.getJSON("<util:applicationRoot/>/new_ph/adult_summary/aggregated_feed.jsp", fu
 		header_row.appendChild(th);
 	}
 
-	var divContainer = document.getElementById("aggregated");
+	var divContainer = document.getElementById("${param.target_div}");
 	divContainer.appendChild(table);
 
 	var data = json['rows'];
 
-	aggregated_datatable = $('#aggregated-table').DataTable( {
+	aggregated_datatable = $('#${param.target_div}-table').DataTable( {
     	data: data,
        	paging: true,
     	pageLength: 10,
