@@ -248,7 +248,7 @@ button {
 	    }
 	    if (${param.block}_loaded("age")) {
 		    d3.select("#${param.block}_age_viz").select("svg").remove();
-		    localHorizontalBarChart(${param.block}_ageArray,"#${param.block}_age_viz", 120);
+		    localVerticalBarChart(${param.block}_ageArray,"#${param.block}_age_viz", 120);
 	    }
 	    if (${param.block}_loaded("race")) {
 		    d3.select("#${param.block}_race_viz").select("svg").remove();
@@ -256,7 +256,7 @@ button {
 	    }
 	    if (${param.block}_loaded("gender")) {
 		    d3.select("#${param.block}_gender_viz").select("svg").remove();
-		    localPieChart(${param.block}_genderArray,"#${param.block}_gender_viz");
+		    localHorizontalBarChart(${param.block}_genderArray,"#${param.block}_gender_viz", 140);
 	    }
 	    if (${param.block}_loaded("ethnicity")) {
 		    d3.select("#${param.block}_ethnicity_viz").select("svg").remove();

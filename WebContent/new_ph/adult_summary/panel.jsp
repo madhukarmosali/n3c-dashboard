@@ -25,7 +25,7 @@
 	<jsp:param name="datatable_div" value="aggregated" />
 </jsp:include>
 <script>
-	adult_summary_1_toggle("age");
+	adult_summary_1_toggle("severity");
 </script>
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="adult_summary_2" />

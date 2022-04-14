@@ -46,6 +46,7 @@ WebContent/graph_support/horizontalBarChart_local.jsp -text
 WebContent/graph_support/pieChart_local.jsp -text
 WebContent/graph_support/site_map.jsp -text
 WebContent/graph_support/us-states.json -text
+WebContent/graph_support/verticalBarChart_local.jsp -text
 WebContent/head.jsp -text
 WebContent/images/favicon.ico -text
 WebContent/images/icons/admin.png -text
