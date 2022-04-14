@@ -40,7 +40,7 @@ function localPieChart(data, domName) {
 
 		var arc = d3.arc()
 			.outerRadius(radius - 10)
-			.innerRadius(0);
+			.innerRadius(radius * 0.66);
 
 		var pie = d3.pie()
 			.sort(null)

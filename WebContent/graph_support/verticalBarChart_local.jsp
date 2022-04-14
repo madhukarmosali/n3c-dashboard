@@ -1,9 +1,5 @@
 <script>
 
-function localBarChart(data, domName) {
-	localBarChart(data, domName, 50);
-}
-
 function localBarChart(data, domName, barLabelWidth) {
 	var valueLabelWidth = 50; // space reserved for value labels (right)
 	var barHeight = 20; // height of one bar
@@ -32,9 +28,6 @@ function localBarChart(data, domName, barLabelWidth) {
 			}
 		});
 	});
-	console.log(domName);
-	console.log(d3.select(domName));
-	console.log(d3.select(domName).node());
 	myObserver.observe(d3.select(domName).node());
 
 	draw();

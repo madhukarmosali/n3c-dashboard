@@ -16,16 +16,16 @@
 	<jsp:param name="ethnicity_filter" value="true" />
 
 	<jsp:param name="severity_panel" value="adult_summary/severity.jsp?block=adult_summary_1" />
-	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
-	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
-	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
-	<jsp:param name="ethnicity_panel" value="test_panel.jsp?info=ethnicity" />
+	<jsp:param name="age_panel" value="adult_summary/age.jsp?block=adult_summary_1" />
+	<jsp:param name="race_panel" value="adult_summary/race.jsp?block=adult_summary_1" />
+	<jsp:param name="gender_panel" value="adult_summary/gender.jsp?block=adult_summary_1" />
+	<jsp:param name="ethnicity_panel" value="adult_summary/ethnicity.jsp?block=adult_summary_1" />
 
 	<jsp:param name="datatable" value="adult_summary/aggregated_table.jsp" />
 	<jsp:param name="datatable_div" value="aggregated" />
 </jsp:include>
 <script>
-	adult_summary_1_toggle("age");
+	adult_summary_1_toggle("severity");
 </script>
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="adult_summary_2" />

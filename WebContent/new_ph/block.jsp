@@ -240,7 +240,28 @@ button {
 	    ${param.block}_refreshEthnicityArray(data);
 	    ${param.block}_refreshGenderArray(data);
 	    ${param.block}_refreshSeverityArray(data);
-	}
+	    
+	    if (${param.block}_loaded("severity")) {
+	    	d3.select("#${param.block}_severity_viz").select("svg").remove();
+		    localPieChart(${param.block}_severityArray,"#${param.block}_severity_viz");
+	    }
+	    if (${param.block}_loaded("age")) {
+		    d3.select("#${param.block}_age_viz").select("svg").remove();
+		    localBarChart(${param.block}_ageArray,"#${param.block}_age_viz", 120);
+	    }
+	    if (${param.block}_loaded("race")) {
+		    d3.select("#${param.block}_race_viz").select("svg").remove();
+		    localPieChart(${param.block}_raceArray,"#${param.block}_race_viz");
+	    }
+	    if (${param.block}_loaded("gender")) {
+		    d3.select("#${param.block}_gender_viz").select("svg").remove();
+		    localPieChart(${param.block}_genderArray,"#${param.block}_gender_viz");
+	    }
+	    if (${param.block}_loaded("ethnicity")) {
+		    d3.select("#${param.block}_ethnicity_viz").select("svg").remove();
+		    localPieChart(${param.block}_ethnicityArray,"#${param.block}_ethnicity_viz");
+	    }
+	  }
 	
 	
 	function ${param.block}_refreshAgeArray(data) {
@@ -541,4 +562,8 @@ button {
 			});
 		}
 	};
+	
+	function ${param.block}_loaded(selection) {
+		return ${param.block}_crumbs.includes(selection);
+	}
 </script>
