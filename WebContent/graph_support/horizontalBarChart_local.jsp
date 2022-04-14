@@ -2,7 +2,7 @@
 
 function localHorizontalBarChart(data, domName, barLabelWidth) {
 	var valueLabelWidth = 50; // space reserved for value labels (right)
-	var barHeight = 20; // height of one bar
+	var barHeight = 50; // height of one bar
 //	var barLabelWidth = 50; // space reserved for bar labels
 	var barLabelPadding = 5; // padding between bar and bar labels (left)
 	var gridLabelHeight = 0; // space reserved for gridline labels
