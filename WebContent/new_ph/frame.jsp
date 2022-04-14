@@ -17,7 +17,7 @@
 		<jsp:include page="medications/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'reinfection'}">
-		<jsp:include page="../modules/reinfection_timeline.jsp"/>
+		<jsp:include page="reinfection/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'timeline'}">
 		<jsp:include page="../modules/positive_timeline.jsp"/>

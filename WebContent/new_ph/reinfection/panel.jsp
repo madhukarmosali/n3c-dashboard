@@ -6,21 +6,18 @@
 	<jsp:param name="block" value="reinfection_1" />
 	<jsp:param name="block_header" value="Patient Counts: First Diagnosis Versus Reinfected Patients Per COVID+ Cohort" />
 
-	<jsp:param name="kpis" value="reinfection/kpis.jsp" />
+	<jsp:param name="kpis" value="reinfection/kpis_1.jsp" />
 
-	<jsp:param name="simple_panel" value="test_panel.jsp?info=ethnicity" />
+	<jsp:param name="simple_panel" value="reinfection/reinfections.jsp" />
 
-	<jsp:param name="datatable" value="../modules/reinfections_by_date.jsp" />
+	<jsp:param name="datatable" value="reinfection/reinfections_by_date.jsp" />
 	<jsp:param name="datatable_div" value="reinfections-by-date" />
 </jsp:include>
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="reinfection_2" />
 	<jsp:param name="block_header" value="Patient Counts: First Diagnosis Versus Number of Reinfections Per Day" />
 
-	<jsp:param name="kpis" value="reinfection/kpis.jsp" />
+	<jsp:param name="kpis" value="reinfection/kpis_2.jsp" />
 
-	<jsp:param name="simple_panel" value="test_panel.jsp?info=ethnicity" />
-
-	<jsp:param name="datatable" value="../modules/reinfections_by_date.jsp" />
-	<jsp:param name="datatable_div" value="reinfections-by-date" />
+	<jsp:param name="simple_panel" value="reinfection/counts.jsp" />
 </jsp:include>

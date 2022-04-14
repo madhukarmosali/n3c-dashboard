@@ -131,8 +131,12 @@ WebContent/new_ph/pediatrics_summary/kpis.jsp -text
 WebContent/new_ph/pediatrics_summary/panel.jsp -text
 WebContent/new_ph/questions.jsp -text
 WebContent/new_ph/questions_styled.jsp -text
-WebContent/new_ph/reinfection/kpis.jsp -text
+WebContent/new_ph/reinfection/counts.jsp -text
+WebContent/new_ph/reinfection/kpis_1.jsp -text
+WebContent/new_ph/reinfection/kpis_2.jsp -text
 WebContent/new_ph/reinfection/panel.jsp -text
+WebContent/new_ph/reinfection/reinfections.jsp -text
+WebContent/new_ph/reinfection/reinfections_by_date.jsp -text
 WebContent/new_ph/reinfection_time_series/kpis.jsp -text
 WebContent/new_ph/reinfection_time_series/panel.jsp -text
 WebContent/new_ph/severity_region/kpis.jsp -text
