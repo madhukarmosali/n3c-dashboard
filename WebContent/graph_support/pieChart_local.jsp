@@ -11,7 +11,7 @@ chart {
 
 <script>
 
-function localPieChart(data, domName) {
+function localPieChart(data, domName, donutRatio = 0) {
 	var width = 325, //var width = parseInt(d3.select("${param.dom_element}").style("width"))-10,
 		height = width,
 		border = 10;
@@ -40,7 +40,7 @@ function localPieChart(data, domName) {
 
 		var arc = d3.arc()
 			.outerRadius(radius - 10)
-			.innerRadius(radius * 0.66);
+			.innerRadius(radius * donutRatio);
 
 		var pie = d3.pie()
 			.sort(null)

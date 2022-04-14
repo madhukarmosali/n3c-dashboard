@@ -4,9 +4,8 @@
 
 
 <div id="${param.block}_severity_viz" class="col-lg-7"></div>
+<p>Sample text.</p>
 <script>
 	${param.block}_refreshHistograms();
 	console.log("severity graph", "${param.block}_severity_viz", ${param.block}_severityArray)
-//	localPieChart(${param.block}_severityArray, "#${param.block}_severity_viz");
-//	localBarChart(${param.block}_severityArray, "#${param.block}_severity_viz");
 </script>

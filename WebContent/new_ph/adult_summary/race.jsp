@@ -7,6 +7,4 @@
 <script>
 	${param.block}_refreshHistograms();
 	console.log("race graph", "${param.block}_race_viz", ${param.block}_raceArray)
-//	localPieChart(${param.block}_raceArray, "#${param.block}_race_viz");
-//	localBarChart(${param.block}_raceArray, "#${param.block}_race_viz");
 </script>

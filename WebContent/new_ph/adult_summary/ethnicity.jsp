@@ -7,6 +7,4 @@
 <script>
 	${param.block}_refreshHistograms();
 	console.log("ethnicity graph", "${param.block}_ethnicity_viz", ${param.block}_ethnicityArray)
-//	localPieChart(${param.block}_ethnicityArray, "#${param.block}_ethnicity_viz");
-//	localBarChart(${param.block}_ethnicityArray, "#${param.block}_ethnicity_viz");
 </script>

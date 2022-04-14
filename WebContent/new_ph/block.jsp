@@ -161,6 +161,7 @@ button {
 							<div class="col-lg-8" id="${param.datatable_div}"></div>
 							<jsp:include page="${param.datatable}">
 								<jsp:param name="target_div" value="${param.datatable_div}"/>
+								<jsp:param name="block" value="${param.block}"/>
 							</jsp:include>
 						</div>
 					</div>
@@ -247,11 +248,11 @@ button {
 	    }
 	    if (${param.block}_loaded("age")) {
 		    d3.select("#${param.block}_age_viz").select("svg").remove();
-		    localBarChart(${param.block}_ageArray,"#${param.block}_age_viz", 120);
+		    localHorizontalBarChart(${param.block}_ageArray,"#${param.block}_age_viz", 120);
 	    }
 	    if (${param.block}_loaded("race")) {
 		    d3.select("#${param.block}_race_viz").select("svg").remove();
-		    localPieChart(${param.block}_raceArray,"#${param.block}_race_viz");
+		    localPieChart(${param.block}_raceArray,"#${param.block}_race_viz", 0.66);
 	    }
 	    if (${param.block}_loaded("gender")) {
 		    d3.select("#${param.block}_gender_viz").select("svg").remove();

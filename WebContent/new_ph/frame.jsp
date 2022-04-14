@@ -3,7 +3,7 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 <jsp:include page="../graph_support/pieChart_local.jsp"/>
-<jsp:include page="../graph_support/verticalBarChart_local.jsp"/>
+<jsp:include page="../graph_support/horizontalBarChart_local.jsp"/>
 
 <c:choose>
 	<c:when test="${param.iframe == 'summary'}">

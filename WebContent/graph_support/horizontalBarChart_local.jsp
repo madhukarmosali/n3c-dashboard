@@ -1,6 +1,6 @@
 <script>
 
-function localBarChart(data, domName, barLabelWidth) {
+function localHorizontalBarChart(data, domName, barLabelWidth) {
 	var valueLabelWidth = 50; // space reserved for value labels (right)
 	var barHeight = 20; // height of one bar
 //	var barLabelWidth = 50; // space reserved for bar labels

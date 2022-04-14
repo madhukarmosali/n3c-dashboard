@@ -7,6 +7,4 @@
 <script>
 	${param.block}_refreshHistograms();
 	console.log("gender graph", "${param.block}_gender_viz", ${param.block}_genderArray)
-//	localPieChart(${param.block}_genderArray, "#${param.block}_gender_viz");
-//	localBarChart(${param.block}_genderArray, "#${param.block}_gender_viz");
 </script>

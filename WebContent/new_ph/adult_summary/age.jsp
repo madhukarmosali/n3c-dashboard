@@ -7,6 +7,4 @@
 <script>
 	${param.block}_refreshHistograms();
 	console.log("age graph", "${param.block}_age_viz", ${param.block}_ageArray)
-//	localPieChart(${param.block}_ageArray, "#${param.block}_age_viz");
-//	localBarChart(${param.block}_ageArray, "#${param.block}_age_viz");
 </script>

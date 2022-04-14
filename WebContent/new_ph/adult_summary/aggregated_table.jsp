@@ -58,6 +58,10 @@ $.getJSON("<util:applicationRoot/>/new_ph/adult_summary/aggregated_feed.jsp", fu
     	]
 	} );
 
+	// this is necessary to populate the histograms for the panel's initial D3 rendering
+	${param.block}_refreshHistograms();
+
 	
 });
+
 </script>
