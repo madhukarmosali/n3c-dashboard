@@ -6,6 +6,6 @@
 	<jsp:param name="block" value="${param.block}"/>
 </jsp:include>
 <jsp:include page="../kpis/covid_reinfections.jsp" />
-<div class="panel-body border" style="color: #1E39F4">
+<div class="panel-body border kpi-limit dash-small-txt">
 	* (see limitations below)
 </div>
