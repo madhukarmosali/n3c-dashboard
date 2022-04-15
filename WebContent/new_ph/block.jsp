@@ -13,7 +13,6 @@
 	margin-top:20px;
 }
 
-
 </style>
 
 <!-- A block is comprised of a header bar, an optional left column with KPIs and filters, and a main panel
