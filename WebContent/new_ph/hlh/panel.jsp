@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
+<!-- count_by_month_censored (2022-03-31 04:59) -->
+
 <!-- covid_severity_grouped_demo_adults_censored -->
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="hlh_1" />

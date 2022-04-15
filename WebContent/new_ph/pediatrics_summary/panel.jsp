@@ -2,7 +2,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
-<!-- pediatric_covid_pos_demo_censored, not sure about comorbidities -->
+<!-- pediatric_covid_event_type (2022-03-31 05:02) -->
+<!-- pediatric_covid_pos_demo_censored (2022-03-31 04:54) -->
+<!-- covid_positive_comorbidities_demo_censored (2022-03-31 04:57) -->
+<!-- covid_positive_comorbidities_demo_censored_wo_vax (2022-03-31 04:58) -->
+<!-- covid_positive_comorbidity_non_grouped_demo_censored (2022-03-31 05:01) -->
+<!-- covid_positive_mab_demo_censored (2022-03-31 05:01) -->
+<!-- covid_positive_with_vax_censored (2022-03-31 04:59) -->
+
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="pediatrics_summary_1" />
 	<jsp:param name="block_header" value="Pediatrics Demographics: COVID+" />

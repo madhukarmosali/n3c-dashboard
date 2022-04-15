@@ -2,6 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
+<!-- sotrovimab_comorbidity (2022-03-31 05:05) -->
+<!-- sotrovimab_demographic (2022-03-31 05:05) -->
+<!-- sotrovimab_other_meds (2022-03-31 05:05) -->
+<!-- sotrovimab_test_type (2022-03-31 05:05) -->
+<!-- sotrovimab_vax_status (2022-03-31 05:05) -->
+
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="sotrovimab_1" />
 	<jsp:param name="block_header" value="Sotrovimab and Other Medications" />

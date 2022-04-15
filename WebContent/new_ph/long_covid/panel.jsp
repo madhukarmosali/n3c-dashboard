@@ -2,6 +2,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
+<!-- binned_datediff_positive_and_symptoms (2022-03-31 05:04) -->
+<!-- icd10_individual_symptom_summary_counts (2022-03-31 05:02) -->
+<!-- icd10_individual_symptom_summary_counts_by_symptom (2022-03-31 05:02) -->
+<!-- icd10_symptoms_summary_counts (2022-03-31 05:01) -->
+<!-- long_covid_concept_set_agg_censored (2022-03-31 04:54) -->
+<!-- long_covid_icd_agg_censored (2022-03-31 04:54) -->
+<!-- symptom_before_or_after_covid (2022-03-31 05:04) -->
+
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="long_covid_1" />
 	<jsp:param name="block_header" value="Long COVID: U09.9 ICD-10 Code" />

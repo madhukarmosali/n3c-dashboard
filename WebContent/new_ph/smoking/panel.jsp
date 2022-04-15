@@ -2,7 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
-<!-- covid_severity_grouped_demo_adults_censored -->
+<!-- covid_smoking_demographics_censored (2022-03-31 04:54) -->
+<!-- covid_smoking_severity_censored (2022-03-31 04:54) -->
+
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="smoking_1" />
 	<jsp:param name="block_header" value="Demographics: COVID+ and Smoking Status" />

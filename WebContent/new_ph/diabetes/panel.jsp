@@ -2,6 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
+<!-- adult_covid_event_type (2022-03-31 05:03) -->
+<!-- diabetes_t1_agg (2022-03-31 04:54) -->
+<!-- diabetes_t1_full_censored (2022-03-31 05:01) -->
+<!-- diabetes_t2_agg (2022-03-31 04:54) -->
+<!-- diabetes_t2_full_censored (2022-03-31 05:01) -->
+
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="diabetes_1" />
 	<jsp:param name="block_header" value="Diabetes Mellitus Type 2" />
