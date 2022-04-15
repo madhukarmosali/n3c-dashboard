@@ -16,7 +16,7 @@
 			from n3c_questions.covid_lds_with_reinfection_date_counts_censored) as foo
 </sql:query>
 <c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
-	<div class="panel-body">
+	<div class="panel-body kpi">
 		<table>
 			<tr>
 				<td><i class="fas fa-users"></i></td>
@@ -25,5 +25,5 @@
 			</tr>
 		</table>
 	</div>
-	<div id="${param.block}_first_diagnosis_kpi" class="panel-heading">${row.first_diagnosis}</div>
+	<div id="${param.block}_first_diagnosis_kpi" class="panel-heading kpi_num">${row.first_diagnosis}</div>
 </c:forEach>

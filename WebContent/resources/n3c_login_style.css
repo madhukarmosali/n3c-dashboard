@@ -333,6 +333,63 @@ a:hover, .btn-link:hover{
 	margin-bottom:60px;
 }
 
+
+/* -------------- Dashboard ---------------------  */
+.kpi_containter{
+	font-size: 1.2rem;
+	margin-bottom: 20px;
+}
+
+.kpi table{
+	margin: auto;
+}
+
+.kpi tr{
+	display: block;
+	width: min-content;
+}
+
+.kpi_num{
+	text-align: center;
+    font-size: 1.5rem;
+    color: #454F82;
+}
+
+.kpi-limit{
+	color: gray;
+	text-align:center;
+}
+
+.dash_filter_header{
+	font-size: 1.2rem;
+}
+
+.dash_filter_header p{
+	text-align:center;
+	margin-bottom: 0px;
+}
+
+.dash-small-txt{
+	font-size: 0.8rem;
+}
+
+.dash-filter-btn{
+	margin-top: 20px;
+	border-radius: 5px;
+    background: #2363ff;
+    color: white;
+    border: 2px solid #b0afae;
+    padding: 7px;
+}
+
+
+.dash_viz{
+	margin: auto;
+}
+
+.dash-dt-section{
+	margin-top: 20px;
+}
 /* -------------- Panel ---------------------  */
 
 /* .panel-primary{ */

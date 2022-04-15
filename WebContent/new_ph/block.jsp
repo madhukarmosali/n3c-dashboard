@@ -12,13 +12,7 @@
 	padding: 3px; 
 	margin-top:20px;
 }
-button {
-	border-radius: 5px;
-    background: #2363ff;
-    color: white;
-    border: 2px solid #b0afae;
-    padding: 7px;
-}
+
 
 </style>
 
@@ -37,11 +31,13 @@ button {
 	
 			<div id="${param.block}-block-kpi" class="col-12 col-md-2 border" >
 				<c:if test="${not empty param.kpis}">
-					<jsp:include page="${param.kpis}"/>
+					<div class="kpi_containter">
+						<jsp:include page="${param.kpis}"/>
+					</div>
 				</c:if>
-				<div class="panel-body border">
-					<h5>Available Filters</h5>
-					click a category below to show/hide options
+				<div class="panel-body border dash_filter_header">
+					<p>Available Filters</p>
+					<p class="dash-small-txt">click a category below to show/hide options<p>
 				</div>
 
 				<!-- filters are enabled by passing in a boolean parameter -->
@@ -104,7 +100,7 @@ button {
 					</div>
 				</c:if>
 
-				<button id="${param.block}_btn" class="button" onclick="${param.block}_filter_clear()"><i class="fa fa-filter" aria-hidden="true"></i> Clear all selections</button>
+				<button id="${param.block}_btn" class="btn button dash-filter-btn" onclick="${param.block}_filter_clear()"><i class="fa fa-filter" aria-hidden="true"></i> Clear all selections</button>
 			</div>
 			
 			<!-- the main panel has a strip of optional selection buttons across the top, controlling the visibility of the matched sub-panel -->
@@ -154,11 +150,10 @@ button {
 				</c:if>
 
 				<c:if test="${not empty param.datatable}">
-					<div class="col-xs-12 col-lg-12">
+					<div class="col-12 col-lg-12">
 						<div class="block_header"></div>
 						<div class="row">
-							<div class="col-lg-2">&nbsp;</div>
-							<div class="col-lg-8" id="${param.datatable_div}"></div>
+							<div class="col-12 dash-dt-section" id="${param.datatable_div}"></div>
 							<jsp:include page="${param.datatable}">
 								<jsp:param name="target_div" value="${param.datatable_div}"/>
 								<jsp:param name="block" value="${param.block}"/>
@@ -174,31 +169,31 @@ button {
 <script>
 
 	$('#${param.block}-severity-select').change(function() {
-	    $("#${param.datatable_div}-table").DataTable().column(4).search($(this).val().join('|'), true, false, true).draw();
+	    $("#${param.datatable_div}-table").DataTable().column(4).search("^" + $(this).val().join('|')+ "$", true, false, true).draw();
 	    ${param.block}_refreshHistograms();
     	console.log("severity", $(this).val())
   	});
 
 	$('#${param.block}-age-select').change(function() {
-	    $("#${param.datatable_div}-table").DataTable().column(2).search($(this).val().join('|'), true, false, true).draw();
+	    $("#${param.datatable_div}-table").DataTable().column(2).search("^" + $(this).val().join('|')+ "$", true, false, true).draw();
 	    ${param.block}_refreshHistograms();
     	console.log("age", $(this).val())
   	});
 
 	$('#${param.block}-race-select').change(function() {
-	    $("#${param.datatable_div}-table").DataTable().column(0).search($(this).val().join('|'), true, false, true).draw();
+	    $("#${param.datatable_div}-table").DataTable().column(0).search("^" + $(this).val().join('|')+ "$", true, false, true).draw();
 	    ${param.block}_refreshHistograms();
     	console.log("race", $(this).val())
   	});
 
 	$('#${param.block}-gender-select').change(function() {
-	    $("#${param.datatable_div}-table").DataTable().column(3).search($(this).val().join('|'), true, false, true).draw();
+	    $("#${param.datatable_div}-table").DataTable().column(3).search("^" + $(this).val().join('|')+ "$", true, false, true).draw();
 	    ${param.block}_refreshHistograms();
     	console.log("gender", $(this).val())
   	});
 
 	$('#${param.block}-ethnicity-select').change(function() {
-	    $("#${param.datatable_div}-table").DataTable().column(1).search($(this).val().join('|'), true, false, true).draw();
+	    $("#${param.datatable_div}-table").DataTable().column(1).search("^" + $(this).val().join('|')+ "$", true, false, true).draw();
 	    ${param.block}_refreshHistograms();
     	console.log("ethnicity", $(this).val())
   	});
