@@ -20,7 +20,7 @@
 		<jsp:include page="reinfection/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'timeline'}">
-		<jsp:include page="../modules/positive_timeline.jsp"/>
+		<jsp:include page="timeline/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'severity-region'}">
 		<jsp:include page="severity_region/panel.jsp"/>

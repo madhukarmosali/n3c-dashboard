@@ -148,6 +148,12 @@ WebContent/new_ph/sotrovimab/panel.jsp -text
 WebContent/new_ph/template/kpis.jsp -text
 WebContent/new_ph/template/panel.jsp -text
 WebContent/new_ph/test_panel.jsp -text
+WebContent/new_ph/timeline/cumulative.jsp -text
+WebContent/new_ph/timeline/daily.jsp -text
+WebContent/new_ph/timeline/kpis_1.jsp -text
+WebContent/new_ph/timeline/kpis_2.jsp -text
+WebContent/new_ph/timeline/panel.jsp -text
+WebContent/new_ph/timeline/positive_cases_by_date.jsp -text
 WebContent/positive_timeline.jsp -text
 WebContent/public-health.jsp -text
 WebContent/recover.jsp -text
