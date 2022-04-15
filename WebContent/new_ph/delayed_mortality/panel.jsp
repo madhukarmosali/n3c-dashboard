@@ -6,7 +6,7 @@
 	<jsp:param name="block" value="delayed_mortality_1" />
 	<jsp:param name="block_header" value="Mortality: Counts from all Sources" />
 
-	<jsp:param name="kpis" value="delayed_mortality/kpis.jsp" />
+	<jsp:param name="kpis" value="delayed_mortality/kpis.jsp?block=delayed_mortality_1" />
 
 	<jsp:param name="age_filter" value="true" />
 	<jsp:param name="race_filter" value="true" />
@@ -28,7 +28,7 @@
 	<jsp:param name="block" value="delayed_mortality_2" />
 	<jsp:param name="block_header" value="Mortality: Delayed Mortality" />
 
-	<jsp:param name="kpis" value="delayed_mortality/kpis.jsp" />
+	<jsp:param name="kpis" value="delayed_mortality/kpis.jsp?block=delayed_mortality_2" />
 
 	<jsp:param name="age_filter" value="true" />
 

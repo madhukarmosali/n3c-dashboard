@@ -45,6 +45,7 @@ WebContent/graph_support/forcePhoto.jsp -text
 WebContent/graph_support/horizontalBarChart_local.jsp -text
 WebContent/graph_support/pieChart_local.jsp -text
 WebContent/graph_support/site_map.jsp -text
+WebContent/graph_support/time_line_2_column.jsp -text
 WebContent/graph_support/us-states.json -text
 WebContent/graph_support/verticalBarChart_local.jsp -text
 WebContent/head.jsp -text
@@ -123,6 +124,9 @@ WebContent/new_ph/hlh/kpis.jsp -text
 WebContent/new_ph/hlh/panel.jsp -text
 WebContent/new_ph/hss/kpis.jsp -text
 WebContent/new_ph/hss/panel.jsp -text
+WebContent/new_ph/kpis/covid_first_diagnosis.jsp -text
+WebContent/new_ph/kpis/covid_positive.jsp -text
+WebContent/new_ph/kpis/covid_reinfections.jsp -text
 WebContent/new_ph/long_covid/kpis.jsp -text
 WebContent/new_ph/long_covid/panel.jsp -text
 WebContent/new_ph/medications/kpis.jsp -text

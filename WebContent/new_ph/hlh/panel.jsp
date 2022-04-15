@@ -7,7 +7,7 @@
 	<jsp:param name="block" value="hlh_1" />
 	<jsp:param name="block_header" value="Overall Patient Group Distribution" />
 
-	<jsp:param name="kpis" value="hlh/kpis.jsp" />
+	<jsp:param name="kpis" value="hlh/kpis.jsp?block=hlh_1" />
 
 	<jsp:param name="age_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />

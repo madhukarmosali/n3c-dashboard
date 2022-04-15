@@ -7,7 +7,7 @@
 	<jsp:param name="block" value="hss_1" />
 	<jsp:param name="block_header" value="Enclave Cumulative Participant Information" />
 
-	<jsp:param name="kpis" value="hss/kpis.jsp" />
+	<jsp:param name="kpis" value="hss/kpis.jsp?block=hss_1" />
 
 	<jsp:param name="simple_panel" value="test_panel.jsp?info=simple" />
 </jsp:include>

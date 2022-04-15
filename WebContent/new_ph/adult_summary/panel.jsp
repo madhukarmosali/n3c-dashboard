@@ -7,7 +7,7 @@
 	<jsp:param name="block" value="adult_summary_1" />
 	<jsp:param name="block_header" value="Demographics: COVID+" />
 
-	<jsp:param name="kpis" value="adult_summary/kpis.jsp" />
+	<jsp:param name="kpis" value="adult_summary/kpis.jsp?block=adult_summary_1" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
@@ -31,7 +31,7 @@
 	<jsp:param name="block" value="adult_summary_2" />
 	<jsp:param name="block_header" value="Demographics: Vaccinated" />
 
-	<jsp:param name="kpis" value="adult_summary/kpis.jsp" />
+	<jsp:param name="kpis" value="adult_summary/kpis.jsp?block=adult_summary_2" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
@@ -50,7 +50,7 @@
 	<jsp:param name="block" value="adult_summary_3" />
 	<jsp:param name="block_header" value="Demographics: Vaccinated and Comorbidities" />
 
-	<jsp:param name="kpis" value="adult_summary/kpis.jsp" />
+	<jsp:param name="kpis" value="adult_summary/kpis.jsp?block=adult_summary_3" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
@@ -71,7 +71,7 @@
 	<jsp:param name="block" value="adult_summary_4" />
 	<jsp:param name="block_header" value="Demographics: Unknown Vaccination and Comorbidities" />
 
-	<jsp:param name="kpis" value="adult_summary/kpis.jsp" />
+	<jsp:param name="kpis" value="adult_summary/kpis.jsp?block=adult_summary_4" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
@@ -90,7 +90,7 @@
 	<jsp:param name="block" value="adult_summary_5" />
 	<jsp:param name="block_header" value="Demographics: Ungrouped Comorbidities" />
 
-	<jsp:param name="kpis" value="adult_summary/kpis.jsp" />
+	<jsp:param name="kpis" value="adult_summary/kpis.jsp?block=adult_summary_5" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />

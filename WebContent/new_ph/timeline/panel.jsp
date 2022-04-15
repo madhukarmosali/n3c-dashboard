@@ -6,7 +6,7 @@
 	<jsp:param name="block" value="timeline_1" />
 	<jsp:param name="block_header" value="COVID+ Patients: Daily Patient Counts and 7-Day Rolling Averages" />
 
-	<jsp:param name="kpis" value="timeline/kpis_1.jsp" />
+	<jsp:param name="kpis" value="timeline/kpis_1.jsp?block=timeline_1" />
 
 	<jsp:param name="simple_panel" value="timeline/daily.jsp" />
 
@@ -17,7 +17,7 @@
 	<jsp:param name="block" value="timeline_2" />
 	<jsp:param name="block_header" value="COVID+ Patients: Cumulative and 7-Day Rolling Average Counts" />
 
-	<jsp:param name="kpis" value="timeline/kpis_2.jsp" />
+	<jsp:param name="kpis" value="timeline/kpis_2.jsp?block=timeline_2" />
 
 	<jsp:param name="simple_panel" value="timeline/cumulative.jsp" />
 </jsp:include>

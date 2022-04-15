@@ -6,7 +6,7 @@
 	<jsp:param name="block" value="medications_1" />
 	<jsp:param name="block_header" value="COVID+ Patients Distribution by Medication" />
 
-	<jsp:param name="kpis" value="medications/kpis.jsp" />
+	<jsp:param name="kpis" value="medications/kpis.jsp?block=medications_1" />
 
 	<jsp:param name="age_filter" value="true" />
 

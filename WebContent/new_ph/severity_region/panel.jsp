@@ -6,7 +6,7 @@
 	<jsp:param name="block" value="severity_region_1" />
 	<jsp:param name="block_header" value="" />
 
-	<jsp:param name="kpis" value="severity_region/kpis.jsp" />
+	<jsp:param name="kpis" value="severity_region/kpis.jsp?block=severity_region_1" />
 
 	<jsp:param name="age_filter" value="true" />
 

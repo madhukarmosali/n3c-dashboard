@@ -6,7 +6,7 @@
 	<jsp:param name="block" value="sotrovimab_1" />
 	<jsp:param name="block_header" value="Sotrovimab and Other Medications" />
 
-	<jsp:param name="kpis" value="sotrovimab/kpis.jsp" />
+	<jsp:param name="kpis" value="sotrovimab/kpis.jsp?block=sotrovimab_1" />
 
 	<jsp:param name="age_filter" value="true" />
 
@@ -19,7 +19,7 @@
 	<jsp:param name="block" value="sotrovimab_2" />
 	<jsp:param name="block_header" value="Sotrovimab and COVID Diagnosis Type" />
 
-	<jsp:param name="kpis" value="sotrovimab/kpis.jsp" />
+	<jsp:param name="kpis" value="sotrovimab/kpis.jsp?block=sotrovimab_2" />
 
 	<jsp:param name="age_filter" value="true" />
 
@@ -29,7 +29,7 @@
 	<jsp:param name="block" value="sotrovimab_3" />
 	<jsp:param name="block_header" value="Sotrovimab and Comorbidity" />
 
-	<jsp:param name="kpis" value="sotrovimab/kpis.jsp" />
+	<jsp:param name="kpis" value="sotrovimab/kpis.jsp?block=sotrovimab_3" />
 
 	<jsp:param name="severity_filter" value="true" />
 
@@ -39,7 +39,7 @@
 	<jsp:param name="block" value="sotrovimab_4" />
 	<jsp:param name="block_header" value="Sotrovimab and Dempgraphics" />
 
-	<jsp:param name="kpis" value="sotrovimab/kpis.jsp" />
+	<jsp:param name="kpis" value="sotrovimab/kpis.jsp?block=sotrovimab_4" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
@@ -56,7 +56,7 @@
 	<jsp:param name="block" value="sotrovimab_5" />
 	<jsp:param name="block_header" value="Sotrovimab and Vaccination Status" />
 
-	<jsp:param name="kpis" value="sotrovimab/kpis.jsp" />
+	<jsp:param name="kpis" value="sotrovimab/kpis.jsp?block=sotrovimab_5" />
 
 	<jsp:param name="severity_filter" value="true" />
 

@@ -7,7 +7,7 @@
 	<jsp:param name="block" value="pediatrics_summary_1" />
 	<jsp:param name="block_header" value="Pediatrics Demographics: COVID+" />
 
-	<jsp:param name="kpis" value="pediatrics_summary/kpis.jsp" />
+	<jsp:param name="kpis" value="pediatrics_summary/kpis.jsp?block=pediatrics_summary_1" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
@@ -31,7 +31,7 @@
 	<jsp:param name="block" value="pediatrics_summary_2" />
 	<jsp:param name="block_header" value="Pediatrics Demographics: Vaccinated" />
 
-	<jsp:param name="kpis" value="pediatrics_summary/kpis.jsp" />
+	<jsp:param name="kpis" value="pediatrics_summary/kpis.jsp?block=pediatrics_summary_2" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
@@ -50,7 +50,7 @@
 	<jsp:param name="block" value="pediatrics_summary_3" />
 	<jsp:param name="block_header" value="Pediatrics Demographics: Vaccinated and Comorbidities" />
 
-	<jsp:param name="kpis" value="pediatrics_summary/kpis.jsp" />
+	<jsp:param name="kpis" value="pediatrics_summary/kpis.jsp?block=pediatrics_summary_3" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
@@ -71,7 +71,7 @@
 	<jsp:param name="block" value="pediatrics_summary_4" />
 	<jsp:param name="block_header" value="Pediatrics Demographics: Unknown Vaccination and Comorbidities" />
 
-	<jsp:param name="kpis" value="pediatrics_summary/kpis.jsp" />
+	<jsp:param name="kpis" value="pediatrics_summary/kpis.jsp?block=pediatrics_summary_4" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
@@ -90,7 +90,7 @@
 	<jsp:param name="block" value="pediatrics_summary_5" />
 	<jsp:param name="block_header" value="Pediatrics Demographics: Ungrouped Comorbidities" />
 
-	<jsp:param name="kpis" value="pediatrics_summary/kpis.jsp" />
+	<jsp:param name="kpis" value="pediatrics_summary/kpis.jsp?block=pediatrics_summary_5" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />

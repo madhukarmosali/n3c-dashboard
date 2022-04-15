@@ -7,7 +7,7 @@
 	<jsp:param name="block" value="smoking_1" />
 	<jsp:param name="block_header" value="Demographics: COVID+ and Smoking Status" />
 
-	<jsp:param name="kpis" value="smoking/kpis.jsp" />
+	<jsp:param name="kpis" value="smoking/kpis.jsp?block=smoking_1" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
