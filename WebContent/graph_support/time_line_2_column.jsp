@@ -444,7 +444,7 @@
 				        	${param.namespace}x.domain(d3.extent(data, function(d) { return d.${param.date_column}; }));
 				      	}else{
 				        	<c:if test="${not empty param.constraintPropagator}">
-				        		${param.constraintPropagator}(dateFormatter2(${param.namespace}x.invert(extent[0])),dateFormatter2(${param.namespace}x.invert(extent[1])))
+				        		${param.block}_${param.constraintPropagator}(dateFormatter2(${param.namespace}x.invert(extent[0])),dateFormatter2(${param.namespace}x.invert(extent[1])))
 				        	</c:if>
 				      		${param.namespace}x.domain([ ${param.namespace}x.invert(extent[0]), ${param.namespace}x.invert(extent[1]) ]);
 				        	graph.select(".brush").call(brush.move, null); // This remove the grey brush area as soon as the selection has been done
@@ -494,7 +494,7 @@
 				
 				function ${param.namespace}time_line_clear(){
 		        	<c:if test="${not empty param.constraintPropagator}">
-						${param.constraintPropagator}(null, null)
+						${param.block}_${param.constraintPropagator}(null, null)
 		        	</c:if>
 					
 					${param.namespace}x.domain(d3.extent(data, function(d) {return d.${param.date_column}; }));

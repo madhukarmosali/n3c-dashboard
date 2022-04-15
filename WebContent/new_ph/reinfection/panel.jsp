@@ -11,7 +11,7 @@
 	<jsp:param name="simple_panel" value="reinfection/reinfections.jsp" />
 
 	<jsp:param name="datatable" value="reinfection/reinfections_by_date.jsp" />
-	<jsp:param name="datatable_div" value="reinfections-by-date" />
+	<jsp:param name="datatable_div" value="reinfections-by-date1" />
 </jsp:include>
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="reinfection_2" />
@@ -20,4 +20,7 @@
 	<jsp:param name="kpis" value="reinfection/kpis_2.jsp?block=reinfection_2" />
 
 	<jsp:param name="simple_panel" value="reinfection/counts.jsp" />
+
+	<jsp:param name="datatable" value="reinfection/reinfections_by_date.jsp" />
+	<jsp:param name="datatable_div" value="reinfections-by-date2" />
 </jsp:include>
