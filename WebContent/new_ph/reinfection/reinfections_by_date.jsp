@@ -10,8 +10,12 @@ function ${param.block}_constraint(begin, end) {
 	${param.block}_constraint_end = end;
 	var table = $('#${param.target_div}-table').DataTable();
 	table.draw();
-	${param.block}_updateKPI(table, 'first_diagnosis')
-	${param.block}_updateKPI(table, 'reinfected')
+	console.log('${param.target_kpis}')
+	var kpis = '${param.target_kpis}'.split(',');
+	for (var a in kpis) {
+		console.log(kpis[a]);
+		${param.block}_updateKPI(table, kpis[a])
+	}
 }
 
 function ${param.block}_updateKPI(table, column) {

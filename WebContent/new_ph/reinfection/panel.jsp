@@ -12,6 +12,7 @@
 
 	<jsp:param name="datatable" value="reinfection/reinfections_by_date.jsp" />
 	<jsp:param name="datatable_div" value="reinfections-by-date1" />
+	<jsp:param name="datatable_kpis" value="first_diagnosis,reinfected" />
 </jsp:include>
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="reinfection_2" />
@@ -23,4 +24,5 @@
 
 	<jsp:param name="datatable" value="reinfection/reinfections_by_date.jsp" />
 	<jsp:param name="datatable_div" value="reinfections-by-date2" />
+	<jsp:param name="datatable_kpis" value="first_diagnosis,subsequent_test" />
 </jsp:include>

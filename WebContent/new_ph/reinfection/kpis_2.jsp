@@ -8,6 +8,9 @@
 <jsp:include page="../kpis/covid_first_diagnosis.jsp" >
 	<jsp:param name="block" value="${param.block}"/>
 </jsp:include>
+<jsp:include page="../kpis/covid_subsequent_test.jsp" >
+	<jsp:param name="block" value="${param.block}"/>
+</jsp:include>
 <div class="panel-body border kpi-limit dash-small-txt">
 	* (see limitations below)
 </div>

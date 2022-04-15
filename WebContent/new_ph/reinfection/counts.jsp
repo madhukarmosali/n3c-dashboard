@@ -22,6 +22,7 @@
 		<jsp:param name="column2_tip" value="Reinfection" />
 		<jsp:param name="column2_tip_offset" value="120" />
 		<jsp:param name="column2_color" value="#454F82" />
+		<jsp:param name="constraintPropagator" value="constraint" />
 	</jsp:include>
 	<p style="text-align: center;">
 		<sql:query var="cases" dataSource="jdbc/N3CPublic">
