@@ -92,6 +92,10 @@
 	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
 	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
+
+	<jsp:param name="datatable" value="adult_summary/unknown_vaccination_table.jsp" />
+	<jsp:param name="datatable_div" value="adult_unknown_vaccination" />
+	<jsp:param name="datatable_feed" value="adult_summary/feeds/unknown_vaccination.jsp" />
 </jsp:include>
 <script>
 	adult_summary_4_toggle("unknown_vaccinated");

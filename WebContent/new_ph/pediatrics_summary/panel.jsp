@@ -101,6 +101,10 @@
 	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
 	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
+
+	<jsp:param name="datatable" value="pediatrics_summary/unknown_vaccination_table.jsp" />
+	<jsp:param name="datatable_div" value="pediatrics_unknown_vaccination" />
+	<jsp:param name="datatable_feed" value="pediatrics_summary/feeds/unknown_vaccination.jsp" />
 </jsp:include>
 <script>
 	pediatrics_summary_4_toggle("severity");
