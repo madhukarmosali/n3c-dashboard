@@ -154,6 +154,7 @@
 						<div class="row">
 							<div class="col-12 dash-dt-section" id="${param.datatable_div}"></div>
 							<jsp:include page="${param.datatable}">
+								<jsp:param name="feed" value="${param.datatable_feed}"/>
 								<jsp:param name="target_div" value="${param.datatable_div}"/>
 								<jsp:param name="target_kpis" value="${param.datatable_kpis}"/>
 								<jsp:param name="block" value="${param.block}"/>

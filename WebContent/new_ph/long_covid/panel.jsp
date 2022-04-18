@@ -5,9 +5,6 @@
 <!-- binned_datediff_positive_and_symptoms (2022-03-31 05:04) -->
 <!-- icd10_individual_symptom_summary_counts (2022-03-31 05:02) -->
 <!-- icd10_individual_symptom_summary_counts_by_symptom (2022-03-31 05:02) -->
-<!-- icd10_symptoms_summary_counts (2022-03-31 05:01) -->
-<!-- long_covid_concept_set_agg_censored (2022-03-31 04:54) -->
-<!-- long_covid_icd_agg_censored (2022-03-31 04:54) -->
 <!-- symptom_before_or_after_covid (2022-03-31 05:04) -->
 
 <jsp:include page="../block.jsp">
@@ -22,8 +19,9 @@
 	<jsp:param name="severity_panel" value="test_panel.jsp?info=severity" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 
-	<jsp:param name="datatable" value="../modules/reinfections_by_date.jsp" />
-	<jsp:param name="datatable_div" value="reinfections-by-date" />
+	<jsp:param name="datatable" value="long_covid/severity_table.jsp" />
+	<jsp:param name="datatable_div" value="long_covid_severity" />
+	<jsp:param name="datatable_feed" value="long_covid/feeds/severity.jsp" />
 </jsp:include>
 <script>
 	long_covid_1_toggle("severity");
@@ -39,6 +37,10 @@
 
 	<jsp:param name="severity_panel" value="test_panel.jsp?info=severity" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
+
+	<jsp:param name="datatable" value="long_covid/clinic_severity_table.jsp" />
+	<jsp:param name="datatable_div" value="long_covid_clinic_severity" />
+	<jsp:param name="datatable_feed" value="long_covid/feeds/clinic_severity.jsp" />
 </jsp:include>
 <script>
 	long_covid_2_toggle("severity");
@@ -58,6 +60,10 @@
 	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 	<jsp:param name="ethnicity_panel" value="test_panel.jsp?info=ethnicity" />
+
+	<jsp:param name="datatable" value="long_covid/symptom_summary_table.jsp" />
+	<jsp:param name="datatable_div" value="long_covid_symptom_summary" />
+	<jsp:param name="datatable_feed" value="long_covid/feeds/symptom_summary.jsp" />
 </jsp:include>
 <script>
 	long_covid_3_toggle("age");
