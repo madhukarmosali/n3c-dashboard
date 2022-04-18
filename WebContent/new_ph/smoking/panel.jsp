@@ -21,8 +21,13 @@
 	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 
-	<jsp:param name="datatable" value="../modules/reinfections_by_date.jsp" />
-	<jsp:param name="datatable_div" value="reinfections-by-date" />
+	<jsp:param name="datatable" value="smoking/demographics_table.jsp" />
+	<jsp:param name="datatable_div" value="smoking_demographics" />
+	<jsp:param name="datatable_feed" value="smoking/feeds/demographics.jsp" />
+
+	<jsp:param name="datatable" value="smoking/severity_table.jsp" />
+	<jsp:param name="datatable_div" value="smoking_severity" />
+	<jsp:param name="datatable_feed" value="smoking/feeds/severity.jsp" />
 </jsp:include>
 <script>
 	smoking_1_toggle("severity");

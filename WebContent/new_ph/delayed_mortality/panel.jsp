@@ -21,8 +21,9 @@
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 	<jsp:param name="ethnicity_panel" value="test_panel.jsp?info=ethnicity" />
 
-	<jsp:param name="datatable" value="../modules/reinfections_by_date.jsp" />
-	<jsp:param name="datatable_div" value="reinfections-by-date" />
+	<jsp:param name="datatable" value="delayed_mortality/demographics_table.jsp" />
+	<jsp:param name="datatable_div" value="delayed_mortality_demographics" />
+	<jsp:param name="datatable_feed" value="delayed_mortality/feeds/demographics.jsp" />
 </jsp:include>
 <script>
 	delayed_mortality_1_toggle("age");
@@ -36,4 +37,8 @@
 	<jsp:param name="age_filter" value="true" />
 
 	<jsp:param name="simple_panel" value="test_panel.jsp?info=simple" />
+
+	<jsp:param name="datatable" value="delayed_mortality/delayed_table.jsp" />
+	<jsp:param name="datatable_div" value="delayed_mortality_delayed" />
+	<jsp:param name="datatable_feed" value="delayed_mortality/feeds/delayed.jsp" />
 </jsp:include>

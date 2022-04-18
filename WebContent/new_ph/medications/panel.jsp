@@ -14,6 +14,7 @@
 
 	<jsp:param name="simple_panel" value="test_panel.jsp?info=severity" />
 
-	<jsp:param name="datatable" value="../modules/reinfections_by_date.jsp" />
-	<jsp:param name="datatable_div" value="reinfections-by-date" />
+	<jsp:param name="datatable" value="medications/medications_table.jsp" />
+	<jsp:param name="datatable_div" value="medications_medications" />
+	<jsp:param name="datatable_feed" value="medications/feeds/medications.jsp" />
 </jsp:include>

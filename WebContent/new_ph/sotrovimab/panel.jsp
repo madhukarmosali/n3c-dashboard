@@ -43,7 +43,7 @@
 </jsp:include>
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="sotrovimab_4" />
-	<jsp:param name="block_header" value="Sotrovimab and Dempgraphics" />
+	<jsp:param name="block_header" value="Sotrovimab and Demographics" />
 
 	<jsp:param name="kpis" value="sotrovimab/kpis.jsp?block=sotrovimab_4" />
 
@@ -54,6 +54,10 @@
 	<jsp:param name="severity_panel" value="test_panel.jsp?info=severity" />
 	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
+
+	<jsp:param name="datatable" value="sotrovimab/demographics_table.jsp" />
+	<jsp:param name="datatable_div" value="sotrovimab_demographics" />
+	<jsp:param name="datatable_feed" value="sotrovimab/feeds/demographics.jsp" />
 </jsp:include>
 <script>
 	sotrovimab_4_toggle("severity");
