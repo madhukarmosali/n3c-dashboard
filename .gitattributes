@@ -145,6 +145,9 @@ WebContent/new_ph/kpis/covid_first_diagnosis.jsp -text
 WebContent/new_ph/kpis/covid_positive.jsp -text
 WebContent/new_ph/kpis/covid_reinfections.jsp -text
 WebContent/new_ph/kpis/covid_subsequent_test.jsp -text
+WebContent/new_ph/kpis/medication_class_count.jsp -text
+WebContent/new_ph/kpis/medication_count.jsp -text
+WebContent/new_ph/kpis/medication_patients.jsp -text
 WebContent/new_ph/long_covid/before_after_table.jsp -text
 WebContent/new_ph/long_covid/clinic_severity_table.jsp -text
 WebContent/new_ph/long_covid/feeds/before_after.jsp -text
