@@ -16,17 +16,17 @@
 
 	<jsp:param name="age_filter" value="true" />
 
-	<jsp:param name="simple_panel" value="test_panel.jsp?info=diabetes_2" />
+	<jsp:param name="simple_panel" value="diabetes/type_2.jsp" />
 </jsp:include>
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="diabetes_2" />
-	<jsp:param name="block_header" value="Diabetes Mellitus Type 1: Detailed" />
+	<jsp:param name="block_header" value="Diabetes Mellitus Type 2: Detailed" />
 
 	<jsp:param name="kpis" value="diabetes/kpis.jsp?block=diabetes_2" />
 
 	<jsp:param name="age_filter" value="true" />
 
-	<jsp:param name="simple_panel" value="test_panel.jsp?info=diabetes_2_detailed" />
+	<jsp:param name="simple_panel" value="diabetes/type_2_detailed.jsp" />
 </jsp:include>
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="diabetes_3" />
@@ -36,7 +36,7 @@
 
 	<jsp:param name="age_filter" value="true" />
 
-	<jsp:param name="simple_panel" value="test_panel.jsp?info=diabetes_1" />
+	<jsp:param name="simple_panel" value="diabetes/type_1.jsp" />
 </jsp:include>
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="diabetes_4" />
@@ -46,7 +46,7 @@
 
 	<jsp:param name="age_filter" value="true" />
 
-	<jsp:param name="simple_panel" value="test_panel.jsp?info=diabetes_1_detailed" />
+	<jsp:param name="simple_panel" value="diabetes/type_1_detailed.jsp" />
 </jsp:include>
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="diabetes_5" />
