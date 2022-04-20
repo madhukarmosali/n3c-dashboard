@@ -127,7 +127,7 @@
 	<jsp:param name="block" value="long_covid_7" />
 	<jsp:param name="block_header" value="Long COVID: Cognitive Impairment" />
 
-	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_7" />
+	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_7&symptom=Cognitive+impairment" />
 
 	<jsp:param name="age_filter" value="true" />
 	<jsp:param name="race_filter" value="true" />
@@ -150,7 +150,7 @@
 	<jsp:param name="block" value="long_covid_8" />
 	<jsp:param name="block_header" value="Long COVID: Fatigue" />
 
-	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_8" />
+	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_8&symptom=Fatigue" />
 
 	<jsp:param name="age_filter" value="true" />
 	<jsp:param name="race_filter" value="true" />
@@ -173,7 +173,7 @@
 	<jsp:param name="block" value="long_covid_9" />
 	<jsp:param name="block_header" value="Long COVID: Mental Health Condition" />
 
-	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_9" />
+	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_9&symptom=Mental+Health+Condition" />
 
 	<jsp:param name="age_filter" value="true" />
 	<jsp:param name="race_filter" value="true" />
@@ -196,7 +196,7 @@
 	<jsp:param name="block" value="long_covid_10" />
 	<jsp:param name="block_header" value="Long COVID: Postural Orthostatic Tachycardia Symdrome (POTS)" />
 
-	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_10" />
+	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_10&symptom=POTS" />
 
 	<jsp:param name="age_filter" value="true" />
 	<jsp:param name="race_filter" value="true" />
@@ -219,7 +219,7 @@
 	<jsp:param name="block" value="long_covid_11" />
 	<jsp:param name="block_header" value="Long COVID: Shortness of Breath" />
 
-	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_11" />
+	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_11&symptom=Shortness+of+breath" />
 
 	<jsp:param name="age_filter" value="true" />
 	<jsp:param name="race_filter" value="true" />
