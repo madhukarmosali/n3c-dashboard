@@ -147,6 +147,11 @@ WebContent/new_ph/hlh/kpis.jsp -text
 WebContent/new_ph/hlh/panel.jsp -text
 WebContent/new_ph/hss/kpis.jsp -text
 WebContent/new_ph/hss/panel.jsp -text
+WebContent/new_ph/kpis/adult_patients.jsp -text
+WebContent/new_ph/kpis/adult_ungrouped.jsp -text
+WebContent/new_ph/kpis/adult_unknown_vaccinated.jsp -text
+WebContent/new_ph/kpis/adult_vaccinated.jsp -text
+WebContent/new_ph/kpis/adult_vaccinated_comorbidities.jsp -text
 WebContent/new_ph/kpis/covid_first_diagnosis.jsp -text
 WebContent/new_ph/kpis/covid_positive.jsp -text
 WebContent/new_ph/kpis/covid_reinfections.jsp -text
@@ -168,6 +173,11 @@ WebContent/new_ph/kpis/long_total_ungrouped.jsp -text
 WebContent/new_ph/kpis/medication_class_count.jsp -text
 WebContent/new_ph/kpis/medication_count.jsp -text
 WebContent/new_ph/kpis/medication_patients.jsp -text
+WebContent/new_ph/kpis/peds_patients.jsp -text
+WebContent/new_ph/kpis/peds_ungrouped.jsp -text
+WebContent/new_ph/kpis/peds_unknown_vaccination.jsp -text
+WebContent/new_ph/kpis/peds_vaccinated.jsp -text
+WebContent/new_ph/kpis/peds_vaccinated_comorbidities.jsp -text
 WebContent/new_ph/long_covid/before_after_table.jsp -text
 WebContent/new_ph/long_covid/clinic_severity_table.jsp -text
 WebContent/new_ph/long_covid/feeds/before_after.jsp -text
