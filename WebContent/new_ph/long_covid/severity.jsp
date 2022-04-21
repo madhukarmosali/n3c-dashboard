@@ -3,9 +3,9 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 
-<div id="${param.block}_age_viz" class="col-lg-7 dash_viz"></div>
+<div id="${param.block}_severity_viz" class="col-lg-7 dash_viz"></div>
+<p>Sample text.</p>
 <script>
 	${param.block}_refreshHistograms();
-	localHorizontalStackedBarChart(${param.block}_ageArray,"#${param.block}_age_viz", 140);
-	console.log("age graph", "${param.block}_age_viz", ${param.block}_ageArray)
+	console.log("severity graph", "${param.block}_severity_viz", ${param.block}_severityArray)
 </script>

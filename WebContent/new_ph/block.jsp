@@ -239,6 +239,21 @@
 	var ${param.block}_ethnicityArray = new Array();
 	var ${param.block}_genderArray = new Array();
 	var ${param.block}_severityArray = new Array();
+	
+	// stacked bar arrays
+	// gender/severity
+	// severity/gender
+	// observation/age
+	// observation/gender
+	// observation/race
+	// observation/ethnicity
+	// symptom/observation (grouped and ungrouped)
+	// symptom/age (grouped and ungrouped)
+	// symptom/gender (grouped and ungrouped)
+	// symptom/race (grouped and ungrouped)
+	// symptom/ethnicity (grouped and ungrouped)
+	// ungrouped symptom / before/after
+	
 
 	function ${param.block}_refreshHistograms() {
 	    var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();

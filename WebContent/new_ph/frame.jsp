@@ -4,6 +4,7 @@
 
 <jsp:include page="../graph_support/pieChart_local.jsp"/>
 <jsp:include page="../graph_support/horizontalBarChart_local.jsp"/>
+<jsp:include page="../graph_support/horizontalStackedBarChart_local.jsp"/>
 <jsp:include page="../graph_support/verticalBarChart_local.jsp"/>
 
 <c:choose>

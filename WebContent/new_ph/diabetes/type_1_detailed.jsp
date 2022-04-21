@@ -5,7 +5,7 @@
 <c:set var="feedPath1">
 	<util:applicationRoot />/new_ph/diabetes/feeds/diabetes_t1_detail.jsp</c:set>
 		<div id="diabetes_type1_detail_1">
-			<jsp:include page="../../graph_support/stacked_bar_horizontal.jsp">
+			<jsp:include page="../../graph_support/stacked_bar_horizontal_2.jsp">
 				<jsp:param name="data_page" value="${feedPath1}" />
 				<jsp:param name="namespace" value="diabetes_type1_aggregate" />
 				<jsp:param name="dom_element" value="#diabetes_type1_detail_1" />
