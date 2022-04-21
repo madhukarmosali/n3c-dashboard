@@ -65,6 +65,16 @@
 						</select>
 					</div>
 				</c:if>
+				<c:if test="${param.age_filter4}">
+					<div class="panel-body border">
+						<h6>Age</h6>
+						<select id="${param.block}-age-select" multiple="multiple">
+							<option value="<18">&lt;18</option>
+							<option value="18-64">18-64</option>
+							<option value="65+">65+</option>
+						</select>
+					</div>
+				</c:if>
 				<c:if test="${param.race_filter}">
 					<div class="panel-body border">
 						<h6>Race</h6>
@@ -84,7 +94,8 @@
 						<select id="${param.block}-gender-select" multiple="multiple">
 							<option value="Female">Female</option>
 							<option value="Male">Male</option>
-							<option value="Unknown / Not Reported">Unknown / Not Reported</option>
+							<option value="Other">Other</option>
+							<option value="Unknown">Unknown / Not Reported</option>
 						</select>
 					</div>
 				</c:if>

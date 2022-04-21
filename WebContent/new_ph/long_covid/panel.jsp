@@ -48,12 +48,12 @@
 
 	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_3" />
 
-	<jsp:param name="age_filter" value="true" />
+	<jsp:param name="age_filter4" value="true" />
 	<jsp:param name="race_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
+	<jsp:param name="age_panel" value="long_covid/age.jsp?block=long_covid_3" />
 	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 	<jsp:param name="ethnicity_panel" value="test_panel.jsp?info=ethnicity" />
@@ -71,12 +71,12 @@
 
 	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_4" />
 
-	<jsp:param name="age_filter" value="true" />
+	<jsp:param name="age_filter4" value="true" />
 	<jsp:param name="race_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
+	<jsp:param name="age_panel" value="long_covid/age.jsp?block=long_covid_4" />
 	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 	<jsp:param name="ethnicity_panel" value="test_panel.jsp?info=ethnicity" />
@@ -94,12 +94,12 @@
 
 	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_5" />
 
-	<jsp:param name="age_filter" value="true" />
+	<jsp:param name="age_filter4" value="true" />
 	<jsp:param name="race_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
+	<jsp:param name="age_panel" value="long_covid/age.jsp?block=long_covid_5" />
 	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 	<jsp:param name="ethnicity_panel" value="test_panel.jsp?info=ethnicity" />
@@ -129,12 +129,12 @@
 
 	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_7&symptom=Cognitive+impairment" />
 
-	<jsp:param name="age_filter" value="true" />
+	<jsp:param name="age_filter4" value="true" />
 	<jsp:param name="race_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
+	<jsp:param name="age_panel" value="long_covid/age.jsp?block=long_covid_7" />
 	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 	<jsp:param name="ethnicity_panel" value="test_panel.jsp?info=ethnicity" />
@@ -152,12 +152,12 @@
 
 	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_8&symptom=Fatigue" />
 
-	<jsp:param name="age_filter" value="true" />
+	<jsp:param name="age_filter4" value="true" />
 	<jsp:param name="race_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
+	<jsp:param name="age_panel" value="long_covid/age.jsp?block=long_covid_8" />
 	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 	<jsp:param name="ethnicity_panel" value="test_panel.jsp?info=ethnicity" />
@@ -175,12 +175,12 @@
 
 	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_9&symptom=Mental+Health+Condition" />
 
-	<jsp:param name="age_filter" value="true" />
+	<jsp:param name="age_filter4" value="true" />
 	<jsp:param name="race_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
+	<jsp:param name="age_panel" value="long_covid/age.jsp?block=long_covid_9" />
 	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 	<jsp:param name="ethnicity_panel" value="test_panel.jsp?info=ethnicity" />
@@ -198,12 +198,12 @@
 
 	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_10&symptom=POTS" />
 
-	<jsp:param name="age_filter" value="true" />
+	<jsp:param name="age_filter4" value="true" />
 	<jsp:param name="race_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
+	<jsp:param name="age_panel" value="long_covid/age.jsp?block=long_covid_10" />
 	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 	<jsp:param name="ethnicity_panel" value="test_panel.jsp?info=ethnicity" />
@@ -221,12 +221,12 @@
 
 	<jsp:param name="kpis" value="long_covid/kpis.jsp?block=long_covid_11&symptom=Shortness+of+breath" />
 
-	<jsp:param name="age_filter" value="true" />
+	<jsp:param name="age_filter4" value="true" />
 	<jsp:param name="race_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
+	<jsp:param name="age_panel" value="long_covid/age.jsp?block=long_covid_11" />
 	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
 	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
 	<jsp:param name="ethnicity_panel" value="test_panel.jsp?info=ethnicity" />

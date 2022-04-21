@@ -3,7 +3,8 @@
 
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
-	from (select *
+	from (select age_bin, gender_abbrev as gender, race, ethnicity, observation, symptom, patient_count,
+				 age_abbrev, age_seq, race_abbrev, race_seq, ethnicity_abbrev, ethnicity_seq, gender_abbrev, gender_seq
 			from (select
 					age_bin,
 					gender_concept_name as gender,
@@ -18,7 +19,7 @@
 				  from n3c_questions.icd10_individual_symptom_summary_counts_by_symptom
 				<c:if test="${not empty param.symptom}">where symptom = '${param.symptom}'</c:if>
 		  	) as foo
-		  	natural join n3c_dashboard.age_map2
+		  	natural join n3c_dashboard.age_map4
 		  	natural join n3c_dashboard.gender_map2
 		  	natural join n3c_dashboard.race_map
 		  	natural join n3c_dashboard.ethnicity_map

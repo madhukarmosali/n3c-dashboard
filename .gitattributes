@@ -178,6 +178,7 @@ WebContent/new_ph/kpis/peds_ungrouped.jsp -text
 WebContent/new_ph/kpis/peds_unknown_vaccination.jsp -text
 WebContent/new_ph/kpis/peds_vaccinated.jsp -text
 WebContent/new_ph/kpis/peds_vaccinated_comorbidities.jsp -text
+WebContent/new_ph/long_covid/age.jsp -text
 WebContent/new_ph/long_covid/before_after_table.jsp -text
 WebContent/new_ph/long_covid/clinic_severity_table.jsp -text
 WebContent/new_ph/long_covid/feeds/before_after.jsp -text
