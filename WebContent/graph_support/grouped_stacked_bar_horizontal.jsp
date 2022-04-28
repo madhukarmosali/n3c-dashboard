@@ -88,10 +88,10 @@ d3.json("${param.data_page}", function(error, data) {
 			.entries(data)
 			.map(function(d){ return d.value; });
   
-  
+ console.log("group", groupData) 
 		var stackData = d3.stack()
 			.keys(keys)(groupData)
-  
+  console.log("stack", stackData)
 		x.domain([0, d3.max(groupData, function(d) { return d.total; })]).nice();
 
 		

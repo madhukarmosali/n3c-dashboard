@@ -181,33 +181,53 @@
 <script>
 
 	$('#${param.block}-severity-select').change(function() {
-	    $("#${param.datatable_div}-table").DataTable().column(4).search("^" + $(this).val().join('|')+ "$", true, false, true).draw();
+		var selected = $(this).val().join('|');
+		if (selected != undefined && selected.length > 0)
+			selected = "^" + selected + "$";
+		else
+			selected = '';
+	    $("#${param.datatable_div}-table").DataTable().column(4).search(selected, true, false, true).draw();
 	    ${param.block}_refreshHistograms();
-    	console.log("severity", $(this).val())
   	});
 
 	$('#${param.block}-age-select').change(function() {
-	    $("#${param.datatable_div}-table").DataTable().column(2).search("^" + $(this).val().join('|')+ "$", true, false, true).draw();
+		var selected = $(this).val().join('|');
+		if (selected != undefined && selected.length > 0)
+			selected = "^" + selected + "$";
+		else
+			selected = '';
+	    $("#${param.datatable_div}-table").DataTable().column(2).search(selected, true, false, true).draw();
 	    ${param.block}_refreshHistograms();
-    	console.log("age", $(this).val())
   	});
 
 	$('#${param.block}-race-select').change(function() {
-	    $("#${param.datatable_div}-table").DataTable().column(0).search("^" + $(this).val().join('|')+ "$", true, false, true).draw();
+		var selected = $(this).val().join('|');
+		if (selected != undefined && selected.length > 0)
+			selected = "^" + selected + "$";
+		else
+			selected = '';
+	    $("#${param.datatable_div}-table").DataTable().column(0).search(selected, true, false, true).draw();
 	    ${param.block}_refreshHistograms();
-    	console.log("race", $(this).val())
   	});
 
 	$('#${param.block}-gender-select').change(function() {
-	    $("#${param.datatable_div}-table").DataTable().column(3).search("^" + $(this).val().join('|')+ "$", true, false, true).draw();
+		var selected = $(this).val().join('|');
+		if (selected != undefined && selected.length > 0)
+			selected = "^" + selected + "$";
+		else
+			selected = '';
+	    $("#${param.datatable_div}-table").DataTable().column(3).search(selected, true, false, true).draw();
 	    ${param.block}_refreshHistograms();
-    	console.log("gender", $(this).val())
   	});
 
 	$('#${param.block}-ethnicity-select').change(function() {
-	    $("#${param.datatable_div}-table").DataTable().column(1).search("^" + $(this).val().join('|')+ "$", true, false, true).draw();
+		var selected = $(this).val().join('|');
+		if (selected != undefined && selected.length > 0)
+			selected = "^" + selected + "$";
+		else
+			selected = '';
+	    $("#${param.datatable_div}-table").DataTable().column(1).search(selected, true, false, true).draw();
 	    ${param.block}_refreshHistograms();
-    	console.log("ethnicity", $(this).val())
   	});
 
 	$(document).ready(function() {       
@@ -234,26 +254,28 @@
 	    ${param.block}_refreshHistograms();
 	}
 	
-	var ${param.block}_ageArray = new Array();
-	var ${param.block}_raceArray = new Array();
-	var ${param.block}_ethnicityArray = new Array();
-	var ${param.block}_genderArray = new Array();
-	var ${param.block}_severityArray = new Array();
+	var ${param.block}_AgeArray = new Array();
+	var ${param.block}_RaceArray = new Array();
+	var ${param.block}_EthnicityArray = new Array();
+	var ${param.block}_GenderArray = new Array();
+	var ${param.block}_SeverityArray = new Array();
 	
 	// stacked bar arrays
-	// gender/severity
-	// severity/gender
-	// observation/age
-	// observation/gender
-	// observation/race
-	// observation/ethnicity
-	// symptom/observation (grouped and ungrouped)
-	// symptom/age (grouped and ungrouped)
-	// symptom/gender (grouped and ungrouped)
-	// symptom/race (grouped and ungrouped)
-	// symptom/ethnicity (grouped and ungrouped)
 	// ungrouped symptom / before/after
+
+	var ${param.block}_GenderSeverityArray = new Array();
+	var ${param.block}_SeverityGenderArray = new Array();
 	
+	var ${param.block}_ObservationAgeArray = new Array();
+	var ${param.block}_ObservationGenderArray = new Array();
+	var ${param.block}_ObservationRaceArray = new Array();
+	var ${param.block}_IbservationEthnicityArray = new Array();
+	
+	var ${param.block}_SymptomAgeArray = new Array();
+	var ${param.block}_SymptomGenderArray = new Array();
+	var ${param.block}_SymptomRaceArray = new Array();
+	var ${param.block}_SymptomEthnicityArray = new Array();
+	var ${param.block}_SymptomObservationArray = new Array();
 
 	function ${param.block}_refreshHistograms() {
 	    var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();
@@ -264,240 +286,36 @@
 	    ${param.block}_refreshGenderArray(data);
 	    ${param.block}_refreshSeverityArray(data);
 	    
+	    ${param.block}_refreshGenderSeverityArray(data);
+	    ${param.block}_refreshSeverityGenderArray(data);
+	    ${param.block}_refreshObservationAgeArray(data);
+	    ${param.block}_refreshObservationGenderArray(data);
+	    ${param.block}_refreshObservationRaceArray(data);
+	    ${param.block}_refreshObservationEthnicityArray(data);
+
+	    ${param.block}_refreshSymptomAgeArray(data);
+	    ${param.block}_refreshSymptomGenderArray(data);
+	    ${param.block}_refreshSymptomRaceArray(data);
+	    ${param.block}_refreshSymptomEthnicityArray(data);
+	    ${param.block}_refreshSymptomObservationArray(data);
+
 	    if (${param.block}_loaded("severity")) {
-	    	d3.select("#${param.block}_severity_viz").select("svg").remove();
-		    localPieChart(${param.block}_severityArray,"#${param.block}_severity_viz");
+	    	${param.block}_severity_refresh();
 	    }
 	    if (${param.block}_loaded("age")) {
-		    d3.select("#${param.block}_age_viz").select("svg").remove();
-		    localVerticalBarChart(${param.block}_ageArray,"#${param.block}_age_viz", 120);
+	    	${param.block}_age_refresh();
 	    }
 	    if (${param.block}_loaded("race")) {
-		    d3.select("#${param.block}_race_viz").select("svg").remove();
-		    localPieChart(${param.block}_raceArray,"#${param.block}_race_viz", 0.66);
+	    	${param.block}_race_refresh();
 	    }
 	    if (${param.block}_loaded("gender")) {
-		    d3.select("#${param.block}_gender_viz").select("svg").remove();
-		    localHorizontalBarChart(${param.block}_genderArray,"#${param.block}_gender_viz", 140);
+	    	${param.block}_gender_refresh();
 	    }
 	    if (${param.block}_loaded("ethnicity")) {
-		    d3.select("#${param.block}_ethnicity_viz").select("svg").remove();
-		    localPieChart(${param.block}_ethnicityArray,"#${param.block}_ethnicity_viz");
+	    	${param.block}_ethnicity_refresh();
 	    }
 	  }
 	
-	
-	function ${param.block}_refreshAgeArray(data) {
-		var aData = new Object;
-		$("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().each( function ( group, i ) {
-	    	var group = data[i].age_bin;
-	    	var count = data[i].patient_count;
-	        if (typeof aData[group] == 'undefined') {
-	            aData[group] = count;
-	         } else
-	        	 aData[group] += count;
-		});
-
-		${param.block}_ageArray = new Array();
-	    for(var i in aData) {
-	    	var obj = new Object();
-	    	Object.defineProperty(obj, 'element', {
-	    		  value: i
-	    		});
-	    	Object.defineProperty(obj, 'count', {
-	  		  value: aData[i]
-	  		});
-	    	${param.block}_ageArray.push(obj);
-	    }
-	    ${param.block}_ageArray.sort((a,b) => (a.element > b.element) ? 1 : ((b.element > a.element) ? -1 : 0));
-	    console.log("refreshed age", ${param.block}_ageArray);
-	}
-
-	function ${param.block}_refreshRaceArray(data) {
-		var aData = new Object;
-		var bData = new Object;
-		$("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().each( function ( group, i ) {
-	   	var group = data[i].race;
-	   	switch (data[i].race) {
-	   	case "White":
-	   		group = "White";
-	   		break;
-		case "Black or African American":
-			group = "Black";
-			break;
-		case "Asian":
-			group = "Asian";
-			break;
-	   	case "Native Hawaiian or Other Pacific Islander":
-	   		group = "NHPI";
-	   		break;
-	   	case "Other":
-	   		group = "Other";
-	   		break;
-	   	case "Missing/Unknown":
-	   		group = "Missing";
-	   		break;
-	   	};
-		var count = data[i].patient_count;
-		var seq = data[i].race_seq;
-	        if (typeof aData[group] == 'undefined') {
-	            aData[group] = count;
-	            bData[group] = seq;
-	         } else
-	        	 aData[group] += count;
-		});
-
-		${param.block}_raceArray = new Array();
-	    for(var i in aData) {
-	    	var obj = new Object();
-	    	Object.defineProperty(obj, 'element', {
-	    		  value: i
-	    		});
-	    	Object.defineProperty(obj, 'count', {
-	  		  value: aData[i]
-	  		});
-	    	Object.defineProperty(obj, 'seq', {
-	    		  value: bData[i]
-	    		});
-	    	${param.block}_raceArray.push(obj);
-	    }
-	    ${param.block}_raceArray.sort((a,b) => (a.seq > b.seq) ? 1 : ((b.seq > a.seq) ? -1 : 0));
-	    console.log("refreshed race", ${param.block}_raceArray);
-	}
-
-	function ${param.block}_refreshEthnicityArray(data) {
-		var aData = new Object;
-		var bData = new Object;
-		$("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().each( function ( group, i ) {
-	    	var group = data[i].ethnicity_abbrev;
-	    	var count = data[i].patient_count;
-	    	var seq = data[i].ethnicity_seq;
-	        if (typeof aData[group] == 'undefined') {
-	            aData[group] = count;
-	            bData[group] = seq;
-	         } else
-	        	 aData[group] += count;
-		});
-
-		${param.block}_ethnicityArray = new Array();
-	    for(var i in aData) {
-	    	var obj = new Object();
-	    	Object.defineProperty(obj, 'element', {
-	    		  value: i
-	    		});
-	    	Object.defineProperty(obj, 'count', {
-	  		  value: aData[i]
-	  		});
-	    	Object.defineProperty(obj, 'seq', {
-	  		  value: bData[i]
-	  		});
-	    	${param.block}_ethnicityArray.push(obj);
-	    }
-	    ${param.block}_ethnicityArray.sort((a,b) => (a.seq > b.seq) ? 1 : ((b.seq > a.seq) ? -1 : 0));
-	    console.log("refreshed ethnicity", ${param.block}_ethnicityArray);
-	}
-
-	function ${param.block}_refreshGenderArray(data) {
-		var aData = new Object;
-		var bData = new Object;
-		$("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().each( function ( group, i ) {
-	    	var group = data[i].gender;
-	       	switch (data[i].gender) {
-	       	case "MALE":
-	       		group = "Male";
-	       		break;
-	    	case "FEMALE":
-	    		group = "Female";
-	    		break;
-	    	case "OTHER":
-	    		group = "Other";
-	    		break;
-	       	case "Other":
-	       		group = "Other";
-	       		break;
-	       	case "Unkown":
-	       		group = "Unkown";
-	       		break;
-	       	case "Gender unkown":
-	       		group = "Unkown";
-	       		break;
-	       	};
-	    	var count = data[i].patient_count;
-	    	var seq = data[i].gender_seq;
-	      if (typeof aData[group] == 'undefined') {
-	            aData[group] = count;
-	            bData[group] = seq;
-	        } else
-	        	 aData[group] += count;
-		});
-
-		${param.block}_genderArray = new Array();
-	    for(var i in aData) {
-	    	var obj = new Object();
-	    	Object.defineProperty(obj, 'element', {
-	    		  value: i
-	    		});
-	    	Object.defineProperty(obj, 'count', {
-	  		  value: aData[i]
-	  		});
-	    	Object.defineProperty(obj, 'seq', {
-	    		  value: bData[i]
-	    		});
-	    	${param.block}_genderArray.push(obj);
-	    }
-	    ${param.block}_genderArray.sort((a,b) => (a.seq > b.seq) ? 1 : ((b.seq > a.seq) ? -1 : 0));
-	    console.log("refreshed gender", ${param.block}_genderArray);
-	}
-
-	function ${param.block}_refreshSeverityArray(data) {
-		var aData = new Object;
-		var bData = new Object;
-		$("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().each( function ( group, i ) {
-	    	var group = data[i].severity;
-	       	switch (data[i].severity) {
-	       	case "Mild":
-	       		group = "Mild";
-	       		break;
-	    	case "Mild_ED":
-	    		group = "Mild in ED ";
-	    		break;
-	    	case "Moderate":
-	    		group = "Moderate";
-	    		break;
-	       	case "Severe":
-	       		group = "Severe";
-	       		break;
-	       	case "Dead_w_COVID":
-	       		group = "Dead w/ COVID";
-	       		break;
-	       	};
-	    	var count = data[i].patient_count;
-	    	var seq = data[i].severity_seq;
-	        if (typeof aData[group] == 'undefined') {
-	            aData[group] = count;
-	            bData[group] = seq;
-	         } else
-	        	 aData[group] += count;
-		});
-
-		${param.block}_severityArray = new Array();
-	    for(var i in aData) {
-	    	var obj = new Object();
-	    	Object.defineProperty(obj, 'element', {
-	    		  value: i
-	    		});
-	    	Object.defineProperty(obj, 'count', {
-	  		  value: aData[i]
-	  		});
-	    	Object.defineProperty(obj, 'seq', {
-	  		  value: bData[i]
-	  		});
-	    	${param.block}_severityArray.push(obj);
-	    }
-	    ${param.block}_severityArray.sort((a,b) => (a.seq > b.seq) ? 1 : ((b.seq > a.seq) ? -1 : 0));
-	    console.log("refreshed severity", ${param.block}_severityArray);
-	}
-
 	function ${param.block}_toggle(selection) {
 		if (selection == "severity") {
 			$("#${param.block}-severity").css('display', 'block');
@@ -590,3 +408,129 @@
 		return ${param.block}_crumbs.includes(selection);
 	}
 </script>
+
+<jsp:include page="singleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="AgeArray"/>
+	<jsp:param name="primary" value="age"/>
+</jsp:include>
+
+<jsp:include page="singleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="RaceArray"/>
+	<jsp:param name="primary" value="race"/>
+</jsp:include>
+
+<jsp:include page="singleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="GenderArray"/>
+	<jsp:param name="primary" value="gender"/>
+</jsp:include>
+
+<jsp:include page="singleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="EthnicityArray"/>
+	<jsp:param name="primary" value="ethnicity"/>
+</jsp:include>
+
+<jsp:include page="singleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="SeverityArray"/>
+	<jsp:param name="primary" value="severity"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="GenderSeverityArray"/>
+	<jsp:param name="primary" value="gender"/>
+	<jsp:param name="primary_abbrev" value="gender_abbrev"/>
+	<jsp:param name="secondary" value="severity"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="SeverityGenderArray"/>
+	<jsp:param name="primary" value="severity"/>
+	<jsp:param name="primary_abbrev" value="severity_abbrev"/>
+	<jsp:param name="secondary" value="gender"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="ObservationAgeArray"/>
+	<jsp:param name="primary" value="observation"/>
+	<jsp:param name="secondary" value="age"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="ObservationGenderArray"/>
+	<jsp:param name="primary" value="observation"/>
+	<jsp:param name="secondary" value="gender"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="ObservationRaceArray"/>
+	<jsp:param name="primary" value="observation"/>
+	<jsp:param name="secondary" value="race"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="ObservationEthnicityArray"/>
+	<jsp:param name="primary" value="observation"/>
+	<jsp:param name="secondary" value="ethnicity"/>
+</jsp:include>
+
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="SymptomAgeArray"/>
+	<jsp:param name="primary" value="symptom"/>
+	<jsp:param name="secondary" value="age"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="SymptomGenderArray"/>
+	<jsp:param name="primary" value="symptom"/>
+	<jsp:param name="secondary" value="gender"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="SymptomRaceArray"/>
+	<jsp:param name="primary" value="symptom"/>
+	<jsp:param name="secondary" value="race"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="SymptomEthnicityArray"/>
+	<jsp:param name="primary" value="symptom"/>
+	<jsp:param name="secondary" value="ethnicity"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="SymptomObservationArray"/>
+	<jsp:param name="primary" value="symptom"/>
+	<jsp:param name="secondary" value="observation"/>
+</jsp:include>

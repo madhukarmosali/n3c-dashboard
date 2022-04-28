@@ -3,8 +3,9 @@
 
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
-	from (select age_bin, gender_abbrev as gender, race, ethnicity, observation, symptom, patient_count,
-				 age_abbrev, age_seq, race_abbrev, race_seq, ethnicity_abbrev, ethnicity_seq, gender_abbrev, gender_seq
+	from (select age_bin as age, gender_abbrev as gender, race, ethnicity, observation, symptom, patient_count,
+				 age_abbrev, age_seq, race_abbrev, race_seq, ethnicity_abbrev, ethnicity_seq, gender_abbrev, gender_seq,
+				 observation_seq, symptom_seq
 			from (select
 					age_bin,
 					gender_concept_name as gender,
@@ -22,11 +23,13 @@
 		  	natural join n3c_dashboard.gender_map2
 		  	natural join n3c_dashboard.race_map
 		  	natural join n3c_dashboard.ethnicity_map
+		  	natural join n3c_dashboard.observation_map
+		  	natural join n3c_dashboard.symptom_map
 		  ) as done;
 </sql:query>
 {
     "headers": [
-        {"value":"age_bin", "label":"Age"},
+        {"value":"age", "label":"Age"},
         {"value":"gender", "label":"Gender"},
         {"value":"race", "label":"Race"},
         {"value":"ethnicity", "label":"Ethnicity"},
@@ -40,7 +43,9 @@
         {"value":"ethnicity_abbrev", "label":"dummy5"},
         {"value":"ethnicity_seq", "label":"dummy6"},
         {"value":"gender_abbrev", "label":"dummy7"},
-        {"value":"gender_seq", "label":"dummy8"}
+        {"value":"gender_seq", "label":"dummy8"},
+        {"value":"observation_seq", "label":"dummy9"},
+        {"value":"symptom_seq", "label":"dummy10"}
     ],
     "rows" : 
 <c:forEach items="${severity.rows}" var="row" varStatus="rowCounter">

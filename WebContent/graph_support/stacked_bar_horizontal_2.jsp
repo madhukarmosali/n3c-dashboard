@@ -200,7 +200,8 @@ d3.json("${param.data_page}", function(error, data) {
 		     	var yPosition = d3.mouse(this)[1];
 		     	tooltip.attr("transform", "translate(" + xPosition + "," + ((y0(d.data.${param.primary_group}))) + ")");
 		     	tooltip.select("text").text(d[1]-d[0]);
-			});
+			})
+			;
 		  		
   		
 		// Legend ////////////////////	

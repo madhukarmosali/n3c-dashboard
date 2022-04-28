@@ -13,8 +13,8 @@
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 
-	<jsp:param name="severity_panel" value="long_covid/severity.jsp?block=long_covid_1" />
-	<jsp:param name="gender_panel" value="long_covid/gender.jsp?block=long_covid_1" />
+	<jsp:param name="severity_panel" value="long_covid/severityGender.jsp?block=long_covid_1" />
+	<jsp:param name="gender_panel" value="long_covid/genderSeverity.jsp?block=long_covid_1" />
 
 	<jsp:param name="datatable" value="long_covid/severity_table.jsp" />
 	<jsp:param name="datatable_div" value="long_covid_severity" />
@@ -32,8 +32,8 @@
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 
-	<jsp:param name="severity_panel" value="long_covid/severity.jsp?block=long_covid_2" />
-	<jsp:param name="gender_panel" value="long_covid/gender.jsp?block=long_covid_2" />
+	<jsp:param name="severity_panel" value="long_covid/severityGender.jsp?block=long_covid_2" />
+	<jsp:param name="gender_panel" value="long_covid/genderSeverity.jsp?block=long_covid_2" />
 
 	<jsp:param name="datatable" value="long_covid/clinic_severity_table.jsp" />
 	<jsp:param name="datatable_div" value="long_covid_clinic_severity" />
@@ -53,10 +53,10 @@
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="long_covid/age.jsp?block=long_covid_3" />
-	<jsp:param name="race_panel" value="long_covid/race.jsp?block=long_covid_3" />
-	<jsp:param name="gender_panel" value="long_covid/gender.jsp?block=long_covid_3" />
-	<jsp:param name="ethnicity_panel" value="long_covid/ethnicity.jsp?block=long_covid_3" />
+	<jsp:param name="age_panel" value="long_covid/observationAge.jsp?block=long_covid_3" />
+	<jsp:param name="race_panel" value="long_covid/observationRace.jsp?block=long_covid_3" />
+	<jsp:param name="gender_panel" value="long_covid/observationGender.jsp?block=long_covid_3" />
+	<jsp:param name="ethnicity_panel" value="long_covid/observationEthnicity.jsp?block=long_covid_3" />
 
 	<jsp:param name="datatable" value="long_covid/symptom_summary_table.jsp" />
 	<jsp:param name="datatable_div" value="long_covid_symptom_summary" />
@@ -76,10 +76,10 @@
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="long_covid/age.jsp?block=long_covid_4" />
-	<jsp:param name="race_panel" value="long_covid/race.jsp?block=long_covid_4" />
-	<jsp:param name="gender_panel" value="long_covid/gender.jsp?block=long_covid_4" />
-	<jsp:param name="ethnicity_panel" value="long_covid/ethnicity.jsp?block=long_covid_4" />
+	<jsp:param name="age_panel" value="long_covid/symptomAge.jsp?block=long_covid_4" />
+	<jsp:param name="race_panel" value="long_covid/symptomRace.jsp?block=long_covid_4" />
+	<jsp:param name="gender_panel" value="long_covid/symptomGender.jsp?block=long_covid_4" />
+	<jsp:param name="ethnicity_panel" value="long_covid/symptomEthnicity.jsp?block=long_covid_4" />
 
 	<jsp:param name="datatable" value="long_covid/symptom_grouped_table.jsp" />
 	<jsp:param name="datatable_div" value="long_covid_symptom_grouped" />
@@ -99,10 +99,10 @@
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="long_covid/age.jsp?block=long_covid_5" />
-	<jsp:param name="race_panel" value="long_covid/race.jsp?block=long_covid_5" />
-	<jsp:param name="gender_panel" value="long_covid/gender.jsp?block=long_covid_5" />
-	<jsp:param name="ethnicity_panel" value="long_covid/ethnicity.jsp?block=long_covid_5" />
+	<jsp:param name="age_panel" value="long_covid/symptomAge.jsp?block=long_covid_5" />
+	<jsp:param name="race_panel" value="long_covid/symptomRace.jsp?block=long_covid_5" />
+	<jsp:param name="gender_panel" value="long_covid/symptomGender.jsp?block=long_covid_5" />
+	<jsp:param name="ethnicity_panel" value="long_covid/symptomEthnicity.jsp?block=long_covid_5" />
 
 	<jsp:param name="datatable" value="long_covid/symptom_ungrouped_table.jsp" />
 	<jsp:param name="datatable_div" value="long_covid_symptom_ungrouped" />
@@ -134,10 +134,10 @@
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="long_covid/age.jsp?block=long_covid_7" />
-	<jsp:param name="race_panel" value="long_covid/race.jsp?block=long_covid_7" />
-	<jsp:param name="gender_panel" value="long_covid/gender.jsp?block=long_covid_7" />
-	<jsp:param name="ethnicity_panel" value="long_covid/ethnicity.jsp?block=long_covid_7" />
+	<jsp:param name="age_panel" value="long_covid/symptomAge.jsp?block=long_covid_7" />
+	<jsp:param name="race_panel" value="long_covid/symptomRace.jsp?block=long_covid_7" />
+	<jsp:param name="gender_panel" value="long_covid/symptomGender.jsp?block=long_covid_7" />
+	<jsp:param name="ethnicity_panel" value="long_covid/symptomEthnicity.jsp?block=long_covid_7" />
 
 	<jsp:param name="datatable" value="long_covid/symptom_cognitive_table.jsp" />
 	<jsp:param name="datatable_div" value="long_covid_symptom_cognitive" />
@@ -157,10 +157,10 @@
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="long_covid/age.jsp?block=long_covid_8" />
-	<jsp:param name="race_panel" value="long_covid/race.jsp?block=long_covid_8" />
-	<jsp:param name="gender_panel" value="long_covid/gender.jsp?block=long_covid_8" />
-	<jsp:param name="ethnicity_panel" value="long_covid/ethnicity.jsp?block=long_covid_8" />
+	<jsp:param name="age_panel" value="long_covid/symptomAge.jsp?block=long_covid_8" />
+	<jsp:param name="race_panel" value="long_covid/symptomRace.jsp?block=long_covid_8" />
+	<jsp:param name="gender_panel" value="long_covid/symptomGender.jsp?block=long_covid_8" />
+	<jsp:param name="ethnicity_panel" value="long_covid/symptomEthnicity.jsp?block=long_covid_8" />
 
 	<jsp:param name="datatable" value="long_covid/symptom_fatigue_table.jsp" />
 	<jsp:param name="datatable_div" value="long_covid_symptom_fatigue" />
@@ -180,10 +180,10 @@
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="long_covid/age.jsp?block=long_covid_9" />
-	<jsp:param name="race_panel" value="long_covid/race.jsp?block=long_covid_9" />
-	<jsp:param name="gender_panel" value="long_covid/gender.jsp?block=long_covid_9" />
-	<jsp:param name="ethnicity_panel" value="long_covid/ethnicity.jsp?block=long_covid_9" />
+	<jsp:param name="age_panel" value="long_covid/symptomAge.jsp?block=long_covid_9" />
+	<jsp:param name="race_panel" value="long_covid/symptomRace.jsp?block=long_covid_9" />
+	<jsp:param name="gender_panel" value="long_covid/symptomGender.jsp?block=long_covid_9" />
+	<jsp:param name="ethnicity_panel" value="long_covid/symptomEthnicity.jsp?block=long_covid_9" />
 
 	<jsp:param name="datatable" value="long_covid/symptom_mental_table.jsp" />
 	<jsp:param name="datatable_div" value="long_covid_symptom_mental" />
@@ -203,10 +203,10 @@
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="long_covid/age.jsp?block=long_covid_10" />
-	<jsp:param name="race_panel" value="long_covid/race.jsp?block=long_covid_10" />
-	<jsp:param name="gender_panel" value="long_covid/gender.jsp?block=long_covid_10" />
-	<jsp:param name="ethnicity_panel" value="long_covid/ethnicity.jsp?block=long_covid_10" />
+	<jsp:param name="age_panel" value="long_covid/symptomAge.jsp?block=long_covid_10" />
+	<jsp:param name="race_panel" value="long_covid/symptomRace.jsp?block=long_covid_10" />
+	<jsp:param name="gender_panel" value="long_covid/symptomGender.jsp?block=long_covid_10" />
+	<jsp:param name="ethnicity_panel" value="long_covid/symptomEthnicity.jsp?block=long_covid_10" />
 
 	<jsp:param name="datatable" value="long_covid/symptom_pots_table.jsp" />
 	<jsp:param name="datatable_div" value="long_covid_symptom_pots" />
@@ -226,10 +226,10 @@
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="long_covid/age.jsp?block=long_covid_11" />
-	<jsp:param name="race_panel" value="long_covid/race.jsp?block=long_covid_11" />
-	<jsp:param name="gender_panel" value="long_covid/gender.jsp?block=long_covid_11" />
-	<jsp:param name="ethnicity_panel" value="long_covid/ethnicity.jsp?block=long_covid_11" />
+	<jsp:param name="age_panel" value="long_covid/symptomAge.jsp?block=long_covid_11" />
+	<jsp:param name="race_panel" value="long_covid/symptomRace.jsp?block=long_covid_11" />
+	<jsp:param name="gender_panel" value="long_covid/symptomGender.jsp?block=long_covid_11" />
+	<jsp:param name="ethnicity_panel" value="long_covid/symptomEthnicity.jsp?block=long_covid_11" />
 
 	<jsp:param name="datatable" value="long_covid/symptom_breath_table.jsp" />
 	<jsp:param name="datatable_div" value="long_covid_symptom_breath" />
