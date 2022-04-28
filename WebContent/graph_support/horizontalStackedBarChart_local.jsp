@@ -93,7 +93,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth) {
 			.attr("height", y.bandwidth())						    //.attr("width", x.bandwidth());	
 			.on("click", function(d, i){ console.log(domName+"-rect click d", i, d); })
 			.on("mouseover", function() { 
-//				tooltip.style("display", null); 
+				tooltip.style("display", null); 
 			    // Reduce opacity of all rect to 0.2
 			    d3.selectAll("."+domName+"-rect").style("opacity", 0.2)
 			    // Highlight all rects of this subgroup with opacity 1.
@@ -101,17 +101,17 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth) {
 			      .style("opacity", 1);
 			})
 			.on("mouseout", function() {
-//				tooltip.style("display", "none");
+				tooltip.style("display", "none");
 			    // Back to normal opacity: 1
 			    d3.selectAll("."+domName+"-rect")
 			      .style("opacity",1);
 			})
-//			.on("mousemove", function(d) {		
-//				var xPosition = d3.mouse(this)[0];
-//		     	var yPosition = d3.mouse(this)[1];
-//		     	tooltip.attr("transform", "translate(" + xPosition + "," + ((y0(d.data.${param.primary_group}))) + ")");
-//		     	tooltip.select("text").text(d[1]-d[0]);
-//			})
+			.on("mousemove", function(d) {		
+				var xPosition = d3.mouse(this)[0];
+		     	var yPosition = d3.mouse(this)[1];
+		     	tooltip.attr("transform", "translate(" + xPosition + "," + ((y(d.data.element)) + ")");
+		     	tooltip.select("text").text(d[1]-d[0]);
+			})
 			;
 
 		g.append("g")
@@ -133,6 +133,23 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth) {
 			.text("Patient Count")
 			.attr("transform", "translate(" + (width/2) + ",0)");   	// Newline
 
+		// Tooltip ////// 
+		var tooltip = g.append("g")
+    		.attr("class", "graph_tooltip")
+    		.style("display", "none");
+      
+  		tooltip.append("rect")
+    		.attr("width", 60)
+    		.attr("height", 20)
+    		.attr("fill", "white")
+    		.style("opacity", 0.5);
+
+  		tooltip.append("text")
+    		.attr("x", 30)
+    		.attr("dy", "1.2em")
+    		.style("text-anchor", "middle")
+    		.attr("font-size", "12px")
+    		.attr("font-weight", "bold");
 	};
 
 	function myStack(data) {
