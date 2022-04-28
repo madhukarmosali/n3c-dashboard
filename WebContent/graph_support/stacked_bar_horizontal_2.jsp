@@ -60,8 +60,10 @@ d3.json("${param.data_page}", function(error, data) {
 
 		var x1 = d3.scaleBand()
 
+		var colors = ["#d16678", "#FFB2C3", "#FFD0E5", "#334a8a", "#6983B7", "#AAC4DF", "#55585c", "#949799", "#C6C8C9"];
+		
 		var z = d3.scaleOrdinal()
-			.range(["#FFD0E5", "#FFB2C3", "#d16678", "#AAC4DF", "#6983B7", "#334a8a", "#C6C8C9", "#949799", "#55585c"]);
+			.range(colors);
 
 		var z2 = d3.scaleOrdinal()
 
@@ -109,7 +111,7 @@ d3.json("${param.data_page}", function(error, data) {
   
   
 		var stackData = d3.stack()
-			.keys(keys)(groupData)
+			.keys(keys)(groupData);
 
   
 		var groupData2 = d3.nest()
@@ -129,7 +131,7 @@ d3.json("${param.data_page}", function(error, data) {
 
 		
 		var stackData2 = d3.stack()
-			.keys(keys)(groupData2)
+			.keys(keys)(groupData2);
 
   
 		x.domain([0, d3.max(groupData2, function(d) { return d.overall_total; })]).nice();
@@ -165,10 +167,15 @@ d3.json("${param.data_page}", function(error, data) {
 			.attr("font-weight", "bold")
 			.attr("text-anchor", "start");
 		
+		console.log(stackData2);
+		
 		var serie = g.selectAll(".serie")
 			.data(stackData2)
 			.enter().append("g")
-			.attr("class", "serie")
+			//.attr("class", "serie")
+			.attr("class", function(d) {  
+  				return "serie " + "color-" + z(d.key).substring(1);
+			})
 			.attr("fill", function(d) { return z(d.key); });
   
 		serie.selectAll("rect")
@@ -235,7 +242,14 @@ d3.json("${param.data_page}", function(error, data) {
 			.attr("x", width - 19)
 			.attr("width", 19)
 			.attr("height", 19)
-			.attr("fill", z);
+			.attr("fill", z)
+			.on("mouseover", function(d, i) {
+  				console.log(".serie:not(.color-" + z(d).substring(1) + ")");
+				svg.selectAll(".serie:not(.color-" + z(d).substring(1) + ")").style("opacity", "0.2");
+			})
+			.on("mouseout", function(d, i) {
+  				svg.selectAll(".serie").style("opacity", "1");
+			});;
 
 
 		
