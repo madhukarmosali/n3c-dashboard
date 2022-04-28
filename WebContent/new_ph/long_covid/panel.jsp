@@ -13,8 +13,8 @@
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 
-	<jsp:param name="severity_panel" value="long_covid/severityGender.jsp?block=long_covid_1" />
-	<jsp:param name="gender_panel" value="long_covid/genderSeverity.jsp?block=long_covid_1" />
+	<jsp:param name="severity_panel" value="long_covid/severityGender.jsp?block=long_covid_1&datatable_div=long_covid_severity" />
+	<jsp:param name="gender_panel" value="long_covid/genderSeverity.jsp?block=long_covid_1&datatable_div=long_covid_severity" />
 
 	<jsp:param name="datatable" value="long_covid/severity_table.jsp" />
 	<jsp:param name="datatable_div" value="long_covid_severity" />

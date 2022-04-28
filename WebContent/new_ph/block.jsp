@@ -180,53 +180,38 @@
 
 <script>
 
-	$('#${param.block}-severity-select').change(function() {
-		var selected = $(this).val().join('|');
+	function ${param.block}_constrain(filter, selection) {
+		console.log("selection", selection)
+		var selected = selection;
 		if (selected != undefined && selected.length > 0)
 			selected = "^" + selected + "$";
 		else
 			selected = '';
-	    $("#${param.datatable_div}-table").DataTable().column(4).search(selected, true, false, true).draw();
+		${param.block}_constrain_table(filter, selected);
+	}
+
+	$('#${param.block}-severity-select').change(function() {
+		${param.block}_constrain("severity", $(this).val().join('|'));
 	    ${param.block}_refreshHistograms();
   	});
 
 	$('#${param.block}-age-select').change(function() {
-		var selected = $(this).val().join('|');
-		if (selected != undefined && selected.length > 0)
-			selected = "^" + selected + "$";
-		else
-			selected = '';
-	    $("#${param.datatable_div}-table").DataTable().column(2).search(selected, true, false, true).draw();
+		${param.block}_constrain("age", $(this).val().join('|'));
 	    ${param.block}_refreshHistograms();
   	});
 
 	$('#${param.block}-race-select').change(function() {
-		var selected = $(this).val().join('|');
-		if (selected != undefined && selected.length > 0)
-			selected = "^" + selected + "$";
-		else
-			selected = '';
-	    $("#${param.datatable_div}-table").DataTable().column(0).search(selected, true, false, true).draw();
+		${param.block}_constrain("race", $(this).val().join('|'));
 	    ${param.block}_refreshHistograms();
   	});
 
 	$('#${param.block}-gender-select').change(function() {
-		var selected = $(this).val().join('|');
-		if (selected != undefined && selected.length > 0)
-			selected = "^" + selected + "$";
-		else
-			selected = '';
-	    $("#${param.datatable_div}-table").DataTable().column(3).search(selected, true, false, true).draw();
+		${param.block}_constrain("gender", $(this).val().join('|'));
 	    ${param.block}_refreshHistograms();
   	});
 
 	$('#${param.block}-ethnicity-select').change(function() {
-		var selected = $(this).val().join('|');
-		if (selected != undefined && selected.length > 0)
-			selected = "^" + selected + "$";
-		else
-			selected = '';
-	    $("#${param.datatable_div}-table").DataTable().column(1).search(selected, true, false, true).draw();
+		${param.block}_constrain("ethnicity", $(this).val().join('|'));
 	    ${param.block}_refreshHistograms();
   	});
 
