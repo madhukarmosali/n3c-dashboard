@@ -109,7 +109,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth) {
 			.on("mousemove", function(d) {		
 				var xPosition = d3.mouse(this)[0];
 		     	var yPosition = d3.mouse(this)[1];
-		     	tooltip.attr("transform", "translate(" + xPosition + "," + ((y(d.data.element)) + ")");
+		     	tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
 		     	tooltip.select("text").text(d[1]-d[0]);
 			})
 			;
