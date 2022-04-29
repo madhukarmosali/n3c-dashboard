@@ -16,11 +16,11 @@
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="severity_panel" value="adult_summary/severity.jsp?block=adult_summary_1" />
-	<jsp:param name="age_panel" value="adult_summary/age.jsp?block=adult_summary_1" />
-	<jsp:param name="race_panel" value="adult_summary/race.jsp?block=adult_summary_1" />
-	<jsp:param name="gender_panel" value="adult_summary/gender.jsp?block=adult_summary_1" />
-	<jsp:param name="ethnicity_panel" value="adult_summary/ethnicity.jsp?block=adult_summary_1" />
+	<jsp:param name="severity_panel" value="adult_summary/severity.jsp?block=adult_summary_1&datatable_div=adult_aggregated" />
+	<jsp:param name="age_panel" value="adult_summary/age.jsp?block=adult_summary_1&datatable_div=adult_aggregated" />
+	<jsp:param name="race_panel" value="adult_summary/race.jsp?block=adult_summary_1&datatable_div=adult_aggregated" />
+	<jsp:param name="gender_panel" value="adult_summary/gender.jsp?block=adult_summary_1&datatable_div=adult_aggregated" />
+	<jsp:param name="ethnicity_panel" value="adult_summary/ethnicity.jsp?block=adult_summary_1&datatable_div=adult_aggregated" />
 
 	<jsp:param name="datatable" value="adult_summary/aggregated_table.jsp" />
 	<jsp:param name="datatable_div" value="adult_aggregated" />

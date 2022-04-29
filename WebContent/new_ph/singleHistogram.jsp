@@ -5,7 +5,14 @@ function ${param.block}_refresh${param.array}(data) {
 	var aData = new Object;
 	var bData = new Object;
 	$("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().each( function ( group, i ) {
-    	var group = data[i].${param.primary};
+		<c:choose>
+			<c:when test="${empty param.primary_abbrev}">
+    			var group = data[i].${param.primary};
+			</c:when>
+			<c:otherwise>
+				var group = data[i].${param.primary_abbrev};
+			</c:otherwise>
+		</c:choose>
     	var seq = data[i].${param.primary}_seq;
     	var count = data[i].patient_count;
         if (typeof aData[group] == 'undefined') {

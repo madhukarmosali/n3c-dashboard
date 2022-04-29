@@ -42,7 +42,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
         	{ data: 'severity', visible: true, orderable: true },
         	{ data: 'race', visible: true, orderable: true },
         	{ data: 'ethnicity', visible: true, orderable: true },
-        	{ data: 'age_bin', visible: true, orderable: true },
+        	{ data: 'age', visible: true, orderable: true },
         	{ data: 'gender', visible: true, orderable: true },
         	{ data: 'patient_count', visible: true, orderable: true },
         	{ data: 'age_abbrev', visible: false },

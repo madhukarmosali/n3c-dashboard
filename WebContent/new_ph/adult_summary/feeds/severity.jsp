@@ -8,7 +8,7 @@
 					severity_type as severity,
 					race_concept_name as race,
 					ethnicity_concept_name as ethnicity,
-					age_bin,
+					age_bin as age,
 					gender_concept_name as gender,
 					case
 						when (count = '<20' or count is null) then 0
@@ -28,7 +28,7 @@
         {"value":"severity", "label":"Severity"},
         {"value":"race", "label":"Race"},
         {"value":"ethnicity", "label":"Ethnicity"},
-        {"value":"age_bin", "label":"Age"},
+        {"value":"age", "label":"Age"},
         {"value":"gender", "label":"Gender"},
         {"value":"patient_count", "label":"Patient Count"},
         {"value":"age_abbrev", "label":"dummy1"},
