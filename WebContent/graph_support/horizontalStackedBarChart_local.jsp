@@ -21,7 +21,7 @@ rect{
 
 function localHorizontalStackedBarChart(data, domName, barLabelWidth) {
 
-	var margin = { top: 10, right: 10, bottom: 10, left: barLabelWidth },
+	var margin = { top: 40, right: 10, bottom: 10, left: barLabelWidth },
 		width = 1200 - margin.left - margin.right,
 		height = width/2 - margin.top - margin.bottom;
 	var maxBarWidth = 280; // width of the bar with the max value
@@ -82,6 +82,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth) {
 			.selectAll("g")
 			.data(stackData)
 			.enter().append("g")
+			.attr("class", function(d) { return "serie " + "color-" + z(d.element).substring(1); })
 			.attr("fill", function(d,i) { return z(i); })
 			.selectAll("rect")
 			.data(function(d) { return d; })
@@ -133,6 +134,54 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth) {
 			.text("Patient Count")
 			.attr("transform", "translate(" + (width/2) + ",0)");   	// Newline
 
+		// Legend ////////////////////	
+		var legend_text = g.append("g")
+			.attr("transform", "translate(" + ((margin.right/2)-150) + " ," + (-20 - (margin.top/2)) + " )")
+			.attr("font-family", "sans-serif")
+			.attr("font-size", 11)
+			.attr("font-weight", "bold")
+			.attr("text-anchor", "middle")
+			.append("text")
+			.attr("x", width - 24)
+			.attr("y", 9.5)
+			.attr("dy", "0.32em")
+			.text("Legend");
+		
+		
+			
+		var legend = g.append("g")
+			.attr("transform", "translate(" + ((margin.right/2)-150) + " ," + (0 - (margin.top/2)) + " )")
+			.attr("font-family", "sans-serif")
+			.attr("font-size", 10)
+			.attr("text-anchor", "end")
+			.selectAll("g")
+				.data(keys.slice().reverse())
+			.enter().append("g")
+				.attr("transform", function(d, i) {
+					return "translate(0," + i * 20 + ")";
+			});
+
+		legend.append("rect")
+			.attr("x", width - 19)
+			.attr("width", 19)
+			.attr("height", 19)
+			.attr("fill", z)
+			.on("mouseover", function(d, i) {
+  				console.log(".serie:not(.color-" + z(d).substring(1) + ")");
+				svg.selectAll(".serie:not(.color-" + z(d).substring(1) + ")").style("opacity", "0.2");
+			})
+			.on("mouseout", function(d, i) {
+  				svg.selectAll(".serie").style("opacity", "1");
+			});;
+
+
+		
+		legend.append("text")
+			.attr("x", width - 24)
+			.attr("y", 9.5)
+			.attr("dy", "0.32em")
+			.text(function(d) {	return d; });
+			
 		// Tooltip ////// 
 		var tooltip = g.append("g")
     		.attr("class", "graph_tooltip")
