@@ -9,17 +9,17 @@
 	<jsp:param name="block" value="smoking_1" />
 	<jsp:param name="block_header" value="Demographics: COVID+ and Smoking Status" />
 
-	<jsp:param name="kpis" value="smoking/kpis.jsp?block=smoking_1" />
+	<jsp:param name="kpis" value="smoking/kpis.jsp" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
 	<jsp:param name="race_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 
-	<jsp:param name="severity_panel" value="test_panel.jsp?info=severity" />
-	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
-	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
-	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
+	<jsp:param name="severity_panel" value="test_panel.jsp" />
+	<jsp:param name="age_panel" value="test_panel.jsp" />
+	<jsp:param name="race_panel" value="test_panel.jsp" />
+	<jsp:param name="gender_panel" value="test_panel.jsp" />
 
 	<jsp:param name="datatable" value="smoking/demographics_table.jsp" />
 	<jsp:param name="datatable_div" value="smoking_demographics" />

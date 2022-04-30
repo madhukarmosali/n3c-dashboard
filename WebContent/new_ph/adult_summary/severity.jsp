@@ -7,22 +7,10 @@
 <p>Sample text.</p>
 <script>
 
-function ${param.block}_constrain_table(filter, constraint) {
-	console.log("${param.block}", filter, constraint)
-	switch (filter) {
-	case 'severity':
-	    $("#${param.datatable_div}-table").DataTable().column(0).search(constraint, true, false, true).draw();	
-		break;
-	case 'gender':
-	    $("#${param.datatable_div}-table").DataTable().column(1).search(constraint, true, false, true).draw();	
-		break;
-	}
-}
-
 function ${param.block}_severity_refresh() {
-	console.log("severity graph", "${param.block}_severity_viz", ${param.block}_severityArray)
+	console.log("severity graph", "${param.block}_severity_viz", ${param.block}_SeverityArray)
 	d3.select("#${param.block}_severity_viz").select("svg").remove();
-    localPieChart(${param.block}_severityArray,"#${param.block}_severity_viz");
+    localPieChart(${param.block}_SeverityArray,"#${param.block}_severity_viz");
 }
 
 </script>

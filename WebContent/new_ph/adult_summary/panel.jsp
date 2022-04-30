@@ -8,7 +8,7 @@
 	<jsp:param name="block" value="adult_summary_1" />
 	<jsp:param name="block_header" value="Demographics: COVID+" />
 
-	<jsp:param name="kpis" value="adult_summary/kpis.jsp?block=adult_summary_1" />
+	<jsp:param name="kpis" value="adult_summary/kpis.jsp" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
@@ -16,11 +16,11 @@
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="severity_panel" value="adult_summary/severity.jsp?block=adult_summary_1&datatable_div=adult_aggregated" />
-	<jsp:param name="age_panel" value="adult_summary/age.jsp?block=adult_summary_1&datatable_div=adult_aggregated" />
-	<jsp:param name="race_panel" value="adult_summary/race.jsp?block=adult_summary_1&datatable_div=adult_aggregated" />
-	<jsp:param name="gender_panel" value="adult_summary/gender.jsp?block=adult_summary_1&datatable_div=adult_aggregated" />
-	<jsp:param name="ethnicity_panel" value="adult_summary/ethnicity.jsp?block=adult_summary_1&datatable_div=adult_aggregated" />
+	<jsp:param name="severity_panel" value="adult_summary/severity.jsp" />
+	<jsp:param name="age_panel" value="adult_summary/age.jsp" />
+	<jsp:param name="race_panel" value="adult_summary/race.jsp" />
+	<jsp:param name="gender_panel" value="adult_summary/gender.jsp" />
+	<jsp:param name="ethnicity_panel" value="adult_summary/ethnicity.jsp" />
 
 	<jsp:param name="datatable" value="adult_summary/aggregated_table.jsp" />
 	<jsp:param name="datatable_div" value="adult_aggregated" />
@@ -33,17 +33,17 @@
 	<jsp:param name="block" value="adult_summary_2" />
 	<jsp:param name="block_header" value="Demographics: Vaccinated" />
 
-	<jsp:param name="kpis" value="adult_summary/kpis.jsp?block=adult_summary_2" />
+	<jsp:param name="kpis" value="adult_summary/kpis.jsp" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
 	<jsp:param name="race_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 
-	<jsp:param name="severity_panel" value="test_panel.jsp?info=severity" />
-	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
-	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
-	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
+	<jsp:param name="severity_panel" value="test_panel.jsp" />
+	<jsp:param name="age_panel" value="test_panel.jsp" />
+	<jsp:param name="race_panel" value="test_panel.jsp" />
+	<jsp:param name="gender_panel" value="test_panel.jsp" />
 
 	<jsp:param name="datatable" value="adult_summary/vaccinated_table.jsp" />
 	<jsp:param name="datatable_div" value="adult_vaccinated" />
@@ -56,7 +56,7 @@
 	<jsp:param name="block" value="adult_summary_3" />
 	<jsp:param name="block_header" value="Demographics: Vaccinated and Comorbidities" />
 
-	<jsp:param name="kpis" value="adult_summary/kpis.jsp?block=adult_summary_3" />
+	<jsp:param name="kpis" value="adult_summary/kpis.jsp" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
@@ -64,11 +64,11 @@
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="severity_panel" value="test_panel.jsp?info=severity" />
-	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
-	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
-	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
-	<jsp:param name="ethnicity_panel" value="test_panel.jsp?info=ethnicity" />
+	<jsp:param name="severity_panel" value="test_panel.jsp" />
+	<jsp:param name="age_panel" value="test_panel.jsp" />
+	<jsp:param name="race_panel" value="test_panel.jsp" />
+	<jsp:param name="gender_panel" value="test_panel.jsp" />
+	<jsp:param name="ethnicity_panel" value="test_panel.jsp" />
 
 	<jsp:param name="datatable" value="adult_summary/vaccinated_comorbidity_table.jsp" />
 	<jsp:param name="datatable_div" value="adult_vaccinated_comorbidity" />
@@ -81,17 +81,17 @@
 	<jsp:param name="block" value="adult_summary_4" />
 	<jsp:param name="block_header" value="Demographics: Unknown Vaccination and Comorbidities" />
 
-	<jsp:param name="kpis" value="adult_summary/kpis.jsp?block=adult_summary_4" />
+	<jsp:param name="kpis" value="adult_summary/kpis.jsp" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
 	<jsp:param name="race_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 
-	<jsp:param name="severity_panel" value="test_panel.jsp?info=severity" />
-	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
-	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
-	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
+	<jsp:param name="severity_panel" value="test_panel.jsp" />
+	<jsp:param name="age_panel" value="test_panel.jsp" />
+	<jsp:param name="race_panel" value="test_panel.jsp" />
+	<jsp:param name="gender_panel" value="test_panel.jsp" />
 
 	<jsp:param name="datatable" value="adult_summary/unknown_vaccination_table.jsp" />
 	<jsp:param name="datatable_div" value="adult_unknown_vaccination" />
@@ -104,17 +104,17 @@
 	<jsp:param name="block" value="adult_summary_5" />
 	<jsp:param name="block_header" value="Demographics: Ungrouped Comorbidities" />
 
-	<jsp:param name="kpis" value="adult_summary/kpis.jsp?block=adult_summary_5" />
+	<jsp:param name="kpis" value="adult_summary/kpis.jsp" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
 	<jsp:param name="race_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 
-	<jsp:param name="severity_panel" value="test_panel.jsp?info=severity" />
-	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
-	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
-	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
+	<jsp:param name="severity_panel" value="test_panel.jsp" />
+	<jsp:param name="age_panel" value="test_panel.jsp" />
+	<jsp:param name="race_panel" value="test_panel.jsp" />
+	<jsp:param name="gender_panel" value="test_panel.jsp" />
 
 	<jsp:param name="datatable" value="adult_summary/ungrouped_table.jsp" />
 	<jsp:param name="datatable_div" value="adult_ungrouped" />

@@ -12,11 +12,11 @@
 	<jsp:param name="block" value="sotrovimab_1" />
 	<jsp:param name="block_header" value="Sotrovimab and Other Medications" />
 
-	<jsp:param name="kpis" value="sotrovimab/kpis.jsp?block=sotrovimab_1" />
+	<jsp:param name="kpis" value="sotrovimab/kpis.jsp" />
 
 	<jsp:param name="age_filter" value="true" />
 
-	<jsp:param name="simple_panel" value="test_panel.jsp?info=simple" />
+	<jsp:param name="simple_panel" value="test_panel.jsp" />
 
 	<jsp:param name="datatable" value="../modules/reinfections_by_date.jsp" />
 	<jsp:param name="datatable_div" value="reinfections-by-date" />
@@ -25,35 +25,35 @@
 	<jsp:param name="block" value="sotrovimab_2" />
 	<jsp:param name="block_header" value="Sotrovimab and COVID Diagnosis Type" />
 
-	<jsp:param name="kpis" value="sotrovimab/kpis.jsp?block=sotrovimab_2" />
+	<jsp:param name="kpis" value="sotrovimab/kpis.jsp" />
 
 	<jsp:param name="age_filter" value="true" />
 
-	<jsp:param name="simple_panel" value="test_panel.jsp?info=simple" />
+	<jsp:param name="simple_panel" value="test_panel.jsp" />
 </jsp:include>
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="sotrovimab_3" />
 	<jsp:param name="block_header" value="Sotrovimab and Comorbidity" />
 
-	<jsp:param name="kpis" value="sotrovimab/kpis.jsp?block=sotrovimab_3" />
+	<jsp:param name="kpis" value="sotrovimab/kpis.jsp" />
 
 	<jsp:param name="severity_filter" value="true" />
 
-	<jsp:param name="simple_panel" value="test_panel.jsp?info=simple" />
+	<jsp:param name="simple_panel" value="test_panel.jsp" />
 </jsp:include>
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="sotrovimab_4" />
 	<jsp:param name="block_header" value="Sotrovimab and Demographics" />
 
-	<jsp:param name="kpis" value="sotrovimab/kpis.jsp?block=sotrovimab_4" />
+	<jsp:param name="kpis" value="sotrovimab/kpis.jsp" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="age_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 
-	<jsp:param name="severity_panel" value="test_panel.jsp?info=severity" />
-	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
-	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
+	<jsp:param name="severity_panel" value="test_panel.jsp" />
+	<jsp:param name="age_panel" value="test_panel.jsp" />
+	<jsp:param name="gender_panel" value="test_panel.jsp" />
 
 	<jsp:param name="datatable" value="sotrovimab/demographics_table.jsp" />
 	<jsp:param name="datatable_div" value="sotrovimab_demographics" />

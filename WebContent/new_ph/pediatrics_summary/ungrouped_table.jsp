@@ -1,5 +1,27 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 <script>
+
+function ${param.block}_constrain_table(filter, constraint) {
+	console.log("${param.block}", filter, constraint)
+	switch (filter) {
+	case 'severity':
+	    $("#${param.datatable_div}-table").DataTable().column(0).search(constraint, true, false, true).draw();	
+		break;
+	case 'gender':
+	    $("#${param.datatable_div}-table").DataTable().column(1).search(constraint, true, false, true).draw();	
+		break;
+	case 'age_bin':
+	    $("#${param.datatable_div}-table").DataTable().column(2).search(constraint, true, false, true).draw();	
+		break;
+	case 'race':
+	    $("#${param.datatable_div}-table").DataTable().column(3).search(constraint, true, false, true).draw();	
+		break;
+	case 'comorbidity':
+	    $("#${param.datatable_div}-table").DataTable().column(4).search(constraint, true, false, true).draw();	
+		break;
+	}
+}
+
 var ${param.block}_datatable = null;
 
 $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){

@@ -9,12 +9,12 @@
 	<jsp:param name="block" value="hlh_1" />
 	<jsp:param name="block_header" value="Overall Patient Group Distribution" />
 
-	<jsp:param name="kpis" value="hlh/kpis.jsp?block=hlh_1" />
+	<jsp:param name="kpis" value="hlh/kpis.jsp" />
 
 	<jsp:param name="age_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 
-	<jsp:param name="simple_panel" value="test_panel.jsp?info=simple" />
+	<jsp:param name="simple_panel" value="test_panel.jsp" />
 
 	<jsp:param name="datatable" value="../modules/reinfections_by_date.jsp" />
 	<jsp:param name="datatable_div" value="reinfections-by-date" />

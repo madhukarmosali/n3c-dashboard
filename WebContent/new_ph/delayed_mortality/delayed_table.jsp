@@ -1,5 +1,15 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 <script>
+
+function ${param.block}_constrain_table(filter, constraint) {
+	console.log("${param.block}", filter, constraint)
+	switch (filter) {
+	case 'datediff_bw_death_and_hos':
+	    $("#${param.datatable_div}-table").DataTable().column(0).search(constraint, true, false, true).draw();	
+		break;
+	}
+}
+
 var ${param.block}_datatable = null;
 
 $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){

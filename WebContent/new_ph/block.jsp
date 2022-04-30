@@ -31,7 +31,7 @@
 			<div id="${param.block}-block-kpi" class="col-12 col-md-2 border" >
 				<c:if test="${not empty param.kpis}">
 					<div class="kpi_containter">
-						<jsp:include page="${param.kpis}"/>
+						<jsp:include page="${param.kpis}?block=${param.block}"/>
 					</div>
 				</c:if>
 				<div class="panel-body border dash_filter_header">
@@ -135,27 +135,27 @@
 				</div>
 				<c:if test="${not empty param.simple_panel}">
 					<div id="${param.block}-simple" class="border" style="display: block;">
-						<jsp:include page="${param.simple_panel}"/>
+						<jsp:include page="${param.simple_panel}?panel=${param.simple_panel}&block=${param.block}&datatable_div=${param.datatable_div}"/>
 					</div>
 				</c:if>
 				<c:if test="${not empty param.severity_panel}">
-					<div id="${param.block}-severity" class="border" style="display: none;" src="${param.severity_panel}">
+					<div id="${param.block}-severity" class="border" style="display: none;" src="${param.severity_panel}?panel=${param.severity_panel}&block=${param.block}&datatable_div=${param.datatable_div}">
 					</div>
 				</c:if>
 				<c:if test="${not empty param.age_panel}">
-					<div id="${param.block}-age" class="border" style="display: none;" src="${param.age_panel}">
+					<div id="${param.block}-age" class="border" style="display: none;" src="${param.age_panel}?panel=${param.age_panel}&block=${param.block}&datatable_div=${param.datatable_div}">
 					</div>
 				</c:if>
 				<c:if test="${not empty param.race_panel}">
-					<div id="${param.block}-race" class="border" style="display: none;" src="${param.race_panel}">
+					<div id="${param.block}-race" class="border" style="display: none;" src="${param.race_panel}?panel=${param.race_panel}&block=${param.block}&datatable_div=${param.datatable_div}">
 					</div>
 				</c:if>
 				<c:if test="${not empty param.gender_panel}">
-					<div id="${param.block}-gender" class="border" style="display: none;" src="${param.gender_panel}">
+					<div id="${param.block}-gender" class="border" style="display: none;" src="${param.gender_panel}?panel=${param.gender_panel}&block=${param.block}&datatable_div=${param.datatable_div}">
 					</div>
 				</c:if>
 				<c:if test="${not empty param.ethnicity_panel}">
-					<div id="${param.block}-ethnicity" class="border" style="display: none;" src="${param.ethnicity_panel}">
+					<div id="${param.block}-ethnicity" class="border" style="display: none;" src="${param.ethnicity_panel}?panel=${param.ethnicity_panel}&block=${param.block}&datatable_div=${param.datatable_div}">
 					</div>
 				</c:if>
 

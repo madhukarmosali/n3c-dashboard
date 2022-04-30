@@ -14,11 +14,11 @@
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="severity_panel" value="test_panel.jsp?info=severity" />
-	<jsp:param name="age_panel" value="test_panel.jsp?info=age" />
-	<jsp:param name="race_panel" value="test_panel.jsp?info=race" />
-	<jsp:param name="gender_panel" value="test_panel.jsp?info=gender" />
-	<jsp:param name="ethnicity_panel" value="test_panel.jsp?info=ethnicity" />
+	<jsp:param name="severity_panel" value="test_panel.jsp" />
+	<jsp:param name="age_panel" value="test_panel.jsp" />
+	<jsp:param name="race_panel" value="test_panel.jsp" />
+	<jsp:param name="gender_panel" value="test_panel.jsp" />
+	<jsp:param name="ethnicity_panel" value="test_panel.jsp" />
 
 	<jsp:param name="datatable" value="../modules/reinfections_by_date.jsp" />
 	<jsp:param name="datatable_div" value="reinfections-by-date" />

@@ -5,6 +5,13 @@
 
 <div id="${param.block}_ethnicity_viz" class="col-lg-7 dash_viz"></div>
 <script>
-	${param.block}_refreshHistograms();
-	console.log("ethnicity graph", "${param.block}_ethnicity_viz", ${param.block}_ethnicityArray)
+
+function ${param.block}_ethnicity_refresh() {
+	console.log("ethnicity graph", "${param.block}_ethnicity_viz", ${param.block}_EthnicityArray)
+	d3.select("#${param.block}_ethnicity_viz").select("svg").remove();
+    localPieChart(${param.block}_EthnicityArray,"#${param.block}_ethnicity_viz");
+}
+
+${param.block}_ethnicity_refresh();
+
 </script>
