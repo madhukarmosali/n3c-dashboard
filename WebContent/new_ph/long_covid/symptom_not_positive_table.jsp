@@ -5,24 +5,28 @@ function ${param.block}_constrain_table(filter, constraint) {
 	var table = $('#${param.target_div}-table').DataTable();
 	console.log("${param.block}", filter, constraint)
 	switch (filter) {
-	case 'age':
-		table.column(0).search(constraint, true, false, true).draw();	
+	case 'observation':
+	    table.column(0).search(constraint, true, false, true).draw();	
 		break;
-	case 'gender':
+	case 'age':
 		table.column(1).search(constraint, true, false, true).draw();	
 		break;
-	case 'race':
+	case 'gender':
 		table.column(2).search(constraint, true, false, true).draw();	
 		break;
-	case 'ethnicity':
+	case 'race':
 		table.column(3).search(constraint, true, false, true).draw();	
 		break;
-	case 'observation':
+	case 'ethnicity':
 		table.column(4).search(constraint, true, false, true).draw();	
 		break;
-	case 'symptom':
-		table.column(5).search(constraint, true, false, true).draw();	
-		break;
+	}
+	
+	console.log('${param.target_kpis}')
+	var kpis = '${param.target_kpis}'.split(',');
+	for (var a in kpis) {
+		console.log(kpis[a]);
+		${param.block}_updateKPI(table, kpis[a])
 	}
 	
 	console.log('${param.target_filtered_kpis}')
@@ -129,12 +133,11 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
     	order: [[0, 'asc']],
      	columns: [
+        	{ data: 'observation', visible: false },
         	{ data: 'age', visible: true, orderable: true },
         	{ data: 'gender', visible: true, orderable: true },
         	{ data: 'race', visible: true, orderable: true },
         	{ data: 'ethnicity', visible: true, orderable: true },
-        	{ data: 'observation', visible: true, orderable: true },
-        	{ data: 'symptom', visible: true, orderable: true },
         	{ data: 'patient_count', visible: true, orderable: true },
         	{ data: 'age_abbrev', visible: false },
         	{ data: 'age_seq', visible: false },
@@ -144,8 +147,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
         	{ data: 'ethnicity_seq', visible: false },
         	{ data: 'gender_abbrev', visible: false },
         	{ data: 'gender_seq', visible: false },
-        	{ data: 'observation_seq', visible: false },
-        	{ data: 'symptom_seq', visible: false }
+        	{ data: 'observation_seq', visible: false }
     	]
 	} );
 

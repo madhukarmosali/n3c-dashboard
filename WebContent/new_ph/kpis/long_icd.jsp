@@ -3,7 +3,7 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
  <sql:query var="totals" dataSource="jdbc/N3CPublic">
- 	select to_char(sum(num_patients)/1000.0, '999.99')||'k' as num_patients
+ 	select to_char(sum(num_patients)/1000.0, '999.99')||'k' as patient_count
  	from (select 
 			case
 				when (num_patients = '<20' or num_patients is null) then 0
@@ -21,5 +21,5 @@
 			</tr>
 		</table>
 	</div>
-	<div id="${param.block}_long_icd_kpi" class="panel-heading kpi_num">${row.num_patients}</div>
+	<div id="${param.block}_patient_count_kpi" class="panel-heading kpi_num">${row.patient_count}</div>
 </c:forEach>

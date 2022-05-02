@@ -19,7 +19,7 @@
 					end as patient_count
 				  from n3c_questions.icd10_individual_symptom_summary_counts
 		  	) as foo
-		  	natural join n3c_dashboard.age_map2
+		  	natural join n3c_dashboard.age_map4
 		  	natural join n3c_dashboard.gender_map2
 		  	natural join n3c_dashboard.race_map
 		  	natural join n3c_dashboard.ethnicity_map

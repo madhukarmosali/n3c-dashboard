@@ -31,7 +31,7 @@
 			<div id="${param.block}-block-kpi" class="col-12 col-md-2 border" >
 				<c:if test="${not empty param.kpis}">
 					<div class="kpi_containter">
-						<jsp:include page="${param.kpis}?block=${param.block}"/>
+						<jsp:include page="${param.kpis}?block=${param.block}&symptom=${param.kpi_filter}"/>
 					</div>
 				</c:if>
 				<div class="panel-body border dash_filter_header">
@@ -168,6 +168,7 @@
 								<jsp:param name="feed" value="${param.datatable_feed}"/>
 								<jsp:param name="target_div" value="${param.datatable_div}"/>
 								<jsp:param name="target_kpis" value="${param.datatable_kpis}"/>
+								<jsp:param name="target_filtered_kpis" value="${param.datatable_filtered_kpis}"/>
 								<jsp:param name="block" value="${param.block}"/>
 							</jsp:include>
 						</div>
@@ -248,6 +249,8 @@
 	// stacked bar arrays
 	// ungrouped symptom / before/after
 
+	var ${param.block}_BeforeAfterArray = new Array();
+
 	var ${param.block}_GenderSeverityArray = new Array();
 	var ${param.block}_SeverityGenderArray = new Array();
 	
@@ -264,12 +267,14 @@
 
 	function ${param.block}_refreshHistograms() {
 	    var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();
-	    console.log("table data", data)
+	    console.log('${param.block}', "table data", data)
 	    ${param.block}_refreshAgeArray(data);
 	    ${param.block}_refreshRaceArray(data);
 	    ${param.block}_refreshEthnicityArray(data);
 	    ${param.block}_refreshGenderArray(data);
 	    ${param.block}_refreshSeverityArray(data);
+	    
+	    ${param.block}_refreshBeforeAfterArray(data);
 	    
 	    ${param.block}_refreshGenderSeverityArray(data);
 	    ${param.block}_refreshSeverityGenderArray(data);
@@ -283,6 +288,10 @@
 	    ${param.block}_refreshSymptomRaceArray(data);
 	    ${param.block}_refreshSymptomEthnicityArray(data);
 	    ${param.block}_refreshSymptomObservationArray(data);
+	    
+	    if ('${param.block}' === 'long_covid_6') {
+	    	${param.block}_before_refresh();
+	    }
 
 	    if (${param.block}_loaded("severity")) {
 	    	${param.block}_severity_refresh();
@@ -427,6 +436,14 @@
 	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
 	<jsp:param name="array" value="SeverityArray"/>
 	<jsp:param name="primary" value="severity"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="BeforeAfterArray"/>
+	<jsp:param name="primary" value="symptom"/>
+	<jsp:param name="secondary" value="condition_after_covid_positive"/>
 </jsp:include>
 
 <jsp:include page="doubleHistogram.jsp">

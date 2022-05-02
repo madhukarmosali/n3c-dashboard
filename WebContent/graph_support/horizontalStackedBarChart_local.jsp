@@ -19,7 +19,7 @@ rect{
 </style>
 <script>
 
-function localHorizontalStackedBarChart(data, domName, barLabelWidth) {
+function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data) {
 
 	var margin = { top: 40, right: 10, bottom: 10, left: barLabelWidth },
 		width = 1200 - margin.left - margin.right,
@@ -67,7 +67,8 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth) {
 			.range([0, maxBarWidth]);	// .rangeRound([height, 0]);
 
 		var z = d3.scaleOrdinal()
-			.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+			.range(categorical);
+//			.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
 		var keys = data.map(function(d) { return d.element; });
 		
@@ -155,7 +156,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth) {
 			.attr("font-size", 10)
 			.attr("text-anchor", "end")
 			.selectAll("g")
-				.data(keys.slice().reverse())
+				.data(legend_data)
 			.enter().append("g")
 				.attr("transform", function(d, i) {
 					return "translate(0," + i * 20 + ")";
@@ -180,7 +181,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth) {
 			.attr("x", width - 24)
 			.attr("y", 9.5)
 			.attr("dy", "0.32em")
-			.text(function(d) {	return d; });
+			.text(function(d) {	return d.secondary; });
 			
 		// Tooltip ////// 
 		var tooltip = g.append("g")
@@ -204,6 +205,10 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth) {
 	function myStack(data) {
 //		console.log("building mystack",data);
 		var result = new Array();
+		
+		if (data.length == 0)
+			return result;
+		
 		var previous = 0;
 		for (let secondary = 1; secondary < data[1].secondary.length; secondary++) {
 			var newrow = new Array();

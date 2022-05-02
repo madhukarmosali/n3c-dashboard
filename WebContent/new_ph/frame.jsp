@@ -2,6 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
+<script>
+<jsp:include page="../feeds/configuration.jsp"/>
+</script>
+
 <jsp:include page="../graph_support/pieChart_local.jsp"/>
 <jsp:include page="../graph_support/horizontalBarChart_local.jsp"/>
 <jsp:include page="../graph_support/horizontalStackedBarChart_local.jsp"/>

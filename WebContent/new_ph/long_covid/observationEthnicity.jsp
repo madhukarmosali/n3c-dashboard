@@ -9,7 +9,7 @@
 function ${param.block}_ethnicity_refresh() {
 	console.log("ethnicity graph", "${param.block}_ethnicity_viz", ${param.block}_ObservationEthnicityArray)
    	d3.select("#${param.block}_ethnicity_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_ObservationEthnicityArray,"${param.block}_ethnicity_viz", 150);	
+	localHorizontalStackedBarChart(${param.block}_ObservationEthnicityArray,"${param.block}_ethnicity_viz", 150, ethnicity_legend);	
 }
 
 ${param.block}_ethnicity_refresh();

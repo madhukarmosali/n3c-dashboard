@@ -21,6 +21,7 @@ WebContent/admin/users.jsp -text
 WebContent/caption.jsp -text
 WebContent/exploration.jsp -text
 WebContent/feeds/aggregated.jsp -text
+WebContent/feeds/configuration.jsp -text
 WebContent/feeds/domain_team_roster.jsp -text
 WebContent/feeds/embedded_fact_sheet.jsp -text
 WebContent/feeds/line_dua_dta_regs.jsp -text
@@ -181,6 +182,7 @@ WebContent/new_ph/kpis/peds_ungrouped.jsp -text
 WebContent/new_ph/kpis/peds_unknown_vaccination.jsp -text
 WebContent/new_ph/kpis/peds_vaccinated.jsp -text
 WebContent/new_ph/kpis/peds_vaccinated_comorbidities.jsp -text
+WebContent/new_ph/long_covid/beforeAfter.jsp -text
 WebContent/new_ph/long_covid/before_after_table.jsp -text
 WebContent/new_ph/long_covid/clinic_severity_table.jsp -text
 WebContent/new_ph/long_covid/feeds/before_after.jsp -text
@@ -191,6 +193,11 @@ WebContent/new_ph/long_covid/feeds/symptom_summary.jsp -text
 WebContent/new_ph/long_covid/feeds/symptom_ungrouped.jsp -text
 WebContent/new_ph/long_covid/genderSeverity.jsp -text
 WebContent/new_ph/long_covid/kpis.jsp -text
+WebContent/new_ph/long_covid/not_positive_age.jsp -text
+WebContent/new_ph/long_covid/not_positive_ethnicity.jsp -text
+WebContent/new_ph/long_covid/not_positive_gender.jsp -text
+WebContent/new_ph/long_covid/not_positive_race.jsp -text
+WebContent/new_ph/long_covid/not_positive_severity.jsp -text
 WebContent/new_ph/long_covid/observationAge.jsp -text
 WebContent/new_ph/long_covid/observationEthnicity.jsp -text
 WebContent/new_ph/long_covid/observationGender.jsp -text
@@ -207,6 +214,7 @@ WebContent/new_ph/long_covid/symptom_cognitive_table.jsp -text
 WebContent/new_ph/long_covid/symptom_fatigue_table.jsp -text
 WebContent/new_ph/long_covid/symptom_grouped_table.jsp -text
 WebContent/new_ph/long_covid/symptom_mental_table.jsp -text
+WebContent/new_ph/long_covid/symptom_not_positive_table.jsp -text
 WebContent/new_ph/long_covid/symptom_pots_table.jsp -text
 WebContent/new_ph/long_covid/symptom_summary_table.jsp -text
 WebContent/new_ph/long_covid/symptom_ungrouped_table.jsp -text

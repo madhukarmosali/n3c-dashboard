@@ -9,7 +9,7 @@
 function ${param.block}_race_refresh() {
 	console.log("race graph", "${param.block}_race_viz", ${param.block}_ObservationRaceArray)
    	d3.select("#${param.block}_race_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_ObservationRaceArray,"${param.block}_race_viz", 150);	
+	localHorizontalStackedBarChart(${param.block}_ObservationRaceArray,"${param.block}_race_viz", 150, race_legend);	
 }
 
 ${param.block}_race_refresh();

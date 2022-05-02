@@ -8,7 +8,7 @@
  			when sum(count) < 1000 then sum(count)::text
  			when sum(count) < 1000000 then to_char(sum(count)/1000.0, '999.99')||'k'
  			else to_char(sum(count)/1000000.0, '999.99')||'M'
- 		end as count
+ 		end as patient_count
  	from (select 
 			case
 				when (count = '<20' or count is null) then 0
@@ -28,5 +28,5 @@
 			</tr>
 		</table>
 	</div>
-	<div id="${param.block}_long_tested_positive_ungrouped_kpi" class="panel-heading kpi_num">${row.count}</div>
+	<div id="${param.block}_tested_positive_kpi" class="panel-heading kpi_num">${row.patient_count}</div>
 </c:forEach>

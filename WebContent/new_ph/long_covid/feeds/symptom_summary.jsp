@@ -17,6 +17,7 @@
 						else count::int
 					end as patient_count
 				  from n3c_questions.icd10_symptoms_summary_counts
+				  <c:if test ="${not empty param.not_positive}">where observation = 'Has not tested positive'</c:if>
 		  	) as foo
 		  	natural join n3c_dashboard.age_map4
 		  	natural join n3c_dashboard.gender_map2

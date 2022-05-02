@@ -79,7 +79,7 @@
 		<jsp:include page="../kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/long_total_ungrouped.jsp">
+		<jsp:include page="../kpis/long_tested_positive_ungrouped.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
@@ -92,7 +92,7 @@
 		<jsp:include page="../kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/long_total_ungrouped.jsp">
+		<jsp:include page="../kpis/long_tested_positive_ungrouped.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
@@ -105,7 +105,7 @@
 		<jsp:include page="../kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/long_total_ungrouped.jsp">
+		<jsp:include page="../kpis/long_tested_positive_ungrouped.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
@@ -118,7 +118,7 @@
 		<jsp:include page="../kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/long_total_ungrouped.jsp">
+		<jsp:include page="../kpis/long_tested_positive_ungrouped.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
@@ -131,7 +131,7 @@
 		<jsp:include page="../kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/long_total_ungrouped.jsp">
+		<jsp:include page="../kpis/long_tested_positive_ungrouped.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
@@ -144,7 +144,7 @@
 		<jsp:include page="../kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/long_total_ungrouped.jsp">
+		<jsp:include page="../kpis/long_tested_positive_ungrouped.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
