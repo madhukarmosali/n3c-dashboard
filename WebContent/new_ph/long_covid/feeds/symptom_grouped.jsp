@@ -24,7 +24,7 @@
 		  	natural join n3c_dashboard.race_map
 		  	natural join n3c_dashboard.ethnicity_map
 		  	natural join n3c_dashboard.observation_map
-		  	natural join n3c_dashboard.symptom_map
+		  	natural join n3c_dashboard.symptom_grouped_map
 		  ) as done;
 </sql:query>
 {
