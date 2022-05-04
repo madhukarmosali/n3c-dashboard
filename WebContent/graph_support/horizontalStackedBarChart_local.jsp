@@ -20,7 +20,7 @@ rect{
 <script>
 
 function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data) {
-
+	
 	var margin = { top: 40, right: 10, bottom: 10, left: barLabelWidth },
 		width = 1200 - margin.left - margin.right,
 		height = width/2 - margin.top - margin.bottom;
@@ -58,41 +58,42 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 					.attr("height", height),
 			g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-		var y = d3.scaleBand()			// x = d3.scaleBand()	
-			.range([0, height-barLowerPadding])	// .rangeRound([0, width])
+		var y = d3.scaleBand()			
+			.range([0, height-barLowerPadding])	
 			.paddingInner(0.05)
 			.align(0.1);
 
-		var x = d3.scaleLinear()		// y = d3.scaleLinear()
-			.range([0, maxBarWidth]);	// .rangeRound([height, 0]);
+		var x = d3.scaleLinear()		
+			.range([0, maxBarWidth]);	
 
 		var z = d3.scaleOrdinal()
-			.range(categorical);
-//			.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+			.range(categorical)
+			.domain([0,legend_data.length]);
 
 		var keys = data.map(function(d) { return d.element; });
 		
 		var stackData = myStack(data);
 
-		//	  data.sort(function(a, b) { return b.total - a.total; });
 		y.domain(data.map(function(d) { return d.element; }));					// x.domain...
 		x.domain([0, d3.max(data, function(d) { return d.count; })]).nice();	// y.domain...
-		z.domain(data.map(function(d, i) { return d.secondary; }));
+
+		
+
 
 		g.append("g")
 			.selectAll("g")
 			.data(stackData)
 			.enter().append("g")
-			.attr("class", function(d) { return "serie " + "color-" + z(d.element).substring(1); })
+			.attr("class", function(d, i) { return "serie " + "color-" + z(i).substring(1); })
 			.attr("fill", function(d,i) { return z(i); })
 			.selectAll("rect")
 			.data(function(d) { return d; })
 			.enter().append("rect")
 			.attr("class", function(d){ return domName+"-rect "; })
-			.attr("y", function(d,i) { return y(data[i].element); })	    //.attr("x", function(d) { return x(d.data.State); })
-			.attr("x", function(d) { return x(d[0]); })			    //.attr("y", function(d) { return y(d[1]); })	
-			.attr("width", function(d) { return x(d[1]) - x(d[0]); })	//.attr("height", function(d) { return y(d[0]) - y(d[1]); })
-			.attr("height", y.bandwidth())						    //.attr("width", x.bandwidth());	
+			.attr("y", function(d,i) { return y(data[i].element); })
+			.attr("x", function(d) { return x(d[0]); })
+			.attr("width", function(d) { return x(d[1]) - x(d[0]); })
+			.attr("height", y.bandwidth())	
 			.on("click", function(d, i){ console.log(domName+"-rect click d", i, d); })
 			.on("mouseover", function() { 
 				tooltip.style("display", null); 
@@ -161,15 +162,14 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 				.attr("transform", function(d, i) {
 					return "translate(0," + i * 20 + ")";
 			});
-
+	
 		legend.append("rect")
 			.attr("x", width - 19)
 			.attr("width", 19)
 			.attr("height", 19)
-			.attr("fill", z)
+			.attr("fill", function(d, i) { return z(i); })
 			.on("mouseover", function(d, i) {
-  				console.log(".serie:not(.color-" + z(d).substring(1) + ")");
-				svg.selectAll(".serie:not(.color-" + z(d).substring(1) + ")").style("opacity", "0.2");
+				svg.selectAll(".serie:not(.color-" + z(i).substring(1) + ")").style("opacity", "0.2");
 			})
 			.on("mouseout", function(d, i) {
   				svg.selectAll(".serie").style("opacity", "1");
@@ -203,7 +203,6 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 	};
 
 	function myStack(data) {
-//		console.log("building mystack",data);
 		var result = new Array();
 		
 		if (data.length == 0)
@@ -213,7 +212,6 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 		for (let secondary = 1; secondary < data[1].secondary.length; secondary++) {
 			var newrow = new Array();
 			for (let primary = 0; primary < data.length; primary++) {
-//				console.log("processing row", previous, data[primary])
 				if (previous == 0)
 					newrow.push([0, data[primary].secondary[secondary]]);
 				else
@@ -221,7 +219,6 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			}	
 			result.push(newrow);
 			previous = newrow;
-//			console.log("newrow",newrow)
 		}
 		return result;
 	}
