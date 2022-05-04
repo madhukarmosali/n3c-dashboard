@@ -37,7 +37,7 @@ function ${param.block}_refresh${param.array}(data) {
     	${param.block}_${param.array}.push(obj);
     }
     ${param.block}_${param.array}.sort((a,b) => (a.seq > b.seq) ? 1 : ((b.seq > a.seq) ? -1 : 0));
-    console.log("refreshed ${param.array}", ${param.block}_${param.array});
+    //console.log("refreshed ${param.array}", ${param.block}_${param.array});
 }
 
 </script>

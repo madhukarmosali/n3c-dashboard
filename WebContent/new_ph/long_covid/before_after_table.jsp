@@ -2,7 +2,7 @@
 <script>
 
 function ${param.block}_constrain_table(filter, constraint) {
-	console.log("${param.block}", filter, constraint)
+	//console.log("${param.block}", filter, constraint)
 	switch (filter) {
 	case 'symptom':
 	    $("#${param.datatable_div}-table").DataTable().column(0).search(constraint, true, false, true).draw();	

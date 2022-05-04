@@ -411,7 +411,6 @@ function refreshAgeArray(data) {
     	ageArray.push(obj);
     }
     ageArray.sort((a,b) => (a.element > b.element) ? 1 : ((b.element > a.element) ? -1 : 0));
-    console.log(ageArray);
 }
 
 function refreshRaceArray(data) {
@@ -463,7 +462,6 @@ function refreshRaceArray(data) {
     	raceArray.push(obj);
     }
     raceArray.sort((a,b) => (a.seq > b.seq) ? 1 : ((b.seq > a.seq) ? -1 : 0));
-    console.log(raceArray);
 }
 
 function refreshEthnicityArray(data) {
@@ -495,7 +493,6 @@ function refreshEthnicityArray(data) {
     	ethnicityArray.push(obj);
     }
     ethnicityArray.sort((a,b) => (a.seq > b.seq) ? 1 : ((b.seq > a.seq) ? -1 : 0));
-    console.log(ethnicityArray);
 }
 
 function refreshGenderArray(data) {
@@ -547,7 +544,6 @@ function refreshGenderArray(data) {
     	genderArray.push(obj);
     }
     genderArray.sort((a,b) => (a.seq > b.seq) ? 1 : ((b.seq > a.seq) ? -1 : 0));
-    console.log(genderArray);
 }
 
 function refreshSeverityArray(data) {
@@ -596,7 +592,6 @@ function refreshSeverityArray(data) {
     	severityArray.push(obj);
     }
     severityArray.sort((a,b) => (a.seq > b.seq) ? 1 : ((b.seq > a.seq) ? -1 : 0));
-    console.log(severityArray);
 }
 
 function uncheckAll(){

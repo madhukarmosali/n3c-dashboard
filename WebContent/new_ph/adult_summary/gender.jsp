@@ -7,7 +7,7 @@
 <script>
 
 function ${param.block}_gender_refresh() {
-	console.log("gender graph", "${param.block}_gender_viz", ${param.block}_GenderArray)
+	//console.log("gender graph", "${param.block}_gender_viz", ${param.block}_GenderArray)
 	d3.select("#${param.block}_gender_viz").select("svg").remove();
     localHorizontalBarChart(${param.block}_GenderArray,"#${param.block}_gender_viz", 140);
 }

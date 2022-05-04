@@ -167,8 +167,6 @@ d3.json("${param.data_page}", function(error, data) {
 			.attr("font-weight", "bold")
 			.attr("text-anchor", "start");
 		
-		console.log(stackData2);
-		
 		var serie = g.selectAll(".serie")
 			.data(stackData2)
 			.enter().append("g")
@@ -244,7 +242,6 @@ d3.json("${param.data_page}", function(error, data) {
 			.attr("height", 19)
 			.attr("fill", z)
 			.on("mouseover", function(d, i) {
-  				console.log(".serie:not(.color-" + z(d).substring(1) + ")");
 				svg.selectAll(".serie:not(.color-" + z(d).substring(1) + ")").style("opacity", "0.2");
 			})
 			.on("mouseout", function(d, i) {

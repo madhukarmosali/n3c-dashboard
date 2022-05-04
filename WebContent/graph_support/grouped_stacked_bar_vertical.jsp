@@ -58,8 +58,6 @@ d3.json("${param.data_page}", function(error, data) {
     		d.${param.count} = +d.${param.count};
 		})
   
-		console.log("data", data);
-  
 		x0.domain(data.map(function(d) { return d.${param.primary_group}; }));
 		x1.domain(data.map(function(d) { return d.${param.secondary_group}; }))
 			.rangeRound([0, x0.bandwidth()])
@@ -70,8 +68,6 @@ d3.json("${param.data_page}", function(error, data) {
 		var stringToFilter = '<18';
 		keys.unshift(keys.splice(keys.findIndex(item => item.id === stringToFilter), 1)[0])
 
-		console.log("keys", keys)
-  
 		var groupData = d3.nest()
 			.key(function(d) { return d.${param.secondary_group} + d.${param.primary_group}; })
 			.rollup(function(d, i){
@@ -81,23 +77,17 @@ d3.json("${param.data_page}", function(error, data) {
 			d2[d.${param.stack_group}] = d.${param.count}
 			d2.total += d.${param.count}
 		})
-		console.log("rollup d", d, d2);
+
 		return d2;
 		})
 		.entries(data)
 		.map(function(d){ return d.value; });
   
-		console.log("groupData", groupData)
-  
 		var stackData = d3.stack()
 			.keys(keys)(groupData)
   
-		console.log("stackData", stackData)
-  
 		y.domain([0, d3.max(groupData, function(d) { return d.total; })]).nice();
 
-		console.log("y", d3.max(groupData, function(d) { return d.total; }))
-  
 		var serie = g.selectAll(".serie")
 			.data(stackData)
 			.enter().append("g")
@@ -117,7 +107,6 @@ d3.json("${param.data_page}", function(error, data) {
 			.on("mouseover", function() { tooltip.style("display", null); })
 			.on("mouseout", function() { tooltip.style("display", "none"); })
 			.on("mousemove", function(d) {
-				console.log(d);
 				var xPosition = d3.mouse(this)[0] - 5;
 				var yPosition = d3.mouse(this)[1] - 5;
 				tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
