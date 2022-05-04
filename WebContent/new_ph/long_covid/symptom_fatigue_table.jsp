@@ -125,6 +125,10 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 	${param.block}_datatable = $('#${param.target_div}-table').DataTable( {
     	data: data,
        	paging: true,
+       	dom: 'lfrtBip',
+        buttons: [
+            'csv', 'copy'
+        ],
     	pageLength: 10,
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
     	order: [[0, 'asc']],
