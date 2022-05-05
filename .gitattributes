@@ -203,6 +203,7 @@ WebContent/new_ph/long_covid/observationEthnicity.jsp -text
 WebContent/new_ph/long_covid/observationGender.jsp -text
 WebContent/new_ph/long_covid/observationRace.jsp -text
 WebContent/new_ph/long_covid/panel.jsp -text
+WebContent/new_ph/long_covid/panel2.jsp -text
 WebContent/new_ph/long_covid/severityGender.jsp -text
 WebContent/new_ph/long_covid/severity_table.jsp -text
 WebContent/new_ph/long_covid/symptomAge.jsp -text
