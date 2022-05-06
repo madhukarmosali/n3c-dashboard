@@ -2,6 +2,9 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
 var categorical = ["#464F82", "#CD5B81", "#8C5692", "#F3A93C", "#EE765D", "#173E59", "#8B8B8B"];
+var gender_range = ["#464F82", "#CD5B81", "#8C5692", "#8B8B8B"];
+var severity_range = ["#D6BFD9", "#b88fbd", "#995fa0", "#6c4270", "#4D2F50", "#8B8B8B", "#8B8B8B"];
+var age_range = ["#F5B1A3", "#e63c19", "#5C180A", "#8B8B8B", "#8B8B8B"];
 
 var sequential_1_2 = ["#D6BFD9", "#4D2F50"];
 var sequential_1_3 = ["#D6BFD9", "#9a5fa0", "#4D2F50"];

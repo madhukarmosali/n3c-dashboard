@@ -19,7 +19,7 @@ rect{
 </style>
 <script>
 
-function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data) {
+function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data, secondary_range = categorical) {
 	
 	var margin = { top: 40, right: 10, bottom: 10, left: barLabelWidth },
 		width = 1200 - margin.left - margin.right,
@@ -52,7 +52,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 	draw();
 
 	function draw() {
-
+console.log("legend", legend_data,"secondary",secondary_range,"data", data)
 		var svg = d3.select("#"+domName).append("svg")
 					.attr("width", width)
 					.attr("height", height),
@@ -66,10 +66,11 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 		var x = d3.scaleLinear()		
 			.range([0, maxBarWidth]);	
 
-		var z = d3.scaleOrdinal()
-			.range(categorical)
-			.domain([0,legend_data.length]);
-
+//		var z = d3.scaleOrdinal()
+//			.range(secondary_range)
+//			.domain([0,legend_data.length]);
+		var z = secondary_range;
+		
 		var keys = data.map(function(d) { return d.element; });
 		
 		var stackData = myStack(data);
@@ -84,8 +85,8 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.selectAll("g")
 			.data(stackData)
 			.enter().append("g")
-			.attr("class", function(d, i) { return "serie " + "color-" + z(i).substring(1); })
-			.attr("fill", function(d,i) { return z(i); })
+			.attr("class", function(d, i) { return "serie " + "color-" + z[i].substring(1); })
+			.attr("fill", function(d,i) { console.log(i, z[i]);return z[i]; })
 			.selectAll("rect")
 			.data(function(d) { return d; })
 			.enter().append("rect")
@@ -167,9 +168,9 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.attr("x", width - 19)
 			.attr("width", 19)
 			.attr("height", 19)
-			.attr("fill", function(d, i) { return z(i); })
+			.attr("fill", function(d, i) { return z[i]; })
 			.on("mouseover", function(d, i) {
-				svg.selectAll(".serie:not(.color-" + z(i).substring(1) + ")").style("opacity", "0.2");
+				svg.selectAll(".serie:not(.color-" + z[i].substring(1) + ")").style("opacity", "0.2");
 			})
 			.on("mouseout", function(d, i) {
   				svg.selectAll(".serie").style("opacity", "1");

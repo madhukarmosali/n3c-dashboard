@@ -43,7 +43,7 @@
 		<jsp:include page="hss/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'long-covid'}">
-		<jsp:include page="long_covid/panel.jsp"/>
+		<jsp:include page="long_covid/panel2.jsp"/>
 	</c:when>
 	<c:when test="${param.iframe == 'delayed-mortality'}">
 		<jsp:include page="delayed_mortality/panel.jsp"/>

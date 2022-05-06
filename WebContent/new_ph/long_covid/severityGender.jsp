@@ -10,7 +10,7 @@ console.log("legend", gender_legend)
 function ${param.block}_severity_refresh() {
 	console.log("severity graph", "${param.block}_severity_viz", ${param.block}_SeverityGenderArray)
    	d3.select("#${param.block}_severity_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_SeverityGenderArray,"${param.block}_severity_viz", 120, gender_legend);	
+	localHorizontalStackedBarChart(${param.block}_SeverityGenderArray,"${param.block}_severity_viz", 120, gender_legend, gender_range);	
 }
 
 </script>
