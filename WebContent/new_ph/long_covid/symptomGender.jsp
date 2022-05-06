@@ -10,7 +10,7 @@
 function ${param.block}_gender_refresh() {
 	console.log("gender graph", "${param.block}_gender_viz", ${param.block}_SymptomGenderArray)
    	d3.select("#${param.block}_gender_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_SymptomGenderArray,"${param.block}_gender_viz", 150, gender_legend);	
+	localHorizontalStackedBarChart(${param.block}_SymptomGenderArray,"${param.block}_gender_viz", 150, gender_legend, gender_range);	
 }
 
 ${param.block}_gender_refresh();
