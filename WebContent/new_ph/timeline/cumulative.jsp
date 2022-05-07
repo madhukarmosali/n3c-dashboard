@@ -18,6 +18,7 @@
 		<jsp:param name="column2_label" value="Rolling 7-Day Average Patient Count" />
 		<jsp:param name="column2_tip" value="7-Day Ave" />
 		<jsp:param name="column2_tip_offset" value="80" />
+		<jsp:param name="constraintPropagator" value="constraint" />
 	</jsp:include>
 
 	<p style="text-align: center;">Hover over the graph to show the counts for that day. Click and drag to focus on a specific time range. Double click to revert to the default time range.</p>

@@ -1,24 +1,23 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 <script>
 
-var constraint_begin = null,
-	constraint_end = null;
-	
-function constraint(begin, end) {
+var ${param.block}_constraint_begin = null,
+    ${param.block}_constraint_end = null;
+
+function ${param.block}_constraint(begin, end) {
 	console.log("constraint", begin, end)
-	constraint_begin = begin;
-	constraint_end = end;
-	var table = $('#positives-by-date-table').DataTable();
+	${param.block}_constraint_begin = begin;
+	${param.block}_constraint_end = end;
+	var table = $('#${param.target_div}-table').DataTable();
 	table.draw();
-	
 }
 
 $(document).ready( function () {
 	$.fn.dataTable.ext.search.push(
 		    function( settings, searchData, index, rowData, counter ) {
-		    	if (constraint_begin == null)
+		    	if (${param.block}_constraint_begin == null)
 		    		return true;
-		    	if (constraint_begin <= searchData[0] && searchData[0] <= constraint_end)
+		    	if (${param.block}_constraint_begin <= searchData[0] && searchData[0] <= ${param.block}_constraint_end)
 		    		return true;
 		    	
 		    	return false;
@@ -36,10 +35,10 @@ $(document).ready( function () {
 		}
 	
 	
-		table = document.createElement("table");
+		var table = document.createElement("table");
 		table.className = 'table table-hover compact site-wrapper';
 		table.style.width = '100%';
-		table.id="positives-by-date-table";
+		table.id="${param.target_div}-table";
 	
 		var header= table.createTHead();
 		var header_row = header.insertRow(0); 
@@ -50,12 +49,12 @@ $(document).ready( function () {
 			header_row.appendChild(th);
 		}
 	
-		var divContainer = document.getElementById("positives-by-date");
+		var divContainer = document.getElementById("${param.target_div}");
 		divContainer.appendChild(table);
 	
 		var data = json['rows'];
 	
-		$('#positives-by-date-table').DataTable( {
+		$('#${param.target_div}-table').DataTable( {
 	    	data: data,
 	       	paging: true,
 	    	pageLength: 10,
