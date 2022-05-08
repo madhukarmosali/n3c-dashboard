@@ -10,6 +10,7 @@
 <jsp:include page="../graph_support/horizontalBarChart_local.jsp"/>
 <jsp:include page="../graph_support/horizontalStackedBarChart_local.jsp"/>
 <jsp:include page="../graph_support/verticalBarChart_local.jsp"/>
+<jsp:include page="../graph_support/graphic_save.jsp"/>
 
 <c:choose>
 	<c:when test="${param.iframe == 'summary'}">

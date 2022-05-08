@@ -51,6 +51,9 @@
 	<script src="<util:applicationRoot/>/resources/d3.v4.min.js"></script>
 	<script src="<util:applicationRoot/>/resources/d3-tip.js"></script>
 	<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
+	 <script src="https://cdn.rawgit.com/eligrey/canvas-toBlob.js/f1a01896135ab378aa5c0118eadd81da55e698d8/canvas-toBlob.js"></script>
+	 <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
 	
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">

@@ -43,6 +43,7 @@ WebContent/feeds/siteRoster.jsp -text
 WebContent/feeds/us-states.json -text
 WebContent/footer.jsp -text
 WebContent/graph_support/forcePhoto.jsp -text
+WebContent/graph_support/graphic_save.jsp -text
 WebContent/graph_support/grouped_stacked_bar_horizontal.jsp -text
 WebContent/graph_support/grouped_stacked_bar_vertical.jsp -text
 WebContent/graph_support/horizontalBarChart_local.jsp -text
