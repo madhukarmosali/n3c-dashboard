@@ -5,6 +5,7 @@ function ${param.block}_refresh${param.array}(data) {
 	var aData = new Object;
 	var bData = new Object;
 	var cData = new Object;
+	var maxIndex = 0;
 	$("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().each( function ( group, i ) {
 		<c:choose>
 			<c:when test="${empty param.primary_abbrev}">
@@ -21,11 +22,13 @@ function ${param.block}_refresh${param.array}(data) {
         if (typeof aData[group] == 'undefined') {
             aData[group] = count;
             bData[group] = seq;
-            cData[group] = [0,0,0,0,0];
+            cData[group] = [0,0,0,0,0,0,0,0];
             cData[group][${param.secondary}_seq] = count;
+            maxIndex = Math.max(maxIndex, ${param.secondary}_seq);
          } else {
         	 aData[group] += count;
 	         cData[group][${param.secondary}_seq] += count;
+             maxIndex = Math.max(maxIndex, ${param.secondary}_seq);
          }
 	});
 
@@ -42,7 +45,7 @@ function ${param.block}_refresh${param.array}(data) {
 	  		  value: bData[i]
 	  		});
     	Object.defineProperty(obj, 'secondary', {
-    		  value: cData[i]
+    		  value: cData[i].slice(0, maxIndex + 1)
     		});
     	${param.block}_${param.array}.push(obj);
     }
