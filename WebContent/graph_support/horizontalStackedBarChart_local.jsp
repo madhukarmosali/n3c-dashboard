@@ -52,7 +52,6 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 	draw();
 
 	function draw() {
-console.log("legend", legend_data,"secondary",secondary_range,"data", data)
 		var svg = d3.select("#"+domName).append("svg")
 					.attr("width", width)
 					.attr("height", height),
@@ -86,7 +85,7 @@ console.log("legend", legend_data,"secondary",secondary_range,"data", data)
 			.data(stackData)
 			.enter().append("g")
 			.attr("class", function(d, i) { return "serie " + "color-" + z[i].substring(1); })
-			.attr("fill", function(d,i) { console.log(i, z[i]);return z[i]; })
+			.attr("fill", function(d,i) { return z[i]; })
 			.selectAll("rect")
 			.data(function(d) { return d; })
 			.enter().append("rect")
