@@ -112,6 +112,11 @@ WebContent/modules/time_line_2_column.jsp -text
 WebContent/modules/verticalBarChart_local.jsp -text
 WebContent/navbar.jsp -text
 WebContent/new-ph.jsp -text
+WebContent/new_ph/adult_summary/adult_summary_1.jsp -text
+WebContent/new_ph/adult_summary/adult_summary_2.jsp -text
+WebContent/new_ph/adult_summary/adult_summary_3.jsp -text
+WebContent/new_ph/adult_summary/adult_summary_4.jsp -text
+WebContent/new_ph/adult_summary/adult_summary_5.jsp -text
 WebContent/new_ph/adult_summary/age.jsp -text
 WebContent/new_ph/adult_summary/aggregated_table.jsp -text
 WebContent/new_ph/adult_summary/ethnicity.jsp -text
@@ -234,6 +239,7 @@ WebContent/new_ph/long_covid/symptom_summary_table.jsp -text
 WebContent/new_ph/long_covid/symptom_ungrouped_table.jsp -text
 WebContent/new_ph/medications/feeds/medications.jsp -text
 WebContent/new_ph/medications/kpis.jsp -text
+WebContent/new_ph/medications/medications.jsp -text
 WebContent/new_ph/medications/medications_table.jsp -text
 WebContent/new_ph/medications/panel.jsp -text
 WebContent/new_ph/pediatrics_summary/aggregated_table.jsp -text
@@ -280,6 +286,7 @@ WebContent/new_ph/timeline/kpis_1.jsp -text
 WebContent/new_ph/timeline/kpis_2.jsp -text
 WebContent/new_ph/timeline/panel.jsp -text
 WebContent/new_ph/timeline/positive_cases_by_date.jsp -text
+WebContent/new_ph/tripleHistogram.jsp -text
 WebContent/positive_timeline.jsp -text
 WebContent/public-health.jsp -text
 WebContent/recover.jsp -text

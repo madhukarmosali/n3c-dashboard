@@ -4,122 +4,43 @@
 
 <!-- covid_positive_mab_demo_censored (2022-03-31 05:01) -->
 
-<jsp:include page="../block.jsp">
-	<jsp:param name="block" value="adult_summary_1" />
-	<jsp:param name="block_header" value="Demographics: COVID+" />
+<select id="selectMe">
+  <option value="adult_summary_1">COVID+ Patient Demographics</option>
+  <option value="adult_summary_2">Vaccination Status</option>
+  <option value="adult_summary_3">Vaccination and Comorbidities</option>
+  <option value="adult_summary_4">Unknown Vaccination Status and Comorbidities</option>
+  <option value="adult_summary_5">Ungrouped Comorbidities</option>
+</select>
+<div id="frame">
+	<div id="adult_summary_1" class="group"></div>
+	<div id="adult_summary_2" class="group"></div>
+	<div id="adult_summary_3" class="group"></div>
+	<div id="adult_summary_4" class="group"></div>
+	<div id="adult_summary_5" class="group"></div>
+</div>
 
-	<jsp:param name="kpis" value="adult_summary/kpis.jsp" />
-
-	<jsp:param name="severity_filter" value="true" />
-	<jsp:param name="age_filter" value="true" />
-	<jsp:param name="race_filter" value="true" />
-	<jsp:param name="gender_filter" value="true" />
-	<jsp:param name="ethnicity_filter" value="true" />
-
-	<jsp:param name="severity_panel" value="adult_summary/severity.jsp" />
-	<jsp:param name="age_panel" value="adult_summary/age.jsp" />
-	<jsp:param name="race_panel" value="adult_summary/race.jsp" />
-	<jsp:param name="gender_panel" value="adult_summary/gender.jsp" />
-	<jsp:param name="ethnicity_panel" value="adult_summary/ethnicity.jsp" />
-
-	<jsp:param name="datatable" value="adult_summary/aggregated_table.jsp" />
-	<jsp:param name="datatable_div" value="adult_aggregated" />
-	<jsp:param name="datatable_feed" value="adult_summary/feeds/severity.jsp" />
-</jsp:include>
 <script>
-	adult_summary_1_toggle("severity");
-</script>
-<jsp:include page="../block.jsp">
-	<jsp:param name="block" value="adult_summary_2" />
-	<jsp:param name="block_header" value="Demographics: Vaccinated" />
 
-	<jsp:param name="kpis" value="adult_summary/kpis.jsp" />
+var frame_crumbs = '';
 
-	<jsp:param name="severity_filter" value="true" />
-	<jsp:param name="age_filter" value="true" />
-	<jsp:param name="race_filter" value="true" />
-	<jsp:param name="gender_filter" value="true" />
+frame_load('adult_summary_1');
 
-	<jsp:param name="severity_panel" value="test_panel.jsp" />
-	<jsp:param name="age_panel" value="test_panel.jsp" />
-	<jsp:param name="race_panel" value="test_panel.jsp" />
-	<jsp:param name="gender_panel" value="test_panel.jsp" />
+function frame_load(selection) {
+	var $this = $("#"+selection);
+	console.log("selection", selection, frame_crumbs)
 
-	<jsp:param name="datatable" value="adult_summary/vaccinated_table.jsp" />
-	<jsp:param name="datatable_div" value="adult_vaccinated" />
-	<jsp:param name="datatable_feed" value="adult_summary/feeds/vaccinated.jsp" />
-</jsp:include>
-<script>
-	adult_summary_2_toggle("vaccinated");
-</script>
-<jsp:include page="../block.jsp">
-	<jsp:param name="block" value="adult_summary_3" />
-	<jsp:param name="block_header" value="Demographics: Vaccinated and Comorbidities" />
+	if (!frame_crumbs.includes(selection)) {
+		$this.load("<util:applicationRoot/>/new_ph/adult_summary/"+selection+".jsp");
+		frame_crumbs = frame_crumbs + selection;
+	}
+};
 
-	<jsp:param name="kpis" value="adult_summary/kpis.jsp" />
+$(document).ready(function () {
+	  $('#selectMe').change(function () {
+		frame_load($(this).val());
+	    $('.group').hide();
+	    $('#'+$(this).val()).show();
+	  })
+	});
 
-	<jsp:param name="severity_filter" value="true" />
-	<jsp:param name="age_filter" value="true" />
-	<jsp:param name="race_filter" value="true" />
-	<jsp:param name="gender_filter" value="true" />
-	<jsp:param name="ethnicity_filter" value="true" />
-
-	<jsp:param name="severity_panel" value="test_panel.jsp" />
-	<jsp:param name="age_panel" value="test_panel.jsp" />
-	<jsp:param name="race_panel" value="test_panel.jsp" />
-	<jsp:param name="gender_panel" value="test_panel.jsp" />
-	<jsp:param name="ethnicity_panel" value="test_panel.jsp" />
-
-	<jsp:param name="datatable" value="adult_summary/vaccinated_comorbidity_table.jsp" />
-	<jsp:param name="datatable_div" value="adult_vaccinated_comorbidity" />
-	<jsp:param name="datatable_feed" value="adult_summary/feeds/vaccinated_comorbidities.jsp" />
-</jsp:include>
-<script>
-	adult_summary_3_toggle("vaccinated_comorbidities");
-</script>
-<jsp:include page="../block.jsp">
-	<jsp:param name="block" value="adult_summary_4" />
-	<jsp:param name="block_header" value="Demographics: Unknown Vaccination and Comorbidities" />
-
-	<jsp:param name="kpis" value="adult_summary/kpis.jsp" />
-
-	<jsp:param name="severity_filter" value="true" />
-	<jsp:param name="age_filter" value="true" />
-	<jsp:param name="race_filter" value="true" />
-	<jsp:param name="gender_filter" value="true" />
-
-	<jsp:param name="severity_panel" value="test_panel.jsp" />
-	<jsp:param name="age_panel" value="test_panel.jsp" />
-	<jsp:param name="race_panel" value="test_panel.jsp" />
-	<jsp:param name="gender_panel" value="test_panel.jsp" />
-
-	<jsp:param name="datatable" value="adult_summary/unknown_vaccination_table.jsp" />
-	<jsp:param name="datatable_div" value="adult_unknown_vaccination" />
-	<jsp:param name="datatable_feed" value="adult_summary/feeds/unknown_vaccination.jsp" />
-</jsp:include>
-<script>
-	adult_summary_4_toggle("unknown_vaccinated");
-</script>
-<jsp:include page="../block.jsp">
-	<jsp:param name="block" value="adult_summary_5" />
-	<jsp:param name="block_header" value="Demographics: Ungrouped Comorbidities" />
-
-	<jsp:param name="kpis" value="adult_summary/kpis.jsp" />
-
-	<jsp:param name="severity_filter" value="true" />
-	<jsp:param name="age_filter" value="true" />
-	<jsp:param name="race_filter" value="true" />
-	<jsp:param name="gender_filter" value="true" />
-
-	<jsp:param name="severity_panel" value="test_panel.jsp" />
-	<jsp:param name="age_panel" value="test_panel.jsp" />
-	<jsp:param name="race_panel" value="test_panel.jsp" />
-	<jsp:param name="gender_panel" value="test_panel.jsp" />
-
-	<jsp:param name="datatable" value="adult_summary/ungrouped_table.jsp" />
-	<jsp:param name="datatable_div" value="adult_ungrouped" />
-	<jsp:param name="datatable_feed" value="adult_summary/feeds/ungrouped.jsp" />
-</jsp:include>
-<script>
-	adult_summary_5_toggle("ungrouped");
 </script>

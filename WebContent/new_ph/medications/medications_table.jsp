@@ -57,7 +57,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
      	columns: [
         	{ data: 'drug_domain', visible: true, orderable: true },
         	{ data: 'concept_set_name', visible: true, orderable: true },
-        	{ data: 'age_bin', visible: true, orderable: true },
+        	{ data: 'age', visible: true, orderable: true },
         	{ data: 'patient_count', visible: true, orderable: true },
         	{ data: 'total_count', visible: true, orderable: true },
         	{ data: 'age_abbrev', visible: false },
@@ -67,6 +67,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 
 	// this is necessary to populate the histograms for the panel's initial D3 rendering
 	${param.block}_refreshHistograms();
+	${param.block}_medication_refresh();
 
 	
 });

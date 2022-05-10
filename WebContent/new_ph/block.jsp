@@ -246,9 +246,6 @@
 	var ${param.block}_GenderArray = new Array();
 	var ${param.block}_SeverityArray = new Array();
 	
-	// stacked bar arrays
-	// ungrouped symptom / before/after
-
 	var ${param.block}_BeforeAfterArray = new Array();
 
 	var ${param.block}_GenderSeverityArray = new Array();
@@ -264,6 +261,8 @@
 	var ${param.block}_SymptomRaceArray = new Array();
 	var ${param.block}_SymptomEthnicityArray = new Array();
 	var ${param.block}_SymptomObservationArray = new Array();
+
+	var ${param.block}_MedicationArray = new Array();
 
 	function ${param.block}_refreshHistograms() {
 	    var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();
@@ -289,6 +288,8 @@
 	    ${param.block}_refreshSymptomEthnicityArray(data);
 	    ${param.block}_refreshSymptomObservationArray(data);
 	    
+	    ${param.block}_refreshMedicationArray(data);
+	    
 	    if ('${param.block}' === 'long_covid_6') {
 	    	${param.block}_before_refresh();
 	    }
@@ -307,6 +308,9 @@
 	    }
 	    if (${param.block}_loaded("ethnicity")) {
 	    	${param.block}_ethnicity_refresh();
+	    }
+	    if (${param.block}_loaded("medication")) {
+	    	${param.block}_medication_refresh();
 	    }
 	  }
 	
@@ -535,4 +539,13 @@
 	<jsp:param name="array" value="SymptomObservationArray"/>
 	<jsp:param name="primary" value="symptom"/>
 	<jsp:param name="secondary" value="observation"/>
+</jsp:include>
+
+<jsp:include page="tripleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="MedicationArray"/>
+	<jsp:param name="primary" value="drug_domain"/>
+	<jsp:param name="secondary" value="concept_set_name"/>
+	<jsp:param name="tertiary" value="age"/>
 </jsp:include>

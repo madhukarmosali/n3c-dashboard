@@ -11,7 +11,7 @@ chart {
 
 <script>
 
-function localPieChart(data, domName, donutRatio = 0) {
+function localPieChart(data, domName, legend_data, range = categorical, donutRatio = 0) {
 	var width = 325, //var width = parseInt(d3.select("${param.dom_element}").style("width"))-10,
 		height = width,
 		border = 10;
@@ -36,7 +36,7 @@ function localPieChart(data, domName, donutRatio = 0) {
 		var formatComma = d3.format(",");
 		var radius = Math.min(width - border, height - border) / 2;
 		var color = d3.scaleOrdinal()
-			.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+			.range(range);
 
 		var arc = d3.arc()
 			.outerRadius(radius - 10)

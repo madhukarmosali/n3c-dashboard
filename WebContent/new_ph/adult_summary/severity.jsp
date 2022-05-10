@@ -10,7 +10,7 @@
 function ${param.block}_severity_refresh() {
 	//console.log("severity graph", "${param.block}_severity_viz", ${param.block}_SeverityArray)
 	d3.select("#${param.block}_severity_viz").select("svg").remove();
-    localPieChart(${param.block}_SeverityArray,"#${param.block}_severity_viz");
+    localPieChart(${param.block}_SeverityArray,"#${param.block}_severity_viz", severity_legend, severity_range);
 }
 
 </script>
