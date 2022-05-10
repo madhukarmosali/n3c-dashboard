@@ -24,7 +24,7 @@
 function ${param.block}_medication_refresh() {
 	console.log("medication graph", "${param.block}_medication_viz", ${param.block}_MedicationArray)
    	d3.select("#${param.block}_medication_viz").select("svg").remove();
-//	localHorizontalStackedBarChart(${param.block}_MedicationArray,"${param.block}_medication_viz", 120, age_legend, age_range);	
+	localHorizontalGroupedStackedBarChart(${param.block}_MedicationArray,"${param.block}_medication_viz", 120, age_legend, age_range);	
 }
 
 </script>

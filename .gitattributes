@@ -47,6 +47,7 @@ WebContent/graph_support/graphic_save.jsp -text
 WebContent/graph_support/grouped_stacked_bar_horizontal.jsp -text
 WebContent/graph_support/grouped_stacked_bar_vertical.jsp -text
 WebContent/graph_support/horizontalBarChart_local.jsp -text
+WebContent/graph_support/horizontalGroupedStackedBarChart_local.jsp -text
 WebContent/graph_support/horizontalStackedBarChart_local.jsp -text
 WebContent/graph_support/pieChart_local.jsp -text
 WebContent/graph_support/site_map.jsp -text
