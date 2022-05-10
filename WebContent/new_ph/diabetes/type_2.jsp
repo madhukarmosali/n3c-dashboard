@@ -17,3 +17,14 @@
 		<jsp:param name="legend_label" value="Age" />
 	</jsp:include>
 </div>
+<div id="${param.block}_diabetes_t2_viz" class="col-lg-10 dash_viz"></div>
+<p>Sample text.</p>
+<script>
+
+function ${param.block}_diabetes_t2_refresh() {
+	console.log("diabetes graph", "${param.block}_diabetes_t2_viz", ${param.block}_DiabetesArray)
+   	d3.select("#${param.block}_diabetes_t2_viz").select("svg").remove();
+//	localHorizontalStackedBarChart(${param.block}_MedicationArray,"${param.block}_diabetes_t2_viz", 120, age_legend, age_range);	
+}
+
+</script>

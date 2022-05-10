@@ -141,6 +141,7 @@ WebContent/new_ph/delayed_mortality/feeds/delayed.jsp -text
 WebContent/new_ph/delayed_mortality/feeds/demographics.jsp -text
 WebContent/new_ph/delayed_mortality/kpis.jsp -text
 WebContent/new_ph/delayed_mortality/panel.jsp -text
+WebContent/new_ph/diabetes/diabetes_table.jsp -text
 WebContent/new_ph/diabetes/feeds/diabetes_t1_detail.jsp -text
 WebContent/new_ph/diabetes/feeds/diabetes_t2_detail.jsp -text
 WebContent/new_ph/diabetes/feeds/t1_summary.jsp -text

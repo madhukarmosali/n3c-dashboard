@@ -70,14 +70,18 @@ function ${param.block}_refresh${param.array}(data) {
         	Object.defineProperty(obj2, 'count', {
       		  value: cData[i][j]
       		});
+        	Object.defineProperty(obj2, 'tertiary', {
+      		  value: dData[i][j].slice(0, maxIndex + 1)
+      		});
         	secondary.push(obj2);
     	}
     	Object.defineProperty(obj, 'secondary', {
     		  value: secondary
     		});
+        secondary.sort((a,b) => (a.element > b.element) ? 1 : ((b.element > a.element) ? -1 : 0));
     	${param.block}_${param.array}.push(obj);
     }
-    ${param.block}_${param.array}.sort((a,b) => (a.seq > b.seq) ? 1 : ((b.seq > a.seq) ? -1 : 0));
+    ${param.block}_${param.array}.sort((a,b) => (a.element > b.element) ? 1 : ((b.element > a.element) ? -1 : 0));
     //console.log("refreshed ${param.array}", ${param.block}_${param.array});
 }
 

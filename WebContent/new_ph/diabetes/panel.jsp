@@ -17,6 +17,10 @@
 	<jsp:param name="age_filter" value="true" />
 
 	<jsp:param name="simple_panel" value="diabetes/type_2.jsp" />
+
+	<jsp:param name="datatable" value="diabetes/diabetes_table.jsp" />
+	<jsp:param name="datatable_div" value="diabetes_type2" />
+	<jsp:param name="datatable_feed" value="diabetes/feeds/t2_summary.jsp" />
 </jsp:include>
 <jsp:include page="../block.jsp">
 	<jsp:param name="block" value="diabetes_2" />
