@@ -63,7 +63,7 @@ function localHorizontalGroupedStackedBarChart(data, domName, barLabelWidth, leg
 			.padding(0.2);
 		  
 		var stackData = myStack(data)
-
+console.log("stackData", stackData)
 		x.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
 
 		

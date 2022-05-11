@@ -24,7 +24,7 @@
 function ${param.block}_diabetes_t2_refresh() {
 	console.log("diabetes graph", "${param.block}_diabetes_t2_viz", ${param.block}_DiabetesArray)
    	d3.select("#${param.block}_diabetes_t2_viz").select("svg").remove();
-//	localHorizontalStackedBarChart(${param.block}_MedicationArray,"${param.block}_diabetes_t2_viz", 120, age_legend, age_range);	
+	localHorizontalGroupedStackedBarChart(${param.block}_DiabetesArray,"${param.block}_diabetes_t2_viz", 120, age_legend, age_range);	
 }
 
 </script>

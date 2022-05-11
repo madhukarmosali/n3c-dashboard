@@ -240,6 +240,7 @@ WebContent/new_ph/long_covid/symptom_pots_table.jsp -text
 WebContent/new_ph/long_covid/symptom_summary_table.jsp -text
 WebContent/new_ph/long_covid/symptom_ungrouped_table.jsp -text
 WebContent/new_ph/medications/feeds/medications.jsp -text
+WebContent/new_ph/medications/feeds/medications_raw.jsp -text
 WebContent/new_ph/medications/kpis.jsp -text
 WebContent/new_ph/medications/medications.jsp -text
 WebContent/new_ph/medications/medications_table.jsp -text
