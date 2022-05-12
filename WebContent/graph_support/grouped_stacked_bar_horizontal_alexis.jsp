@@ -97,6 +97,8 @@ d3.json("${param.data_page}", function(error, data) {
 		groupData.forEach(function(d) {
 			sub_labels.push(d.${param.secondary_group});
 		});
+		
+		var sub_labels2 = sub_labels;
 
 	
 		var category_labels = [];
@@ -319,7 +321,27 @@ d3.json("${param.data_page}", function(error, data) {
   					.attr('dy', 20);
 		   	 	});
 		
-		serie.selectAll("text")
+		serie.selectAll("g")
+			.data(function(d) {return d; })
+			.enter().append("text")
+			.style("fill", "#a5a2a2")
+			.attr("class", "secondary")
+			.style("text-anchor", "start")
+			.style("font-size", ".8rem")
+			.attr("transform", function(d, i) {return "translate(0, " + (y_category(( (i * y_defect.bandwidth())+y_defect.bandwidth()/2)+15    )) + ")"; })
+			.attr("y", function(d) { 
+				console.log(d);
+				return y_category(0); 
+			})
+			.attr("x", function(d) { return (x(d.data.total)) + 5; })
+			.text(function(d) {
+				if ( sub_labels2.includes(d.data.${param.secondary_group}) ){
+					sub_labels2 = sub_labels2.filter(function(e) { return e !== d.data.${param.secondary_group} });
+					return d.data.total;
+				}
+			});
+		
+		serie.selectAll("text2")
 			.data(function(d) {return d; })
 			.enter().append("text")
 			.style("fill", "black")
