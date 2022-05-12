@@ -196,7 +196,6 @@ d3.json("${param.data_page}", function(error, data) {
 			})
 			//.attr("class", function(d){d.replace(/[^A-Za-z0-9]/g, "")})
 			.attr("class", function(d){
-				console.log(d);
 				return "secondary lab" + d.replace(/[^A-Z0-9]/ig, "")}
 			)
 			.on("mouseover", function(d, i) {
@@ -299,12 +298,17 @@ d3.json("${param.data_page}", function(error, data) {
 		     	var yPosition = d3.mouse(document.getElementById("svg_g"))[1];
 		     	var xPosition = d3.mouse(document.getElementById("svg_g"))[0];
 		     	var count = d[1]-d[0];
+		     	var total = d.data.total;
 		     	var label = '';
 		     	for (var i in d.data){
 		     		if (d.data[i] == count){
 		     			label = i;
 		     		}
 		     	}
+		     	console.log(d);
+		     	console.log(total);
+		     	console.log(count);
+		     	console.log(total/count);
 		     	tooltip.selectAll("tspan").remove();
 		     	tooltip
 		     		.attr("transform", "translate(" + xPosition + "," +  yPosition + ")")
@@ -318,7 +322,14 @@ d3.json("${param.data_page}", function(error, data) {
 		     		.text(count)
 		     		.attr('fill', 'black')
 		     		.attr('x', 30)
-  					.attr('dy', 20);
+  					.attr('dy', 20)
+		     		.append("tspan")
+	     			.text(function(){
+	     				return  ((count/total) * 100).toFixed(2) + "%";
+	     			})
+	     			.attr('fill', 'black')
+	     			.attr('x', 30)
+					.attr('dy', 21);
 		   	 	});
 		
 		serie.selectAll("g")
@@ -372,7 +383,7 @@ d3.json("${param.data_page}", function(error, data) {
       
   		tooltip.append("rect")
     		.attr("width", 60)
-    		.attr("height", 30)
+    		.attr("height", 53)
     		.attr("fill", "white")
     		.style("opacity", 0.8);
 
