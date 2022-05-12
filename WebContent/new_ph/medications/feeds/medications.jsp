@@ -14,9 +14,9 @@
 					end as patient_count,
 					total_patients as total_count
 				  from n3c_questions.covid_patients_demographics_censored
+				  where concept_set_name != 'Available, in progress'
 		  	) as foo
 		  	natural join n3c_dashboard.age_map4
-		  	ORDER BY drug_domain, concept_set_name, age_seq desc
 		  )as done ;
 </sql:query>
 {

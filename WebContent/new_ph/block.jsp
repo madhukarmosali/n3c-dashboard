@@ -267,6 +267,10 @@
 
 	function ${param.block}_refreshHistograms() {
 	    var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();
+	    var data2 = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data();
+	    
+	    
+	    
 	    //console.log('${param.block}', "table data", data)
 	    ${param.block}_refreshAgeArray(data);
 	    ${param.block}_refreshRaceArray(data);
@@ -289,7 +293,7 @@
 	    ${param.block}_refreshSymptomEthnicityArray(data);
 	    ${param.block}_refreshSymptomObservationArray(data);
 	    
-	    ${param.block}_refreshMedicationArray(data);
+	    ${param.block}_refreshMedicationArray(data2);
 	    ${param.block}_refreshDiabetesArray(data);
 	    
 	    if ('${param.block}' === 'long_covid_6') {
@@ -547,6 +551,7 @@
 	<jsp:param name="block" value="${param.block}"/>
 	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
 	<jsp:param name="array" value="MedicationArray"/>
+	<jsp:param name="wrap" value="no"/>
 	<jsp:param name="primary" value="drug_domain"/>
 	<jsp:param name="secondary" value="concept_set_name"/>
 	<jsp:param name="tertiary" value="age"/>

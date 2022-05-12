@@ -10,6 +10,9 @@
 <jsp:include page="../graph_support/horizontalBarChart_local.jsp"/>
 <jsp:include page="../graph_support/horizontalStackedBarChart_local.jsp"/>
 <jsp:include page="../graph_support/horizontalGroupedStackedBarChart_local.jsp"/>
+
+<jsp:include page="../graph_support/grouped_stacked_bar_horizontal_alexis_local.jsp"/>
+
 <jsp:include page="../graph_support/verticalBarChart_local.jsp"/>
 <jsp:include page="../graph_support/graphic_save.jsp"/>
 
