@@ -16,7 +16,8 @@
 				  from n3c_questions.covid_patients_demographics_censored
 		  	) as foo
 		  	natural join n3c_dashboard.age_map4
-		  ) as done;
+		  	ORDER BY drug_domain, concept_set_name, age_seq desc
+		  )as done ;
 </sql:query>
 {
     "headers": [
