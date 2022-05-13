@@ -1,11 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
-var gender_range = ["#464F82", "#CD5B81", "#8C5692", "#8B8B8B"];
+var gender_range = ["#FF6E54", "#FFA602", "#8C5692", "#8B8B8B"];
 var severity_range = ["#D6BFD9", "#b88fbd", "#995fa0", "#6c4270", "#4D2F50", "#8B8B8B", "#8B8B8B"];
-var race_range = ["#464F82", "#CD5B81", "#8C5692", "#F3A93C", "#EE765D", "#8B8B8B", "#8B8B8B"];
-var ethnicity_range = ["#464F82", "#CD5B81", "#8B8B8B", "#8B8B8B"];
-var age_range = ["#F5B1A3", "#e63c19", "#5C180A", "#8B8B8B", "#8B8B8B"];
+var race_range = ["#444E86", "#DD5181", "#955196", "#FFA602", "#FF6E54", "#8B8B8B"];
+var ethnicity_range = ["#444E86", "#DD5181", "#8B8B8B"];
+var age_range = ["#D7BFD9", "#9A5FA0", "#3E2640", "#8B8B8B"];
 
 var categorical = ["#464F82", "#CD5B81", "#8C5692", "#F3A93C", "#EE765D", "#173E59", "#8B8B8B"];
 
