@@ -3,13 +3,19 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 
-<div id="${param.block}_race_viz" class="col-lg-10 dash_viz"></div>
+<div id="${param.block}_race_viz" class="col-12 dash_viz"></div>
 <script>
+var labeltest = '${param.label_width}';
+var labelWidth = 150;
+
+if (labeltest.length != 0){
+	labelWidth = Number('${param.label_width}');
+};
 
 function ${param.block}_race_refresh() {
 	console.log("race graph", "${param.block}_race_viz", ${param.block}_SymptomRaceArray)
    	d3.select("#${param.block}_race_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_SymptomRaceArray,"${param.block}_race_viz", 150, race_legend, race_range);	
+	localHorizontalStackedBarChart(${param.block}_SymptomRaceArray,"${param.block}_race_viz", labelWidth, race_legend, race_range, "${param.viz_height}");	
 }
 
 ${param.block}_race_refresh();

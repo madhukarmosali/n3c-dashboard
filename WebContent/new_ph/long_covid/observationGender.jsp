@@ -3,14 +3,21 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 
-<div id="${param.block}_gender_viz" class="col-lg-10 dash_viz"></div>
+<div id="${param.block}_gender_viz" class="col-12 dash_viz"></div>
 <p>Sample text.</p>
 <script>
+
+var labeltest = '${param.label_width}';
+var labelWidth = 150;
+
+if (labeltest.length != 0){
+	labelWidth = Number('${param.label_width}');
+};
 
 function ${param.block}_gender_refresh() {
 	console.log("gender graph", "${param.block}_gender_viz", ${param.block}_ObservationGenderArray)
    	d3.select("#${param.block}_gender_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_ObservationGenderArray,"${param.block}_gender_viz", 150, gender_legend, gender_range);	
+	localHorizontalStackedBarChart(${param.block}_ObservationGenderArray,"${param.block}_gender_viz", labelWidth, gender_legend, gender_range);	
 }
 
 ${param.block}_gender_refresh();

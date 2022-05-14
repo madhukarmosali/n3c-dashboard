@@ -3,7 +3,7 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 
-<div id="${param.block}_gender_viz" class="col-lg-10 dash_viz"></div>
+<div id="${param.block}_gender_viz" class="col-12 dash_viz"></div>
 <p>Sample text.</p>
 <script>
 

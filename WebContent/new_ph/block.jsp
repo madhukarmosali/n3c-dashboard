@@ -139,23 +139,23 @@
 					</div>
 				</c:if>
 				<c:if test="${not empty param.severity_panel}">
-					<div id="${param.block}-severity" class="border" style="display: none;" src="${param.severity_panel}?panel=${param.severity_panel}&block=${param.block}&datatable_div=${param.datatable_div}">
+					<div id="${param.block}-severity" class="border" style="display: none;" src="${param.severity_panel}?panel=${param.severity_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.severity_labelwidth}">&label_width=${param.severity_labelwidth}</c:if><c:if test="${not empty param.severity_height}">&viz_height=${param.severity_height}</c:if>">
 					</div>
 				</c:if>
 				<c:if test="${not empty param.age_panel}">
-					<div id="${param.block}-age" class="border" style="display: none;" src="${param.age_panel}?panel=${param.age_panel}&block=${param.block}&datatable_div=${param.datatable_div}">
+					<div id="${param.block}-age" class="border" style="display: none;" src="${param.age_panel}?panel=${param.age_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.age_labelwidth}">&label_width=${param.age_labelwidth}</c:if><c:if test="${not empty param.age_height}">&viz_height=${param.age_height}</c:if>">
 					</div>
 				</c:if>
 				<c:if test="${not empty param.race_panel}">
-					<div id="${param.block}-race" class="border" style="display: none;" src="${param.race_panel}?panel=${param.race_panel}&block=${param.block}&datatable_div=${param.datatable_div}">
+					<div id="${param.block}-race" class="border" style="display: none;" src="${param.race_panel}?panel=${param.race_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.race_labelwidth}">&label_width=${param.race_labelwidth}</c:if><c:if test="${not empty param.race_height}">&viz_height=${param.race_height}</c:if>">
 					</div>
 				</c:if>
 				<c:if test="${not empty param.gender_panel}">
-					<div id="${param.block}-gender" class="border" style="display: none;" src="${param.gender_panel}?panel=${param.gender_panel}&block=${param.block}&datatable_div=${param.datatable_div}">
+					<div id="${param.block}-gender" class="border" style="display: none;" src="${param.gender_panel}?panel=${param.gender_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.gender_labelwidth}">&label_width=${param.gender_labelwidth}</c:if><c:if test="${not empty param.gender_height}">&viz_height=${param.gender_height}</c:if>">
 					</div>
 				</c:if>
 				<c:if test="${not empty param.ethnicity_panel}">
-					<div id="${param.block}-ethnicity" class="border" style="display: none;" src="${param.ethnicity_panel}?panel=${param.ethnicity_panel}&block=${param.block}&datatable_div=${param.datatable_div}">
+					<div id="${param.block}-ethnicity" class="border" style="display: none;" src="${param.ethnicity_panel}?panel=${param.ethnicity_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.ethnicity_labelwidth}">&label_width=${param.ethnicity_labelwidth}</c:if><c:if test="${not empty param.ethnicity_height}">&viz_height=${param.ethnicity_height}</c:if>">
 					</div>
 				</c:if>
 

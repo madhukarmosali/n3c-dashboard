@@ -3,13 +3,19 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 
-<div id="${param.block}_age_viz" class="col-lg-10 dash_viz"></div>
+<div id="${param.block}_age_viz" class="col-12 dash_viz"></div>
 <script>
+var labeltest = '${param.label_width}';
+var labelWidth = 150;
+
+if (labeltest.length != 0){
+	labelWidth = Number('${param.label_width}');
+};
 
 function ${param.block}_age_refresh() {
 	console.log("age graph", "${param.block}_age_viz", ${param.block}_SymptomAgeArray)
    	d3.select("#${param.block}_age_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_SymptomAgeArray,"${param.block}_age_viz", 150, age_legend_4, age_range);	
+	localHorizontalStackedBarChart(${param.block}_SymptomAgeArray,"${param.block}_age_viz", labelWidth, age_legend_4, age_range, "${param.viz_height}");	
 }
 
 ${param.block}_age_refresh();

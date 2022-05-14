@@ -12,7 +12,7 @@
 	<jsp:param name="race_panel" value="long_covid/not_positive_race.jsp" />
 	<jsp:param name="gender_panel" value="long_covid/not_positive_gender.jsp" />
 	<jsp:param name="ethnicity_panel" value="long_covid/not_positive_ethnicity.jsp" />
-
+	
 	<jsp:param name="datatable" value="long_covid/symptom_not_positive_table.jsp" />
 	<jsp:param name="datatable_div" value="long_covid_symptom_not_positive" />
 	<jsp:param name="datatable_feed" value="long_covid/feeds/symptom_summary.jsp?not_positive=true" />
