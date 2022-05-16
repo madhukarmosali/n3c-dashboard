@@ -28,7 +28,7 @@
 		
 			<!-- left column for KPIs and filters -->
 	
-			<div id="${param.block}-block-kpi" class="col-12 col-md-2 border" >
+			<div id="${param.block}-block-kpi" class="col-12 col-md-2 border pr-0">
 				<c:if test="${not empty param.kpis}">
 					<div class="kpi_containter">
 						<jsp:include page="${param.kpis}?block=${param.block}&symptom=${param.kpi_filter}"/>
@@ -68,24 +68,49 @@
 			
 			<!-- the main panel has a strip of optional selection buttons across the top, controlling the visibility of the matched sub-panel -->
 			
+			
 			<div id="${param.block}-panel" class="col-12 col-md-10 border" >
-				<div id="${param.block}-btns" class="btn-select border">
-					<c:if test="${not empty param.severity_panel}">
-						<button id="${param.block}-severity-btn" class="btn btn-primary active" role="button" onclick="${param.block}_toggle('severity');">Severity</button>
-					</c:if>
-					<c:if test="${not empty param.age_panel}">
-						<button id="${param.block}-age-btn" class="btn btn-primary" role="button" onclick="${param.block}_toggle('age');">Age</button>
-					</c:if>
-					<c:if test="${not empty param.race_panel}">
-						<button id="${param.block}-race-btn" class="btn btn-primary" role="button" onclick="${param.block}_toggle('race');">Race</button>
-					</c:if>
-					<c:if test="${not empty param.gender_panel}">
-						<button id="${param.block}-gender-btn" class="btn btn-primary" role="button" onclick="${param.block}_toggle('gender');">Gender</button>
-					</c:if>
-					<c:if test="${not empty param.ethnicity_panel}">
-						<button id="${param.block}-ethnicity-btn" class="btn btn-primary" role="button" onclick="${param.block}_toggle('ethnicity');">Ethnicity</button>
+				<div style="text-align:center; font-size: 1.3rem;">
+					<c:if test="${not empty param.severity_panel || not empty param.age_panel || not empty param.gender_panel || not empty param.ethnicity_panel}">
+					<h5>Explore Topic By:</h5>
+					<select id="${param.block}toggle_viz_select">
+						<c:if test="${not empty param.severity_panel}">
+							<option value="severity">Severity</option>
+						</c:if>
+						<c:if test="${not empty param.age_panel}">
+							<option value="age">Age</option>
+						</c:if>
+						<c:if test="${not empty param.race_panel}">
+							<option value="race">Race</option>
+						</c:if>
+						<c:if test="${not empty param.gender_panel}">
+							<option value="gender">Gender</option>
+						</c:if>
+						<c:if test="${not empty param.ethnicity_panel}">
+							<option value="ethnicity">Ethnicity</option>
+						</c:if>
+					</select>
 					</c:if>
 				</div>
+				
+<%-- 				<div id="${param.block}-btns" class="btn-select border"> --%>
+<%-- 					<c:if test="${not empty param.severity_panel}"> --%>
+<%-- 						<button id="${param.block}-severity-btn" class="btn btn-primary active" role="button" onclick="${param.block}_toggle('severity');">Severity</button> --%>
+<%-- 					</c:if> --%>
+<%-- 					<c:if test="${not empty param.age_panel}"> --%>
+<%-- 						<button id="${param.block}-age-btn" class="btn btn-primary" role="button" onclick="${param.block}_toggle('age');">Age</button> --%>
+<%-- 					</c:if> --%>
+<%-- 					<c:if test="${not empty param.race_panel}"> --%>
+<%-- 						<button id="${param.block}-race-btn" class="btn btn-primary" role="button" onclick="${param.block}_toggle('race');">Race</button> --%>
+<%-- 					</c:if> --%>
+<%-- 					<c:if test="${not empty param.gender_panel}"> --%>
+<%-- 						<button id="${param.block}-gender-btn" class="btn btn-primary" role="button" onclick="${param.block}_toggle('gender');">Gender</button> --%>
+<%-- 					</c:if> --%>
+<%-- 					<c:if test="${not empty param.ethnicity_panel}"> --%>
+<%-- 						<button id="${param.block}-ethnicity-btn" class="btn btn-primary" role="button" onclick="${param.block}_toggle('ethnicity');">Ethnicity</button> --%>
+<%-- 					</c:if> --%>
+<!-- 				</div> -->
+				
 				<c:if test="${not empty param.simple_panel}">
 					<div id="${param.block}-simple" class="border" style="display: block;">
 						<jsp:include page="${param.simple_panel}?panel=${param.simple_panel}&block=${param.block}&datatable_div=${param.datatable_div}"/>
@@ -343,6 +368,12 @@
 		${param.block}_load(selection);
 	}
 
+	$(document).ready(function () {
+		  $('#${param.block}toggle_viz_select').change(function () {
+			${param.block}_toggle($(this).val());
+		  })
+	});
+	
 	// manage incremental loading of panels on inner nav bar clicks
 	//
 	var ${param.block}_crumbs = '';
