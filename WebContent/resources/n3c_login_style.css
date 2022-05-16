@@ -67,6 +67,12 @@ a:hover, .btn-link:hover{
 	}
 }
 
+@media (min-width: 1500px){
+	.container-large {
+    	max-width: 1500px;
+	}
+}
+
 
 /* -------------- Tables ---------------------  */ 
 .table-expand a[aria-expanded = "true"]:after{
@@ -346,13 +352,14 @@ a:hover, .btn-link:hover{
 
 .kpi tr{
 	display: block;
-	width: min-content;
+	width: auto;
 }
 
 .kpi_num{
 	text-align: center;
-    font-size: 1.5rem;
-    color: #454F82;
+    font-size: 1.7rem;
+    color: #006478;
+    font-weight: 600;
 }
 
 .kpi-limit{
@@ -376,12 +383,15 @@ a:hover, .btn-link:hover{
 .dash-filter-btn{
 	margin-top: 20px;
 	border-radius: 5px;
-    background: #2363ff;
+    background: #006478;
     color: white;
-    border: 2px solid #b0afae;
+/*     border: 2px solid #006478; */
     padding: 7px;
 }
 
+.dash-filter-btn:hover{
+	background: #11444e;
+}
 
 .dash_viz{
 	margin: auto;
