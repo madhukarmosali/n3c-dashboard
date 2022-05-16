@@ -42,72 +42,25 @@
 				<!-- filters are enabled by passing in a boolean parameter -->
 				
 				<c:if test="${param.severity_filter}">
-					<div class="panel-body border">
-						<h6>Severity</h6>
-						<select id="${param.block}-severity-select" multiple="multiple">
-							<option value="Unavailable">Unavailable</option>
-							<option value="Mortality">Mortality</option>
-							<option value="ED Visit (not admitted)">ED Visit (not admitted)</option>
-							<option value="Severe Ventilation/ECMO/AKI">Severe Ventilation/ECMO/AKI</option>
-							<option value="Moderate Hospitalized">Moderate Hospitalized</option>
-							<option value="Mild">Mild</option>
-						</select>
-					</div>
+					<jsp:include page="filters/severity.jsp"/>
 				</c:if>
 				<c:if test="${param.age_filter}">
-					<div class="panel-body border">
-						<h6>Age</h6>
-						<select id="${param.block}-age-select" multiple="multiple">
-							<option value="18-29">18-29</option>
-							<option value="30-49">30-49</option>
-							<option value="50-64">50-64</option>
-							<option value="65+">65+</option>
-						</select>
-					</div>
+					<jsp:include page="filters/age.jsp"/>
 				</c:if>
 				<c:if test="${param.age_filter4}">
-					<div class="panel-body border">
-						<h6>Age</h6>
-						<select id="${param.block}-age-select" multiple="multiple">
-							<option value="<18">&lt;18</option>
-							<option value="18-64">18-64</option>
-							<option value="65+">65+</option>
-						</select>
-					</div>
+					<jsp:include page="filters/age_4.jsp"/>
 				</c:if>
 				<c:if test="${param.race_filter}">
-					<div class="panel-body border">
-						<h6>Race</h6>
-						<select id="${param.block}-race-select" multiple="multiple">
-							<option value="Asian">Asian</option>
-							<option value="Black or African American">Black or African American</option>
-							<option value="Missing/Unknown">Missing/Unknown</option>
-							<option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
-							<option value="Other">Other</option>
-							<option value="White">White</option>
-						</select>
-					</div>
+					<jsp:include page="filters/race.jsp"/>
 				</c:if>
 				<c:if test="${param.gender_filter}">
-					<div class="panel-body border">
-						<h6>Gender</h6>
-						<select id="${param.block}-gender-select" multiple="multiple">
-							<option value="Female">Female</option>
-							<option value="Male">Male</option>
-							<option value="Other">Other</option>
-							<option value="Unknown">Unknown / Not Reported</option>
-						</select>
-					</div>
+					<jsp:include page="filters/gender.jsp"/>
 				</c:if>
 				<c:if test="${param.ethnicity_filter}">
-					<div class="panel-body border">
-						<h6>Ethnicity</h6>
-						<select id="${param.block}-ethnicity-select" multiple="multiple">
-							<option value="Hispanic or Latino">Hispanic or Latino</option>
-							<option value="Missing/Unknown">Missing/Unknown</option>
-							<option value="Not Hispanic or Latino">Not Hispanic or Latino</option>
-						</select>
-					</div>
+					<jsp:include page="filters/ethnicity.jsp"/>
+				</c:if>
+				<c:if test="${param.observation_filter}">
+					<jsp:include page="filters/observation.jsp"/>
 				</c:if>
 
 				<button id="${param.block}_btn" class="btn button dash-filter-btn" onclick="${param.block}_filter_clear()"><i class="fa fa-filter" aria-hidden="true"></i> Clear all selections</button>
