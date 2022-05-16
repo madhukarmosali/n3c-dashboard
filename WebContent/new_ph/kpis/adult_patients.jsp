@@ -18,14 +18,18 @@
 				) as foo;
 </sql:query>
 <c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
-	<div class="panel-body kpi">
-		<table>
-			<tr>
-				<td><i class="fas fa-users"></i></td>
-				<td>&nbsp;</td>
-				<td>Number of Patients *</td>
-			</tr>
-		</table>
+	<div class=" panel-primary">
+		<div class="panel-body">
+			<div class="kpi-flex-container">
+				<div class="kpi-flex-item mr-2">
+					<i class="fas fa-users"></i>
+				</div>
+				<div class="kpi-flex-item">
+					<span>Number of Patients *</span>
+				</div>
+			</div>
+		</div>
+		<div id="${param.block}_adult_total_kpi" class="panel-heading kpi_num">${row.count}</div>
 	</div>
-	<div id="${param.block}_adult_total_kpi" class="panel-heading kpi_num">${row.count}</div>
+	
 </c:forEach>
