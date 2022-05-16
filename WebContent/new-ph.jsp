@@ -15,6 +15,84 @@
 	width: 70%;
 	padding: 5px;
 }
+
+.gridline{
+	visibility: visible !important;
+	stroke: #eaeaea;
+}
+
+#d3viz .dataTables_filter{
+    display: none;
+}
+
+#d3viz .dataTable tbody tr{
+	background: #f2f2f2;
+}
+
+#d3viz .dataTable thead{
+	background: #4a4949;
+}
+
+#d3viz .dataTable thead span{
+	color:white !important;
+}
+
+.block2 .kpi-main-col .panel-body{
+	display:flex; 
+	flex-grow:1; 
+}
+
+
+.kpi-flex-container{
+	display :flex;
+	justify-content: center;
+}
+
+.kpi-flex-container .kpi-flex-item{
+	align-self: center;
+	display: inline-block;
+}
+
+
+
+.kpi-inner{
+/*     border-radius: 4px; */
+/*    	margin: 20px; */
+/*    	box-shadow: 5px 5px 18px 4px #e0e0e0; */
+   	flex-wrap: wrap;
+	flex-grow: 1;
+	flex-direction: column;
+}
+
+.kpi{
+	width: 100%;
+}
+
+.kpi-inner tr{
+	width: auto;
+}
+
+.kpi-main-col, 
+.kpi, 
+.kpi-inner{
+	display:flex;
+}
+
+.kpi-row{
+	padding-top: 20px;
+    background: #f2f2f2;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
+.kpi_section{
+	text-align: center;
+}
+
+.kpi_section .panel-body{
+	margin-bottom: 10px;
+}
+
 </style>
 
 <body>
@@ -22,9 +100,9 @@
 		<jsp:param name="page" value="health" />
 	</jsp:include>
 
-	<div class="container-fluid">
+	<div class="container-fluid container-large">
 		<div class="row">
-			<div class="col-11 center">
+			<div class="text-max mx-auto">
 				<h3 class="header-text">N3C Public Health Browser</h3>
 				<div>
 					<p>
@@ -44,12 +122,14 @@
 				</div>
 			</div>
 		</div>
+		
 		<div id="summary_btns" class="btn-select">
 			<a id="ph-summary-btn" class="btn btn-primary active" role="button" onclick="toggle_subpanel('summary');">Summary Data</a>
 			<a id="ph-pediatrics-btn" class="btn btn-primary" role="button" onclick="toggle_subpanel('pediatrics');">Pediatrics</a>
 		</div>
-		<div class="row mb-5">
-			<div class="col-11 center">
+		
+		<div class="mb-5">
+			<div class="">
 				<div id="ph-summary" style="display: block;">
 					<c:choose>
 						<c:when test="${empty param.secondary_tab || param.secondary_tab == 'summary' }">
@@ -79,6 +159,8 @@
 				</div>
 			</div>
 		</div>
+		
+		
 		<script>
 
 		function toggle_subpanel(selection) {

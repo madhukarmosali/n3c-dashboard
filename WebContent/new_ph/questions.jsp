@@ -51,16 +51,17 @@
 		</div>
 	</div>
 	
-	<div class="col-lg-3 col-xl-2 large-ques-nav">
+	<div class="col-12 col-md-2 large-ques-nav">
 		<div class="panel panel-primary top_panel">
 			<div class="panel-body">
+				<h2>Dashboards:</h2>
 				<div id="question-roster2"></div>
 			</div>
 		</div>
 	</div>
 	
 	
-	<div class="col-md-12 col-lg-9 col-xl-10 viz-col">
+	<div class="col-12 col-md-10 viz-col">
 		<div class="panel panel-primary top_panel">
 			<div class="panel-body">
 				<div id="question-tile" style="width:100%; height:500px; background:url(<util:applicationRoot/>/images/spinners/fading_wheel.svg) no-repeat center 150px;">

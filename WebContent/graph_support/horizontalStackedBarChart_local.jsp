@@ -15,19 +15,27 @@ rect{
 .graph_tooltip{
 	pointer-events:none;
 }
+.axis{
+font-size: 14px;
+}
 
 </style>
 <script>
 
-function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data, secondary_range = categorical) {
+function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data, secondary_range = categorical, min_height) {
 	
-	var margin = { top: 40, right: 10, bottom: 10, left: barLabelWidth },
+	if (min_height === undefined) {
+        min_height = 200;
+    }
+
+	
+	var margin = { top: 40, right: 100, bottom: 30, left: barLabelWidth },
 		width = 1200 - margin.left - margin.right,
-		height = width/2 - margin.top - margin.bottom;
+		height = width/2.5 - margin.top - margin.bottom;
 	var maxBarWidth = 280; // width of the bar with the max value
 	var valueLabelWidth = 50; // space reserved for value labels (right)
 	var barLabelPadding = 5; // padding between bar and bar labels (left)
-	var barLowerPadding = 100;
+
 
 	var myObserver = new ResizeObserver(entries => {
 		entries.forEach(entry => {
@@ -35,13 +43,13 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			if (newWidth > 0) {
 				d3.select("#"+domName).select("svg").remove();
 				width = newWidth - margin.left - margin.right;
-				height = newWidth/2 - margin.top - margin.bottom;
+				height = width/2.5;
 				maxBarWidth = width - barLabelWidth - barLabelPadding - valueLabelWidth;
-		//		if ((width / 2 - margin.left - margin.right) > 300) {
-		//			height = width / 2 - margin.left - margin.right;
-		//		} else {
-		//			height = 300;
-		//		}
+				if (height < min_height) {
+					console.log(height);
+					height = min_height;
+					console.log(height);
+				};
 				draw();
 			}
 		});
@@ -53,17 +61,19 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 
 	function draw() {
 		var svg = d3.select("#"+domName).append("svg")
-					.attr("width", width)
-					.attr("height", height),
-			g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+					.attr("width", width + margin.left + margin.right)
+					.attr("height", Number(height) + margin.top + margin.bottom);
+		
+		var g = svg.append("g")
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 		var y = d3.scaleBand()			
-			.range([0, height-barLowerPadding])	
-			.paddingInner(0.05)
+			.range([0, height-margin.bottom])	
+			.paddingInner(0.5)
 			.align(0.1);
 
-		var x = d3.scaleLinear()		
-			.range([0, maxBarWidth]);	
+		var x = d3.scaleLinear()	
+			.range([0, width- margin.right]);	
 
 //		var z = d3.scaleOrdinal()
 //			.range(secondary_range)
@@ -76,9 +86,29 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 
 		y.domain(data.map(function(d) { return d.element; }));					// x.domain...
 		x.domain([0, d3.max(data, function(d) { return d.count; })]).nice();	// y.domain...
+		g.append("g")
+			.attr("class", "axis")
+			.attr("transform", "translate(0,0)") 						
+			.call(d3.axisLeft(y));									
 
+		g.append("g")
+			.attr("class", "axis xaxis")
+			.attr("transform", "translate(0," + (height-margin.bottom) + ")")				
+			.call(d3.axisBottom(x).ticks(Math.round(width/100), "s"))
+			.append("text")										
+			.attr("fill", "#000")
+			.attr("font-weight", "bold")
+			.attr("text-anchor", "start")
+			.text("Patient Count")
+			.attr("transform", "translate(" + ((width/2)- margin.right) + "," + 40 + ")"); 
 		
-
+		d3.selectAll("g.xaxis g.tick")
+	    	.append("line")
+	    	.attr("class", "gridline")
+	    	.attr("x1", 0)
+	    	.attr("y1", -height+margin.top)
+	    	.attr("x2", 0)
+	    	.attr("y2", 0);
 
 		g.append("g")
 			.selectAll("g")
@@ -117,30 +147,13 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			})
 			;
 
-		g.append("g")
-			.attr("class", "axis")
-			.attr("transform", "translate(0,0)") 						//  .attr("transform", "translate(0," + height + ")")
-			.call(d3.axisLeft(y));									//   .call(d3.axisBottom(x));
-
-		g.append("g")
-			.attr("class", "axis")
-			.attr("transform", "translate(0," + (height-100) + ")")				// New line
-			.call(d3.axisBottom(x).ticks(null, "s"))					//  .call(d3.axisLeft(y).ticks(null, "s"))
-			.append("text")
-			.attr("y", 2)												//     .attr("y", 2)
-			.attr("x", x(x.ticks().pop()) + 0.5) 						//     .attr("y", y(y.ticks().pop()) + 0.5)
-			.attr("dy", "0.32em")										//     .attr("dy", "0.32em")
-			.attr("fill", "#000")
-			.attr("font-weight", "bold")
-			.attr("text-anchor", "start")
-			.text("Patient Count")
-			.attr("transform", "translate(" + (width/2) + ",0)");   	// Newline
+		
 
 		// Legend ////////////////////	
 		var legend_text = g.append("g")
-			.attr("transform", "translate(" + ((margin.right/2)-150) + " ," + (-20 - (margin.top/2)) + " )")
+			.attr("transform", "translate(" + ((margin.right/2)) + " ," + 0 + " )")
 			.attr("font-family", "sans-serif")
-			.attr("font-size", 11)
+			.attr("font-size", '14px')
 			.attr("font-weight", "bold")
 			.attr("text-anchor", "middle")
 			.append("text")
@@ -148,17 +161,15 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.attr("y", 9.5)
 			.attr("dy", "0.32em")
 			.text("Legend");
-		
-		
-			
+
 		var legend = g.append("g")
-			.attr("transform", "translate(" + ((margin.right/2)-150) + " ," + (0 - (margin.top/2)) + " )")
+			.attr("transform", "translate(" + ((margin.right/2)) + " ," + 20 + " )")
 			.attr("font-family", "sans-serif")
-			.attr("font-size", 10)
+			.attr("font-size", '14px')
 			.attr("text-anchor", "end")
 			.selectAll("g")
 				.data(legend_data)
-			.enter().append("g")
+				.enter().append("g")
 				.attr("transform", function(d, i) {
 					return "translate(0," + i * 20 + ")";
 			});
@@ -175,8 +186,6 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
   				svg.selectAll(".serie").style("opacity", "1");
 			});;
 
-
-		
 		legend.append("text")
 			.attr("x", width - 24)
 			.attr("y", 9.5)

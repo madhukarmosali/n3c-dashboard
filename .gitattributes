@@ -138,6 +138,7 @@ WebContent/new_ph/adult_summary/unknown_vaccination_table.jsp -text
 WebContent/new_ph/adult_summary/vaccinated_comorbidity_table.jsp -text
 WebContent/new_ph/adult_summary/vaccinated_table.jsp -text
 WebContent/new_ph/block.jsp -text
+WebContent/new_ph/block2.jsp -text
 WebContent/new_ph/delayed_mortality/delayed_table.jsp -text
 WebContent/new_ph/delayed_mortality/demographics_table.jsp -text
 WebContent/new_ph/delayed_mortality/feeds/delayed.jsp -text
@@ -173,6 +174,11 @@ WebContent/new_ph/kpis/adult_ungrouped.jsp -text
 WebContent/new_ph/kpis/adult_unknown_vaccinated.jsp -text
 WebContent/new_ph/kpis/adult_vaccinated.jsp -text
 WebContent/new_ph/kpis/adult_vaccinated_comorbidities.jsp -text
+WebContent/new_ph/kpis/block2_kpis/covid_positive.jsp -text
+WebContent/new_ph/kpis/block2_kpis/long_icd.jsp -text
+WebContent/new_ph/kpis/block2_kpis/long_icd_summary.jsp -text
+WebContent/new_ph/kpis/block2_kpis/long_in_record.jsp -text
+WebContent/new_ph/kpis/block2_kpis/long_tested_positive.jsp -text
 WebContent/new_ph/kpis/covid_first_diagnosis.jsp -text
 WebContent/new_ph/kpis/covid_positive.jsp -text
 WebContent/new_ph/kpis/covid_reinfections.jsp -text
@@ -206,10 +212,12 @@ WebContent/new_ph/long_covid/feeds/before_after.jsp -text
 WebContent/new_ph/long_covid/feeds/clinic_severity.jsp -text
 WebContent/new_ph/long_covid/feeds/severity.jsp -text
 WebContent/new_ph/long_covid/feeds/symptom_grouped.jsp -text
+WebContent/new_ph/long_covid/feeds/symptom_grouped2.jsp -text
 WebContent/new_ph/long_covid/feeds/symptom_summary.jsp -text
 WebContent/new_ph/long_covid/feeds/symptom_ungrouped.jsp -text
 WebContent/new_ph/long_covid/genderSeverity.jsp -text
 WebContent/new_ph/long_covid/kpis.jsp -text
+WebContent/new_ph/long_covid/kpis2.jsp -text
 WebContent/new_ph/long_covid/long_covid_1.jsp -text
 WebContent/new_ph/long_covid/long_covid_10.jsp -text
 WebContent/new_ph/long_covid/long_covid_11.jsp -text

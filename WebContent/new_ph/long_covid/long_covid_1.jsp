@@ -2,11 +2,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
-<jsp:include page="../block.jsp">
+<jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="long_covid_1" />
 	<jsp:param name="block_header" value="Long COVID: U09.9 ICD-10 Code" />
 
-	<jsp:param name="kpis" value="long_covid/kpis.jsp" />
+	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />

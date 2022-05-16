@@ -4,10 +4,12 @@
 
 
 <div id="${param.block}_severity_viz" class="col-12 dash_viz"></div>
-<button id='svnButton' onclick="saveVisualization('${param.block}_severity_viz', '${param.block}_severity.svg');">Save as SVG</button>
-<button id='pngButton' onclick="saveVisualization('${param.block}_severity_viz', '${param.block}_severity.png');">Save as PNG</button>
-<button id='jpegButton' onclick="saveVisualization('${param.block}_severity_viz', '${param.block}_severity.jpg');">Save as JPEG</button>
-<p>Sample text.</p>
+<div id="${param.block}_severity_save_viz"> 
+	<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_severity_viz', '${param.block}_severity.svg');">Save as SVG</button>
+	<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_severity_viz', '${param.block}_severity.png');">Save as PNG</button>
+	<button id='jpegButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_severity_viz', '${param.block}_severity.jpg');">Save as JPEG</button>
+</div>
+
 <script>
 function ${param.block}_severity_refresh() {
 	console.log("severity graph", "${param.block}_severity_viz", ${param.block}_SeverityGenderArray)

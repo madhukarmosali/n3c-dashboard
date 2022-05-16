@@ -3,24 +3,39 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 <style>
+
 	#question-table2_filter{
-		float:none;
-		text-align:center;
+		float: none;
+		text-align: center;
 	}
 	#question-table2_filter input{
-		width:100%
+		width: 100%;
+		margin-left: 0px;
 	}
 	#question-table2_filter label{
-		text-align:center;
+		text-align: center;
 	}
+	
+	.large-ques-nav{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	
+	.viz-col{
+		border-left: 2px solid lightgray;
+	}
+	
 	#question-table2 .row_selected{
-		border-color: #337ab7;
+		border-color: #006478;
 	}
 	
 	#question-table2 .row_selected td{
-		background: #337ab7;
-    	border-color: #337ab7;
-    	border-radius: 2px;
+		background: #006478;
+	}
+
+	
+	#question-table2 td{
+		border-top: 0px;
 	}
 	
 	#question-table2 .row_selected a{
@@ -33,15 +48,6 @@
 	
 	#question-table2 tbody tr:hover td{
   		border: none !important;
-	}
-	
-	.cards tbody tr {
-		float: left;
-		width: 100%;
-		margin: 0.5rem;
-		border: 0.0625rem solid rgba(0, 0, 0, .125);
-		border-radius: .25rem;
-		box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
 	}
 
 	.cards tbody td {
@@ -92,7 +98,13 @@
         overflow-y:auto;
         width:100%;
     }
-	
+    
+    .dataTables_paginate {
+    	font-size: 11px;
+	}
+
+	​
+
 	iframe{
 		/* SVGs generated at https://icons8.com/preloaders/en/circular# */
 		background:url(<util:applicationRoot/>/images/spinners/fading_wheel.svg) no-repeat center 100px;
@@ -166,7 +178,7 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 			"dom": '<lf<t>ip>',
 			data: data,
 	       	select: true,
-	       	paging: true,
+	       	paging: false,
 	    	pageLength: 15,
 	    	initComplete: function () {
 	    		var index = 0;

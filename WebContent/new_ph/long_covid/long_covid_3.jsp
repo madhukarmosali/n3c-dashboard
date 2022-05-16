@@ -2,11 +2,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
-<jsp:include page="../block.jsp">
+<jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="long_covid_3" />
 	<jsp:param name="block_header" value="Long COVID Cumulative Symptoms Summary (Dyspnea, Fatigue, Cognition, POTS, Mental Health)" />
 
-	<jsp:param name="kpis" value="long_covid/kpis.jsp" />
+	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 
 	<jsp:param name="age_filter4" value="true" />
 	<jsp:param name="race_filter" value="true" />
