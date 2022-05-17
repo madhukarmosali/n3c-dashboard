@@ -158,6 +158,8 @@ WebContent/new_ph/diabetes/type_2.jsp -text
 WebContent/new_ph/diabetes/type_2_detailed.jsp -text
 WebContent/new_ph/doubleHistogram.jsp -text
 WebContent/new_ph/filters/age.jsp -text
+WebContent/new_ph/filters/age_2.jsp -text
+WebContent/new_ph/filters/age_3.jsp -text
 WebContent/new_ph/filters/age_4.jsp -text
 WebContent/new_ph/filters/ethnicity.jsp -text
 WebContent/new_ph/filters/gender.jsp -text
