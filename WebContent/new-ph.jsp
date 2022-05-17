@@ -54,6 +54,12 @@
 }
 
 
+/* Adds color to filter buttons when filter applied */
+.kpi_section button[title]:not([title='None selected']).dropdown-toggle{
+	background-color: #afcfd6;
+}
+
+
 
 .kpi-inner{
 /*     border-radius: 4px; */
