@@ -4,6 +4,12 @@
 
 
 <div id="${param.block}_ethnicity_viz" class="col-lg-7 dash_viz"></div>
+<div id="${param.block}_ethnicity_save_viz"> 
+	<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_ethnicity_viz', '${param.block}_ethnicity.svg');">Save as SVG</button>
+	<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_ethnicity_viz', '${param.block}_ethnicity.png');">Save as PNG</button>
+	<button id='jpegButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_ethnicity_viz', '${param.block}_ethnicity.jpg');">Save as JPEG</button>
+</div>
+
 <script>
 
 function ${param.block}_ethnicity_refresh() {

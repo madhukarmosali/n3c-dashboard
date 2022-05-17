@@ -4,6 +4,12 @@
 
 
 <div id="${param.block}_race_viz" class="col-lg-7 dash_viz"></div>
+<div id="${param.block}_race_save_viz"> 
+	<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_race_viz', '${param.block}_race.svg');">Save as SVG</button>
+	<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_race_viz', '${param.block}_race.png');">Save as PNG</button>
+	<button id='jpegButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_race_viz', '${param.block}_race.jpg');">Save as JPEG</button>
+</div>
+
 <script>
 
 function ${param.block}_race_refresh() {

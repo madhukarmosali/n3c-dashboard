@@ -4,7 +4,12 @@
 
 
 <div id="${param.block}_before_after_viz" class="col-12 dash_viz"></div>
-<p>Sample text.</p>
+<div id="${param.block}_before_after_save_viz"> 
+	<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_before_after_viz', '${param.block}_before_after.svg');">Save as SVG</button>
+	<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_before_after_viz', '${param.block}_before_after.png');">Save as PNG</button>
+	<button id='jpegButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_before_after_viz', '${param.block}_before_after.jpg');">Save as JPEG</button>
+</div>
+
 <script>
 
 function ${param.block}_before_refresh() {

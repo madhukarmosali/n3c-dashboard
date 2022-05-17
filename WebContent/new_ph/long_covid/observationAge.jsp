@@ -4,6 +4,12 @@
 
 
 <div id="${param.block}_age_viz" class="col-12 dash_viz"></div>
+<div id="${param.block}_age_save_viz"> 
+	<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_age_viz', '${param.block}_age.svg');">Save as SVG</button>
+	<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_age_viz', '${param.block}_age.png');">Save as PNG</button>
+	<button id='jpegButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_age_viz', '${param.block}_age.jpg');">Save as JPEG</button>
+</div>
+
 <script>
 
 var labeltest = '${param.label_width}';
