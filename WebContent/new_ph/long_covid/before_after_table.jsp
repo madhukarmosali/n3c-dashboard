@@ -58,7 +58,8 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
      	columns: [
         	{ data: 'symptom', visible: true, orderable: true },
         	{ data: 'condition_after_covid_positive', visible: true, orderable: true },
-        	{ data: 'patient_count', visible: true, orderable: true },
+        	{ data: 'patient_display', visible: true, orderable: true, orderData: [3] },
+        	{ data: 'patient_count', visible: false },
         	{ data: 'condition_after_covid_positive_seq', visible: false, orderable: true }
     	]
 	} );

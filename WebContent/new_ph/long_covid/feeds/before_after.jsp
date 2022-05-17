@@ -3,12 +3,13 @@
 
 <sql:query var="ages" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
-	from (select symptom, condition_after_covid_positive, patient_count, condition_after_covid_positive_seq from (select
+	from (select symptom, condition_after_covid_positive, patient_display, patient_count, condition_after_covid_positive_seq from (select
 			symptom,
 			case
 				when (condition_after_covid_positive) then 'Before COVID+'
 				else 'After COVID+'
 			end as condition_after_covid_positive,
+			count as patient_display,
 			count as patient_count
 		  from n3c_questions.symptom_before_or_after_covid
 		  ) as foo
@@ -19,7 +20,8 @@
     "headers": [
         {"value":"symptom", "label":"Symptom"},
         {"value":"condition_after_covid_positive", "label":"Condition Before/After COVID+"},
-        {"value":"patient_count", "label":"Patient Count"},
+        {"value":"patient_display", "label":"Patient Count"},
+        {"value":"patient_count", "label":"Patient actual"},
         {"value":"condition_after_covid_positive_seq", "label":"dummy0"}
     ],
     "rows" : 

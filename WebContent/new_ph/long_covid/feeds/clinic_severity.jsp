@@ -3,10 +3,11 @@
 
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
-	from (select severity, gender_abbrev as gender, patient_count, gender_abbrev, gender_seq, severity_abbrev, severity_seq
+	from (select severity, gender_abbrev as gender, patient_display, patient_count, gender_abbrev, gender_seq, severity_abbrev, severity_seq
 			from (select
 					severity_type as severity,
 					gender_concept_name as gender,
+					num_patients as patient_display,
 					case
 						when (num_patients = '<20' or num_patients is null) then 0
 						else num_patients::int
@@ -21,7 +22,8 @@
     "headers": [
         {"value":"severity", "label":"Severity"},
         {"value":"gender", "label":"Gender"},
-        {"value":"patient_count", "label":"Patient Count"},
+        {"value":"patient_display", "label":"Patient Count"},
+        {"value":"patient_count", "label":"Patient actual"},
         {"value":"gender_abbrev", "label":"dummy7"},
         {"value":"gender_seq", "label":"dummy8"},
         {"value":"severity_abbrev", "label":"dummy9"},

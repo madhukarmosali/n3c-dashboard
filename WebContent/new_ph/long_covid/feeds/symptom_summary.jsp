@@ -3,7 +3,7 @@
 
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
-	from (select observation, age_bin as age, gender_abbrev as gender, race, ethnicity, patient_count,
+	from (select observation, age_bin as age, gender_abbrev as gender, race, ethnicity, patient_display, patient_count,
 				 age_abbrev, age_seq, race_abbrev, race_seq, ethnicity_abbrev, ethnicity_seq, gender_abbrev, gender_seq,
 				 observation_seq
 			from (select
@@ -12,6 +12,7 @@
 					gender_concept_name as gender,
 					race_concept_name as race,
 					ethnicity_concept_name as ethnicity,
+					count as patient_display,
 					case
 						when (count = '<20' or count is null) then 0
 						else count::int
@@ -33,7 +34,8 @@
         {"value":"gender", "label":"Gender"},
         {"value":"race", "label":"Race"},
         {"value":"ethnicity", "label":"Ethnicity"},
-        {"value":"patient_count", "label":"Patient Count"},
+        {"value":"patient_display", "label":"Patient Count"},
+        {"value":"patient_count", "label":"Patient actual"},
         {"value":"age_abbrev", "label":"dummy1"},
         {"value":"age_seq", "label":"dummy2"},
         {"value":"race_abbrev", "label":"dummy3"},

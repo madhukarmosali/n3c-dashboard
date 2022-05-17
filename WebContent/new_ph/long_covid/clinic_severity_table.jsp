@@ -96,7 +96,8 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
      	columns: [
         	{ data: 'severity', visible: true, orderable: true },
         	{ data: 'gender', visible: true, orderable: true },
-        	{ data: 'patient_count', visible: true, orderable: true },
+        	{ data: 'patient_display', visible: true, orderable: true, orderData: [3] },
+        	{ data: 'patient_count', visible: false },
         	{ data: 'gender_abbrev', visible: false },
         	{ data: 'gender_seq', visible: false },
         	{ data: 'severity_abbrev', visible: false },
