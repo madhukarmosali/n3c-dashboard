@@ -22,7 +22,7 @@ if (labeltest.length != 0){
 function ${param.block}_race_refresh() {
 	console.log("race graph", "${param.block}_race_viz", ${param.block}_ObservationRaceArray)
    	d3.select("#${param.block}_race_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_ObservationRaceArray,"${param.block}_race_viz", labelWidth, race_legend, race_range);	
+	localHorizontalStackedBarChart(${param.block}_ObservationRaceArray,"${param.block}_race_viz", labelWidth, race_legend, race_range, "Race");	
 }
 
 ${param.block}_race_refresh();

@@ -22,7 +22,7 @@ if (labeltest.length != 0){
 function ${param.block}_ethnicity_refresh() {
 	console.log("ethnicity graph", "${param.block}_ethnicity_viz", ${param.block}_SymptomEthnicityArray)
    	d3.select("#${param.block}_ethnicity_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_SymptomEthnicityArray,"${param.block}_ethnicity_viz", labelWidth, ethnicity_legend, ethnicity_range, "${param.viz_height}");	
+	localHorizontalStackedBarChart(${param.block}_SymptomEthnicityArray,"${param.block}_ethnicity_viz", labelWidth, ethnicity_legend, ethnicity_range, "Ethnicity" ,"${param.viz_height}");	
 }
 
 ${param.block}_ethnicity_refresh();

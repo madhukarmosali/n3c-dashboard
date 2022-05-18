@@ -70,9 +70,9 @@
 			
 			
 			<div id="${param.block}-panel" class="col-12 col-md-10 border" >
-				<div style="text-align:center; font-size: 1.3rem;">
+				<div style="text-align:center; font-size: 1.2rem;">
 					<c:if test="${not empty param.severity_panel || not empty param.age_panel || not empty param.gender_panel || not empty param.ethnicity_panel}">
-					<h5>Explore Topic By:</h5>
+					<span>Explore Topic By </span>
 					<select id="${param.block}toggle_viz_select">
 						<c:if test="${not empty param.severity_panel}">
 							<option value="severity">Severity</option>
@@ -245,6 +245,7 @@
 
 	function ${param.block}_refreshHistograms() {
 	    var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();
+	    console.log(data);
 	    var data2 = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data();
 	    
 	    

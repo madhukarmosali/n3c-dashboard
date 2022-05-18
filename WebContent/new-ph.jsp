@@ -6,6 +6,16 @@
 <html>
 <jsp:include page="head.jsp" flush="true" />
 <style>
+.btn-light{
+	border-color: #cfcfcf;
+}
+
+.btn-light:hover,
+.btn-light:active{
+	background-color: #f2f2f2;
+}
+
+
 .btn-select {
 	text-align: center;
 	margin-bottom: 20px;
@@ -41,6 +51,7 @@
 	display:flex; 
 	flex-grow:1; 
 }
+
 
 
 .kpi-flex-container{

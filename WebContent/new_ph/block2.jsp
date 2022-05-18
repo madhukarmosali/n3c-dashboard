@@ -56,7 +56,7 @@
 		<div class="row" style="margin-top: 30px;">
 			<!-- the main panel has a strip of optional selection buttons across the top, controlling the visibility of the matched sub-panel -->
 			
-			<div id="${param.block}-panel" class="col-12 col-md-10 " >
+			<div id="${param.block}-panel" class="col-12 col-md-10 mx-auto" >
 				
 				
 <%-- 				<div id="${param.block}-btns" class="btn-select"> --%>
@@ -78,8 +78,8 @@
 <!-- 				</div> -->
 				
 				<c:if test="${not empty param.severity_panel || not empty param.age_panel || not empty param.gender_panel || not empty param.ethnicity_panel}">
-				<div style="text-align:center; font-size: 1.3rem;">
-					<h5>Explore Topic By:</h5>
+				<div style="text-align:center; font-size: 1.2rem;">
+					<span>Explore Topic By </span>
 					<select id="${param.block}toggle_viz_select">
 						<c:if test="${not empty param.severity_panel}">
 							<option value="severity">Severity</option>
@@ -131,6 +131,7 @@
 			
 			<!-- left column for KPIs and filters -->
 	
+			<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter4 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter}">
 			<div id="${param.block}-block-kpi" class="col-12 col-md-2 kpi_section">
 				<div class="panel-body dash_filter_header">
 					<h5><i class="fas fa-filter"></i> Filter Chart/Table</h5>
@@ -139,76 +140,31 @@
 				<!-- filters are enabled by passing in a boolean parameter -->
 				
 				<c:if test="${param.severity_filter}">
-					<div class="panel-body ">
-						<h6>Severity</h6>
-						<select id="${param.block}-severity-select" multiple="multiple">
-							<option value="Unavailable">Unavailable</option>
-							<option value="Mortality">Mortality</option>
-							<option value="ED Visit (not admitted)">ED Visit (not admitted)</option>
-							<option value="Severe Ventilation/ECMO/AKI">Severe Ventilation or ECMO or AKI</option>
-							<option value="Moderate Hospitalized">Moderate Hospitalized</option>
-							<option value="Mild">Mild</option>
-						</select>
-					</div>
+					<jsp:include page="filters/severity.jsp"/>
 				</c:if>
 				<c:if test="${param.age_filter}">
-					<div class="panel-body ">
-						<h6>Age</h6>
-						<select id="${param.block}-age-select" multiple="multiple">
-							<option value="18-29">18-29</option>
-							<option value="30-49">30-49</option>
-							<option value="50-64">50-64</option>
-							<option value="65+">65+</option>
-						</select>
-					</div>
+					<jsp:include page="filters/age.jsp"/>
 				</c:if>
 				<c:if test="${param.age_filter4}">
-					<div class="panel-body ">
-						<h6>Age</h6>
-						<select id="${param.block}-age-select" multiple="multiple">
-							<option value="<18">&lt;18</option>
-							<option value="18-64">18-64</option>
-							<option value="65+">65+</option>
-						</select>
-					</div>
+					<jsp:include page="filters/age_4.jsp"/>
 				</c:if>
 				<c:if test="${param.race_filter}">
-					<div class="panel-body ">
-						<h6>Race</h6>
-						<select id="${param.block}-race-select" multiple="multiple">
-							<option value="Asian">Asian</option>
-							<option value="Black or African American">Black or African American</option>
-							<option value="Missing/Unknown">Missing or Unknown</option>
-							<option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
-							<option value="Other">Other</option>
-							<option value="White">White</option>
-						</select>
-					</div>
+					<jsp:include page="filters/race.jsp"/>
 				</c:if>
 				<c:if test="${param.gender_filter}">
-					<div class="panel-body ">
-						<h6>Gender</h6>
-						<select id="${param.block}-gender-select" multiple="multiple">
-							<option value="Female">Female</option>
-							<option value="Male">Male</option>
-							<option value="Other">Other</option>
-							<option value="Unknown">Unknown or Not Reported</option>
-						</select>
-					</div>
+					<jsp:include page="filters/gender.jsp"/>
 				</c:if>
 				<c:if test="${param.ethnicity_filter}">
-					<div class="panel-body ">
-						<h6>Ethnicity</h6>
-						<select id="${param.block}-ethnicity-select" multiple="multiple">
-							<option value="Hispanic or Latino">Hispanic or Latino</option>
-							<option value="Missing/Unknown">Missing or Unknown</option>
-							<option value="Not Hispanic or Latino">Not Hispanic or Latino</option>
-						</select>
-					</div>
+					<jsp:include page="filters/ethnicity.jsp"/>
 				</c:if>
+				<c:if test="${param.observation_filter}">
+					<jsp:include page="filters/observation.jsp"/>
+				</c:if>
+				
 
 				<button id="${param.block}_btn" class="btn button dash-filter-btn mt-3" onclick="${param.block}_filter_clear()"><i class="fas fa-times-circle"></i> Clear all Filters</button>
 			</div>
+			</c:if>
 			
 			
 		</div>

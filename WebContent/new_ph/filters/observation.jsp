@@ -3,7 +3,7 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 
-<div class="panel-body border">
+<div class="panel-body">
 	<h6>Observation</h6>
 	<select id="${param.block}-observation-select" multiple="multiple">
 		<sql:query var="cases" dataSource="jdbc/N3CPublic">

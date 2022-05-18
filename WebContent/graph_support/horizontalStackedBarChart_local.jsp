@@ -22,7 +22,11 @@ font-size: 14px;
 </style>
 <script>
 
-function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data, secondary_range = categorical, min_height) {
+function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data, secondary_range = categorical, legend_label, min_height) {
+	
+	if (legend_label === undefined){
+		legend_label = "Legend";
+	}
 	
 	if (min_height === undefined) {
         min_height = 200;
@@ -35,6 +39,16 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 	var maxBarWidth = 280; // width of the bar with the max value
 	var valueLabelWidth = 50; // space reserved for value labels (right)
 	var barLabelPadding = 5; // padding between bar and bar labels (left)
+	var paddingInside = 0.5
+
+
+	// get length of longest legend word for tooltip sizing
+	var longest_word = legend_data.reduce(
+		    function (a, b) {
+		        return a.secondary.length > b.secondary.length ? a : b;
+		    }
+	);
+	var word_length = longest_word.secondary.length;
 
 
 	var myObserver = new ResizeObserver(entries => {
@@ -46,9 +60,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 				height = width/2.5;
 				maxBarWidth = width - barLabelWidth - barLabelPadding - valueLabelWidth;
 				if (height < min_height) {
-					console.log(height);
 					height = min_height;
-					console.log(height);
 				};
 				draw();
 			}
@@ -69,23 +81,20 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 
 		var y = d3.scaleBand()			
 			.range([0, height-margin.bottom])	
-			.paddingInner(0.5)
+			.paddingInner(paddingInside)
 			.align(0.1);
 
 		var x = d3.scaleLinear()	
 			.range([0, width- margin.right]);	
 
-//		var z = d3.scaleOrdinal()
-//			.range(secondary_range)
-//			.domain([0,legend_data.length]);
 		var z = secondary_range;
 		
 		var keys = data.map(function(d) { return d.element; });
 		
 		var stackData = myStack(data);
 
-		y.domain(data.map(function(d) { return d.element; }));					// x.domain...
-		x.domain([0, d3.max(data, function(d) { return d.count; })]).nice();	// y.domain...
+		y.domain(data.map(function(d) { return d.element; }));					
+		x.domain([0, d3.max(data, function(d) { return d.count; })]).nice();	
 		g.append("g")
 			.attr("class", "axis")
 			.attr("transform", "translate(0,0)") 						
@@ -109,14 +118,17 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 	    	.attr("y1", -height+margin.top)
 	    	.attr("x2", 0)
 	    	.attr("y2", 0);
-
-		g.append("g")
+		
+		
+		
+		var barsect = g.append("g")
 			.selectAll("g")
 			.data(stackData)
 			.enter().append("g")
 			.attr("class", function(d, i) { return "serie " + "color-" + z[i].substring(1); })
-			.attr("fill", function(d,i) { return z[i]; })
-			.selectAll("rect")
+			.attr("fill", function(d,i) {return z[i]; });
+		
+		barsect.selectAll("rect")
 			.data(function(d) { return d; })
 			.enter().append("rect")
 			.attr("class", function(d){ return domName+"-rect "; })
@@ -124,7 +136,6 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.attr("x", function(d) { return x(d[0]); })
 			.attr("width", function(d) { return x(d[1]) - x(d[0]); })
 			.attr("height", y.bandwidth())	
-			.on("click", function(d, i){ console.log(domName+"-rect click d", i, d); })
 			.on("mouseover", function() { 
 				tooltip.style("display", null); 
 			    // Reduce opacity of all rect to 0.2
@@ -139,15 +150,47 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			    d3.selectAll("."+domName+"-rect")
 			      .style("opacity",1);
 			})
-			.on("mousemove", function(d) {		
+			.on("mousemove", function(d) {	
+				tooltip.selectAll("tspan").remove();
+				
 				var xPosition = d3.mouse(this)[0];
 		     	var yPosition = d3.mouse(this)[1];
-		     	tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")");
-		     	tooltip.select("text").text(d[1]-d[0]);
-			})
-			;
+		     	var count2 = d[1]-d[0];
+		     	tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")")
+		     	.selectAll("text")
+		     		.append("tspan")
+		     		.text(d[2])
+		     		.attr('x', 10)
+  					.attr('dy', 10)
+		     		.append("tspan")
+		     		.text(count2)
+		     		.attr('fill', 'black')
+		     		.attr('x', 10)
+  					.attr('dy', 20)
+		     		.append("tspan")
+	     			.text(function(){
+	     				return  ((count2/d[3]) * 100).toFixed(2) + "%";
+	     			})
+	     			.attr('fill', 'black')
+	     			.attr('x', 10)
+					.attr('dy', 21);
+			});
 
 		
+		barsect.selectAll("g")
+			.data(function(d) {return d; })
+			.enter().append("text")
+			.style("fill", "#a5a2a2")
+			.attr("class", "secondary")
+			.style("text-anchor", "start")
+			.style("font-size", ".8rem")
+			.attr("y", function(d,i) { return (y(data[i].element)) + ((y.bandwidth()*paddingInside)/4) + (y.bandwidth()/2) ; })
+			.attr("x", function(d) { return (x(d[3])) + 5; })
+			.text(function(d) {
+				if(d[2] == legend_data[0].secondary){
+					return d[3];
+				}
+			});
 
 		// Legend ////////////////////	
 		var legend_text = g.append("g")
@@ -155,12 +198,12 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.attr("font-family", "sans-serif")
 			.attr("font-size", '14px')
 			.attr("font-weight", "bold")
-			.attr("text-anchor", "middle")
+			.attr("text-anchor", "end")
 			.append("text")
-			.attr("x", width - 24)
+			.attr("x", width)
 			.attr("y", 9.5)
 			.attr("dy", "0.32em")
-			.text("Legend");
+			.text(legend_label);
 
 		var legend = g.append("g")
 			.attr("transform", "translate(" + ((margin.right/2)) + " ," + 20 + " )")
@@ -198,19 +241,20 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
     		.style("display", "none");
       
   		tooltip.append("rect")
-    		.attr("width", 60)
-    		.attr("height", 20)
+    		.attr("width", 10 + word_length * 7)
+    		.attr("height", 60)
     		.attr("fill", "white")
     		.style("opacity", 0.5);
 
   		tooltip.append("text")
     		.attr("x", 30)
     		.attr("dy", "1.2em")
-    		.style("text-anchor", "middle")
+    		.style("text-anchor", "start")
     		.attr("font-size", "12px")
     		.attr("font-weight", "bold");
 	};
 
+	
 	function myStack(data) {
 		var result = new Array();
 		
@@ -221,10 +265,11 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 		for (let secondary = 1; secondary < data[1].secondary.length; secondary++) {
 			var newrow = new Array();
 			for (let primary = 0; primary < data.length; primary++) {
-				if (previous == 0)
-					newrow.push([0, data[primary].secondary[secondary]]);
-				else
-					newrow.push([previous[primary][1], previous[primary][1] + data[primary].secondary[secondary]]);
+				if (previous == 0){
+					newrow.push([0, data[primary].secondary[secondary], legend_data[secondary-1].secondary, data[primary].count ]);
+				}else{
+					newrow.push([previous[primary][1], previous[primary][1] + data[primary].secondary[secondary], legend_data[secondary-1].secondary, data[primary].count ]);
+				}
 			}	
 			result.push(newrow);
 			previous = newrow;
