@@ -325,6 +325,21 @@ a:hover, .btn-link:hover{
   color:white;
 }
 
+.btn-light{
+	border-color: #cfcfcf;
+}
+
+.btn-light:hover,
+.btn-light:active{
+	background-color: #f2f2f2;
+}
+
+
+.btn-select {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
 /* -------------- Shadow Border ---------------------  */
 .shadow-border{
     padding: 40px;
@@ -341,6 +356,62 @@ a:hover, .btn-link:hover{
 
 
 /* -------------- Dashboard ---------------------  */
+
+/* KPI Style ---------------- */
+#d3viz .kpi{
+	width: 100%;
+}
+
+#d3viz .block2 .kpi-main-col .panel-body{
+	display:flex; 
+	flex-grow:1; 
+}
+
+#d3viz .kpi-flex-container{
+	display :flex;
+	justify-content: center;
+}
+
+#d3viz .kpi-flex-container .kpi-flex-item{
+	align-self: center;
+	display: inline-block;
+}
+
+#d3viz .kpi-inner{
+   	flex-wrap: wrap;
+	flex-grow: 1;
+	flex-direction: column;
+}
+
+#d3viz .block2 .kpi-inner tr{
+	text-align:center;
+}
+
+#d3viz .kpi-inner tr{
+	width: auto;
+}
+
+#d3viz .kpi-main-col, 
+#d3viz .kpi, 
+#d3viz .kpi-inner{
+	display:flex;
+}
+
+#d3viz .kpi-row{
+	padding-top: 20px;
+    background: #f2f2f2;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
+#d3viz .kpi_section{
+	text-align: center;
+}
+
+#d3viz .kpi_section .panel-body{
+	margin-bottom: 10px;
+}
+
 .kpi_containter{
 	font-size: 1.2rem;
 	margin-bottom: 20px;
@@ -365,6 +436,43 @@ a:hover, .btn-link:hover{
 .kpi-limit{
 	color: gray;
 	text-align:center;
+}
+
+/* Datatable style  ---------------- */
+.dash-dt-section{
+	margin-top: 20px;
+}
+
+#d3viz .dataTables_filter{
+    display: none;
+}
+
+#d3viz .dataTable tbody tr{
+	background: #f2f2f2;
+}
+
+#d3viz .dataTable thead{
+	background: #4a4949;
+}
+
+#d3viz .dataTable thead span{
+	color:white !important;
+}
+
+/* Viz style  ---------------- */
+.dash_viz{
+	margin: auto;
+}
+
+#d3viz .gridline{
+	visibility: visible !important;
+	stroke: #eaeaea;
+}
+
+/* Filter Style style  ---------------- */
+/* Adds color to filter buttons when filter applied */
+#d3viz .kpi_section button[title]:not([title='None selected']).dropdown-toggle{
+	background-color: #afcfd6;
 }
 
 .dash_filter_header{
@@ -393,13 +501,7 @@ a:hover, .btn-link:hover{
 	background: #11444e;
 }
 
-.dash_viz{
-	margin: auto;
-}
 
-.dash-dt-section{
-	margin-top: 20px;
-}
 /* -------------- Panel ---------------------  */
 
 /* .panel-primary{ */
