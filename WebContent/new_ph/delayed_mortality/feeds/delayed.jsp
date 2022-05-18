@@ -5,6 +5,7 @@
 	select jsonb_pretty(jsonb_agg(done order by diff_seq))
 	from (select
 					datediff_bw_death_and_hos,
+					count as patient_display,
 					case
 						when (count = '<20' or count is null) then 0
 						else count::int
@@ -16,7 +17,8 @@
 {
     "headers": [
         {"value":"datediff_bw_death_and_hos", "label":"Days After Discharge"},
-        {"value":"patient_count", "label":"Mortality Count"},
+        {"value":"patient_display", "label":"Mortality Count"},
+        {"value":"patient_count", "label":"Mortality actual"},
         {"value":"diff_seq", "label":"dummy1"}
     ],
     "rows" : 

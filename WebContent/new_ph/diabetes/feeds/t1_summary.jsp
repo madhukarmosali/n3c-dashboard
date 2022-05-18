@@ -9,6 +9,7 @@
 					gender_concept_name as gender,
 					observation,
 					n_observation as observation_seq,
+					count as patient_display,
 					case
 						when (count = '<20' or count is null) then 0
 						else count::int
@@ -24,7 +25,8 @@
         {"value":"age_bin", "label":"Age"},
         {"value":"gender", "label":"Gender"},
         {"value":"observation", "label":"Observation"},
-        {"value":"patient_count", "label":"Patient Count"},
+        {"value":"patient_display", "label":"Patient Count"},
+        {"value":"patient_count", "label":"Patient actual"},
         {"value":"age_abbrev", "label":"dummy1"},
         {"value":"age_seq", "label":"dummy2"},
         {"value":"gender_abbrev", "label":"dummy7"},

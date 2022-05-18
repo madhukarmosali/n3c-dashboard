@@ -50,7 +50,8 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	order: [[0, 'asc']],
      	columns: [
         	{ data: 'datediff_bw_death_and_hos', visible: true, orderable: true },
-        	{ data: 'patient_count', visible: true, orderable: true },
+        	{ data: 'patient_display', visible: true, orderable: true, orderData: [2] },
+        	{ data: 'patient_count', visible: false },
         	{ data: 'diff_seq', visible: false }
     	]
 	} );
