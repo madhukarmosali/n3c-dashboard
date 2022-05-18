@@ -262,7 +262,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			return result;
 		
 		var previous = 0;
-		for (let secondary = 1; secondary < data[1].secondary.length; secondary++) {
+		for (let secondary = 1; secondary < data[0].secondary.length; secondary++) {
 			var newrow = new Array();
 			for (let primary = 0; primary < data.length; primary++) {
 				if (previous == 0){
