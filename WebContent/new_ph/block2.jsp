@@ -240,11 +240,17 @@
 	});
 
 	function ${param.block}_filter_clear() {
-		$('#${param.block}-severity-select').multiselect('deselectAll');
-		$('#${param.block}-age-select').multiselect('deselectAll');
-		$('#${param.block}-race-select').multiselect('deselectAll');
-		$('#${param.block}-gender-select').multiselect('deselectAll');
-		$('#${param.block}-ethnicity-select').multiselect('deselectAll');
+		$('#${param.block}-severity-select').multiselect('clearSelection');
+		$('#${param.block}-age-select').multiselect('clearSelection');
+		$('#${param.block}-race-select').multiselect('clearSelection');
+		$('#${param.block}-gender-select').multiselect('clearSelection');
+		$('#${param.block}-ethnicity-select').multiselect('clearSelection');
+		
+		${param.block}_constrain("severity", '');
+		${param.block}_constrain("age", '');
+		${param.block}_constrain("race", '');
+		${param.block}_constrain("gender", '');
+		${param.block}_constrain("ethnicity", '');
 		
 		$("#${param.datatable_div}-table").DataTable().columns().search('').draw();
 	    ${param.block}_refreshHistograms();
@@ -278,8 +284,6 @@
 	function ${param.block}_refreshHistograms() {
 	    var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();
 	    var data2 = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data();
-	    
-	    
 	    
 	    //console.log('${param.block}', "table data", data)
 	    ${param.block}_refreshAgeArray(data);

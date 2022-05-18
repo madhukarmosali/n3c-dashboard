@@ -6,7 +6,7 @@
 	<jsp:param name="block" value="long_covid_6" />
 	<jsp:param name="block_header" value="Long COVID: ICD-10 Symptom Counts Before/After COVID+" />
 
-	<jsp:param name="kpis" value="long_covid/kpis.jsp" />
+	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 
 	<jsp:param name="simple_panel" value="long_covid/beforeAfter.jsp" />
 

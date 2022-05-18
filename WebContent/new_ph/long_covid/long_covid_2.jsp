@@ -6,7 +6,7 @@
 	<jsp:param name="block" value="long_covid_2" />
 	<jsp:param name="block_header" value="Long COVID: Clinic Visit" />
 
-	<jsp:param name="kpis" value="long_covid/kpis.jsp" />
+	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 
 	<jsp:param name="severity_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />

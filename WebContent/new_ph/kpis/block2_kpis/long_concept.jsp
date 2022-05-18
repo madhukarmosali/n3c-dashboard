@@ -3,13 +3,13 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
  <sql:query var="totals" dataSource="jdbc/N3CPublic">
- 	select to_char(sum(count)/1000000.0, '999.99')||'M' as patient_count
+ 	select to_char(sum(num_patients)/1000.0, '999.99')||'k' as patient_count
  	from (select 
 			case
-				when (count = '<20' or count is null) then 0
-				else count::int
-			end as count
-			from n3c_questions.icd10_symptoms_summary_counts where observation = 'Tested positive') as foo
+				when (num_patients = '<20' or num_patients is null) then 0
+				else num_patients::int
+			end as num_patients
+			from n3c_questions.long_covid_concept_set_agg_censored) as foo
 </sql:query>
 <c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
 	<div class="col-12 col-md-3 kpi-main-col">
@@ -18,11 +18,11 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> COVID+ Patients That Tested Positive</td>
+							<td><i class="fas fa-users"></i> Patients in Concept Set</td>
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_tested_positive_kpi" class="panel-heading kpi_num">${row.patient_count}</div>
+				<div id="${param.block}_patient_count_kpi" class="panel-heading kpi_num">${row.patient_count}</div>
 				<div class="kpi-limit"><small>(see limitations below)</small></div>
 			</div>
 		</div>

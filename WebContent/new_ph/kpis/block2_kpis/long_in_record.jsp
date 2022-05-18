@@ -17,7 +17,7 @@
 			<div class="kpi-inner">
 				<div class="panel-body">
 					<table>
-						<tr style="text-align:center;">
+						<tr>
 							<td><i class="fas fa-users"></i> COVID+ Patients With U09.0 in Record</td>
 						</tr>
 					</table>

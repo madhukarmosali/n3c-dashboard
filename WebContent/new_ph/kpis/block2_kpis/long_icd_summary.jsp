@@ -18,9 +18,7 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i></td>
-							<td>&nbsp;</td>
-							<td>Patient ICD Summary</td>
+							<td><i class="fas fa-users"></i> Patient ICD Summary</td>
 						</tr>
 					</table>
 				</div>

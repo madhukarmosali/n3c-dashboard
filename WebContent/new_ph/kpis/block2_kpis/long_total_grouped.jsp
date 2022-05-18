@@ -9,7 +9,7 @@
 				when (count = '<20' or count is null) then 0
 				else count::int
 			end as count
-			from n3c_questions.icd10_symptoms_summary_counts where observation = 'Tested positive') as foo
+			from n3c_questions.icd10_individual_symptom_summary_counts) as foo
 </sql:query>
 <c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
 	<div class="col-12 col-md-3 kpi-main-col">
@@ -22,7 +22,7 @@
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_tested_positive_kpi" class="panel-heading kpi_num">${row.patient_count}</div>
+				<div id="${param.block}_patient_count_kpi" class="panel-heading kpi_num">${row.patient_count}</div>
 				<div class="kpi-limit"><small>(see limitations below)</small></div>
 			</div>
 		</div>

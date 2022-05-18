@@ -19,14 +19,12 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i></td>
-							<td>&nbsp;</td>
-							<td>Patients-ICD</td>
+							<td><i class="fas fa-users"></i> Patients-ICD</td>
 						</tr>
 					</table>
 				</div>
 				<div id="${param.block}_patient_count_kpi" class="panel-heading kpi_num">${row.patient_count}</div>
-				<div style="text-align:center;"><small>(see limitations below)</small></div>
+				<div class="kpi-limit"><small>(see limitations below)</small></div>
 			</div>
 		</div>
 	</div>

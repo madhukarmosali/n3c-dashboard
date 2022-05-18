@@ -52,6 +52,10 @@
 	flex-grow:1; 
 }
 
+.block2 .kpi-inner tr{
+	text-align:center;
+}
+
 
 
 .kpi-flex-container{

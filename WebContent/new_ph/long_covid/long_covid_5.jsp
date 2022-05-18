@@ -6,7 +6,7 @@
 	<jsp:param name="block" value="long_covid_5" />
 	<jsp:param name="block_header" value="Long COVID: Ungrouped ICD-10 Symptom Counts" />
 
-	<jsp:param name="kpis" value="long_covid/kpis.jsp" />
+	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 
 	<jsp:param name="age_filter4" value="true" />
 	<jsp:param name="race_filter" value="true" />
