@@ -3,11 +3,12 @@
 
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
-	from (select drug_domain, concept_set_name, age_bin as age, patient_count, total_count, age_abbrev, age_seq
+	from (select drug_domain, concept_set_name, age_bin as age, patient_display, patient_count, total_count, age_abbrev, age_seq
 			from (select
 					drug_domain,
 					concept_set_name,
 					age_bin,
+					num_patients as patient_display,
 					case
 						when (num_patients = '<20' or num_patients is null) then 0
 						else num_patients::int
@@ -24,7 +25,8 @@
         {"value":"drug_domain", "label":"Class"},
         {"value":"concept_set_name", "label":"Medication"},
         {"value":"age", "label":"Age"},
-        {"value":"patient_count", "label":"Patient Count"},
+        {"value":"patient_display", "label":"Patient Count"},
+        {"value":"patient_count", "label":"Patient actual"},
         {"value":"total_count", "label":"Total Count"},
         {"value":"age_abbrev", "label":"dummy1"},
         {"value":"age_seq", "label":"dummy2"}

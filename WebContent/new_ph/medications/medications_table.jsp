@@ -58,7 +58,8 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
         	{ data: 'drug_domain', visible: true, orderable: true },
         	{ data: 'concept_set_name', visible: true, orderable: true },
         	{ data: 'age', visible: true, orderable: true },
-        	{ data: 'patient_count', visible: true, orderable: true },
+        	{ data: 'patient_display', visible: true, orderable: true, orderData: [4] },
+        	{ data: 'patient_count', visible: false },
         	{ data: 'total_count', visible: true, orderable: true },
         	{ data: 'age_abbrev', visible: false },
         	{ data: 'age_seq', visible: false }
