@@ -440,6 +440,16 @@ a:hover, .btn-link:hover{
 	text-decoration: underline;
 }
 
+.viz_secondary_info i{
+	color: #006478;
+	font-size: 12px;
+	vertical-align: super;
+}
+
+.viz_secondary_info{
+	cursor: pointer;
+}
+
 /* Datatable style  ---------------- */
 .dash-dt-section{
 	margin-top: 20px;
