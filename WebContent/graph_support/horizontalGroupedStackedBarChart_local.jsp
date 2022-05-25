@@ -62,8 +62,7 @@ function localHorizontalGroupedStackedBarChart(data, domName, barLabelWidth, leg
 			.rangeRound([0, y0.bandwidth()])
 			.padding(0.2);
 		  
-		var stackData = myStack(data)
-console.log("stackData", stackData)
+		var stackData = myStack(data);
 		x.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
 
 		
@@ -238,7 +237,6 @@ console.log("stackData", stackData)
 			for (let secondary = 0; secondary < data[1].secondary.length; secondary++) {
 				var newrow = new Array();
 				for (let primary = 0; primary < data.length; primary++) {
-					console.log("secondary", data[primary], result, previous)
 					if (previous == 0)
 						newrow.push([0, data[primary].secondary[secondary].tertiary[tertiary]]);
 					else
