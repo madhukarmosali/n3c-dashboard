@@ -15,7 +15,7 @@
 function ${param.block}_gender_refresh() {
 	console.log("gender graph", "${param.block}_gender_viz", ${param.block}_GenderSeverityArray)
    	d3.select("#${param.block}_gender_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_GenderSeverityArray,"${param.block}_gender_viz", 120, severity_legend, severity_range, "Age");	
+	localHorizontalStackedBarChart(${param.block}_GenderSeverityArray,"${param.block}_gender_viz", 120, severity_legend, severity_range, "Severity");	
 }
 
 ${param.block}_gender_refresh();
