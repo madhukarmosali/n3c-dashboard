@@ -10,7 +10,7 @@ function localHorizontalBarChart(data, domName, barLabelWidth) {
 	var min_height = 300;
 	var paddingInside = 0.5
 	
-	var margin = { top: 40, right: 50, bottom: 20, left: barLabelWidth },
+	var margin = { top: 40, right: 50, bottom: 30, left: barLabelWidth },
 		width = 1200 - margin.left - margin.right,
 		height = width/3 - margin.top - margin.bottom;
 
