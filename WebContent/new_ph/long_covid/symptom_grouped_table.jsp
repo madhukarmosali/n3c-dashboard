@@ -139,7 +139,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	      titleAttr: 'CSV export.',
     	      text: 'CSV',
     	      filename: 'grouped_symptoms_csv_export',
-    	      extension: '.xlsx'
+    	      extension: '.csv'
     	    }, {
     	      extend: 'copy',
     	      className: 'btn btn-sm btn-light',
