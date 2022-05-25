@@ -5,7 +5,7 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="long_covid_1" />
 	<jsp:param name="block_header" value="Long COVID: U09.9 ICD-10 Code" />
-	<jsp:param name="topic_description" value="Sample: All patients in the N3C Data Enclave with a medical visit containing the ICD-10 code for PASC (U09.9)" />
+	<jsp:param name="topic_description" value="long_covid/secondary_text/secondary_1.jsp" />
 
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 

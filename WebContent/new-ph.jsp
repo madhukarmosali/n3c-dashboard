@@ -3,6 +3,8 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <!DOCTYPE html>
+
+
 <html>
 <jsp:include page="head.jsp" flush="true" />
 

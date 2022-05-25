@@ -37,7 +37,7 @@
 <!-- A block is comprised of a header bar, an optional left column with KPIs and filters, and a main panel
 	 that supports a set of optional sub-panels -->
 
-<div class="row stats block2">
+<div class="row stats block2 mx-auto">
 	<div class="col-12">
 		<div class="block_header ">
 			${param.block_header }
@@ -59,7 +59,7 @@
 			<div id="${param.block}-panel" class="col-12 col-md-10 mx-auto mb-4" >
 				
 				<c:if test="${not empty param.topic_description}">
-					<p>${param.topic_description}</p>
+					<jsp:include page="${param.topic_description}"/>
 				</c:if>
 				
 				<c:if test="${not empty param.severity_panel || not empty param.age_panel || not empty param.gender_panel || not empty param.ethnicity_panel}">

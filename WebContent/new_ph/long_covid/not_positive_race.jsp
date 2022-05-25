@@ -3,7 +3,7 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 
-<div id="${param.block}_race_viz" class="col-lg-7 dash_viz"></div>
+<div id="${param.block}_race_viz" class="col-12 dash_viz"></div>
 <div id="${param.block}_race_save_viz"> 
 	<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_race_viz', '${param.block}_race.svg');">Save as SVG</button>
 	<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_race_viz', '${param.block}_race.png');">Save as PNG</button>
@@ -15,7 +15,7 @@
 function ${param.block}_race_refresh() {
 	console.log("race graph", "${param.block}_gender_viz", ${param.block}_RaceArray)
 	d3.select("#${param.block}_race_viz").select("svg").remove();
-	localHorizontalBarChart(${param.block}_RaceArray,"#${param.block}_race_viz", 140);
+	localHorizontalBarChart(${param.block}_RaceArray,"#${param.block}_race_viz", 270);
 }
 
 ${param.block}_race_refresh();

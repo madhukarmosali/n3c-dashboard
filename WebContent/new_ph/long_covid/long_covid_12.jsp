@@ -5,7 +5,7 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="long_covid_12" />
 	<jsp:param name="block_header" value="Long COVID: Patients That Have Not Tested Positive For COVID" />
-	<jsp:param name="topic_description" value="Sample: All patients in the N3C Data Enclave who do not have a positive COVID-19 test in their medical record" />
+	<jsp:param name="topic_description" value="long_covid/secondary_text/secondary_12.jsp" />
 	
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 

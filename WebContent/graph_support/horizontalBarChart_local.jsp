@@ -3,91 +3,109 @@
 function localHorizontalBarChart(data, domName, barLabelWidth) {
 	var valueLabelWidth = 50; // space reserved for value labels (right)
 	var barHeight = 50; // height of one bar
-//	var barLabelWidth = 50; // space reserved for bar labels
 	var barLabelPadding = 5; // padding between bar and bar labels (left)
 	var gridLabelHeight = 0; // space reserved for gridline labels
 	var gridChartOffset = 3; // space between start of grid and first bar
 	var maxBarWidth = 280; // width of the bar with the max value
+	var min_height = 300;
+	var paddingInside = 0.5
+	
+	var margin = { top: 40, right: 50, bottom: 20, left: barLabelWidth },
+		width = 1200 - margin.left - margin.right,
+		height = width/3 - margin.top - margin.bottom;
 
 	//accessor functions
 	var barLabel = function(d) { return d.element; };
 	var barValue = function(d) { return parseFloat(d.count); };
 
-//	data.forEach(function(node) {
-//		barLabelWidth = Math.max(barLabelWidth,node.element.length * 8);
-	    //console.log(node.element + "  " + node.element.length*7. );
-//	});
-	
 	var myObserver = new ResizeObserver(entries => {
 		entries.forEach(entry => {
 			var newWidth = Math.floor(entry.contentRect.width);
 			if (newWidth > 0) {
 				d3.select(domName).select("svg").remove();
-				maxBarWidth = newWidth - barLabelWidth - barLabelPadding - valueLabelWidth;
+				width = newWidth - margin.left - margin.right;
+				height = width/3;
+				maxBarWidth = width - barLabelWidth - barLabelPadding - valueLabelWidth;
+				if (height < min_height) {
+					height = min_height;
+				};
 				draw();
 			}
 		});
 	});
+	
 	myObserver.observe(d3.select(domName).node());
 
 	draw();
 
 	function draw() {
+		
+		var y = d3.scaleBand()			
+			.range([0, height-margin.bottom])	
+			.paddingInner(paddingInside)
+			.align(0.1)
+			.domain(data.map(function(d) { return d.element; }));
+		
+		var yText = function(d, i) { return y(d, i) + y.bandwidth() / 2; };
+		
+		var x = d3.scaleLinear()
+			.domain([0, d3.max(data, function(d){ return d.count; })])
+			.range([0, width - margin.right]);
+		
+		var svg = d3.select(domName).append("svg")
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", Number(height) + margin.top + margin.bottom);
+	
+		var g = svg.append("g")
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-		// scales
-		var yScale = d3.scaleBand().domain(d3.range(0, data.length)).range([0, data.length * barHeight]);
-		var y = function(d, i) { return yScale(i); };
-		var yText = function(d, i) { return y(d, i) + yScale.bandwidth() / 2; };
-		var x = d3.scaleLinear().domain([0, d3.max(data, barValue)]).range([0, maxBarWidth]);
+		g.append("g")
+			.attr("class", "axis")
+			.attr("transform", "translate(0,0)") 						
+			.call(d3.axisLeft(y));	
 
-		// svg container element
-		var chart = d3.select(domName).append("svg")
-			.attr('width', maxBarWidth + barLabelWidth + barLabelPadding + valueLabelWidth)
-			.attr('height', gridLabelHeight + gridChartOffset + data.length * barHeight);
-		// grid line labels
-		var gridContainer = chart.append('g')
-			.attr('transform', 'translate(' + barLabelWidth + ',' + gridLabelHeight + ')');
-		// vertical grid lines
-		gridContainer.selectAll("line").data(x.ticks(10)).enter().append("line")
-			.attr("x1", x)
-			.attr("x2", x)
-			.attr("y1", 0)
-			.attr("y2", yScale.range()[1] + gridChartOffset)
-			.style("stroke", "#ccc");
-		// bar labels
-		var labelsContainer = chart.append('g')
-			.attr('transform', 'translate(' + (barLabelWidth - barLabelPadding) + ',' + (gridLabelHeight + gridChartOffset) + ')');
-		labelsContainer.selectAll('text').data(data).enter().append('text')
-			.attr('y', yText)
-			.attr('stroke', 'none')
-			.attr('fill', 'black')
-			.attr("dy", ".35em") // vertical-align: middle
-			.attr('text-anchor', 'end')
-			.text(barLabel);
-		// bars
-		var barsContainer = chart.append('g')
-			.attr('transform', 'translate(' + barLabelWidth + ',' + (gridLabelHeight + gridChartOffset) + ')');
-		barsContainer.selectAll("rect").data(data).enter().append("rect")
-			.attr('y', y)
-			.attr('height', yScale.bandwidth())
-			.attr('width', function(d) { return x(barValue(d)); })
+		// axis labels & ticks
+		var axisContainer = g.append('g')
+			.attr("class", "axis xaxis")
+			.attr("transform", "translate(0," + (height-margin.bottom) + ")")				
+			.call(d3.axisBottom(x).ticks(Math.round(width/100), "s"))
+			.append("text")										
+			.attr("fill", "#000")
+			.attr("font-weight", "bold")
+			.attr("text-anchor", "start")
+			.text("Patient Count")
+			.attr("transform", "translate(" + ((width/2)- margin.right) + "," + 40 + ")"); 
+		
+		d3.selectAll("g.xaxis g.tick")
+	    	.append("line")
+	    	.attr("class", "gridline")
+	    	.attr("x1", 0)
+	    	.attr("y1", -height+margin.top)
+	    	.attr("x2", 0)
+	    	.attr("y2", 0);
+		
+		// bars		
+		var barsContainer = g.append('g')
+			.selectAll("rect")
+			.data(data)
+			.enter().append("rect")
+			.attr("class", "bar")
+			.attr("y", function(d) { return y(d.element); })
+			.attr('height', y.bandwidth())
+			.attr('width', function(d) { return x(d.count); })
 			.attr('stroke', 'white')
-			.attr('fill', '#376076');
+			//.attr("fill", "#8b8b8b");
+			.attr('fill', '#006478');
+		
 		// bar value labels
-		barsContainer.selectAll("text").data(data).enter().append("text")
-			.attr("x", function(d) { return x(barValue(d)); })
-			.attr("y", yText)
-			.attr("dx", 3) // padding-left
-			.attr("dy", ".35em") // vertical-align: middle
-			.attr("text-anchor", "start") // text-align: right
-			.attr("fill", "black")
-			.attr("stroke", "none")
+		g.append('g').selectAll("text").data(data).enter().append("text")
+			.attr("x", function(d) { return x(barValue(d)) + 5; })
+			.attr("y", function(d,i) { return (y(d.element)) + ((y.bandwidth()*paddingInside)/4) + (y.bandwidth()/2) ; })
+			.attr("class", "secondary")
+			.style("text-anchor", "start")
+			.style("font-size", "12px")
+			.style("fill", "#a5a2a2")
 			.text(function(d) { return barValue(d); });
-		// start line
-		barsContainer.append("line")
-			.attr("y1", -gridChartOffset)
-			.attr("y2", yScale.range()[1] + gridChartOffset)
-			.style("stroke", "#000");
 	}
 }
 </script>

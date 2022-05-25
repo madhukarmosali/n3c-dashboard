@@ -5,7 +5,7 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="long_covid_10" />
 	<jsp:param name="block_header" value="Long COVID: Postural Orthostatic Tachycardia Symdrome (POTS)" />
-	<jsp:param name="topic_description" value="Sample: All patients in the N3C Data Enclave with a recorded diagnosis of Postural Orthostatic Tachycardia Syndrome, or POTS (I49.8), since the start of data collection (1/1/2020). This diagnosis is non-specific to PASC and could be related to other illness." />
+	<jsp:param name="topic_description" value="long_covid/secondary_text/secondary_10.jsp" />
 	
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 	<jsp:param name="kpi_filter" value="POTS" />

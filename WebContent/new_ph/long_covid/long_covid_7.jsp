@@ -5,7 +5,7 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="long_covid_7" />
 	<jsp:param name="block_header" value="Long COVID: Cognitive Impairment" />
-	<jsp:param name="topic_description" value="Sample: All patients in the N3C Data Enclave with a recorded diagnosis of Cognitive Impairment (G31.84 or R41.9) since the start of data collection (1/1/2020). This diagnosis is non-specific to PASC and could be related to other illness." />
+	<jsp:param name="topic_description" value="long_covid/secondary_text/secondary_7.jsp" />
 	
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 	<jsp:param name="kpi_filter" value="Cognitive impairment" />

@@ -5,7 +5,7 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="long_covid_5" />
 	<jsp:param name="block_header" value="Long COVID: Ungrouped ICD-10 Symptom Counts" />
-	<jsp:param name="topic_description" value="Sample: All patients in the N3C Data Enclave who have at least one of the most common symptoms of PASC in their medical record. These diagnoses are non-specific to PASC and could be related to other illness." />
+<jsp:param name="topic_description" value="long_covid/secondary_text/secondary_5.jsp" />
 
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 

@@ -5,7 +5,7 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="long_covid_9" />
 	<jsp:param name="block_header" value="Long COVID: Mental Health Condition" />
-	<jsp:param name="topic_description" value="Sample: All patients in the N3C Data Enclave with a recorded diagnosis of Mental, Behavioral or Neurodevelopmental Disorders (F01-F99) since the start of data collection (1/1/2020). This diagnosis is non-specific to PASC and could be related to other illness." />
+	<jsp:param name="topic_description" value="long_covid/secondary_text/secondary_9.jsp" />
 	
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 	<jsp:param name="kpi_filter" value="Mental Health Condition" />

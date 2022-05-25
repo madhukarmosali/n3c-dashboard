@@ -73,8 +73,8 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 
 	function draw() {
 		var svg = d3.select("#"+domName).append("svg")
-					.attr("width", width + margin.left + margin.right)
-					.attr("height", Number(height) + margin.top + margin.bottom);
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", Number(height) + margin.top + margin.bottom);
 		
 		var g = svg.append("g")
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -85,7 +85,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.align(0.1);
 
 		var x = d3.scaleLinear()	
-			.range([0, width- margin.right]);	
+			.range([0, width - margin.right]);	
 
 		var z = secondary_range;
 		

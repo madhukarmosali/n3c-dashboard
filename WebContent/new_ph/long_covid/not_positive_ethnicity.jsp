@@ -3,7 +3,7 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 
-<div id="${param.block}_ethnicity_viz" class="col-lg-7 dash_viz"></div>
+<div id="${param.block}_ethnicity_viz" class="col-12 dash_viz"></div>
 <div id="${param.block}_ethnicity_save_viz"> 
 	<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_ethnicity_viz', '${param.block}_ethnicity.svg');">Save as SVG</button>
 	<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_ethnicity_viz', '${param.block}_ethnicity.png');">Save as PNG</button>
@@ -15,7 +15,7 @@
 function ${param.block}_ethnicity_refresh() {
 	console.log("ethnicity graph", "${param.block}_ethnicity_viz", ${param.block}_EthnicityArray)
 	d3.select("#${param.block}_ethnicity_viz").select("svg").remove();
-	localHorizontalBarChart(${param.block}_EthnicityArray,"#${param.block}_ethnicity_viz", 140);
+	localHorizontalBarChart(${param.block}_EthnicityArray,"#${param.block}_ethnicity_viz", 160);
 }
 
 ${param.block}_ethnicity_refresh();
