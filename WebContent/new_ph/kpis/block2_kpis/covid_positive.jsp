@@ -12,7 +12,7 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-user-plus"></i> COVID+ Patients</td>
+							<td><i class="fas fa-user-plus"></i> COVID+ Patients in Enclave</td>
 						</tr>
 					</table>
 				</div>

@@ -20,7 +20,7 @@
 					</table>
 				</div>
 				<div id="${param.block}_long_total_grouped_kpi" class="panel-heading kpi_num">${row.count}</div>
-				<div class="kpi-limit"><small>(see limitations below)</small></div>
+				<div class="kpi-limit"><a onclick="limitlink(); return false;" href="#limitations-section">see limitations below</a></div>
 			</div>
 		</div>
 	</div>

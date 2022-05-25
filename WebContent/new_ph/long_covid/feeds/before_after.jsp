@@ -6,8 +6,8 @@
 	from (select symptom, condition_after_covid_positive, patient_display, patient_count, condition_after_covid_positive_seq from (select
 			symptom,
 			case
-				when (condition_after_covid_positive) then 'Before COVID+'
-				else 'After COVID+'
+				when (condition_after_covid_positive) then 'After COVID+'
+				else 'Before COVID+'
 			end as condition_after_covid_positive,
 			count as patient_display,
 			count as patient_count

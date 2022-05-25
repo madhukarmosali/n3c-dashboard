@@ -182,9 +182,11 @@ WebContent/new_ph/kpis/block2_kpis/long_icd.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_icd_summary.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_in_record.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_in_record_grouped.jsp -text
+WebContent/new_ph/kpis/block2_kpis/long_in_record_individual_symptom.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_in_record_ungrouped.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_tested_positive.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_tested_positive_grouped.jsp -text
+WebContent/new_ph/kpis/block2_kpis/long_tested_positive_individual_symptom.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_tested_positive_ungrouped.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_total_after.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_total_before.jsp -text

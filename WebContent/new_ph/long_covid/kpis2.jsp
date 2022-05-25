@@ -68,10 +68,10 @@
 		<jsp:include page="../kpis/block2_kpis/long_total_before_after.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/long_total_after.jsp">
+		<jsp:include page="../kpis/block2_kpis/long_total_before.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/long_total_before.jsp">
+		<jsp:include page="../kpis/block2_kpis/long_total_after.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
 	</c:when>
@@ -79,11 +79,11 @@
 		<jsp:include page="../kpis/block2_kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/long_tested_positive_ungrouped.jsp">
+		<jsp:include page="../kpis/block2_kpis/long_tested_positive_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/long_in_record_ungrouped.jsp">
+		<jsp:include page="../kpis/block2_kpis/long_in_record_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
@@ -92,11 +92,11 @@
 		<jsp:include page="../kpis/block2_kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/long_tested_positive_ungrouped.jsp">
+		<jsp:include page="../kpis/block2_kpis/long_tested_positive_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/long_in_record_ungrouped.jsp">
+		<jsp:include page="../kpis/block2_kpis/long_in_record_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
@@ -105,11 +105,11 @@
 		<jsp:include page="../kpis/block2_kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/long_tested_positive_ungrouped.jsp">
+		<jsp:include page="../kpis/block2_kpis/long_tested_positive_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/long_in_record_ungrouped.jsp">
+		<jsp:include page="../kpis/block2_kpis/long_in_record_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
@@ -118,11 +118,11 @@
 		<jsp:include page="../kpis/block2_kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/long_tested_positive_ungrouped.jsp">
+		<jsp:include page="../kpis/block2_kpis/long_tested_positive_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/long_in_record_ungrouped.jsp">
+		<jsp:include page="../kpis/block2_kpis/long_in_record_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
@@ -131,11 +131,11 @@
 		<jsp:include page="../kpis/block2_kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/long_tested_positive_ungrouped.jsp">
+		<jsp:include page="../kpis/block2_kpis/long_tested_positive_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/long_in_record_ungrouped.jsp">
+		<jsp:include page="../kpis/block2_kpis/long_in_record_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>

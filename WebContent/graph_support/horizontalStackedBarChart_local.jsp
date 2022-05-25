@@ -161,7 +161,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 		     		.append("tspan")
 		     		.text(d[2])
 		     		.attr('x', 10)
-  					.attr('dy', 10)
+  					.attr('dy', 13)
 		     		.append("tspan")
 		     		.text(count2)
 		     		.attr('fill', 'black')
@@ -173,7 +173,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 	     			})
 	     			.attr('fill', 'black')
 	     			.attr('x', 10)
-					.attr('dy', 21);
+					.attr('dy', 20);
 			});
 
 		
@@ -183,7 +183,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.style("fill", "#a5a2a2")
 			.attr("class", "secondary")
 			.style("text-anchor", "start")
-			.style("font-size", ".8rem")
+			.style("font-size", "12px")
 			.attr("y", function(d,i) { return (y(data[i].element)) + ((y.bandwidth()*paddingInside)/4) + (y.bandwidth()/2) ; })
 			.attr("x", function(d) { return (x(d[3])) + 5; })
 			.text(function(d) {
@@ -202,7 +202,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.append("text")
 			.attr("x", width)
 			.attr("y", 9.5)
-			.attr("dy", "0.32em")
+			.attr("dy", "5px")
 			.text(legend_label);
 
 		var legend = g.append("g")
@@ -232,7 +232,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 		legend.append("text")
 			.attr("x", width - 24)
 			.attr("y", 9.5)
-			.attr("dy", "0.32em")
+			.attr("dy", "5px")
 			.text(function(d) {	return d.secondary; });
 			
 		// Tooltip ////// 
@@ -244,11 +244,9 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
     		.attr("width", 10 + word_length * 7)
     		.attr("height", 60)
     		.attr("fill", "white")
-    		.style("opacity", 0.5);
+    		.style("opacity", 0.7);
 
   		tooltip.append("text")
-    		.attr("x", 30)
-    		.attr("dy", "1.2em")
     		.style("text-anchor", "start")
     		.attr("font-size", "12px")
     		.attr("font-weight", "bold");

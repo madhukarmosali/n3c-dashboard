@@ -15,12 +15,12 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Total Patients</td>
+							<td><i class="fas fa-users"></i> Patients w/PASC Related Symptoms & Tested Positive</td>
 						</tr>
 					</table>
 				</div>
 				<div id="${param.block}_long_total_before_after_kpi" class="panel-heading kpi_num">${row.count}</div>
-				<div class="kpi-limit"><small>(see limitations below)</small></div>
+				<div class="kpi-limit"><a onclick="limitlink(); return false;" href="#limitations-section">see limitations below</a></div>
 			</div>
 		</div>
 	</div>

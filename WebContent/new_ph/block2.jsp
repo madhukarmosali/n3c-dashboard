@@ -56,26 +56,11 @@
 		<div class="row" style="margin-top: 30px;">
 			<!-- the main panel has a strip of optional selection buttons across the top, controlling the visibility of the matched sub-panel -->
 			
-			<div id="${param.block}-panel" class="col-12 col-md-10 mx-auto" >
+			<div id="${param.block}-panel" class="col-12 col-md-10 mx-auto mb-4" >
 				
-				
-<%-- 				<div id="${param.block}-btns" class="btn-select"> --%>
-<%-- 					<c:if test="${not empty param.severity_panel}"> --%>
-<%-- 						<button id="${param.block}-severity-btn" class="btn btn-primary active" role="button" onclick="${param.block}_toggle('severity');">Severity</button> --%>
-<%-- 					</c:if> --%>
-<%-- 					<c:if test="${not empty param.age_panel}"> --%>
-<%-- 						<button id="${param.block}-age-btn" class="btn btn-primary" role="button" onclick="${param.block}_toggle('age');">Age</button> --%>
-<%-- 					</c:if> --%>
-<%-- 					<c:if test="${not empty param.race_panel}"> --%>
-<%-- 						<button id="${param.block}-race-btn" class="btn btn-primary" role="button" onclick="${param.block}_toggle('race');">Race</button> --%>
-<%-- 					</c:if> --%>
-<%-- 					<c:if test="${not empty param.gender_panel}"> --%>
-<%-- 						<button id="${param.block}-gender-btn" class="btn btn-primary" role="button" onclick="${param.block}_toggle('gender');">Gender</button> --%>
-<%-- 					</c:if> --%>
-<%-- 					<c:if test="${not empty param.ethnicity_panel}"> --%>
-<%-- 						<button id="${param.block}-ethnicity-btn" class="btn btn-primary" role="button" onclick="${param.block}_toggle('ethnicity');">Ethnicity</button> --%>
-<%-- 					</c:if> --%>
-<!-- 				</div> -->
+				<c:if test="${not empty param.topic_description}">
+					<p>${param.topic_description}</p>
+				</c:if>
 				
 				<c:if test="${not empty param.severity_panel || not empty param.age_panel || not empty param.gender_panel || not empty param.ethnicity_panel}">
 				<div style="text-align:center; font-size: 1.2rem;">

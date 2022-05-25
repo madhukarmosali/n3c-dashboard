@@ -5,7 +5,8 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="long_covid_3" />
 	<jsp:param name="block_header" value="Long COVID Cumulative Symptoms Summary (Dyspnea, Fatigue, Cognition, POTS, Mental Health)" />
-
+	<jsp:param name="topic_description" value="Sample: All patients in the N3C Data Enclave who have at least one of the most common symptoms of PASC in their medical record. These diagnoses are non-specific to PASC and could be related to other illness." />
+	
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 
 	<jsp:param name="age_filter4" value="true" />

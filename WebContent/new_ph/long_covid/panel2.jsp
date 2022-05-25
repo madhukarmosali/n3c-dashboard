@@ -5,14 +5,17 @@
 <div style="text-align:center; font-size: 1.3rem; margin-top: 40px;">
 	<h3>Select a Topic to Explore:</h3>
 	<select id="selectMe">
-		<optgroup label="Long COVID Measures">
+		<optgroup label="Long COVID Indicators">
 			<option value="long_covid_1">U09.9 (Long COVID) ICD-10 Code Diagnosis</option>
 			<option value="long_covid_2">Long COVID Clinic Visit</option>
 		</optgroup>
+		<optgroup label="Controls">
+			<option value="long_covid_12">Patients That Have Not Tested Positive For COVID</option>
+		</optgroup>
 		<optgroup label="Key Long COVID ICD-10 Symptoms">
-			<option value="long_covid_3">Cumulative Symptoms Summary</option>
-			<option value="long_covid_4">Individual ICD-10 Symptom Grouped Counts</option>
-			<option value="long_covid_5">Ungrouped ICD-10 Symptom Counts</option>
+			<option value="long_covid_3">Symptoms vs. Long COVID & COVID+</option>
+			<option value="long_covid_4">Grouped ICD-10 Symptom Counts</option>
+			<option value="long_covid_5">Individual ICD-10 Symptom Counts</option>
 			<option value="long_covid_6">ICD-10 Symptom Counts Before/After COVID+</option>
 		</optgroup>
 		<optgroup label="Individual Symptoms">
@@ -21,7 +24,6 @@
 			<option value="long_covid_9">Mental Health Condition</option>
 			<option value="long_covid_10">Postural Orthostatic Tachycardia Symdrome (POTS)</option>
 			<option value="long_covid_11">Shortness of Breath</option>
-			<option value="long_covid_12">Patients That Have Not Tested Positive For COVID</option>
 		</optgroup>
 	</select>
 </div>

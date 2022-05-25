@@ -18,12 +18,12 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> COVID+ Patients With U09.0 in Record</td>
+							<td><i class="fas fa-users"></i> Patients w/PASC Related Symptoms & U09.0 in Record</td>
 						</tr>
 					</table>
 				</div>
 				<div id="${param.block}_in_record_kpi" class="panel-heading kpi_num">${row.patient_count}</div>
-				<div class="kpi-limit"><small>(see limitations below)</small></div>
+				<div class="kpi-limit"><a onclick="limitlink(); return false;" href="#limitations-section">see limitations below</a></div>
 			</div>
 		</div>
 	</div>

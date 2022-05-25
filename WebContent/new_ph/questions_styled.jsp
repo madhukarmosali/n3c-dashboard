@@ -110,6 +110,18 @@
 		background:url(<util:applicationRoot/>/images/spinners/fading_wheel.svg) no-repeat center 100px;
 		/* to resize, use background-size: 300px 300px; */
 	}
+	
+#limitations_drop a[aria-expanded = "true"] span:after{
+	font-family: "Font Awesome\ 5 Free"; 
+	content: "\f056";
+  	font-weight: 900;
+}
+
+#limitations_drop a[aria-expanded = "false"] span:after{
+	font-family: "Font Awesome\ 5 Free"; 
+	content: "\f055";
+	font-weight: 900;
+}
 	​
 </style>
 
@@ -315,14 +327,41 @@ function iframe_render(question, description, asked, limitations, iframe) {
 		'<h2 class="header-text">' + question + '</h2>'
 	  +'<p>' + description + '</p>'
 	  +'<div id="d3viz"></div>'
-		+'<br><a class="accordion-toggle" data-toggle="collapse" data-parent="#iframe_accordion" href="#iframe_details" onclick="question_detail_toggle()"><span id="question-detail-toggle"><i class="fas fa-chevron-right"></i> Limitations</span></a>'
-		+'<div id="iframe_accordian">'
-			+'<div id="iframe_details" class="panel-body panel-collapse collapse">'
-	  			+'<p><strong>Limitations:</strong> ' + limitations + '</p>'
-	  		+'</div>'
-	  	+'</div>'
+		+'<br>'+
+		'<div id="limitations-section">\
+			<div class="accordion" id="limitations_drop">\
+				<div class="card">\
+					<div class="card-header" id="limitheadingOne">\
+  						<h4 class="mb-0">Limitations \
+    						<a alt="expand/collapse limitations section button" href="" style="display:inline; float:right;" class="btn btn-link btn-block text-left collapsed icon-btn p-0 accordion-toggle" data-toggle="collapse" data-target="#limitcollapseOne" aria-expanded="false" aria-controls="collapseOne">\
+      							<span>&nbsp;</span>\
+    						</a>\
+  						</h4>\
+					</div>\
+					<div id="limitcollapseOne" class="collapse" aria-labelledby="limitheadingOne" data-parent="#limitations_drop">\
+  						<div class="card-body">' +
+   							limitations + 
+  						'</div>\
+					</div>\
+				</div>\
+			</div>\
+		</div>'
+// 		'<a class="accordion-toggle" data-toggle="collapse" data-parent="#iframe_accordion" href="#iframe_details" onclick="question_detail_toggle()"><span id="question-detail-toggle"><i class="fas fa-chevron-right"></i> Limitations</span></a>'
+// 		+'<div id="iframe_accordian">'
+// 			+'<div id="iframe_details" class="panel-body panel-collapse collapse">'
+// 	  			+'<p><strong>Limitations:</strong> ' + limitations + '</p>'
+// 	  		+'</div>'
+// 	  	+'</div>'
 	;
 	$("#d3viz").load("<util:applicationRoot/>/new_ph/frame.jsp?iframe="+iframe);
 }
+
+function limitlink(){
+	$('#limitcollapseOne').collapse('show');
+	$('html, body').animate({
+        scrollTop: $("#limitations-section").offset().top
+    }, 500);
+}
+
 
 </script>

@@ -433,9 +433,11 @@ a:hover, .btn-link:hover{
     font-weight: 600;
 }
 
-.kpi-limit{
+.kpi-limit, .kpi-limit a{
 	color: gray;
-	text-align:center;
+	text-align: center;
+	font-size: 0.9em;
+	text-decoration: underline;
 }
 
 /* Datatable style  ---------------- */
