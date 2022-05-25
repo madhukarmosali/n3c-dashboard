@@ -222,6 +222,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.attr("width", 19)
 			.attr("height", 19)
 			.attr("fill", function(d, i) { return z[i]; })
+			.on("click", function(d, i){ window[domName.replace(/_[^_]+_[^_]+$/i,'_')+'viz_constrain'](d, legend_label); })
 			.on("mouseover", function(d, i) {
 				svg.selectAll(".serie:not(.color-" + z[i].substring(1) + ")").style("opacity", "0.2");
 			})

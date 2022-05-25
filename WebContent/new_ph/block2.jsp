@@ -176,6 +176,13 @@
 
 <script>
 
+	function ${param.block}_viz_constrain(element, elementParent) {
+		console.log('${param.block}_viz_constrain', element, elementParent, '#${param.block}-'+elementParent.toLowerCase()+'-select', element.secondary);
+		console.log("#${param.block}-"+elementParent.toLowerCase()+"-select option[value='" + element.secondary + "']");
+	    $("#${param.block}-"+elementParent.toLowerCase()+"-select option[value='" + element.secondary + "']").prop("selected", true);
+		console.log("result",$("#${param.block}-"+elementParent.toLowerCase()+"-select option[value='" + element.secondary + "']").val());
+	}
+
 	function ${param.block}_constrain(filter, selection) {
 		//console.log("selection", selection)
 		var selected = selection;
