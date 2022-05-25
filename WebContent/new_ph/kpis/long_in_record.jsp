@@ -17,7 +17,7 @@
 			<tr>
 				<td><i class="fas fa-users"></i></td>
 				<td>&nbsp;</td>
-				<td>COVID+ Patients With U09.0 in Record *</td>
+				<td>COVID+ Patients With U09.9 in Record *</td>
 			</tr>
 		</table>
 	</div>
