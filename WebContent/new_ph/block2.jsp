@@ -175,7 +175,18 @@
 <script>
 
 	function ${param.block}_viz_constrain(element, elementParent) {
- 		$("#${param.block}-"+elementParent.toLowerCase()+"-select").multiselect('select', $("#${param.block}-"+elementParent.toLowerCase()+"-select option[value='" + element.secondary + "']").val(), true);
+		var options = $("#${param.block}-"+elementParent.toLowerCase()+"-select");
+        var selected = [];
+        
+        $(options).each(function(){
+            selected.push($(this).val());
+        });
+	        
+		if (selected[0].includes( element.secondary)){
+			$("#${param.block}-"+elementParent.toLowerCase()+"-select").multiselect('deselect', $("#${param.block}-"+elementParent.toLowerCase()+"-select option[value='" + element.secondary + "']").val(), true);
+		} else {
+			$("#${param.block}-"+elementParent.toLowerCase()+"-select").multiselect('select', $("#${param.block}-"+elementParent.toLowerCase()+"-select option[value='" + element.secondary + "']").val(), true);
+		}
 	}
 
 	function ${param.block}_constrain(filter, selection) {
@@ -188,31 +199,6 @@
 		${param.block}_constrain_table(filter, selected);
 	}
 
-// 	$('#${param.block}-severity-select').change(function() {
-// 		${param.block}_constrain("severity", $(this).val().join('|'));
-// 	    ${param.block}_refreshHistograms();
-//   	});
-
-// 	$('#${param.block}-age-select').change(function() {
-// 		${param.block}_constrain("age", $(this).val().join('|'));
-// 	    ${param.block}_refreshHistograms();
-//   	});
-
-// 	$('#${param.block}-race-select').change(function() {
-// 		${param.block}_constrain("race", $(this).val().join('|'));
-// 	    ${param.block}_refreshHistograms();
-//   	});
-
-// 	$('#${param.block}-gender-select').change(function() {
-// 		console.log("test" + $(this).val().join('|'));
-//  		${param.block}_constrain("gender", $(this).val().join('|'));
-//  	    ${param.block}_refreshHistograms();
-//   	});
-
-// 	$('#${param.block}-ethnicity-select').change(function() {
-// 		${param.block}_constrain("ethnicity", $(this).val().join('|'));
-// 	    ${param.block}_refreshHistograms();
-//   	});
 
 	$(document).ready(function() {       
 		$('#${param.block}-severity-select').multiselect({	
