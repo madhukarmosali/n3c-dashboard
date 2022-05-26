@@ -179,8 +179,9 @@
 	function ${param.block}_viz_constrain(element, elementParent) {
 		console.log('${param.block}_viz_constrain', element, elementParent, '#${param.block}-'+elementParent.toLowerCase()+'-select', element.secondary);
 		console.log("#${param.block}-"+elementParent.toLowerCase()+"-select option[value='" + element.secondary + "']");
+		console.log("result",$("#${param.block}-"+elementParent.toLowerCase()+"-select").val());
 	    $("#${param.block}-"+elementParent.toLowerCase()+"-select option[value='" + element.secondary + "']").prop("selected", true);
-		console.log("result",$("#${param.block}-"+elementParent.toLowerCase()+"-select option[value='" + element.secondary + "']").val());
+		console.log("result",$("#${param.block}-"+elementParent.toLowerCase()+"-select").val());
 	}
 
 	function ${param.block}_constrain(filter, selection) {
