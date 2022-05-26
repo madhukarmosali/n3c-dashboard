@@ -181,6 +181,7 @@
 		console.log("#${param.block}-"+elementParent.toLowerCase()+"-select option[value='" + element.secondary + "']");
 		console.log("result",$("#${param.block}-"+elementParent.toLowerCase()+"-select").val());
 	    $("#${param.block}-"+elementParent.toLowerCase()+"-select option[value='" + element.secondary + "']").prop("selected", true);
+		$("#${param.block}-"+elementParent.toLowerCase()+"-select").change();
 		console.log("result",$("#${param.block}-"+elementParent.toLowerCase()+"-select").val());
 	}
 
