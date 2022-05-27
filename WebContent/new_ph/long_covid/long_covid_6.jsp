@@ -6,7 +6,7 @@
 	<jsp:param name="block" value="long_covid_6" />
 	<jsp:param name="block_header" value="Long COVID: ICD-10 Symptom Counts Before/After COVID+" />
 	<jsp:param name="topic_description" value="secondary_6" />
-	<jsp:param name="topic_title" value="Experience of Symptoms Related to Long COVID by Pre/Post COVID Diagnosis" />
+	<jsp:param name="topic_title" value="PASC Symptom Occurrence Before and After COVID Diagnosis" />
 
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 

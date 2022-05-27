@@ -6,6 +6,7 @@
 	<jsp:param name="block" value="long_covid_2" />
 	<jsp:param name="block_header" value="Long COVID: Clinic Visit" />
 	<jsp:param name="topic_description" value="secondary_2" />
+	<jsp:param name="topic_title" value="Demographics of Patients Who Have Visited a PASC Clinic" />
 
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 

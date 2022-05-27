@@ -22,7 +22,7 @@
 			<option value="long_covid_7">Cognitive Impairment</option>
 			<option value="long_covid_8">Fatigue</option>
 			<option value="long_covid_9">Mental Health Condition</option>
-			<option value="long_covid_10">Postural Orthostatic Tachycardia Symdrome (POTS)</option>
+			<option value="long_covid_10">Postural Orthostatic Tachycardia Syndrome (POTS)</option>
 			<option value="long_covid_11">Shortness of Breath</option>
 		</optgroup>
 	</select>
