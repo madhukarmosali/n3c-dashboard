@@ -7,5 +7,5 @@
 	in which the ICD-10 code for COVID-19 (U07.1) was recorded. This sample may have instances 
 	of false negatives when using it to assess the population of COVID-19/PASC-negative persons. 
 	This can be caused by a lack of testing, non-reported testing, and reported testing not captured by our 
-	data partners (i.e. testing done at an unrelated institution).  </p>
+	data partners (i.e., testing done at an unrelated institution).  </p>
 </div>

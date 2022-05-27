@@ -35,12 +35,13 @@
 
 <div class="row stats block2 mx-auto">
 	<div class="col-12">
-		<div class="block_header ">
-			${param.block_header }
-		</div>
+		
+<!-- 		<div class="block_header "> -->
+<%-- 			${param.block_header } --%>
+<!-- 		</div> -->
 	
 	
-		<div class="row kpi-row">
+		<div class="row kpi-row mt-5">
 			<div id="${param.block}-block-kpi-kpi" class="col-12">
 				<c:if test="${not empty param.kpis}">
 					<div class="kpi_containter row" style="justify-content: center;">
