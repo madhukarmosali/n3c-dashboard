@@ -5,7 +5,8 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="long_covid_3" />
 	<jsp:param name="block_header" value="Long COVID Cumulative Symptoms Summary (Dyspnea, Fatigue, Cognition, POTS, Mental Health)" />
-	<jsp:param name="topic_description" value="long_covid/secondary_text/secondary_3.jsp" />
+	<jsp:param name="topic_description" value="secondary_3" />
+	<jsp:param name="topic_title" value="Experience of Symptoms Related to Long COVID as it Relates to Long COVID and COVID+ Diagnoses" />
 	
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 

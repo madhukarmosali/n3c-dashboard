@@ -28,7 +28,7 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 
 <sql:query var="genders" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done order by secondary_seq))
-	from (select distinct gender_abbrev as secondary, gender_seq as secondary_seq
+	from (select distinct gender_abbrev as secondary, gender_seq as secondary_seq, gender_abbrev as secondary_name
 		  from n3c_dashboard.gender_map
 		  ) as done;
 </sql:query>
@@ -38,7 +38,7 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 
 <sql:query var="severities" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done order by secondary_seq))
-	from (select distinct severity_abbrev as secondary, severity_seq as secondary_seq
+	from (select distinct severity_abbrev as secondary, severity_seq as secondary_seq, severity as secondary_name
 		  from n3c_dashboard.severity_map
 		  ) as done;
 </sql:query>
@@ -48,7 +48,7 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 
 <sql:query var="races" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done order by secondary_seq))
-	from (select distinct race_abbrev as secondary, race_seq as secondary_seq
+	from (select distinct race_abbrev as secondary, race_seq as secondary_seq, race as secondary_name
 		  from n3c_dashboard.race_map
 		  ) as done;
 </sql:query>
@@ -58,7 +58,7 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 
 <sql:query var="ethnicities" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done order by secondary_seq))
-	from (select distinct ethnicity_abbrev as secondary, ethnicity_seq as secondary_seq
+	from (select distinct ethnicity_abbrev as secondary, ethnicity_seq as secondary_seq, ethnicity as secondary_name
 		  from n3c_dashboard.ethnicity_map
 		  ) as done;
 </sql:query>
@@ -68,7 +68,7 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 
 <sql:query var="befores" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done order by secondary_seq))
-	from (select distinct condition_after_covid_positive as secondary, condition_after_covid_positive_seq as secondary_seq
+	from (select distinct condition_after_covid_positive as secondary, condition_after_covid_positive_seq as secondary_seq, condition_after_covid_positive as secondary_name
 		  from n3c_dashboard.before_after_map
 		  ) as done;
 </sql:query>
@@ -78,7 +78,7 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 
 <sql:query var="ages" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done order by secondary_seq))
-	from (select distinct age_bin as secondary, age_seq as secondary_seq
+	from (select distinct age_bin as secondary, age_seq as secondary_seq, age_bin as secondary_name
 		  from n3c_dashboard.age_map
 		  ) as done;
 </sql:query>
@@ -88,7 +88,7 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 
 <sql:query var="ages" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done order by secondary_seq))
-	from (select distinct age_bin as secondary, age_seq as secondary_seq
+	from (select distinct age_bin as secondary, age_seq as secondary_seq, age_bin as secondary_name
 		  from n3c_dashboard.age_map2
 		  ) as done;
 </sql:query>
@@ -98,7 +98,7 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 
 <sql:query var="ages" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done order by secondary_seq))
-	from (select distinct age_bin as secondary, age_seq as secondary_seq
+	from (select distinct age_bin as secondary, age_seq as secondary_seq, age_bin as secondary_name
 		  from n3c_dashboard.age_map3
 		  ) as done;
 </sql:query>
@@ -108,7 +108,7 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 
 <sql:query var="ages" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done order by secondary_seq))
-	from (select distinct age_bin as secondary, age_seq as secondary_seq
+	from (select distinct age_bin as secondary, age_seq as secondary_seq, age_bin as secondary_name
 		  from n3c_dashboard.age_map4
 		  ) as done;
 </sql:query>

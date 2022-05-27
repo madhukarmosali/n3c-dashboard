@@ -5,7 +5,8 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="long_covid_5" />
 	<jsp:param name="block_header" value="Long COVID: Ungrouped ICD-10 Symptom Counts" />
-<jsp:param name="topic_description" value="long_covid/secondary_text/secondary_5.jsp" />
+	<jsp:param name="topic_description" value="secondary_5" />
+	<jsp:param name="topic_title" value="Experience of Symptoms Related to Long COVID" />
 
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 

@@ -4,7 +4,14 @@
 
 
 <div id="${param.block}_severity_viz" class="col-lg-7 dash_viz"></div>
-<p>Sample text.</p>
+
+
+<c:if test="${not empty param.topic_description}">
+	<div id="viz_caption">
+		<jsp:include page="../long_covid/secondary_text/${param.topic_description}.jsp"/>
+	</div>
+</c:if>
+
 <script>
 
 function ${param.block}_severity_refresh() {

@@ -14,8 +14,8 @@
 		</optgroup>
 		<optgroup label="Key Long COVID ICD-10 Symptoms">
 			<option value="long_covid_3">Symptoms vs. Long COVID & COVID+</option>
+			<option value="long_covid_5">ICD-10 Symptom Counts</option>
 			<option value="long_covid_4">Grouped ICD-10 Symptom Counts</option>
-			<option value="long_covid_5">Individual ICD-10 Symptom Counts</option>
 			<option value="long_covid_6">ICD-10 Symptom Counts Before/After COVID+</option>
 		</optgroup>
 		<optgroup label="Individual Symptoms">

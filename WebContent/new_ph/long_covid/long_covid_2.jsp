@@ -5,7 +5,7 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="long_covid_2" />
 	<jsp:param name="block_header" value="Long COVID: Clinic Visit" />
-	<jsp:param name="topic_description" value="long_covid/secondary_text/secondary_2.jsp" />
+	<jsp:param name="topic_description" value="secondary_2" />
 
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 

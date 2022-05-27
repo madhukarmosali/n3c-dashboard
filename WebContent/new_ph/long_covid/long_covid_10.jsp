@@ -5,7 +5,8 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="long_covid_10" />
 	<jsp:param name="block_header" value="Long COVID: Postural Orthostatic Tachycardia Symdrome (POTS)" />
-	<jsp:param name="topic_description" value="long_covid/secondary_text/secondary_10.jsp" />
+	<jsp:param name="topic_description" value="secondary_10" />
+	<jsp:param name="topic_title" value="Postural Orthostatic Tachycardia Symdrome (POTS) as it Relates to Long COVID and COVID+ Diagnoses" />
 	
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 	<jsp:param name="kpi_filter" value="POTS" />

@@ -5,7 +5,8 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="long_covid_11" />
 	<jsp:param name="block_header" value="Long COVID: Shortness of Breath" />
-	<jsp:param name="topic_description" value="long_covid/secondary_text/secondary_11.jsp" />
+	<jsp:param name="topic_description" value="secondary_11" />
+	<jsp:param name="topic_title" value="Shortness of Breath as it Relates to Long COVID and COVID+ Diagnoses" />
 
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 	<jsp:param name="kpi_filter" value="Shortness of breath" />

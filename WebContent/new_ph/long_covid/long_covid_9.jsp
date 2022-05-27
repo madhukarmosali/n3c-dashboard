@@ -5,7 +5,8 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="long_covid_9" />
 	<jsp:param name="block_header" value="Long COVID: Mental Health Condition" />
-	<jsp:param name="topic_description" value="long_covid/secondary_text/secondary_9.jsp" />
+	<jsp:param name="topic_description" value="secondary_9" />
+	<jsp:param name="topic_title" value="Mental Health Conditions as they Relate to Long COVID and COVID+ Diagnoses" />
 	
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 	<jsp:param name="kpi_filter" value="Mental Health Condition" />

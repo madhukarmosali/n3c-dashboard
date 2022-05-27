@@ -5,7 +5,7 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="long_covid_1" />
 	<jsp:param name="block_header" value="Long COVID: U09.9 ICD-10 Code" />
-	<jsp:param name="topic_description" value="long_covid/secondary_text/secondary_1.jsp" />
+	<jsp:param name="topic_description" value="secondary_1" />
 
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 

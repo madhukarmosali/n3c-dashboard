@@ -23,7 +23,6 @@
 					</table>
 				</div>
 				<div id="${param.block}_tested_positive_kpi" class="panel-heading kpi_num">${row.patient_count}</div>
-				<div class="kpi-limit"><a onclick="limitlink(); return false;" href="#limitations-section">see limitations below</a></div>
 			</div>
 		</div>
 	</div>

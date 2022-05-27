@@ -58,8 +58,10 @@
 			
 			<div id="${param.block}-panel" class="col-12 col-md-10 mx-auto mb-4" >
 				
-				<c:if test="${not empty param.topic_description}">
-					<jsp:include page="${param.topic_description}"/>
+				<c:if test="${not empty param.topic_title}">
+					<div id="viz_title" style="text-align:center;"> 
+						<h4>${param.topic_title}</h4>
+					</div>
 				</c:if>
 				
 				<c:if test="${not empty param.severity_panel || not empty param.age_panel || not empty param.gender_panel || not empty param.ethnicity_panel}">
@@ -87,29 +89,30 @@
 				
 				<c:if test="${not empty param.simple_panel}">
 					<div id="${param.block}-simple" class="" style="display: block;">
-						<jsp:include page="${param.simple_panel}?panel=${param.simple_panel}&block=${param.block}&datatable_div=${param.datatable_div}"/>
+						<jsp:include page="${param.simple_panel}?panel=${param.simple_panel}&block=${param.block}&datatable_div=${param.datatable_div}&topic_description=${param.topic_description}"/>
 					</div>
 				</c:if>
 				<c:if test="${not empty param.severity_panel}">
-					<div id="${param.block}-severity" class="" style="display: none;" src="${param.severity_panel}?panel=${param.severity_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.severity_labelwidth}">&label_width=${param.severity_labelwidth}</c:if><c:if test="${not empty param.severity_height}">&viz_height=${param.severity_height}</c:if>">
+					<div id="${param.block}-severity" class="" style="display: none;" src="${param.severity_panel}?panel=${param.severity_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.severity_labelwidth}">&label_width=${param.severity_labelwidth}</c:if><c:if test="${not empty param.severity_height}">&viz_height=${param.severity_height}</c:if><c:if test="${not empty param.topic_description}">&topic_description=${param.topic_description}</c:if>">
 					</div>
 				</c:if>
 				<c:if test="${not empty param.age_panel}">
-					<div id="${param.block}-age" class="" style="display: none;" src="${param.age_panel}?panel=${param.age_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.age_labelwidth}">&label_width=${param.age_labelwidth}</c:if><c:if test="${not empty param.age_height}">&viz_height=${param.age_height}</c:if>">
+					<div id="${param.block}-age" class="" style="display: none;" src="${param.age_panel}?panel=${param.age_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.age_labelwidth}">&label_width=${param.age_labelwidth}</c:if><c:if test="${not empty param.age_height}">&viz_height=${param.age_height}</c:if><c:if test="${not empty param.topic_description}">&topic_description=${param.topic_description}</c:if>">
 					</div>
 				</c:if>
 				<c:if test="${not empty param.race_panel}">
-					<div id="${param.block}-race" class="" style="display: none;" src="${param.race_panel}?panel=${param.race_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.race_labelwidth}">&label_width=${param.race_labelwidth}</c:if><c:if test="${not empty param.race_height}">&viz_height=${param.race_height}</c:if>">
+					<div id="${param.block}-race" class="" style="display: none;" src="${param.race_panel}?panel=${param.race_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.race_labelwidth}">&label_width=${param.race_labelwidth}</c:if><c:if test="${not empty param.race_height}">&viz_height=${param.race_height}</c:if><c:if test="${not empty param.topic_description}">&topic_description=${param.topic_description}</c:if>">
 					</div>
 				</c:if>
 				<c:if test="${not empty param.gender_panel}">
-					<div id="${param.block}-gender" class="" style="display: none;" src="${param.gender_panel}?panel=${param.gender_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.gender_labelwidth}">&label_width=${param.gender_labelwidth}</c:if><c:if test="${not empty param.gender_height}">&viz_height=${param.gender_height}</c:if>">
+					<div id="${param.block}-gender" class="" style="display: none;" src="${param.gender_panel}?panel=${param.gender_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.gender_labelwidth}">&label_width=${param.gender_labelwidth}</c:if><c:if test="${not empty param.gender_height}">&viz_height=${param.gender_height}</c:if><c:if test="${not empty param.topic_description}">&topic_description=${param.topic_description}</c:if>">
 					</div>
 				</c:if>
 				<c:if test="${not empty param.ethnicity_panel}">
-					<div id="${param.block}-ethnicity" class="" style="display: none;" src="${param.ethnicity_panel}?panel=${param.ethnicity_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.ethnicity_labelwidth}">&label_width=${param.ethnicity_labelwidth}</c:if><c:if test="${not empty param.ethnicity_height}">&viz_height=${param.ethnicity_height}</c:if>">
+					<div id="${param.block}-ethnicity" class="" style="display: none;" src="${param.ethnicity_panel}?panel=${param.ethnicity_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.ethnicity_labelwidth}">&label_width=${param.ethnicity_labelwidth}</c:if><c:if test="${not empty param.ethnicity_height}">&viz_height=${param.ethnicity_height}</c:if><c:if test="${not empty param.topic_description}">&topic_description=${param.topic_description}</c:if>">
 					</div>
 				</c:if>
+				
 			</div>
 			
 			<!-- left column for KPIs and filters -->
@@ -181,21 +184,36 @@
         $(options).each(function(){
             selected.push($(this).val());
         });
+        
+        console.log(element.secondary_name);
 	        
-		if (selected[0].includes( element.secondary)){
-			$("#${param.block}-"+elementParent.toLowerCase()+"-select").multiselect('deselect', $("#${param.block}-"+elementParent.toLowerCase()+"-select option[value='" + element.secondary + "']").val(), true);
+		if (selected[0].includes( element.secondary_name)){
+			$("#${param.block}-"+elementParent.toLowerCase()+"-select").multiselect('deselect', $("#${param.block}-"+elementParent.toLowerCase()+"-select option[value='" + element.secondary_name + "']").val(), true);
 		} else {
-			$("#${param.block}-"+elementParent.toLowerCase()+"-select").multiselect('select', $("#${param.block}-"+elementParent.toLowerCase()+"-select option[value='" + element.secondary + "']").val(), true);
+			$("#${param.block}-"+elementParent.toLowerCase()+"-select").multiselect('select', $("#${param.block}-"+elementParent.toLowerCase()+"-select option[value='" + element.secondary_name + "']").val(), true);
 		}
 	}
 
 	function ${param.block}_constrain(filter, selection) {
-		//console.log("selection", selection)
 		var selected = selection;
-		if (selected != undefined && selected.length > 0)
-			selected = "^" + selected + "$";
-		else
+		if (selected != undefined && selected.length > 0){
+			var values = selected.split("|");
+			var text = "";
+			for (let i = 0; i < values.length; ++i) {
+				var clean_text = values[i].replace("+", "\\+");
+				console.log(clean_text);
+
+				if (i < (values.length-1)){
+		    		search = "^" + clean_text + "$|";
+				} else {
+					search = "^" + clean_text + "$";
+				}
+		    	text = text.concat(search);
+			}
+			selected = text;
+		}else{
 			selected = '';
+		}
 		${param.block}_constrain_table(filter, selected);
 	}
 

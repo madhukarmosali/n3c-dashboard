@@ -4,6 +4,13 @@
 
 
 <div id="${param.block}_age_viz" class="col-12 dash_viz"></div>
+
+<c:if test="${not empty param.topic_description}">
+	<div id="viz_caption">
+		<jsp:include page="../long_covid/secondary_text/${param.topic_description}.jsp"/>
+	</div>
+</c:if>
+
 <div id="${param.block}_age_save_viz"> 
 	<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_age_viz', '${param.block}_age.svg');">Save as SVG</button>
 	<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_age_viz', '${param.block}_age.png');">Save as PNG</button>
