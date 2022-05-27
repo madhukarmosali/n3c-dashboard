@@ -119,7 +119,8 @@ function modelMatcher (params, data) {
 
 $(document).ready(function() {
     $('#selectMe').select2({
-		matcher: modelMatcher
+		matcher: modelMatcher,
+		searchInputPlaceholder: 'Search Topics...'
     });
 });
 

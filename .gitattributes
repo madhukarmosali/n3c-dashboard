@@ -303,6 +303,7 @@ WebContent/new_ph/pediatrics_summary/vaccinated_comorbidity_table.jsp -text
 WebContent/new_ph/pediatrics_summary/vaccinated_table.jsp -text
 WebContent/new_ph/questions.jsp -text
 WebContent/new_ph/questions_styled.jsp -text
+WebContent/new_ph/questions_styled2.jsp -text
 WebContent/new_ph/reinfection/counts.jsp -text
 WebContent/new_ph/reinfection/kpis_1.jsp -text
 WebContent/new_ph/reinfection/kpis_2.jsp -text
@@ -432,6 +433,7 @@ WebContent/resources/d3-tip.js -text
 WebContent/resources/d3.v4.min.js -text
 WebContent/resources/main_style.css -text
 WebContent/resources/n3c_login_style.css -text
+WebContent/resources/select2_search.js -text
 WebContent/tables/domain_team_roster.jsp -text
 WebContent/tables/project_roster_styled.jsp -text
 WebContent/tables/publications_styled.jsp -text

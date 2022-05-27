@@ -466,7 +466,7 @@ a:hover, .btn-link:hover{
 }
 
 .select2-container--default .select2-results>.select2-results__options{
-	max-height: 400px
+	max-height: 300px
 }
 
 .select2-selection.dash_select{
@@ -484,11 +484,17 @@ a:hover, .btn-link:hover{
 	height: 3rem !important;
 }
 
-.dash_select .select2-selection__arrow b{
-	border-color: white transparent transparent transparent !important;
-	border-width: 10px 8px 0 8px !important;
-    margin-left: -20px !important;
+.select2-container--default .select2-selection--single.dash_select .select2-selection__arrow b{
+	border-color: white transparent transparent transparent ;
+	border-width: 10px 8px 0 8px ;
+    margin-left: -20px ;
 }
+
+.select2-container--default.select2-container--open .select2-selection--single.dash_select .select2-selection__arrow b{
+	border-width: 0px 8px 10px 8px;
+	border-color: transparent transparent white transparent ;
+}
+
 /* Datatable style  ---------------- */
 .dash-dt-section{
 	margin-top: 20px;
