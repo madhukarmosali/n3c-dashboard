@@ -21,10 +21,6 @@
 		padding-right: 0px;
 	}
 	
-	.viz-col{
-		border-left: 2px solid lightgray;
-	}
-	
 	#question-table2 .row_selected{
 		border-color: #006478;
 	}
@@ -128,8 +124,6 @@
 
 <script>
 $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
-	
-	
 		
 	var json = $.parseJSON(JSON.stringify(data));
 
@@ -362,6 +356,5 @@ function limitlink(){
         scrollTop: $("#limitations-section").offset().top
     }, 500);
 }
-
 
 </script>

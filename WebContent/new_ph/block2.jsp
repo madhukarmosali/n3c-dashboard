@@ -25,10 +25,6 @@
 	text-align:center;
 }
 
-.viz-col{
-	border-left: 2px solid lightgray;
-}
-
 .kpi_section .dropdown-item{
 	white-space: unset;
 }

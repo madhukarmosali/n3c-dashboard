@@ -37,6 +37,7 @@ WebContent/feeds/project_organization_graph.jsp -text
 WebContent/feeds/project_roster.jsp -text
 WebContent/feeds/publications.jsp -text
 WebContent/feeds/questions.jsp -text
+WebContent/feeds/questions2.jsp -text
 WebContent/feeds/reinfections_by_date.jsp -text
 WebContent/feeds/siteLocations.jsp -text
 WebContent/feeds/siteRoster.jsp -text
