@@ -6,7 +6,7 @@
 	<jsp:param name="block" value="long_covid_8" />
 	<jsp:param name="block_header" value="Long COVID: Fatigue" />
 	<jsp:param name="topic_description" value="secondary_8" />
-	<jsp:param name="topic_title" value="Fatigue vs. Confirmed COVID (+Test) and PASC (U09.9) Diagnosis" />
+	<jsp:param name="topic_title" value="COVID (+Test) & PASC (U09.9) Diagnosis vs. Fatigue Occurrence" />
 
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 	<jsp:param name="kpi_filter" value="Fatigue" />

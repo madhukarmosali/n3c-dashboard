@@ -6,7 +6,7 @@
 	<jsp:param name="block" value="long_covid_9" />
 	<jsp:param name="block_header" value="Long COVID: Mental Health Condition" />
 	<jsp:param name="topic_description" value="secondary_9" />
-	<jsp:param name="topic_title" value="Mental Health Conditions vs. Confirmed COVID (+Test) and PASC (U09.9) Diagnosis" />
+	<jsp:param name="topic_title" value="COVID (+Test) & PASC (U09.9) Diagnosis vs. Mental Health Condition Occurrence" />
 	
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 	<jsp:param name="kpi_filter" value="Mental Health Condition" />
