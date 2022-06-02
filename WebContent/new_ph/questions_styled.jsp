@@ -214,7 +214,7 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 	        			var combo = 
 	        				'<div class="panel-group" style="margin-bottom:0px;" id="' + iframe.replace(/\s+/g, '').toLowerCase() + '_stub">'
 	        					+'<div class="panel panel-default" style="background:none; border:none; box-shadow:none;">'
-	        							+'<h5><a onclick="theclick.call(this); iframe_render(\''+ question.replace(/'/g, "\\'") + '\',\''+ desc.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") +'\',\''+ asked+ '\',\''+ limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + '\',\'' + iframe +'\');">' + question + '</a></h5>'
+	        							+'<h5><a onclick="theclick.call(this); frame_render(\''+ question.replace(/'/g, "\\'") + '\',\''+ desc.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") +'\',\''+ asked+ '\',\''+ limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + '\',\'' + iframe +'\');">' + question + '</a></h5>'
 	       						+'</div>'
 	        				+'</div>';
 	             		return combo; }
@@ -254,7 +254,7 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 	        			var combo = 
 	        				'<div class="panel-group" style="margin-bottom:0px;" id="' + iframe.replace(/\s+/g, '').toLowerCase() + '_stub">'
 	        					+'<div class="panel panel-default" style="background:none; border:none; box-shadow:none;">'
-	        					+'<h5><a class="color-link" onclick="changeclick.call(); iframe_render(\''+ question.replace(/'/g, "\\'") + '\',\''+ desc.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") +'\',\''+ asked+ '\',\''+ limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + '\',\'' + iframe +'\');">' + question + '</a></h5>'
+	        					+'<h5><a class="color-link" onclick="changeclick.call(); frame_render(\''+ question.replace(/'/g, "\\'") + '\',\''+ desc.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") +'\',\''+ asked+ '\',\''+ limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + '\',\'' + iframe +'\');">' + question + '</a></h5>'
 	       						+'</div>'
 	        				+'</div>';
 	             		return combo; }
@@ -278,7 +278,7 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 			index = 0;
 
 		document.getElementById("question-tile").removeAttribute("style");
-		iframe_render(
+		frame_render(
 						data[index].question.replace(/'/g, "\\'"),
 						data[index].description.replace(/'/g, "\\'"),
 						data[index].asked,
@@ -313,7 +313,7 @@ function question_detail_toggle() {
 
 
 
-function iframe_render(question, description, asked, limitations, iframe) {
+function frame_render(question, description, asked, limitations, iframe) {
 	console.log("iframe", iframe)
 	cache_browser_history("new-ph", "new-ph/summary/"+iframe)
 	var divContainer = document.getElementById("question-tile");

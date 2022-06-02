@@ -50,7 +50,7 @@
 							<script>
  								cache_browser_history("new-ph", "new-phh/summary")
 							</script>
-							<jsp:include page="new_ph/questions.jsp?tertiary_tab=${param.tertiary_tab}" flush="true" />
+							<jsp:include page="new_ph/questions.jsp?tertiary_tab=${param.tertiary_tab}&quaternary_tab=${param.quaternary_tab}" flush="true" />
 						</c:when>
 						<c:otherwise>
 							<jsp:include page="new_ph/questions.jsp" flush="true" />

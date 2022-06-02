@@ -44,9 +44,27 @@
 
 <script>
 
+function url_map(selection) {
+//	console.log("url_map", selection, selection.substring(selection.lastIndexOf("_")+1));
+	return selection.substring(selection.lastIndexOf("_")+1);
+}
+
+function url_unmap(selector) {
+//	console.log("url_unmap",selector, 'long_covid_'+selector);
+	return 'long_covid_'+selector;
+}
+
 var frame_crumbs = '';
 
-frame_load('long_covid_1');
+<c:choose>
+	<c:when test="${empty param.quaternary_tab}">
+		frame_load('long_covid_1');
+	</c:when>
+	<c:otherwise>
+		$('#selectMe').val(url_unmap('${param.quaternary_tab}'));
+		frame_load(url_unmap('${param.quaternary_tab}'));
+	</c:otherwise>
+</c:choose>
 
 function frame_load(selection) {
 	var $this = $("#"+selection);
@@ -56,6 +74,7 @@ function frame_load(selection) {
 		$this.load("<util:applicationRoot/>/new_ph/long_covid/"+selection+".jsp");
 		frame_crumbs = frame_crumbs + selection;
 	}
+	cache_browser_history("new-ph", "new-ph/summary/long-covid/"+url_map(selection));
 };
 
 $(document).ready(function () {

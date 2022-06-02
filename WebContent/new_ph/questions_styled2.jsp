@@ -64,22 +64,22 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 		if (index < 0) {index = 0;};
 			
 		document.getElementById("question-tile").removeAttribute("style");
-		iframe_render(data[index].seqnum);
+		frame_render(data[index].seqnum);
 	
 	})();
 });
 
 
 
-function iframe_render(seqnum) {
+function frame_render(seqnum) {
 	$.getJSON("<util:applicationRoot/>/feeds/questions2.jsp", function(data){
 		var question = data[seqnum]['question'];
 		var description = data[seqnum]['description'];
 		var asked = data[seqnum]['asked'];
 		var limitations = data[seqnum]['limitations'];
-		var iframe = data[seqnum]['iframe_info'];	
+		var frame = data[seqnum]['iframe_info'];	
 		
-		cache_browser_history("new-ph", "new-ph/summary/"+iframe);
+		cache_browser_history("new-ph", "new-ph/summary/"+frame);
 		var divContainer = document.getElementById("question-tile");
 		
 		divContainer.innerHTML = 
@@ -105,7 +105,7 @@ function iframe_render(seqnum) {
 				</div>\
 			</div>'
 		;
-		$("#d3viz").load("<util:applicationRoot/>/new_ph/frame.jsp?iframe="+iframe);
+		$("#d3viz").load("<util:applicationRoot/>/new_ph/frame.jsp?frame="+frame+"&quaternary_tab=${param.quaternary_tab}");
 		
 		$('#dashboard_select').val(seqnum);
 	});
@@ -120,7 +120,7 @@ function limitlink(){
 
 $(document).ready(function () {
 	$('#dashboard_select').change(function () {
-		iframe_render($(this).val());
+		frame_render($(this).val());
 	})
 });
 

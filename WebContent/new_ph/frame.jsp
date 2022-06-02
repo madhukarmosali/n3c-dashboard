@@ -17,49 +17,49 @@
 <jsp:include page="../graph_support/graphic_save.jsp"/>
 
 <c:choose>
-	<c:when test="${param.iframe == 'summary'}">
+	<c:when test="${param.frame == 'summary'}">
 		<jsp:include page="adult_summary/panel.jsp"/>
 	</c:when>
-	<c:when test="${param.iframe == 'pediatrics'}">
+	<c:when test="${param.frame == 'pediatrics'}">
 		<jsp:include page="pediatrics_summary/panel.jsp"/>
 	</c:when>
-	<c:when test="${param.iframe == 'medications'}">
+	<c:when test="${param.frame == 'medications'}">
 		<jsp:include page="medications/panel.jsp"/>
 	</c:when>
-	<c:when test="${param.iframe == 'reinfection'}">
+	<c:when test="${param.frame == 'reinfection'}">
 		<jsp:include page="reinfection/panel.jsp"/>
 	</c:when>
-	<c:when test="${param.iframe == 'timeline'}">
+	<c:when test="${param.frame == 'timeline'}">
 		<jsp:include page="timeline/panel.jsp"/>
 	</c:when>
-	<c:when test="${param.iframe == 'severity-region'}">
+	<c:when test="${param.frame == 'severity-region'}">
 		<jsp:include page="severity_region/panel.jsp"/>
 	</c:when>
-	<c:when test="${param.iframe == 'diabetes-mellitus'}">
+	<c:when test="${param.frame == 'diabetes-mellitus'}">
 		<jsp:include page="diabetes/panel.jsp"/>
 	</c:when>
-	<c:when test="${param.iframe == 'smoking'}">
+	<c:when test="${param.frame == 'smoking'}">
 		<jsp:include page="smoking/panel.jsp"/>
 	</c:when>
-	<c:when test="${param.iframe == 'hlh'}">
+	<c:when test="${param.frame == 'hlh'}">
 		<jsp:include page="hlh/panel.jsp"/>
 	</c:when>
-	<c:when test="${param.iframe == 'hss'}">
+	<c:when test="${param.frame == 'hss'}">
 		<jsp:include page="hss/panel.jsp"/>
 	</c:when>
-	<c:when test="${param.iframe == 'long-covid'}">
-		<jsp:include page="long_covid/panel2.jsp"/>
+	<c:when test="${param.frame == 'long-covid'}">
+		<jsp:include page="long_covid/panel2.jsp?quaternary_tab=${param.quaternary_tab}"/>
 	</c:when>
-	<c:when test="${param.iframe == 'delayed-mortality'}">
+	<c:when test="${param.frame == 'delayed-mortality'}">
 		<jsp:include page="delayed_mortality/panel.jsp"/>
 	</c:when>
-	<c:when test="${param.iframe == 'reinfection-time-series'}">
+	<c:when test="${param.frame == 'reinfection-time-series'}">
 		<jsp:include page="reinfection_time_series/panel.jsp"/>
 	</c:when>
-	<c:when test="${param.iframe == 'sotrovimab'}">
+	<c:when test="${param.frame == 'sotrovimab'}">
 		<jsp:include page="sotrovimab/panel.jsp"/>
 	</c:when>
 	<c:otherwise>
-		${param.iframe}
+		${param.frame}
 	</c:otherwise>
 </c:choose>
