@@ -18,7 +18,7 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Patients w/PASC Related Symptoms (doesn't update)</td>
+							<td><i class="fas fa-users"></i> Patients w/Long COVID-Related Symptoms</td>
 						</tr>
 					</table>
 				</div>

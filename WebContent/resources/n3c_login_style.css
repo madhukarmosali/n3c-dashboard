@@ -31,7 +31,7 @@ h5{
 
 .container.content{
 	margin-bottom:100px;
-	margin-top:70px;
+	padding-top: 20px;
 }
 
 .text-max{
@@ -234,21 +234,21 @@ a:hover, .btn-link:hover{
 }
 
 .btn-primary, .btn-primary:visited{
-	color: #4B6169;
+	color: #117a8b;
 	background-color: white;
-    border-color: #4B6169;
+    border-color: #117a8b;
 }
 
 .btn-primary:hover {
     color: white !important;
-    background-color: #4B6169;
-    border-color: #4B6169;
+    background-color: #117a8b;
+    border-color: #117a8b;
 }
 
 .btn-primary:active {
 	color: white !important;
-    background-color: #4B6169 !important;
-    border-color: #4B6169 !important;
+    background-color: #117a8b !important;
+    border-color: #117a8b !important;
     box-shadow:none !important;
 }
 
@@ -263,8 +263,8 @@ a:hover, .btn-link:hover{
 .btn-primary:not(:disabled):not(.disabled).active, 
 .show > .btn-primary.dropdown-toggle {
     color: white;
-    background-color: #4B6169;
-    border-color: #4B6169;
+    background-color: #117a8b;
+    border-color: #117a8b;
 }
 
 .btn-secondary, 
@@ -429,7 +429,7 @@ a:hover, .btn-link:hover{
 .kpi_num{
 	text-align: center;
     font-size: 1.7rem;
-    color: #006478;
+    color: #205b80;
     font-weight: 600;
 }
 
@@ -441,7 +441,7 @@ a:hover, .btn-link:hover{
 }
 
 .viz_secondary_info i{
-	color: #006478;
+	color: #205b80;
 	font-size: 12px;
 	vertical-align: super;
 }
@@ -475,7 +475,7 @@ a:hover, .btn-link:hover{
 
 .dash_select .select2-selection__rendered{
 	line-height: 3rem !important;
-	background: #006478;
+	background: #205b80;
     color: white !important;
     white-space: normal !important;
 }
@@ -509,7 +509,7 @@ a:hover, .btn-link:hover{
 }
 
 #d3viz .dataTable thead{
-	background: #4a4949;
+	background: #205b80;
 }
 
 #d3viz .dataTable thead span{
@@ -548,16 +548,18 @@ a:hover, .btn-link:hover{
 .dash-filter-btn{
 	margin-top: 20px;
 	border-radius: 5px;
-    background: #006478;
+    background: #205b80;
     color: white;
-/*     border: 2px solid #006478; */
     padding: 7px;
 }
 
 .dash-filter-btn:hover{
-	background: #11444e;
+    background: #163F59;
 }
 
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable{
+	background-color: #117a8b;
+}
 
 /* -------------- Panel ---------------------  */
 

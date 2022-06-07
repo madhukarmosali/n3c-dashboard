@@ -15,7 +15,8 @@
 				else count::int
 			end as count
 			from n3c_questions.icd10_individual_symptom_summary_counts_by_symptom
-			<c:if test="${not empty param.symptom}">where symptom = '${param.symptom}' and observation != 'Does not have U09.9 in Record'</c:if>
+			where observation != 'Does not have U09.9 in Record' and observation != 'Has U09.9 in Record'
+			<c:if test="${not empty param.symptom}">and symptom = '${param.symptom}'</c:if>
 		) as foo
 </sql:query>
 <c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
@@ -25,7 +26,7 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Patients w/PASC Related Symptoms</td>
+							<td><i class="fas fa-users"></i> Patients w/Long COVID-Related Symptoms</td>
 						</tr>
 					</table>
 				</div>

@@ -6,19 +6,22 @@
 	<h3>Select a Topic to Explore:</h3>
 	<select id="selectMe">
 		<optgroup label="Long COVID Indicators">
-			<option value="long_covid_1">U09.9 (Long COVID) ICD-10 Code Diagnosis</option>
+<!-- 			<option value="long_covid_1">Long COVID U09.9 ICD-10 Code</option> -->
+			<option value="long_covid_1">Long COVID ICD-10 Code (U09.9)</option>
 			<option value="long_covid_2">Long COVID Clinic Visit</option>
 		</optgroup>
-		<optgroup label="Controls">
+		<optgroup label="Patients who have experienced Long COVID-Related Symptoms">
+<!-- 			<option value="long_covid_3">COVID+ Diagnosis and Long COVID Diagnosis</option> -->
+<!-- 			<option value="long_covid_5">Individual Symptom</option> -->
+<!-- 			<option value="long_covid_4">Grouped Symptoms</option> -->
+<!-- 			<option value="long_covid_6">Symptom Experience Before/After COVID+</option> -->
+			<option value="long_covid_3">Cumulative Symptoms Summary</option>
+			<option value="long_covid_5">Ungrouped ICD-10 Symptom Counts</option>
+			<option value="long_covid_4">Individual ICD-10 Symptom Grouped Counts</option>
+			<option value="long_covid_6">ICD-10 Symptom Counts Before/After COVID+</option>
 			<option value="long_covid_12">Patients That Have Not Tested Positive For COVID</option>
 		</optgroup>
-		<optgroup label="Key Long COVID ICD-10 Symptoms">
-			<option value="long_covid_3">Symptoms vs. Long COVID & COVID+</option>
-			<option value="long_covid_5">ICD-10 Symptom Counts</option>
-			<option value="long_covid_4">Grouped ICD-10 Symptom Counts</option>
-			<option value="long_covid_6">ICD-10 Symptom Counts Before/After COVID+</option>
-		</optgroup>
-		<optgroup label="Individual Symptoms">
+		<optgroup label="Individual Long COVID-Related Symptoms">
 			<option value="long_covid_7">Cognitive Impairment</option>
 			<option value="long_covid_8">Fatigue</option>
 			<option value="long_covid_9">Mental Health Condition</option>

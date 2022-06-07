@@ -25,11 +25,12 @@ function ${param.block}_constrain_table(filter, constraint) {
 		break;
 	}
 	
-// 	var kpis = '${param.target_kpis}'.split(',');
-// 	for (var a in kpis) {
-// 		console.log(kpis[a]);
-// 		${param.block}_updateKPI(table, kpis[a])
-// 	}
+	console.log('${param.target_kpis}')
+	var kpis = '${param.target_kpis}'.split(',');
+	for (var a in kpis) {
+		console.log(kpis[a]);
+		${param.block}_updateKPI(table, kpis[a])
+	}
 	
 	console.log('${param.target_filtered_kpis}')
 	var kpis = '${param.target_filtered_kpis}'.split(',');

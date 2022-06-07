@@ -3,9 +3,19 @@
 
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
-	from (select age_bin as age, gender_abbrev as gender, race, ethnicity, observation, symptom, patient_display, patient_count,
-				 age_abbrev, age_seq, race_abbrev, race_seq, ethnicity_abbrev, ethnicity_seq, gender_abbrev, gender_seq,
-				 observation_seq, symptom_seq
+	from (select age_bin as age, 
+			COALESCE(gender_abbrev, 'Unknown') as gender,
+			COALESCE(race, 'Missing/Unknown') as race, 
+			COALESCE(ethnicity, 'Missing/Unknown') as ethnicity, 
+			observation, symptom, patient_display, patient_count,
+			age_abbrev, age_seq, 
+			COALESCE(race_abbrev, 'Missing') as race_abbrev, 
+			COALESCE(race_seq, 6) as race_seq, 
+			COALESCE(ethnicity_abbrev, 'Missing/Unknown') as ethnicity_abbrev, 
+			COALESCE(ethnicity_seq, 3) as ethnicity_seq,  
+			COALESCE(gender_abbrev, 'Unknown') as gender_abbrev,  
+			COALESCE(gender_seq, 4) gender_seq,
+			observation_seq, symptom_seq
 			from (select
 					age_bin,
 					gender_concept_name as gender,
@@ -21,12 +31,12 @@
 				  from n3c_questions.icd10_individual_symptom_summary_counts_by_symptom
 				<c:if test="${not empty param.symptom}">where symptom = '${param.symptom}'</c:if>
 		  	) as foo
-		  	natural join n3c_dashboard.age_map4
-		  	natural join n3c_dashboard.gender_map2
-		  	natural join n3c_dashboard.race_map
-		  	natural join n3c_dashboard.ethnicity_map
-		  	natural join n3c_dashboard.observation_map
-		  	natural join n3c_dashboard.symptom_map
+		  	natural left join n3c_dashboard.age_map4
+		  	natural left join n3c_dashboard.gender_map2
+		  	natural left join n3c_dashboard.race_map
+		  	natural left join n3c_dashboard.ethnicity_map
+		  	natural left join n3c_dashboard.observation_map
+		  	natural left join n3c_dashboard.symptom_map
 		  ) as done;
 </sql:query>
 {

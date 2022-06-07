@@ -6,7 +6,7 @@
 	<jsp:param name="block" value="long_covid_12" />
 	<jsp:param name="block_header" value="Long COVID: Patients That Have Not Tested Positive For COVID" />
 	<jsp:param name="topic_description" value="secondary_12" />
-	<jsp:param name="topic_title" value="Demographics of Patients without a Recorded COVID-19 Test or Diagnosis" />
+	<jsp:param name="topic_title" value="Demographics of Patients Who Have Experienced Long COVID-Related Symptoms but Do Not Have a Recorded COVID-19 Test or Diagnosis" />
 	
 	
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />

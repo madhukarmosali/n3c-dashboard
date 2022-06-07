@@ -6,7 +6,7 @@
 	<jsp:param name="block" value="long_covid_4" />
 	<jsp:param name="block_header" value="Long COVID: Individual ICD-10 Symptom Grouped Counts" />
 	<jsp:param name="topic_description" value="secondary_4" />
-	<jsp:param name="topic_title" value="PASC-Related Symptom Set Occurrence" />
+	<jsp:param name="topic_title" value="Counts of Patients Who Have Experienced Long COVID-Related Symptoms By Symptom Cluster" />
 	
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 

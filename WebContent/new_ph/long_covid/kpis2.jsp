@@ -144,13 +144,11 @@
 		<jsp:include page="../kpis/block2_kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/long_tested_positive_ungrouped.jsp">
+		<jsp:include page="../kpis/block2_kpis/long_icd_summary.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/long_in_record_ungrouped.jsp">
+		<jsp:include page="../kpis/block2_kpis/not_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
 	</c:when>
 </c:choose>

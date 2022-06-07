@@ -25,7 +25,7 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Patients w/PASC Related Symptoms & U09.9 in Record</td>
+							<td><i class="fas fa-users"></i> Patients w/Long COVID-Related Symptoms & U09.9 in Record</td>
 						</tr>
 					</table>
 				</div>

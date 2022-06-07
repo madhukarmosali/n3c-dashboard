@@ -24,6 +24,7 @@ font-size: 14px;
 
 function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data, secondary_range = categorical, legend_label, min_height) {
 	
+	
 	if (legend_label === undefined){
 		legend_label = "Legend";
 	}
@@ -88,11 +89,13 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.range([0, width - margin.right]);	
 
 		var z = secondary_range;
-		
+
 		var keys = data.map(function(d) { return d.element; });
 		
 		var stackData = myStack(data);
-
+	
+		
+		
 		y.domain(data.map(function(d) { return d.element; }));					
 		x.domain([0, d3.max(data, function(d) { return d.count; })]).nice();	
 		g.append("g")
@@ -128,13 +131,15 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.attr("class", function(d, i) { return "serie " + "color-" + z[i].substring(1); })
 			.attr("fill", function(d,i) {return z[i]; });
 		
+
+		
 		barsect.selectAll("rect")
 			.data(function(d) { return d; })
 			.enter().append("rect")
 			.attr("class", function(d){ return domName+"-rect "; })
 			.attr("y", function(d,i) { return y(data[i].element); })
 			.attr("x", function(d) { return x(d[0]); })
-			.attr("width", function(d) { return x(d[1]) - x(d[0]); })
+			.attr("width", function(d) {return x(d[1]) - x(d[0]); })
 			.attr("height", y.bandwidth())	
 			.on("mouseover", function() { 
 				tooltip.style("display", null); 
@@ -222,7 +227,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.attr("width", 19)
 			.attr("height", 19)
 			.attr("fill", function(d, i) { return z[i]; })
-			.on("click", function(d, i){console.log(d); window[domName.replace(/_[^_]+_[^_]+$/i,'_')+'viz_constrain'](d, legend_label); })
+			.on("click", function(d, i){window[domName.replace(/_[^_]+_[^_]+$/i,'_')+'viz_constrain'](d, legend_label); })
 			.on("mouseover", function(d, i) {
 				svg.selectAll(".serie:not(.color-" + z[i].substring(1) + ")").style("opacity", "0.2");
 			})

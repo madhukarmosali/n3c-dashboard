@@ -25,7 +25,7 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Patients w/Symptom & Tested Positive</td>
+							<td><i class="fas fa-users"></i> Patients w/Condition & Tested Positive</td>
 						</tr>
 					</table>
 				</div>

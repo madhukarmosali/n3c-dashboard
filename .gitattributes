@@ -60,6 +60,7 @@ WebContent/graph_support/time_line_2_column.jsp -text
 WebContent/graph_support/us-states.json -text
 WebContent/graph_support/verticalBarChart_local.jsp -text
 WebContent/head.jsp -text
+WebContent/images/dash_hero3.png -text
 WebContent/images/favicon.ico -text
 WebContent/images/icons/admin.png -text
 WebContent/images/icons/covid.png -text
@@ -194,6 +195,7 @@ WebContent/new_ph/kpis/block2_kpis/long_total_before.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_total_before_after.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_total_grouped.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_total_ungrouped.jsp -text
+WebContent/new_ph/kpis/block2_kpis/not_positive.jsp -text
 WebContent/new_ph/kpis/covid_first_diagnosis.jsp -text
 WebContent/new_ph/kpis/covid_positive.jsp -text
 WebContent/new_ph/kpis/covid_reinfections.jsp -text

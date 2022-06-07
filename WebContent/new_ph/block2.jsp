@@ -112,7 +112,7 @@
 				
 			</div>
 			
-			<!-- left column for KPIs and filters -->
+			<!-- right column for KPIs and filters -->
 	
 			<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter4 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter}">
 			<div id="${param.block}-block-kpi" class="col-12 col-md-2 kpi_section">
@@ -323,6 +323,7 @@
 	function ${param.block}_refreshHistograms() {
 	    var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();
 	    var data2 = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data();
+
 	    
 	    //console.log('${param.block}', "table data", data)
 	    ${param.block}_refreshAgeArray(data);
