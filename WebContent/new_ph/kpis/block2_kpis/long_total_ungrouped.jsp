@@ -15,8 +15,7 @@
 				else count::int
 			end as count
 			from n3c_questions.icd10_individual_symptom_summary_counts_by_symptom
-			where observation != 'Does not have U09.9 in Record' and observation != 'Has U09.9 in Record'
-			<c:if test="${not empty param.symptom}">and symptom = '${param.symptom}'</c:if>
+			<c:if test="${not empty param.symptom}">where symptom = '${param.symptom}'</c:if>
 		) as foo
 </sql:query>
 <c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
