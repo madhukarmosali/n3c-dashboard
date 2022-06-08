@@ -7,7 +7,7 @@
 				 age_abbrev, age_seq, race_abbrev, race_seq, ethnicity_abbrev, ethnicity_seq, gender_abbrev, gender_seq,
 				 observation_seq, symptom_seq
 			from (select
-					age_bin,
+					coalesce(age_bin, 'Unknown') as age_bin,
 					gender_concept_name as gender,
 					race_concept_name as race,
 					ethnicity_concept_name as ethnicity,

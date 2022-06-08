@@ -3,24 +3,13 @@
 
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
-	from (select age_bin as age, 
-			COALESCE(gender_abbrev, 'Unknown') as gender,
-			COALESCE(race, 'Missing/Unknown') as race, 
-			COALESCE(ethnicity, 'Missing/Unknown') as ethnicity, 
-			observation, symptom, patient_display, patient_count,
-			age_abbrev, age_seq, 
-			COALESCE(race_abbrev, 'Missing') as race_abbrev, 
-			COALESCE(race_seq, 6) as race_seq, 
-			COALESCE(ethnicity_abbrev, 'Missing/Unknown') as ethnicity_abbrev, 
-			COALESCE(ethnicity_seq, 3) as ethnicity_seq,  
-			COALESCE(gender_abbrev, 'Unknown') as gender_abbrev,  
-			COALESCE(gender_seq, 4) gender_seq,
-			observation_seq, symptom_seq
+	from (select age_bin as age, gender, race, ethnicity, observation, symptom, patient_display, patient_count,
+			age_abbrev, age_seq, race_abbrev, race_seq, ethnicity_abbrev, ethnicity_seq, gender_abbrev, gender_seq, observation_seq, symptom_seq
 			from (select
-					age_bin,
-					gender_concept_name as gender,
-					race_concept_name as race,
-					ethnicity_concept_name as ethnicity,
+					coalesce(age_bin, 'Unknown') as age_bin,
+					coalesce(gender_concept_name, 'Unknown') as gender,
+					coalesce(race_concept_name, 'Missing/Unknown') as race,
+					coalesce(ethnicity_concept_name, 'Missing/Unknown') as ethnicity,
 					observation,
 					symptom,
 					count as patient_display,

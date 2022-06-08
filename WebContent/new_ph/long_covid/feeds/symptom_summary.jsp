@@ -8,7 +8,7 @@
 				 observation_seq
 			from (select
 					observation,
-					age_bin,
+					coalesce(age_bin, 'Unknown') as age_bin,
 					gender_concept_name as gender,
 					race_concept_name as race,
 					ethnicity_concept_name as ethnicity,
