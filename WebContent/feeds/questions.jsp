@@ -3,7 +3,7 @@
 
 <sql:query var="projects" dataSource="jdbc/N3CPublic">
 	SELECT jsonb_pretty(jsonb_agg(foo order by seqnum))
-	FROM (select question,asked,description,limitations,iframe_info,iframe_content,iframe_style,seqnum from n3c_questions.roster) as foo;
+	FROM (select question,asked,description,limitations,iframe_info,iframe_content,iframe_style,seqnum from n3c_questions.roster where visible) as foo;
 </sql:query>
 {
     "headers": [
