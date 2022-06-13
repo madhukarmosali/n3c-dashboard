@@ -40,16 +40,16 @@
 <%-- 			${param.block_header } --%>
 <!-- 		</div> -->
 	
-	
-		<div class="row kpi-row mt-5">
-			<div id="${param.block}-block-kpi-kpi" class="col-12">
-				<c:if test="${not empty param.kpis}">
+		<c:if test="${not empty param.kpis}">
+			<div class="row kpi-row mt-5">
+				<div id="${param.block}-block-kpi-kpi" class="col-12">
 					<div class="kpi_containter row" style="justify-content: center;">
 						<jsp:include page="${param.kpis}?block=${param.block}&symptom=${param.kpi_filter}"/>
 					</div>
-				</c:if>
+				</div>
 			</div>
-		</div>
+		</c:if>
+		
 		<div class="row" style="margin-top: 30px;">
 			<!-- the main panel has a strip of optional selection buttons across the top, controlling the visibility of the matched sub-panel -->
 			

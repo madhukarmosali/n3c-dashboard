@@ -4,7 +4,22 @@
 
 <div id="pos_cumulative">
 	<div id="pos_cumulative_graph"></div>
-	<c:set var="feedPath"><util:applicationRoot />/feeds/positive_cases_by_date.jsp</c:set>
+	
+	<c:if test="${not empty param.topic_description}">
+		<div id="viz_caption">
+			<jsp:include page="../timeline/secondary_text/${param.topic_description}.jsp"/>
+		</div>
+	</c:if>
+	
+	<div id="pos_cumulative_graph_save_viz"> 
+		<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('pos_cumulative_graph', 'pos_cumulative_graph.svg');">Save as SVG</button>
+		<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('pos_cumulative_graph', 'pos_cumulative_graph.png');">Save as PNG</button>
+		<button id='jpegButton' class="btn btn-light btn-sm" onclick="saveVisualization('pos_cumulative_graph', 'pos_cumulative_graph.jpg');">Save as JPEG</button>
+	</div>
+	
+	
+	<c:set var="feedPath"><util:applicationRoot />/new_ph/timeline/feeds/positive_cases_by_date.jsp</c:set>
+	
 	<jsp:include page="../../graph_support/time_line_2_column.jsp">
 		<jsp:param name="data_page" value="${feedPath}" />
 		<jsp:param name="dom_element" value="#pos_cumulative" />
@@ -18,9 +33,7 @@
 		<jsp:param name="column2_label" value="Rolling 7-Day Average Patient Count" />
 		<jsp:param name="column2_tip" value="7-Day Ave" />
 		<jsp:param name="column2_tip_offset" value="80" />
+		<jsp:param name="column2_color" value="#955195" />
 		<jsp:param name="constraintPropagator" value="constraint" />
 	</jsp:include>
-
-	<p style="text-align: center;">Hover over the graph to show the counts for that day. Click and drag to focus on a specific time range. Double click to revert to the default time range.</p>
-
 </div>

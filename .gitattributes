@@ -349,10 +349,16 @@ WebContent/new_ph/template/panel.jsp -text
 WebContent/new_ph/test_panel.jsp -text
 WebContent/new_ph/timeline/cumulative.jsp -text
 WebContent/new_ph/timeline/daily.jsp -text
+WebContent/new_ph/timeline/feeds/positive_cases_by_date.jsp -text
 WebContent/new_ph/timeline/kpis_1.jsp -text
 WebContent/new_ph/timeline/kpis_2.jsp -text
 WebContent/new_ph/timeline/panel.jsp -text
+WebContent/new_ph/timeline/panel2.jsp -text
 WebContent/new_ph/timeline/positive_cases_by_date.jsp -text
+WebContent/new_ph/timeline/secondary_text/secondary_1.jsp -text
+WebContent/new_ph/timeline/secondary_text/secondary_2.jsp -text
+WebContent/new_ph/timeline/timeline_1.jsp -text
+WebContent/new_ph/timeline/timeline_2.jsp -text
 WebContent/new_ph/tripleHistogram.jsp -text
 WebContent/positive_timeline.jsp -text
 WebContent/public-health.jsp -text

@@ -56,6 +56,28 @@ $(document).ready( function () {
 	
 		$('#${param.target_div}-table').DataTable( {
 	    	data: data,
+	    	dom: 'lfrtBip',
+	    	buttons: {
+	    	    dom: {
+	    	      button: {
+	    	        tag: 'button',
+	    	        className: ''
+	    	      }
+	    	    },
+	    	    buttons: [{
+	    	      extend: 'csv',
+	    	      className: 'btn btn-sm btn-light',
+	    	      titleAttr: 'CSV export.',
+	    	      text: 'CSV',
+	    	      filename: 'symptom_before_after_covid_csv_export',
+	    	      extension: '.csv'
+	    	    }, {
+	    	      extend: 'copy',
+	    	      className: 'btn btn-sm btn-light',
+	    	      titleAttr: 'Copy table data.',
+	    	      text: 'Copy'
+	    	    }]
+	    	},
 	       	paging: true,
 	    	pageLength: 10,
 	    	lengthMenu: [ 10, 25, 50, 75, 100 ],

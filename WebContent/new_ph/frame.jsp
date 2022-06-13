@@ -31,7 +31,7 @@
 <%-- 		<jsp:include page="reinfection/panel.jsp"/> --%>
 	</c:when>
 	<c:when test="${param.frame == 'timeline'}">
-		<jsp:include page="timeline/panel.jsp"/>
+		<jsp:include page="timeline/panel2.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'severity-region'}">
 		<jsp:include page="severity_region/panel.jsp"/>

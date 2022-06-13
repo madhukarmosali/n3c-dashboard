@@ -117,7 +117,7 @@
 
 
 // set the dimensions and margins of the graph
-	var margin = {top: 40, right: 80, bottom: 140, left: 80},
+	var margin = {top: 40, right: 100, bottom: 140, left: 100},
 	    width = 960 - margin.left - margin.right,
 	    height = 600 - margin.top - margin.bottom;
 	
@@ -291,6 +291,7 @@
 					      }))
 					.selectAll("text")  
     					.style("text-anchor", "end")
+    					.style("font-size", "12px")
     					.attr("dx", "-.8em")
     					.attr("dy", ".15em")
     					.attr("transform", "rotate(-65)");
@@ -300,11 +301,13 @@
 				      .attr("transform",
 				            "translate(" + (width/2) + " ," + (height + 60) + ")")
 				      .style("text-anchor", "middle")
-				      .text("Date");
+				      .text("Date")
+				      .attr("font-size", '14px')
+					  .attr("font-weight", "bold");
 
 				  svg.append("g")
 			      .attr("class", "axis1 ${namespace}")
-			      .call(d3.axisLeft(y1));
+			      .call(d3.axisLeft(y1).ticks(5));
 
 				  // text label for the y axis
 				  svg.append("text")
@@ -313,24 +316,26 @@
 				  	.attr("x",0 - (height / 2))
 				  	.attr("dy", "1em")
 				  	.style("text-anchor", "middle")
-				  	.text("${param.column1_label}");      
+				  	.text("${param.column1_label}")
+				  	.attr("font-size", '14px');      
 				  
 				  svg.append("g")
 			      	.attr("class", "axis2 ${namespace}")
 			      	.attr("transform", "translate( " + width + ", 0 )")
-			      	.call(d3.axisRight(y2));
+			      	.call(d3.axisRight(y2).ticks(5));
 
-				  d3.select(".axis1").selectAll('text').style("fill", "${column1_color}");
-				  d3.select(".axis2").selectAll('text').style("fill", "${column2_color}");
+				  d3.select(".axis1").selectAll('text').style("fill", "${column1_color}").style("font-size", "12px");
+				  d3.select(".axis2").selectAll('text').style("fill", "${column2_color}").style("font-size", "12px");
 				
 				  // text label for the y axis
 				  svg.append("text")
 				      .attr("transform", "rotate(-90)")
-				      .attr("y", width + 50)
+				      .attr("y", width+(margin.right/1.5))
 				      .attr("x",0 - (height / 2))
 				      .attr("dy", "1em")
 				      .style("text-anchor", "middle")
-				      .text("${param.column2_label}");      
+				      .text("${param.column2_label}")
+				      .attr("font-size", '14px');  
 
 		        // Add the Legend
 			    var legend_keys = {"nodes":[{"text": "${param.column1_tip}", "tag": "duas", "opacity":"${param.column1_opacity}"}, {"text": "${param.column2_tip}", "tag": "dtas", "opacity":"${param.column2_opacity}"}]};
@@ -495,6 +500,7 @@
     						.style("text-anchor", "end")
     						.attr("dx", "-.8em")
     						.attr("dy", ".15em")
+    						.style("font-size", "12px")
     						.attr("transform", "rotate(-65)");
 
 				      	// Update line position
