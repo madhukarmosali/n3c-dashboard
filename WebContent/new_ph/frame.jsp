@@ -27,7 +27,8 @@
 		<jsp:include page="medications/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'reinfection'}">
-		<jsp:include page="reinfection/panel.jsp"/>
+		<jsp:include page="reinfection/panel2.jsp?quaternary_tab=${param.quaternary_tab}"/>
+<%-- 		<jsp:include page="reinfection/panel.jsp"/> --%>
 	</c:when>
 	<c:when test="${param.frame == 'timeline'}">
 		<jsp:include page="timeline/panel.jsp"/>

@@ -10,7 +10,7 @@ function ${param.block}_constraint(begin, end) {
 	${param.block}_constraint_end = end;
 	var table = $('#${param.target_div}-table').DataTable();
 	table.draw();
-	console.log('${param.target_kpis}')
+	
 	var kpis = '${param.target_kpis}'.split(',');
 	for (var a in kpis) {
 		console.log(kpis[a]);
@@ -61,7 +61,7 @@ $(document).ready( function () {
 		    }
 		);
 		 
-	$.getJSON("<util:applicationRoot/>/feeds/reinfections_by_date.jsp?headers=y", function(data){
+	$.getJSON("<util:applicationRoot/>/new_ph/reinfection/feeds/reinfections_by_date.jsp?headers=y", function(data){
 			
 		var json = $.parseJSON(JSON.stringify(data));
 	
@@ -96,6 +96,28 @@ $(document).ready( function () {
 	
 		$('#${param.target_div}-table').DataTable( {
 	    	data: data,
+	    	dom: 'lfrtBip',
+	    	buttons: {
+	    	    dom: {
+	    	      button: {
+	    	        tag: 'button',
+	    	        className: ''
+	    	      }
+	    	    },
+	    	    buttons: [{
+	    	      extend: 'csv',
+	    	      className: 'btn btn-sm btn-light',
+	    	      titleAttr: 'CSV export.',
+	    	      text: 'CSV',
+	    	      filename: 'symptom_before_after_covid_csv_export',
+	    	      extension: '.csv'
+	    	    }, {
+	    	      extend: 'copy',
+	    	      className: 'btn btn-sm btn-light',
+	    	      titleAttr: 'Copy table data.',
+	    	      text: 'Copy'
+	    	    }]
+	    	},
 	       	paging: true,
 	    	pageLength: 10,
 	    	lengthMenu: [ 10, 25, 50, 75, 100 ],

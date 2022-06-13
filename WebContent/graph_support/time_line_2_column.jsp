@@ -113,6 +113,9 @@
 	
 
 <script>
+
+
+
 // set the dimensions and margins of the graph
 	var margin = {top: 40, right: 80, bottom: 140, left: 80},
 	    width = 960 - margin.left - margin.right,
@@ -133,7 +136,7 @@
 			column2_opacity = ${param.column2_opacity};
 		</c:if>
 		
-		var myObserver = new ResizeObserver(entries => {
+		var ${param.block}myObserver = new ResizeObserver(entries => {
 			entries.forEach(entry => {
 				var newWidth = Math.floor(entry.contentRect.width);
 				if (newWidth > 0) {
@@ -145,16 +148,21 @@
 						height = 200;
 					}
 					draw();
+					
+					console.log('${param.block}');
+					
 				}
 			});
 		});
 		
-		myObserver.observe(d3.select("${param.dom_element}").node());
+		${param.block}myObserver.observe(d3.select("${param.dom_element}").node());
 		
 		draw();
 		
+		
 		function draw() {
-		    
+			
+			
 			// set the ranges
 			var ${param.namespace}x = d3.scaleTime().domain(d3.extent(data, function(d) { return d.date; })).range([0, width]);
 			var y1 = d3.scaleLinear().range([height, 0]);
@@ -175,7 +183,7 @@
 			
 			// Add a clipPath: everything out of this area won't be drawn.
 			 var clip = svg.append("defs").append("svg:clipPath")
-			     .attr("id", "clip")
+			     .attr("id", "${param.namespace}clip")
 			     .append("svg:rect")
 			     .attr("width",width)
 			     .attr("height", height)
@@ -185,7 +193,7 @@
 			
 			    // Create the scatter variable: where both the circles and the brush take place
 			  var graph = svg.append('g')
-    			  .attr("clip-path", "url(#clip)")
+    			  .attr("clip-path", "url(#${param.namespace}clip)")
     			  .attr("class", "overlay");
 			 
 			  
@@ -232,10 +240,14 @@
 					.data([data])
 					.attr("opacity", column1_opacity)
 					.attr("class", "line duas ${namespace}")
+					.attr("stroke", '${column1_color}')
+					.attr("stroke-width", '2.8px')
 					.attr("d", valueline);
 				graph.append("path")
 					.data([data])
 					.attr("opacity", column2_opacity)
+					.attr("stroke", '${column2_color}')
+					.attr("stroke-width", '2.8px')
 					.attr("class", "line dtas ${namespace}")
 					.attr("d", valueline2);
 				
@@ -296,17 +308,20 @@
 
 				  // text label for the y axis
 				  svg.append("text")
-				      .attr("transform", "rotate(-90)")
-				      .attr("y", 0 - margin.left)
-				      .attr("x",0 - (height / 2))
-				      .attr("dy", "1em")
-				      .style("text-anchor", "middle")
-				      .text("${param.column1_label}");      
+				  	.attr("transform", "rotate(-90)")
+				  	.attr("y", 0 - margin.left)
+				  	.attr("x",0 - (height / 2))
+				  	.attr("dy", "1em")
+				  	.style("text-anchor", "middle")
+				  	.text("${param.column1_label}");      
 				  
 				  svg.append("g")
-			      .attr("class", "axis2 ${namespace}")
-			      .attr("transform", "translate( " + width + ", 0 )")
-			      .call(d3.axisRight(y2));
+			      	.attr("class", "axis2 ${namespace}")
+			      	.attr("transform", "translate( " + width + ", 0 )")
+			      	.call(d3.axisRight(y2));
+
+				  d3.select(".axis1").selectAll('text').style("fill", "${column1_color}");
+				  d3.select(".axis2").selectAll('text').style("fill", "${column2_color}");
 				
 				  // text label for the y axis
 				  svg.append("text")
@@ -334,6 +349,14 @@
 				    .attr("width", 22)
 				    .attr("class", function(d){return d.tag + " ${namespace}";})
 				    .attr("opacity", function(d){return d.opacity;})
+				    .attr("stroke",  function(d){
+				    	if (d.tag == 'duas'){
+				    		return '${column1_color}'
+				    	} else {
+				    		return '${column2_color}'
+				    	};
+				    })
+				    .attr("stroke-width", '2.8px')
 				    .attr('height', 2);
 				    
 				//tooltip line
@@ -540,5 +563,7 @@
 				});
 				
 			};
+			
+			
 		});
 </script>
