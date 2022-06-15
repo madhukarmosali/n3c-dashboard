@@ -126,12 +126,14 @@ WebContent/new_ph/adult_summary/adult_summary_5.jsp -text
 WebContent/new_ph/adult_summary/age.jsp -text
 WebContent/new_ph/adult_summary/aggregated_table.jsp -text
 WebContent/new_ph/adult_summary/ethnicity.jsp -text
+WebContent/new_ph/adult_summary/feeds/hive_data.jsp -text
 WebContent/new_ph/adult_summary/feeds/severity.jsp -text
 WebContent/new_ph/adult_summary/feeds/ungrouped.jsp -text
 WebContent/new_ph/adult_summary/feeds/unknown_vaccination.jsp -text
 WebContent/new_ph/adult_summary/feeds/vaccinated.jsp -text
 WebContent/new_ph/adult_summary/feeds/vaccinated_comorbidities.jsp -text
 WebContent/new_ph/adult_summary/gender.jsp -text
+WebContent/new_ph/adult_summary/hive.jsp -text
 WebContent/new_ph/adult_summary/kpis.jsp -text
 WebContent/new_ph/adult_summary/panel.jsp -text
 WebContent/new_ph/adult_summary/race.jsp -text
@@ -462,6 +464,7 @@ WebContent/resources/bootstrap/js/bootstrap.js.map -text
 WebContent/resources/bootstrap/js/bootstrap.min.js -text
 WebContent/resources/bootstrap/js/bootstrap.min.js.map -text
 WebContent/resources/d3-tip.js -text
+WebContent/resources/d3.hive.min.js -text
 WebContent/resources/d3.v4.min.js -text
 WebContent/resources/main_style.css -text
 WebContent/resources/n3c_login_style.css -text
