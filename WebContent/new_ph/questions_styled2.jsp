@@ -17,21 +17,12 @@
 }
 </style>
 
-<sql:query var="questions" dataSource="jdbc/N3CPublic">
-	select question, seqnum 
-	from n3c_questions.roster
-	order by seqnum;
-</sql:query>
-
-<div id="choose_dash"">
+<div id="choose_dash">
 	<h3>Choose a Dashboard:</h3>
 	<select id="dashboard_select">
-		<c:forEach items="${questions.rows}" var="row" varStatus="rowCounter">
-			<option value="${row.seqnum}">${row.question}</option>
-		</c:forEach>
 	</select>
 </div>
-</body>
+
 
 <script>
 $(document).ready(function() {
@@ -47,6 +38,13 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 	var json = $.parseJSON(JSON.stringify(data));
 
 	var data = json['rows'];
+	
+	for (i in data){
+		var option = document.createElement('option');
+		option.text = data[i].question;
+		option.value = data[i].question.replace('/g, "\\') + 'arguement_value:' + data[i].description.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[i].asked + 'arguement_value:' + data[i].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[i].iframe_info + 'arguement_value:' + data[i].seqnum;
+		document.getElementById("dashboard_select").appendChild(option);
+	}
 
 	(async() => {
 		$("body").css("cursor", "wait");
@@ -64,20 +62,35 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 		if (index < 0) {index = 0;};
 			
 		document.getElementById("question-tile").removeAttribute("style");
-		frame_render(data[index].seqnum);
-	
+		
+		console.log('data');
+		console.log(data);
+		
+		console.log('index');
+		console.log(index);
+		
+		console.log('data-index');
+		console.log(data[index]);
+		
+		frame_render(data[index].question.replace('/g, "\\') , data[index].description.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,""), data[index].asked, data[index].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,""), data[index].iframe_info, data[index].seqnum);
+		
+		$('#dashboard_select').val(data[index].question.replace('/g, "\\') + 'arguement_value:' + data[index].description.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[index].asked + 'arguement_value:' + data[index].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[index].iframe_info + 'arguement_value:' + data[index].seqnum);
+		
 	})();
 });
 
 
 
-function frame_render(seqnum) {
-	$.getJSON("<util:applicationRoot/>/feeds/questions2.jsp", function(data){
-		var question = data[seqnum]['question'];
-		var description = data[seqnum]['description'];
-		var asked = data[seqnum]['asked'];
-		var limitations = data[seqnum]['limitations'];
-		var frame = data[seqnum]['iframe_info'];	
+function frame_render(question, description, asked, limitations, frame, seqnum) {
+// 	$.getJSON("<util:applicationRoot/>/feeds/questions2.jsp", function(data){
+// 		var question = data[seqnum]['question'];
+// 		var description = data[seqnum]['description'];
+// 		var asked = data[seqnum]['asked'];
+// 		var limitations = data[seqnum]['limitations'];
+// 		var frame = data[seqnum]['iframe_info'];	
+		
+	
+		console.log(frame);
 		
 		cache_browser_history("new-ph", "new-ph/summary/"+frame);
 		var divContainer = document.getElementById("question-tile");
@@ -107,8 +120,8 @@ function frame_render(seqnum) {
 		;
 		$("#d3viz").load("<util:applicationRoot/>/new_ph/frame.jsp?frame="+frame+"&quaternary_tab=${param.quaternary_tab}");
 		
-		$('#dashboard_select').val(seqnum);
-	});
+		
+// 	});
 }
 
 function limitlink(){
@@ -120,7 +133,8 @@ function limitlink(){
 
 $(document).ready(function () {
 	$('#dashboard_select').change(function () {
-		frame_render($(this).val());
+		frame_vars = $(this).val().split('arguement_value:');
+		frame_render(frame_vars[0], frame_vars[1], frame_vars[2], frame_vars[3], frame_vars[4], Number(frame_vars[5]) );
 	})
 });
 
