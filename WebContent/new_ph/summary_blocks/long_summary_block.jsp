@@ -14,7 +14,7 @@
 
 .feature_viz_section{
 	padding-bottom: 30px; 
-	border-bottom: 4px dashed lightgray;
+	border-bottom: 6px dashed lightgray;
 }
 
 .feature_sub_heading{
