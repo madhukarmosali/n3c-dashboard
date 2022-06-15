@@ -3,10 +3,12 @@
 
 <style>
 .shared, .bar, .label {
-  font-size: 14px;
+  font-size: 16px;
 }
 .malebar {
-  fill: #535960;
+/*   fill: #535960; */
+/* 	fill: #117a8b; */
+	fill: #2a8d9e;
 }
 </style>
 <script>

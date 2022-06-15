@@ -101,7 +101,7 @@ d3.json("../../../new_ph/summary_blocks/long_summary_block_vizs/long_tree_feed.j
 					.attr("x", function(d){ return d.x0+5})    // +10 to adjust position (more right)
 					.attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
 					.text(function(d){ return d.data.symptom + ' (' + d.data.value + ')' })
-					.attr("font-size", "14px")
+					.attr("font-size", "16px")
 					.attr("fill", "white");
 		
 	}
