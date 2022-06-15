@@ -244,6 +244,7 @@ WebContent/new_ph/long_covid/long_covid_1.jsp -text
 WebContent/new_ph/long_covid/long_covid_10.jsp -text
 WebContent/new_ph/long_covid/long_covid_11.jsp -text
 WebContent/new_ph/long_covid/long_covid_12.jsp -text
+WebContent/new_ph/long_covid/long_covid_13.jsp -text
 WebContent/new_ph/long_covid/long_covid_2.jsp -text
 WebContent/new_ph/long_covid/long_covid_3.jsp -text
 WebContent/new_ph/long_covid/long_covid_4.jsp -text
@@ -344,6 +345,12 @@ WebContent/new_ph/sotrovimab/demographics_table.jsp -text
 WebContent/new_ph/sotrovimab/feeds/demographics.jsp -text
 WebContent/new_ph/sotrovimab/kpis.jsp -text
 WebContent/new_ph/sotrovimab/panel.jsp -text
+WebContent/new_ph/summary_blocks/long_summary_block.jsp -text
+WebContent/new_ph/summary_blocks/long_summary_block_vizs/long_bar.jsp -text
+WebContent/new_ph/summary_blocks/long_summary_block_vizs/long_bar_feed.jsp -text
+WebContent/new_ph/summary_blocks/long_summary_block_vizs/long_bar_feed2.jsp -text
+WebContent/new_ph/summary_blocks/long_summary_block_vizs/long_tree.jsp -text
+WebContent/new_ph/summary_blocks/long_summary_block_vizs/long_tree_feed.jsp -text
 WebContent/new_ph/template/kpis.jsp -text
 WebContent/new_ph/template/panel.jsp -text
 WebContent/new_ph/test_panel.jsp -text

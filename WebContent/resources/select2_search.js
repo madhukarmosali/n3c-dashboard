@@ -12,7 +12,6 @@
 
     SearchDropdown.prototype.render = function(decorated) {
     	
-    	console.log("reached");
 
         // invoke parent method
         var $rendered = _renderSearchDropdown.apply(this, Array.prototype.slice.apply(arguments));

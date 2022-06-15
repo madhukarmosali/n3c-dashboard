@@ -5,9 +5,9 @@
 <div style="text-align:center; font-size: 1.3rem; margin-top: 40px;">
 	<h3>Select a Topic to Explore:</h3>
 	<select id="selectMe">
+		<option value="long_covid_1">Long COVID Dashboard Overview</option>
 		<optgroup label="Long COVID Indicators">
-<!-- 			<option value="long_covid_1">Long COVID U09.9 ICD-10 Code</option> -->
-			<option value="long_covid_1">Long COVID ICD-10 Code (U09.9)</option>
+			<option value="long_covid_13">Long COVID ICD-10 Code (U09.9)</option>
 			<option value="long_covid_2">Long COVID Clinic Visit</option>
 		</optgroup>
 		<optgroup label="Patients who have experienced Long COVID-Related Symptoms">
@@ -43,17 +43,16 @@
 	<div id="long_covid_10" class="group"></div>
 	<div id="long_covid_11" class="group"></div>
 	<div id="long_covid_12" class="group"></div>
+	<div id="long_covid_13" class="group"></div>
 </div>
 
 <script>
 
 function url_map(selection) {
-//	console.log("url_map", selection, selection.substring(selection.lastIndexOf("_")+1));
 	return selection.substring(selection.lastIndexOf("_")+1);
 }
 
 function url_unmap(selector) {
-//	console.log("url_unmap",selector, 'long_covid_'+selector);
 	return 'long_covid_'+selector;
 }
 
