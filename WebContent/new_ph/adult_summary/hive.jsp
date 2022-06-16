@@ -28,9 +28,22 @@ d3.json("feeds/hive_data.jsp", function(error, data) {
 	  innerRadius = 40,
 	  outerRadius = 400;
 	
-	var groupings = 5; ///number of groups
-	var nnodes = 250; ///number of nodes
-	var nlinks = 250; /// number of links
+	var nodes = data.nodes;
+	var node_map = d3.map(nodes, d => d.mapping);
+	console.log("nodes", nodes);
+	console.log("map", node_map.get("0-1"));
+	
+	var links = data.edges;
+	
+	var nodeScale = d3.scaleLinear()
+	 .domain([0, d3.max(nodes, function(d) { return d.weight; })])
+	 .range([2, 15]);
+	
+	var linkScale = d3.scaleLinear()
+	 .domain([0, d3.max(links, function(d) { return d.weight; })])
+	 .range([0.15, 1]);
+	
+	var groupings = d3.max(nodes, function(d) { return d.x; }) + 1; ///number of groups
 	
 	var angle = d3
 	  .scalePoint()
@@ -38,22 +51,6 @@ d3.json("feeds/hive_data.jsp", function(error, data) {
 	  .range([0, 2 * Math.PI]),
 	  radius = d3.scaleLinear().range([innerRadius, outerRadius]),
 	  color = d3.scaleOrdinal(d3.schemeCategory10).domain(d3.range(20));
-	
-	/* 
-	// Original input format:
-	var nodes = [{ x: 0, y: 0.1 }, { x: 0, y: 0.9 }, { x: 1, y: 0.2 }];
-	var links = [
-	  { source: nodes[0], target: nodes[2] },
-	  { source: nodes[0], target: nodes[1] } //use net
-	];
-	*/
-	
-	var nodes = data.nodes;
-	var node_map = d3.map(nodes, d => d.mapping);
-	console.log("nodes", nodes);
-	console.log("map", node_map.get("0-1"));
-	
-	var links = data.edges;
 	
 	var svg = d3
 	  .select("body")
@@ -85,17 +82,19 @@ d3.json("feeds/hive_data.jsp", function(error, data) {
 	    "d",
 	    d3.hive
 	      .link()
-	      .angle(function(d) {console.log("link x", d, node_map.get(d)); console.log("link x", d, node_map.get(d).x)
+	      .angle(function(d) {
 	        return angle(node_map.get(d).x);
 	      })
-	      .radius(function(d) {console.log("link y", d, node_map.get(d).y)
+	      .radius(function(d) {
 	        return radius(node_map.get(d).y);
 	      })
 	  )
 	  .style("stroke", function(d) {
-	    return color(d.source.x);
+	    return color(node_map.get(d.source).x);
 	  })
-	  .style("stroke-opacity", 0.4);
+	  .style("stroke-opacity", function(d) {
+		  return linkScale(d.weight);
+	  });
 	
 	svg
 	  .selectAll(".node")
@@ -112,7 +111,9 @@ d3.json("feeds/hive_data.jsp", function(error, data) {
 	  .attr("cx", function(d) {
 	    return radius(d.y);
 	  })
-	  .attr("r", 5)
+	  .attr("r", function(d) {
+		  return nodeScale(d.weight);
+	  })
 	  .style("fill", function(d) {
 	    return color(d.x);
 	  });
