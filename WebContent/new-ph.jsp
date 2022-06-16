@@ -17,7 +17,7 @@
 		<div class="row">
 			<div class="col-12 mx-auto">
 				<div class="row">
-					<div class="col-12 col-md-6">
+					<div class="col-12 col-md-5">
 						<div class="text-max mx-auto" style="padding: 20px; background: #f1f1f1; border: 1px solid lightgray;">
 							<h3 class="header-text" >N3C Public Health Browser</h3>
 							
@@ -41,14 +41,25 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-12 col-md-6">
+					<div class="col-12 col-md-7 my-auto">
 <%-- 						<img style="width:100%; height:auto; max-width:400px;" src="<util:applicationRoot/>/images/dash_hero3.png" alt="Person using dashboard"> --%>
-						<div id="choose_dash">
-							<h3>Choose a Dashboard:</h3>
-							<select id="dashboard_select">
-							</select>
+						<div id="ph-dash-top">
+							<div id="choose_dash">
+								<h3>Choose a Dashboard:</h3>
+								<select id="dashboard_select">
+								</select>
+							</div>
+							<div id="question-description" style="padding: 10px;"></div>
 						</div>
-						<div id="question-description" style="padding: 10px;"></div>
+						<div id="ped-dash-top">
+							<h3>N3C Pediatrics Dashboard</h3>
+							<p>Funded in part by the National Institutes of Health's Eunice Kennedy Shriver 
+							National Institute of Child Health and Human Development (NICHD), the N3C Pediatrics Dashboard seeks to
+							make information about the trajectories of pediatric COVID-19 hospitalization rates and disease severity 
+							readily available for national-level decision-making. The team is led by 
+							<a href="https://som.ucdenver.edu/Profiles/Faculty/Profile/22381">Tell Bennett, MD</a>, who has been a part 
+							of the N3C since its inception in March 2020. </p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -92,6 +103,8 @@
 
 		function toggle_subpanel(selection) {
 			if (selection == "summary") {
+				$("#ph-dash-top").css('display', 'block');
+				$("#ped-dash-top").css('display', 'none');
 				$("#ph-summary").css('display', 'block');
 				$("#ph-summary-btn").addClass("active");
 				$("#ph-pediatrics").css('display', 'none');
@@ -99,6 +112,8 @@
 				cache_browser_history("new-ph", "new-ph/summary")
 			}
 			if (selection == "pediatrics") {
+				$("#ped-dash-top").css('display', 'block');
+				$("#ph-dash-top").css('display', 'none');
 				$("#ph-summary").css('display', 'none');
 				$("#ph-summary-btn").removeClass("active");
 				$("#ph-pediatrics").css('display', 'block');

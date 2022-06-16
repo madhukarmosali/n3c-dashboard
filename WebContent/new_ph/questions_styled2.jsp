@@ -17,9 +17,6 @@
 }
 </style>
 
-
-
-
 <script>
 $(document).ready(function() {
     $('#dashboard_select').select2({
@@ -59,15 +56,6 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 			
 		document.getElementById("question-tile").removeAttribute("style");
 		
-		console.log('data');
-		console.log(data);
-		
-		console.log('index');
-		console.log(index);
-		
-		console.log('data-index');
-		console.log(data[index]);
-		
 		frame_render(data[index].question.replace('/g, "\\') , data[index].description.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,""), data[index].asked, data[index].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,""), data[index].iframe_info, data[index].seqnum);
 		
 		$('#dashboard_select').val(data[index].question.replace('/g, "\\') + 'arguement_value:' + data[index].description.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[index].asked + 'arguement_value:' + data[index].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[index].iframe_info + 'arguement_value:' + data[index].seqnum);
@@ -77,17 +65,7 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 
 
 
-function frame_render(question, description, asked, limitations, frame, seqnum) {
-// 	$.getJSON("<util:applicationRoot/>/feeds/questions2.jsp", function(data){
-// 		var question = data[seqnum]['question'];
-// 		var description = data[seqnum]['description'];
-// 		var asked = data[seqnum]['asked'];
-// 		var limitations = data[seqnum]['limitations'];
-// 		var frame = data[seqnum]['iframe_info'];	
-		
-	
-		console.log(frame);
-		
+function frame_render(question, description, asked, limitations, frame, seqnum) {	
 		cache_browser_history("new-ph", "new-ph/summary/"+frame);
 		var descriptionContainer = document.getElementById("question-description");
 		var divContainer = document.getElementById("question-tile");
@@ -130,9 +108,11 @@ function limitlink(){
 }
 
 $(document).ready(function () {
+	 
 	$('#dashboard_select').change(function () {
 		frame_vars = $(this).val().split('arguement_value:');
-		frame_render(frame_vars[0], frame_vars[1], frame_vars[2], frame_vars[3], frame_vars[4], Number(frame_vars[5]) );
+		console.log("frame_var: " + frame_vars[5]);
+		frame_render(frame_vars[0], frame_vars[1], frame_vars[2], frame_vars[3], frame_vars[4]);
 	})
 });
 
