@@ -72,7 +72,7 @@
 					<c:choose>
 						<c:when test="${empty param.secondary_tab || param.secondary_tab == 'summary' }">
 							<script>
- 								cache_browser_history("new-ph", "new-phh/summary")
+ 								cache_browser_history("new-ph", "new-ph/summary")
 							</script>
 							<jsp:include page="new_ph/questions.jsp?tertiary_tab=${param.tertiary_tab}&quaternary_tab=${param.quaternary_tab}" flush="true" />
 						</c:when>
@@ -86,7 +86,7 @@
 						<c:when test="${param.secondary_tab == 'pediatrics' }">
 							<script>
  								console.log("in peds choose", ${param.tertiary_tab})
-								cache_browser_history("new-ph", "new-phh/pediatrics")
+								cache_browser_history("new-ph", "new-ph/pediatrics")
 							</script>
 							<jsp:include page="modules/pediatrics.jsp?tertiary_tab=${param.tertiary_tab}" flush="true" />
 						</c:when>

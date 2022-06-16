@@ -31,6 +31,7 @@
 	</select>
 </div>
 <div id="frame">
+	<div id="long_covid_13" class="group"></div>
 	<div id="long_covid_1" class="group"></div>
 	<div id="long_covid_2" class="group"></div>
 	<div id="long_covid_3" class="group"></div>
@@ -43,7 +44,6 @@
 	<div id="long_covid_10" class="group"></div>
 	<div id="long_covid_11" class="group"></div>
 	<div id="long_covid_12" class="group"></div>
-	<div id="long_covid_13" class="group"></div>
 </div>
 
 <script>
@@ -56,7 +56,7 @@ function url_unmap(selector) {
 	return 'long_covid_'+selector;
 }
 
-var frame_crumbs = '';
+var frame_crumbs = [];
 
 <c:choose>
 	<c:when test="${empty param.quaternary_tab}">
@@ -70,11 +70,10 @@ var frame_crumbs = '';
 
 function frame_load(selection) {
 	var $this = $("#"+selection);
-	console.log("selection", selection, frame_crumbs)
 
 	if (!frame_crumbs.includes(selection)) {
 		$this.load("<util:applicationRoot/>/new_ph/long_covid/"+selection+".jsp");
-		frame_crumbs = frame_crumbs + selection;
+		frame_crumbs.push(selection);
 	}
 	cache_browser_history("new-ph", "new-ph/summary/long-covid/"+url_map(selection));
 };

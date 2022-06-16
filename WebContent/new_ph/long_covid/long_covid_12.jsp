@@ -8,7 +8,6 @@
 	<jsp:param name="topic_description" value="secondary_12" />
 	<jsp:param name="topic_title" value="Demographics of Patients Who Have Experienced Long COVID-Related Symptoms but Do Not Have a Recorded COVID-19 Test or Diagnosis" />
 	
-	
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 
 	<jsp:param name="age_panel" value="long_covid/not_positive_age.jsp" />

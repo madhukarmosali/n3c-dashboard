@@ -3,7 +3,7 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 <jsp:include page="../block2.jsp">
-	<jsp:param name="block" value="long_covid_1" />
+	<jsp:param name="block" value="long_covid_13" />
 	<jsp:param name="block_header" value="Long COVID: U09.9 ICD-10 Code" />
 	<jsp:param name="topic_description" value="secondary_1" />
 	<jsp:param name="topic_title" value="Demographics of Patients With Diagnosed Long COVID (U09.9)" />
@@ -23,5 +23,5 @@
 </jsp:include>
 
 <script>
-	long_covid_1_toggle("severity");
+	long_covid_13_toggle("severity");
 </script>
