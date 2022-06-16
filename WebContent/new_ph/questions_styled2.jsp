@@ -17,11 +17,7 @@
 }
 </style>
 
-<div id="choose_dash">
-	<h3>Choose a Dashboard:</h3>
-	<select id="dashboard_select">
-	</select>
-</div>
+
 
 
 <script>
@@ -93,11 +89,13 @@ function frame_render(question, description, asked, limitations, frame, seqnum) 
 		console.log(frame);
 		
 		cache_browser_history("new-ph", "new-ph/summary/"+frame);
+		var descriptionContainer = document.getElementById("question-description");
 		var divContainer = document.getElementById("question-tile");
 		
-		divContainer.innerHTML = 
-			'<p>' + description + '</p>'
-		  +'<div id="d3viz"></div>'
+		
+		descriptionContainer.innerHTML = description;
+		
+		divContainer.innerHTML = '<div id="d3viz"></div>'
 			+'<br>'+
 			'<div id="limitations-section">\
 				<div class="accordion" id="limitations_drop">\

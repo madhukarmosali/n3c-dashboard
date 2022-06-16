@@ -9,7 +9,7 @@
 
 .feature_heading{
 	font-weight: 800;
-	color: #205b80;
+	color: #045FB0;
 }
 
 .feature_viz_section{

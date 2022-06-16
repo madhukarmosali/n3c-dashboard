@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
-<div style="text-align:center; font-size: 1.3rem; margin-top: 40px;">
+<div style="text-align:center; font-size: 1.3rem;">
 	<h3>Select a Topic to Explore:</h3>
 	<select id="selectMe">
 		<option value="long_covid_1">Long COVID Dashboard Overview</option>

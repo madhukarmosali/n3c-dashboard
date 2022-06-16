@@ -28,6 +28,10 @@
 .kpi_section .dropdown-item{
 	white-space: unset;
 }
+
+#viz_title{
+	display:none;
+}
 </style>
 
 <!-- A block is comprised of a header bar, an optional left column with KPIs and filters, and a main panel
@@ -41,7 +45,7 @@
 <!-- 		</div> -->
 	
 		<c:if test="${not empty param.kpis}">
-			<div class="row kpi-row mt-5">
+			<div class="row kpi-row mt-2">
 				<div id="${param.block}-block-kpi-kpi" class="col-12">
 					<div class="kpi_containter row" style="justify-content: center;">
 						<jsp:include page="${param.kpis}?block=${param.block}&symptom=${param.kpi_filter}"/>
