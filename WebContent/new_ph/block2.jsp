@@ -66,7 +66,7 @@
 				</c:if>
 				
 				<c:if test="${not empty param.severity_panel || not empty param.age_panel || not empty param.gender_panel || not empty param.ethnicity_panel}">
-				<div style="text-align:center; font-size: 1.2rem;">
+				<div style="text-align:center; font-size: 1.2rem;" class="viz_options_dropdown">
 					<span>Explore Topic By </span>
 					<select id="${param.block}toggle_viz_select">
 						<c:if test="${not empty param.severity_panel}">
@@ -84,6 +84,7 @@
 						<c:if test="${not empty param.ethnicity_panel}">
 							<option value="ethnicity">Ethnicity</option>
 						</c:if>
+							<option hidden value="verylongtext">verylongtexttext</option>
 					</select>
 				</div>
 				</c:if>
@@ -177,6 +178,17 @@
 </div>			
 
 <script>
+	$(document).ready(function() {
+	    $('#${param.block}toggle_viz_select').select2({
+	    	minimumResultsForSearch: Infinity,
+    		templateResult: function(option) {
+    		      if(option.element && (option.element).hasAttribute('hidden')){
+    		         return null;
+    		      }
+    		      return option.text;
+    		   }
+	    });
+	})
 
 	function ${param.block}_viz_constrain(element, elementParent) {
 		var options = $("#${param.block}-"+elementParent.toLowerCase()+"-select");

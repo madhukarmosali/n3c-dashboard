@@ -18,6 +18,8 @@
 
 <script>
 
+
+
 function url_map(selection) {
 	return selection.substring(selection.lastIndexOf("_")+1);
 }
@@ -102,8 +104,7 @@ function modelMatcher (params, data) {
 
 $(document).ready(function() {
     $('#selectMe').select2({
-		matcher: modelMatcher,
-		searchInputPlaceholder: 'Search Topics...'
+    	minimumResultsForSearch: Infinity
     });
     $('#selectMe').change(function () {
 		frame_load($(this).val());

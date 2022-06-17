@@ -361,7 +361,7 @@ a:hover, .btn-link:hover{
 #d3viz .kpi{
 	width: 100%;
 	padding: 10px;
-    box-shadow: 0px 10px 25px -10px rgb(160 191 220);
+    box-shadow: 0px 10px 25px -10px #9dadd6;
     border-radius: 10px;
 }
 
@@ -435,7 +435,7 @@ a:hover, .btn-link:hover{
 .kpi_num{
 	text-align: center;
     font-size: 1.7rem;
-    color: #045FB0;
+    color: #4661a4;
     font-weight: 600;
 }
 
@@ -447,7 +447,7 @@ a:hover, .btn-link:hover{
 }
 
 .viz_secondary_info i{
-	color: #045FB0;
+	color: #4661a4;
 	font-size: 12px;
 	vertical-align: super;
 }
@@ -461,6 +461,12 @@ a:hover, .btn-link:hover{
 }
 
 /* Select style  ---------------- */
+
+.viz_color_header{
+	font-weight: 800;
+	color: #4661a4;
+}
+
 #choose_dash{
 	text-align:center; 
 	font-size: 2.2rem; 
@@ -469,6 +475,28 @@ a:hover, .btn-link:hover{
 #choose_dash .select2-selection__rendered{
 	font-size: 2rem;
 }
+
+
+.topic_dropdown .select2-selection.select2-selection--single, 
+.topic_dropdown .select2-selection__arrow{
+	height: 45px !important;
+}
+
+.viz_options_dropdown .select2-selection.select2-selection--single, 
+.viz_options_dropdown .select2-selection__arrow{
+	height: 35px !important;
+}
+
+.viz_options_dropdown .select2-selection__rendered{
+	line-height: 35px !important;
+}
+
+.topic_dropdown .select2-selection__rendered{
+	line-height: 45px !important;
+}
+
+
+
 
 .select2-container--default .select2-results>.select2-results__options{
 	max-height: 300px
@@ -480,13 +508,17 @@ a:hover, .btn-link:hover{
 
 .dash_select .select2-selection__rendered{
 	line-height: 3rem !important;
-	background: #045FB0;
+	background: #4661a4;
     color: white !important;
     white-space: normal !important;
 }
 
 .dash_select .select2-selection__arrow{
 	height: 3rem !important;
+}
+
+.select2-container{
+	max-width:100%;
 }
 
 .select2-container--default .select2-selection--single.dash_select .select2-selection__arrow b{
@@ -500,6 +532,10 @@ a:hover, .btn-link:hover{
 	border-color: transparent transparent white transparent ;
 }
 
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable{
+	background-color: #4661a4;
+}
+
 /* Datatable style  ---------------- */
 .dash-dt-section{
 	margin-top: 20px;
@@ -510,11 +546,15 @@ a:hover, .btn-link:hover{
 }
 
 #d3viz .dataTable tbody tr{
-	background: #f2f2f2;
+/* 	background: #f2f2f2; */
+}
+
+#d3viz .dataTable{
+	border-bottom: 0px;
 }
 
 #d3viz .dataTable thead{
-	background: #045FB0;
+	background: #4661a4;
 }
 
 #d3viz .dataTable thead span{
@@ -534,7 +574,7 @@ a:hover, .btn-link:hover{
 /* Filter Style style  ---------------- */
 /* Adds color to filter buttons when filter applied */
 #d3viz .kpi_section button[title]:not([title='None selected']).dropdown-toggle{
-	background-color: #afcfd6;
+	background-color: #C9D3E8;
 }
 
 .dash_filter_header{
@@ -553,18 +593,18 @@ a:hover, .btn-link:hover{
 .dash-filter-btn{
 	margin-top: 20px;
 	border-radius: 5px;
-    background: #045FB0;
+    background: #4661a4;
     color: white;
     padding: 7px;
 }
 
 .dash-filter-btn:hover{
-    background: #163F59;
+    background: #354a80;
 }
 
-.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable{
-	background-color: #117a8b;
-}
+
+
+
 
 /* -------------- Panel ---------------------  */
 

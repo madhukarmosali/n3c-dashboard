@@ -22,8 +22,13 @@ font-size: 14px;
 </style>
 <script>
 
-function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data, secondary_range = categorical, legend_label, min_height) {
+function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data, secondary_range = categorical, legend_label, min_height, nofilter) {
 	
+	var add_filter_text = 1;
+	if ((nofilter != undefined) && (nofilter == 1) ){
+		console.log("reached");
+		add_filter_text = 0;
+	}
 	
 	if (legend_label === undefined){
 		legend_label = "Legend";
@@ -121,9 +126,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 	    	.attr("y1", -height+margin.top)
 	    	.attr("x2", 0)
 	    	.attr("y2", 0);
-		
-		
-		
+
 		var barsect = g.append("g")
 			.selectAll("g")
 			.data(stackData)
@@ -182,6 +185,24 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			});
 
 		
+		function nFormatter(num, digits) {
+			  const lookup = [
+			    { value: 1, symbol: "" },
+			    { value: 1e3, symbol: "k" },
+			    { value: 1e6, symbol: "M" },
+			    { value: 1e9, symbol: "G" },
+			    { value: 1e12, symbol: "T" },
+			    { value: 1e15, symbol: "P" },
+			    { value: 1e18, symbol: "E" }
+			  ];
+			  const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+			  var item = lookup.slice().reverse().find(function(item) {
+			    return num >= item.value;
+			  });
+			  return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0";
+			}
+		
+		
 		barsect.selectAll("g")
 			.data(function(d) {return d; })
 			.enter().append("text")
@@ -193,7 +214,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.attr("x", function(d) { return (x(d[3])) + 5; })
 			.text(function(d) {
 				if(d[2] == legend_data[0].secondary){
-					return d[3];
+					return nFormatter(d[3], 2);
 				}
 			});
 
@@ -223,7 +244,10 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			});
 	
 		legend.append("rect")
-			.attr("x", width - 19)
+// 			.attr("cx", width - 10)
+// 			.attr("cy", 10)
+// 			.attr("r", 8)
+			.attr("x", width-19)
 			.attr("width", 19)
 			.attr("height", 19)
 			.attr("fill", function(d, i) { return z[i]; })
@@ -233,7 +257,13 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			})
 			.on("mouseout", function(d, i) {
   				svg.selectAll(".serie").style("opacity", "1");
-			});;
+			})
+			.append('title')
+  			.text(function (){
+  				if (add_filter_text == 1){
+  					return 'Click to filter/remove filter'
+  				} else return
+  			});
 
 		legend.append("text")
 			.attr("x", width - 24)

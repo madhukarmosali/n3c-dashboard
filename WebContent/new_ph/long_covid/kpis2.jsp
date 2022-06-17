@@ -3,7 +3,7 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 <c:choose>
-	<c:when test="${param.block == 'long_covid_1'}">
+	<c:when test="${param.block == 'long_covid_13'}">
 		<jsp:include page="../kpis/block2_kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
@@ -144,7 +144,7 @@
 		<jsp:include page="../kpis/block2_kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/long_icd_summary.jsp">
+		<jsp:include page="../kpis/block2_kpis/not_positive_total.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/not_positive.jsp">

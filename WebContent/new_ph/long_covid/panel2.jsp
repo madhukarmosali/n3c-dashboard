@@ -2,8 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
-<div style="text-align:center; font-size: 1.3rem;">
-	<h3>Select a Topic to Explore:</h3>
+<div class="topic_dropdown" style="text-align:center; font-size: 1.5rem;">
+	<h4 class="viz_color_header">Select a Topic to Explore:</h4>
 	<select id="selectMe">
 		<option value="long_covid_1">Long COVID Dashboard Overview</option>
 		<optgroup label="Long COVID Indicators">

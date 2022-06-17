@@ -5,11 +5,19 @@
 .shared, .bar, .label {
   font-size: 16px;
 }
-.malebar {
-/*   fill: #535960; */
-/* 	fill: #117a8b; */
-	fill: #2a8d9e;
+
+.${param.container}stop-left {
+ 	stop-color: ${param.color_left};  /* Indigo */
 }
+
+.${param.container}stop-right {
+	stop-color: ${param.color_right};  /* Teal */
+}
+
+.${param.container}longbar_bar {
+	fill: url(#${param.container}mainGradient);
+}
+
 </style>
 <script>
 
@@ -19,7 +27,7 @@ var ${param.container}_margin = {top: 0, right: 0, bottom: 10, left: 0},
 	${param.container}_width = 445 - ${param.container}_margin.left - ${param.container}_margin.right,
 	${param.container}_height = 445 - ${param.container}_margin.top - ${param.container}_margin.bottom;
 
-var gap = 20;
+var gap = 60;
 
 // read json data
 d3.json("../../../new_ph/summary_blocks/long_summary_block_vizs/${param.feed}", function(error, data) {
@@ -33,10 +41,10 @@ d3.json("../../../new_ph/summary_blocks/long_summary_block_vizs/${param.feed}", 
 			if (newWidth > 0) {
 				d3.select("#${param.container}").select("svg").remove();
 				${param.container}_width = newWidth - ${param.container}_margin.left - ${param.container}_margin.right;
-				if ((${param.container}_width/2 - ${param.container}_margin.top - ${param.container}_margin.bottom) > 300){
+				if ((${param.container}_width/2 - ${param.container}_margin.top - ${param.container}_margin.bottom) > ${param.min_height}){
 					${param.container}_height = ${param.container}_width/2 - ${param.container}_margin.top - ${param.container}_margin.bottom;
 				} else { 
-					${param.container}_height = 300;
+					${param.container}_height = ${param.min_height};
 				}
 
 				draw();
@@ -50,6 +58,7 @@ d3.json("../../../new_ph/summary_blocks/long_summary_block_vizs/${param.feed}", 
 	draw();
 
 	function draw(){
+		
 
 		var dataRange = d3.max(data.map(function(d) { return Math.max(d.count) }));
 		
@@ -64,7 +73,22 @@ d3.json("../../../new_ph/summary_blocks/long_summary_block_vizs/${param.feed}", 
 		    .attr("width", ${param.container}_width)
 		    .attr("height", ${param.container}_height + ${param.container}_margin.top + ${param.container}_margin.bottom);
 
+		
+		var svgDefs = vis.append('defs');
 
+        var ${param.container}mainGradient = svgDefs.append('linearGradient')
+            .attr('id', '${param.container}mainGradient');
+
+        // Create the stops of the main gradient. Each stop will be assigned
+        // a class to style the stop using CSS.
+        ${param.container}mainGradient.append('stop')
+            .attr('class', '${param.container}stop-left')
+            .attr('offset', '0');
+
+        ${param.container}mainGradient.append('stop')
+            .attr('class', '${param.container}stop-right')
+            .attr('offset', '1');
+        
 		var bar = vis.selectAll("g.bar")
 		    .data(data)
 				.enter().append("g")
@@ -79,12 +103,29 @@ d3.json("../../../new_ph/summary_blocks/long_summary_block_vizs/${param.feed}", 
 		    .text(function(d) { return d.label; })
 		    .style("fill", "#000000");
 		
+		function nFormatter(num, digits) {
+			  const lookup = [
+			    { value: 1, symbol: "" },
+			    { value: 1e3, symbol: "k" },
+			    { value: 1e6, symbol: "M" },
+			    { value: 1e9, symbol: "G" },
+			    { value: 1e12, symbol: "T" },
+			    { value: 1e15, symbol: "P" },
+			    { value: 1e18, symbol: "E" }
+			  ];
+			  const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+			  var item = lookup.slice().reverse().find(function(item) {
+			    return num >= item.value;
+			  });
+			  return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0";
+		};
+		
 		bar.append("text")
 	    	.attr("class", "below")
 	    	.attr("x", ${param.container}_margin.left+12)
 	    	.attr("dy", ((barWidth-gap)/2)+20)
 	    	.attr("text-anchor", "left")
-	    	.text(function(d) { return "(" +  d.count + ")"; })
+	    	.text(function(d) { return "(" +  nFormatter(d.count,2) + ")"; })
 	    	.style("fill", "#000000");
 	
 
@@ -92,11 +133,12 @@ d3.json("../../../new_ph/summary_blocks/long_summary_block_vizs/${param.feed}", 
 			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/new-ph/summary/long-covid/" + d.viz_id;})
 			.append("rect")
 				.style("cursor", "pointer")
-		    	.attr("class", "malebar")
+		    	.attr("class", "${param.container}longbar_bar")
 		    	.attr("width", function(d) { return total(d.count); })
 		    	.attr("height", barWidth - gap)
 		    	.attr("x", ${param.container}_margin.left);
-
+		
+		
 
 		bar.append("svg")
 		    .attr("height", barWidth - gap)
@@ -117,7 +159,7 @@ d3.json("../../../new_ph/summary_blocks/long_summary_block_vizs/${param.feed}", 
 	    	.attr("x", ${param.container}_margin.left+12)
 	    	.attr("dy", ((barWidth-gap)/2)+20)
 	    	.attr("text-anchor", "left")
-	    	.text(function(d) { return "(" + d.count + ")"; })
+	    	.text(function(d) { return "(" + nFormatter(d.count,2) + ")"; })
 	    	.style("fill", "#ffffff");
 			
 		

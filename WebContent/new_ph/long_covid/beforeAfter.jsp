@@ -22,7 +22,7 @@
 function ${param.block}_before_refresh() {
 	console.log("before/after graph", "${param.block}_before_after_viz", ${param.block}_BeforeAfterArray)
    	d3.select("#${param.block}_before_after_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_BeforeAfterArray,"${param.block}_before_after_viz", 160, before_after_legend, categorical, "Symptom Occurrence");	
+	localHorizontalStackedBarChart(${param.block}_BeforeAfterArray,"${param.block}_before_after_viz", 160, before_after_legend, categorical, "Symptom Occurrence", 200, 1);	
 }
 
 ${param.block}_before_refresh();

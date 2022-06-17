@@ -122,7 +122,7 @@
 			      .attr("width", x.bandwidth())
 			      .attr("y", function(d) { return y(d.actual_count); })
 			      .attr("height", function(d) { return height - y(d.actual_count); })
-			      .attr("fill", "#006478")
+			      .attr("fill", "#205F88")
 			      .on("mouseover", function() { tooltip.style("display", null); })
 				  .on("mouseout", function() { tooltip.style("display", "none"); })
 				  .on("mousemove", function(d) {

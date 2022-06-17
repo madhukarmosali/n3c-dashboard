@@ -55,6 +55,7 @@ function localHorizontalBarChart(data, domName, barLabelWidth) {
 		var svg = d3.select(domName).append("svg")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", Number(height) + margin.top + margin.bottom);
+		
 	
 		var g = svg.append("g")
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -94,8 +95,24 @@ function localHorizontalBarChart(data, domName, barLabelWidth) {
 			.attr('height', y.bandwidth())
 			.attr('width', function(d) { return x(d.count); })
 			.attr('stroke', 'white')
-			//.attr("fill", "#8b8b8b");
-			.attr('fill', '#006478');
+			.attr('fill', '#205F88');
+		
+		function nFormatter(num, digits) {
+			  const lookup = [
+			    { value: 1, symbol: "" },
+			    { value: 1e3, symbol: "k" },
+			    { value: 1e6, symbol: "M" },
+			    { value: 1e9, symbol: "G" },
+			    { value: 1e12, symbol: "T" },
+			    { value: 1e15, symbol: "P" },
+			    { value: 1e18, symbol: "E" }
+			  ];
+			  const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+			  var item = lookup.slice().reverse().find(function(item) {
+			    return num >= item.value;
+			  });
+			  return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0";
+			}
 		
 		// bar value labels
 		g.append('g').selectAll("text").data(data).enter().append("text")
@@ -105,7 +122,7 @@ function localHorizontalBarChart(data, domName, barLabelWidth) {
 			.style("text-anchor", "start")
 			.style("font-size", "12px")
 			.style("fill", "#a5a2a2")
-			.text(function(d) { return barValue(d); });
+			.text(function(d) { return nFormatter(barValue(d), 2); });
 	}
 }
 </script>

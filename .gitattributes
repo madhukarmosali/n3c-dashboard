@@ -232,6 +232,8 @@ WebContent/new_ph/kpis/peds_vaccinated_comorbidities.jsp -text
 WebContent/new_ph/long_covid/beforeAfter.jsp -text
 WebContent/new_ph/long_covid/before_after_table.jsp -text
 WebContent/new_ph/long_covid/clinic_severity_table.jsp -text
+WebContent/new_ph/long_covid/covid_long_percentage_simple.jsp -text
+WebContent/new_ph/long_covid/covid_long_percentage_table.jsp -text
 WebContent/new_ph/long_covid/feeds/before_after.jsp -text
 WebContent/new_ph/long_covid/feeds/clinic_severity.jsp -text
 WebContent/new_ph/long_covid/feeds/severity.jsp -text
@@ -351,8 +353,10 @@ WebContent/new_ph/summary_blocks/long_summary_block.jsp -text
 WebContent/new_ph/summary_blocks/long_summary_block_vizs/long_bar.jsp -text
 WebContent/new_ph/summary_blocks/long_summary_block_vizs/long_bar_feed.jsp -text
 WebContent/new_ph/summary_blocks/long_summary_block_vizs/long_bar_feed2.jsp -text
+WebContent/new_ph/summary_blocks/long_summary_block_vizs/long_bar_feed3.jsp -text
 WebContent/new_ph/summary_blocks/long_summary_block_vizs/long_tree.jsp -text
 WebContent/new_ph/summary_blocks/long_summary_block_vizs/long_tree_feed.jsp -text
+WebContent/new_ph/summary_blocks/long_summary_block_vizs/long_tree_feed2.jsp -text
 WebContent/new_ph/template/kpis.jsp -text
 WebContent/new_ph/template/panel.jsp -text
 WebContent/new_ph/test_panel.jsp -text

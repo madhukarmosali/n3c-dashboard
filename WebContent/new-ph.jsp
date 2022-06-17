@@ -66,7 +66,7 @@
 		</div>
 		
 		
-		<div class="mb-5" style="margin-top: 10px;">
+		<div class="mb-5" style="margin-top: 30px;">
 			<div class="">
 				<div id="ph-summary" style="display: block;">
 					<c:choose>
