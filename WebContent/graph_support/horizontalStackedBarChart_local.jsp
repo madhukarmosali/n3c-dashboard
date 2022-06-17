@@ -261,7 +261,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.append('title')
   			.text(function (){
   				if (add_filter_text == 1){
-  					return 'Click to filter/remove filter'
+  					return 'Click to add/remove filter'
   				} else return
   			});
 
