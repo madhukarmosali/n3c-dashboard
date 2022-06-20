@@ -45,18 +45,18 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 		$("body").css("cursor", "default");
 		
 		var index = data.findIndex(object => {
-			return object.iframe_info === '${param.tertiary_tab}';
+			return object.iframe_info === '${param.secondary_tab}';
 		});
 		
 		if ($('.ph-tab .active > a').attr("href") == '#ph-summary'){
-			cache_browser_history("new-ph", "new-ph/summary" + (index == -1 ? '' : "/${param.tertiary_tab}"))
+			cache_browser_history("new-ph", "new-ph" + (index == -1 ? '' : "/${param.secondary_tab}"))
 		};
 		
 		if (index < 0) {index = 0;};
 			
 		document.getElementById("question-tile").removeAttribute("style");
 		
-		frame_render(data[index].question.replace('/g, "\\'), data[index].description.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,""), data[index].asked, data[index].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,""), data[index].iframe_info, ${param.quaternary_tab});
+		frame_render(data[index].question.replace('/g, "\\'), data[index].description.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,""), data[index].asked, data[index].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,""), data[index].iframe_info, ${param.tertiary_tab});
 		
 		$('#dashboard_select').val(data[index].question.replace('/g, "\\') + 'arguement_value:' + data[index].description.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[index].asked + 'arguement_value:' + data[index].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[index].iframe_info + 'arguement_value:' + data[index].seqnum);
 		
@@ -75,7 +75,7 @@ function frame_render(question, description, asked, limitations, frame, seqnum) 
 		var viz_id = String(seqnum);
 
 		
-		cache_browser_history("new-ph", "new-ph/summary/"+frame);
+		cache_browser_history("new-ph", "new-ph/"+frame);
 		console.log("viz id: " + viz_id);
 		
 		divContainer.innerHTML = '<div id="d3viz"></div>'
@@ -100,8 +100,8 @@ function frame_render(question, description, asked, limitations, frame, seqnum) 
 			</div>'
 		;
 			
-		console.log("url: " + "<util:applicationRoot/>/new_ph/frame.jsp?frame="+frame+"&quaternary_tab="+viz_id)
-		$("#d3viz").load("<util:applicationRoot/>/new_ph/frame.jsp?frame="+frame+"&quaternary_tab="+viz_id);
+		console.log("url: " + "<util:applicationRoot/>/new_ph/frame.jsp?frame="+frame+"&tertiary_tab="+viz_id)
+		$("#d3viz").load("<util:applicationRoot/>/new_ph/frame.jsp?frame="+frame+"&tertiary_tab="+viz_id);
 		
 		
 // 	});

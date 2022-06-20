@@ -10,7 +10,7 @@ var individual_symptom_margin = {top: 0, right: 0, bottom: 10, left: 0},
 
 
 // read json data
-d3.json("../../../new_ph/summary_blocks/long_summary_block_vizs/${param.feed}", function(error, data) {
+d3.json("<util:applicationRoot/>/new_ph/summary_blocks/long_summary_block_vizs/${param.feed}", function(error, data) {
 	if (error) throw error;
 	
 	var ${param.container}myObserver = new ResizeObserver(entries => {
@@ -80,7 +80,7 @@ d3.json("../../../new_ph/summary_blocks/long_summary_block_vizs/${param.feed}", 
 			.data(root.leaves())
 			.enter()
 			.append("a")
-    			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/new-ph/summary/long-covid/" + d.data.viz_id;})
+    			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/new-ph/long-covid/" + d.data.viz_id;})
 				.append("rect")
 					.style("cursor", "pointer")
 					.attr('x', function (d) { return d.x0; })

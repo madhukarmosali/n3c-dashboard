@@ -2,6 +2,8 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
 {
+"axes": [ "Age", "Severity", "Gender", "Race", "Ethnicity" ],
+
 "nodes": [
 
 <sql:query var="nodes" dataSource="jdbc/N3CPublic">

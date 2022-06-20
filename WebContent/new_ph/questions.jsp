@@ -13,7 +13,7 @@
 		<div id="question-panel" class="panel panel-primary top_panel" style="margin-top:0px;">
 			<div class="panel-body">
 				<div id="question-select" class="">
-					<jsp:include page="questions_styled2.jsp?tertiary_tab=${param.tertiary_tab}&quaternary_tab=${param.quaternary_tab}"/>
+					<jsp:include page="questions_styled2.jsp?secondary_tab=${param.secondary_tab}&tertiary_tab=${param.tertiary_tab}"/>
 				</div>
 			</div>
 		</div>

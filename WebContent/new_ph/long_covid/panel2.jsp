@@ -59,12 +59,12 @@ function url_unmap(selector) {
 var frame_crumbs = [];
 
 <c:choose>
-	<c:when test="${empty param.quaternary_tab}">
+	<c:when test="${empty param.tertiary_tab}">
 		frame_load('long_covid_1');
 	</c:when>
 	<c:otherwise>
-		$('#selectMe').val(url_unmap('${param.quaternary_tab}'));
-		frame_load(url_unmap('${param.quaternary_tab}'));
+		$('#selectMe').val(url_unmap('${param.tertiary_tab}'));
+		frame_load(url_unmap('${param.tertiary_tab}'));
 	</c:otherwise>
 </c:choose>
 
@@ -75,7 +75,7 @@ function frame_load(selection) {
 		$this.load("<util:applicationRoot/>/new_ph/long_covid/"+selection+".jsp");
 		frame_crumbs.push(selection);
 	}
-	cache_browser_history("new-ph", "new-ph/summary/long-covid/"+url_map(selection));
+	cache_browser_history("new-ph", "new-ph/long-covid/"+url_map(selection));
 };
 
 $(document).ready(function () {

@@ -43,7 +43,7 @@ function frame_load(selection) {
 		$this.load("<util:applicationRoot/>/new_ph/timeline/"+selection+".jsp");
 		frame_crumbs = frame_crumbs + selection;
 	}
-	cache_browser_history("new-ph", "new-ph/summary/timeline/"+url_map(selection));
+	cache_browser_history("new-ph", "new-ph/timeline/"+url_map(selection));
 };
 
 	

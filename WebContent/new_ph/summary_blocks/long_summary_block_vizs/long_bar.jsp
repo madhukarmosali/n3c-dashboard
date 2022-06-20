@@ -30,7 +30,7 @@ var ${param.container}_margin = {top: 0, right: 0, bottom: 10, left: 0},
 var gap = 60;
 
 // read json data
-d3.json("../../../new_ph/summary_blocks/long_summary_block_vizs/${param.feed}", function(error, data) {
+d3.json("<util:applicationRoot/>/new_ph/summary_blocks/long_summary_block_vizs/${param.feed}", function(error, data) {
 	if (error) throw error;
 	
 	var data = data.rows; 
@@ -130,7 +130,7 @@ d3.json("../../../new_ph/summary_blocks/long_summary_block_vizs/${param.feed}", 
 	
 
 		bar.append("a")
-			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/new-ph/summary/long-covid/" + d.viz_id;})
+			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/new-ph/long-covid/" + d.viz_id;})
 			.append("rect")
 				.style("cursor", "pointer")
 		    	.attr("class", "${param.container}longbar_bar")

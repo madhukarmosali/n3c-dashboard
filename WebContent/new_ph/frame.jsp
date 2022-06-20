@@ -27,7 +27,7 @@
 		<jsp:include page="medications/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'reinfection'}">
-		<jsp:include page="reinfection/panel2.jsp?quaternary_tab=${param.quaternary_tab}"/>
+		<jsp:include page="reinfection/panel2.jsp?tertiary_tab=${param.tertiary_tab}"/>
 	</c:when>
 	<c:when test="${param.frame == 'timeline'}">
 		<jsp:include page="timeline/panel2.jsp"/>
@@ -48,7 +48,7 @@
 		<jsp:include page="hss/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'long-covid'}">
-		<jsp:include page="long_covid/panel2.jsp?quaternary_tab=${param.quaternary_tab}"/>
+		<jsp:include page="long_covid/panel2.jsp?tertiary_tab=${param.tertiary_tab}"/>
 	</c:when>
 	<c:when test="${param.frame == 'delayed-mortality'}">
 		<jsp:include page="delayed_mortality/panel.jsp"/>

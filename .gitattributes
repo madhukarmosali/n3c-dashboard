@@ -2,6 +2,7 @@
 /.classpath -text
 /.project -text
 .settings/.jsdtscope -text
+.settings/org.eclipse.core.resources.prefs -text
 .settings/org.eclipse.jdt.core.prefs -text
 .settings/org.eclipse.m2e.core.prefs -text
 .settings/org.eclipse.wst.common.component -text
@@ -24,6 +25,7 @@ WebContent/feeds/aggregated.jsp -text
 WebContent/feeds/configuration.jsp -text
 WebContent/feeds/domain_team_roster.jsp -text
 WebContent/feeds/embedded_fact_sheet.jsp -text
+WebContent/feeds/hive_data.jsp -text
 WebContent/feeds/line_dua_dta_regs.jsp -text
 WebContent/feeds/map_data.jsp -text
 WebContent/feeds/ochinLocations.jsp -text
@@ -53,6 +55,8 @@ WebContent/graph_support/horizontalBarChart_local.jsp -text
 WebContent/graph_support/horizontalGroupedStackedBarChart_local.jsp -text
 WebContent/graph_support/horizontalStackedBarChart_local.jsp -text
 WebContent/graph_support/pieChart_local.jsp -text
+WebContent/graph_support/radialStackedBarChart.jsp -text
+WebContent/graph_support/radial_data.csv -text
 WebContent/graph_support/reinfection_bar.jsp -text
 WebContent/graph_support/site_map.jsp -text
 WebContent/graph_support/stacked_bar_horizontal_2.jsp -text
@@ -126,14 +130,12 @@ WebContent/new_ph/adult_summary/adult_summary_5.jsp -text
 WebContent/new_ph/adult_summary/age.jsp -text
 WebContent/new_ph/adult_summary/aggregated_table.jsp -text
 WebContent/new_ph/adult_summary/ethnicity.jsp -text
-WebContent/new_ph/adult_summary/feeds/hive_data.jsp -text
 WebContent/new_ph/adult_summary/feeds/severity.jsp -text
 WebContent/new_ph/adult_summary/feeds/ungrouped.jsp -text
 WebContent/new_ph/adult_summary/feeds/unknown_vaccination.jsp -text
 WebContent/new_ph/adult_summary/feeds/vaccinated.jsp -text
 WebContent/new_ph/adult_summary/feeds/vaccinated_comorbidities.jsp -text
 WebContent/new_ph/adult_summary/gender.jsp -text
-WebContent/new_ph/adult_summary/hive.jsp -text
 WebContent/new_ph/adult_summary/kpis.jsp -text
 WebContent/new_ph/adult_summary/panel.jsp -text
 WebContent/new_ph/adult_summary/race.jsp -text
@@ -172,6 +174,7 @@ WebContent/new_ph/filters/observation.jsp -text
 WebContent/new_ph/filters/race.jsp -text
 WebContent/new_ph/filters/severity.jsp -text
 WebContent/new_ph/frame.jsp -text
+WebContent/new_ph/hive.jsp -text
 WebContent/new_ph/hlh/kpis.jsp -text
 WebContent/new_ph/hlh/panel.jsp -text
 WebContent/new_ph/hss/kpis.jsp -text
@@ -467,6 +470,7 @@ WebContent/resources/bootstrap/js/bootstrap.js -text
 WebContent/resources/bootstrap/js/bootstrap.js.map -text
 WebContent/resources/bootstrap/js/bootstrap.min.js -text
 WebContent/resources/bootstrap/js/bootstrap.min.js.map -text
+WebContent/resources/d3-scale-radial.js -text
 WebContent/resources/d3-tip.js -text
 WebContent/resources/d3.hive.min.js -text
 WebContent/resources/d3.v4.min.js -text

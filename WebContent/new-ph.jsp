@@ -21,11 +21,6 @@
 						<div class="text-max mx-auto" style="padding: 20px; background: #f1f1f1; border: 1px solid lightgray;">
 							<h3 class="header-text" >N3C Public Health Browser</h3>
 							
-							<div id="summary_btns" class="btn-select">
-								<btn id="ph-summary-btn" class="btn btn-primary active" role="button" onclick="toggle_subpanel('summary');">Summary Data</btn>
-								<btn id="ph-pediatrics-btn" class="btn btn-primary" role="button" onclick="toggle_subpanel('pediatrics');">Pediatrics</btn>
-							</div>
-							
 							<div>
 								<p style="display:none;">
 									The public health dashboards provide policymakers and investigators with high-value insights into COVID-19 based on data from the N3C Data Enclave, the largest collection of real-world COVID-19 data in the United States. The data within the Enclave comes from 69 health care institutions from 49/50 states across the United States and consists of over 12 billion rows of clinical information. 
@@ -51,15 +46,6 @@
 							</div>
 							<div id="question-description" style="padding: 10px;"></div>
 						</div>
-						<div id="ped-dash-top">
-							<h3>N3C Pediatrics Dashboard</h3>
-							<p>Funded in part by the National Institutes of Health's Eunice Kennedy Shriver 
-							National Institute of Child Health and Human Development (NICHD), the N3C Pediatrics Dashboard seeks to
-							make information about the trajectories of pediatric COVID-19 hospitalization rates and disease severity 
-							readily available for national-level decision-making. The team is led by 
-							<a href="https://som.ucdenver.edu/Profiles/Faculty/Profile/22381">Tell Bennett, MD</a>, who has been a part 
-							of the N3C since its inception in March 2020. </p>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -70,67 +56,20 @@
 			<div class="">
 				<div id="ph-summary" style="display: block;">
 					<c:choose>
-						<c:when test="${empty param.secondary_tab || param.secondary_tab == 'summary' }">
+						<c:when test="${not empty param.secondary_tab }">
 							<script>
- 								cache_browser_history("new-ph", "new-ph/summary")
+ 								cache_browser_history("new-ph", "new-ph")
 							</script>
-							<jsp:include page="new_ph/questions.jsp?tertiary_tab=${param.tertiary_tab}&quaternary_tab=${param.quaternary_tab}" flush="true" />
+							<jsp:include page="new_ph/questions.jsp?secondary_tab=${param.secondary_tab}&tertiary_tab=${param.tertiary_tab}" flush="true" />
 						</c:when>
 						<c:otherwise>
 							<jsp:include page="new_ph/questions.jsp" flush="true" />
 						</c:otherwise>
 					</c:choose>
 				</div>
-				<div id="ph-pediatrics" style="display: none;">
-					<c:choose>
-						<c:when test="${param.secondary_tab == 'pediatrics' }">
-							<script>
- 								console.log("in peds choose", ${param.tertiary_tab})
-								cache_browser_history("new-ph", "new-ph/pediatrics")
-							</script>
-							<jsp:include page="modules/pediatrics.jsp?tertiary_tab=${param.tertiary_tab}" flush="true" />
-						</c:when>
-						<c:otherwise>
-							<jsp:include page="modules/pediatrics.jsp" flush="true" />
-						</c:otherwise>
-					</c:choose>
-				</div>
 			</div>
 		</div>
 		
-		
-		<script>
-
-		function toggle_subpanel(selection) {
-			if (selection == "summary") {
-				$("#ph-dash-top").css('display', 'block');
-				$("#ped-dash-top").css('display', 'none');
-				$("#ph-summary").css('display', 'block');
-				$("#ph-summary-btn").addClass("active");
-				$("#ph-pediatrics").css('display', 'none');
-				$("#ph-pediatrics-btn").removeClass("active");
-				cache_browser_history("new-ph", "new-ph/summary")
-			}
-			if (selection == "pediatrics") {
-				$("#ped-dash-top").css('display', 'block');
-				$("#ph-dash-top").css('display', 'none');
-				$("#ph-summary").css('display', 'none');
-				$("#ph-summary-btn").removeClass("active");
-				$("#ph-pediatrics").css('display', 'block');
-				$("#ph-pediatrics-btn").addClass("active");
-				cache_browser_history("public-health", "public-health/pediatrics")
-			}
-		}
-
-		<c:choose>
-			<c:when test="${empty param.secondary_tab || param.secondary_tab == 'summary' }">
-				toggle_subpanel("summary")
-			</c:when>
-			<c:when test="${param.secondary_tab == 'pediatrics' }">
-				toggle_subpanel("pediatrics")
-			</c:when>
-		</c:choose>
-		</script>
 	</div>
 
 	<jsp:include page="footer.jsp" flush="true" />

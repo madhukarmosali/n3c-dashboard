@@ -315,7 +315,7 @@ function question_detail_toggle() {
 
 function frame_render(question, description, asked, limitations, iframe) {
 	console.log("iframe", iframe)
-	cache_browser_history("new-ph", "new-ph/summary/"+iframe)
+	cache_browser_history("new-ph", "new-ph/"+iframe)
 	var divContainer = document.getElementById("question-tile");
 	divContainer.innerHTML = 
 		'<h2 class="header-text">' + question + '</h2>'
