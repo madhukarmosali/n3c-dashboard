@@ -307,7 +307,7 @@
 
 				  svg.append("g")
 			      .attr("class", "axis1 ${namespace}")
-			      .call(d3.axisLeft(y1).ticks(5));
+			      .call(d3.axisLeft(y1).ticks(10));
 
 				  // text label for the y axis
 				  svg.append("text")
@@ -322,7 +322,7 @@
 				  svg.append("g")
 			      	.attr("class", "axis2 ${namespace}")
 			      	.attr("transform", "translate( " + width + ", 0 )")
-			      	.call(d3.axisRight(y2).ticks(5));
+			      	.call(d3.axisRight(y2).ticks(10));
 
 				  d3.select(".axis1").selectAll('text').style("fill", "${column1_color}").style("font-size", "12px");
 				  d3.select(".axis2").selectAll('text').style("fill", "${column2_color}").style("font-size", "12px");

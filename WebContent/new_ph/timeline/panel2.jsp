@@ -3,7 +3,7 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 <div style="text-align:center; font-size: 1.3rem; margin-top: 40px;">
-	<h3>Select a Topic to Explore:</h3>
+	<h3>Select a Dashboard to Explore:</h3>
 	<select id="selectMe">
 		<option value="timeline_1">Daily Patient Count & 7-day Rolling Avg.</option>
 		<option value="timeline_2">Cumulative Patient Count & 7-day Rolling Avg.</option>

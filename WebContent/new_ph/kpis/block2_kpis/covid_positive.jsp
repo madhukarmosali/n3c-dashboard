@@ -6,18 +6,17 @@
 	select to_char(value::int/1000000.0, '999.99')||'M' as count from n3c_admin.enclave_stats where title='covid_positive_patients';
 </sql:query>
 <c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
-	<div class="col-12 col-md-3 kpi-main-col">
+	<div class="col-12 kpi-main-col">
 		<div class="panel-primary kpi">
 			<div class="kpi-inner">
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-user-plus"></i> COVID+ Patients in Enclave</td>
+							<td><i class="fas fa-user-plus"></i> COVID+ Patients*</td>
 						</tr>
 					</table>
 				</div>
 				<div class="panel-heading kpi_num">${row.count}</div>
-				<div class="kpi-limit"><small>&nbsp;</small></div>
 			</div>
 		</div>
 	</div>

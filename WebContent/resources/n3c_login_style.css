@@ -221,8 +221,8 @@ a:hover, .btn-link:hover{
 
 
 /* -------------- Accordion ---------------------  */
-.accordion-toggle:hover,
-.accordion-toggle:focus{
+.accordion-toggle .btn:hover,
+.accordion-toggle .btn:focus{
 	text-decoration:none;
 }
 
@@ -361,7 +361,7 @@ a:hover, .btn-link:hover{
 #d3viz .kpi{
 	width: 100%;
 	padding: 10px;
-    box-shadow: 0px 10px 25px -10px #9dadd6;
+/*     box-shadow: 0px 10px 25px -10px #9dadd6; */
     border-radius: 10px;
 }
 
@@ -403,8 +403,12 @@ a:hover, .btn-link:hover{
 	display:flex;
 }
 
+#d3viz .kpi-inner .panel-body{
+	font-weight: 600;
+}
+
 #d3viz .kpi-row{
-	padding-top: 20px;
+/* 	padding-top: 20px; */
 /*     background: #f2f2f2; */
 /*     border-top: 1px solid lightgray; */
 /*     border-bottom: 1px solid lightgray; */
@@ -436,7 +440,7 @@ a:hover, .btn-link:hover{
 	text-align: center;
     font-size: 1.7rem;
     color: #4661a4;
-    font-weight: 600;
+/*     font-weight: 600; */
 }
 
 .kpi-limit, .kpi-limit a{
@@ -485,6 +489,24 @@ a:hover, .btn-link:hover{
 .viz_options_dropdown .select2-selection.select2-selection--single, 
 .viz_options_dropdown .select2-selection__arrow{
 	height: 35px !important;
+}
+
+.viz_options_dropdown .select2-selection.select2-selection--single{
+/* 	background-color: #4661a4; */
+/* 	border-color: #4661a4; */
+}
+
+.viz_options_dropdown .select2-selection__rendered{
+/* 	color: white !important; */
+	color: #4661a4 !important;
+}
+
+.viz_options_dropdown .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: transparent transparent #4661a4 transparent;
+}
+
+.viz_options_dropdown .select2-container--default .select2-selection--single .select2-selection__arrow b{
+	border-color: #4661a4 transparent transparent transparent;
 }
 
 .viz_options_dropdown .select2-selection__rendered{
@@ -600,6 +622,22 @@ a:hover, .btn-link:hover{
 
 .dash-filter-btn:hover{
     background: #354a80;
+}
+
+.dash-filter-btn2{
+	margin-top: 20px;
+	border-radius: 5px;
+    background: white;
+    color: #4661a4;
+    padding: 7px;
+/*     border-color: #4661a4; */
+	border: none;
+	box-shadow: none !important;
+}
+
+.dash-filter-btn2:hover{
+    color: #354a80;
+    border-color: #354a80; 
 }
 
 

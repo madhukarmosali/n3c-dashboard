@@ -12,7 +12,7 @@
 			from n3c_questions.long_covid_concept_set_agg_censored) as foo
 </sql:query>
 <c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
-	<div class="col-12 col-md-3 kpi-main-col">
+	<div class="col-12 kpi-main-col">
 		<div class="panel-primary kpi">
 			<div class="kpi-inner">
 				<div class="panel-body">
@@ -23,7 +23,6 @@
 					</table>
 				</div>
 				<div id="${param.block}_patient_count_kpi" class="panel-heading kpi_num">${row.patient_count}</div>
-				<div class="kpi-limit"><a onclick="limitlink(); return false;" href="#limitations-section">see limitations below</a></div>
 			</div>
 		</div>
 	</div>

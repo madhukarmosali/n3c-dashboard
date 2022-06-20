@@ -3,25 +3,21 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 <div class="topic_dropdown" style="text-align:center; font-size: 1.5rem;">
-	<h4 class="viz_color_header">Select a Topic to Explore:</h4>
+	<h4 class="viz_color_header">Select a Dashboard to Explore:</h4>
 	<select id="selectMe">
 		<option value="long_covid_1">Long COVID Dashboard Overview</option>
-		<optgroup label="Long COVID Indicators">
+		<optgroup label="Long COVID Diagnosis">
 			<option value="long_covid_13">Long COVID ICD-10 Code (U09.9)</option>
 			<option value="long_covid_2">Long COVID Clinic Visit</option>
 		</optgroup>
-		<optgroup label="Patients who have experienced Long COVID-Related Symptoms">
-<!-- 			<option value="long_covid_3">COVID+ Diagnosis and Long COVID Diagnosis</option> -->
-<!-- 			<option value="long_covid_5">Individual Symptom</option> -->
-<!-- 			<option value="long_covid_4">Grouped Symptoms</option> -->
-<!-- 			<option value="long_covid_6">Symptom Experience Before/After COVID+</option> -->
+		<optgroup label="Potential Long COVID Symptoms">
 			<option value="long_covid_3">Cumulative Symptoms Summary</option>
-			<option value="long_covid_5">Ungrouped ICD-10 Symptom Counts</option>
-			<option value="long_covid_4">Individual ICD-10 Symptom Grouped Counts</option>
 			<option value="long_covid_6">ICD-10 Symptom Counts Before/After COVID+</option>
+			<option value="long_covid_4">Grouped ICD-10 Symptom Counts</option>
+			<option value="long_covid_5">Ungrouped ICD-10 Symptom Counts</option>
 			<option value="long_covid_12">Patients That Have Not Tested Positive For COVID</option>
 		</optgroup>
-		<optgroup label="Individual Long COVID-Related Symptoms">
+		<optgroup label="Individual Symptoms">
 			<option value="long_covid_7">Cognitive Impairment</option>
 			<option value="long_covid_8">Fatigue</option>
 			<option value="long_covid_9">Mental Health Condition</option>

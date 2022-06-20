@@ -12,13 +12,13 @@
 			from n3c_questions.icd10_individual_symptom_summary_counts where observation = 'Tested positive') as foo
 </sql:query>
 <c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
-	<div class="col-12 col-md-3 kpi-main-col">
+	<div class="col-12 kpi-main-col">
 		<div class="panel-primary kpi">
 			<div class="kpi-inner">
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Patients w/Long COVID-Related Symptoms & Tested Positive</td>
+							<td><i class="fas fa-users"></i> Patients w/Symptoms & Tested Positive</td>
 						</tr>
 					</table>
 				</div>

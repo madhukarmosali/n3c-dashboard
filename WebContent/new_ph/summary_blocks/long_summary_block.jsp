@@ -96,7 +96,7 @@
 		<h4 class="text-center mb-2 mt-5 viz_color_header">Explore the Demographics Associated with Long COVID</h4>
 		<div class="row feature_viz_section">
 			<div class="col-12 col-xl-6 mx-auto" id="indicator">
-				<h5 class="text-center mb-2 feature_sub_heading">By Long COVID Indicator</h5>
+				<h5 class="text-center mb-2 feature_sub_heading">By Long COVID Diagnosis</h5>
 				<div id="indicator_viz"></div>
 				<jsp:include page="long_summary_block_vizs/long_bar.jsp">
 					<jsp:param name="graph_element" value="indicator_viz" />

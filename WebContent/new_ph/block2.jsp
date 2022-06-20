@@ -32,6 +32,71 @@
 #viz_title{
 	display:none;
 }
+
+#${param.block}_btn_hide{
+	position: absolute;
+    left: 0px;
+    top: 0px;
+    transform: rotate(-90deg) translate(-20px, -77px);
+    border-radius: 0;
+}
+
+
+#${param.block}_btn_show {
+    /* position: absolute; */
+    left: 0px;
+    top: 0px;
+    transform: rotate(-90deg) translate(-24px, 54px);
+    border-radius: 0;
+}
+
+.drop_filter{
+	right: 0;
+	left: auto;
+	width: max-content;
+}
+
+.dash_filter_header{
+	margin-right: 30px;
+    margin-left: 30px;
+}
+
+.show_clear{
+	display: inline-block;
+}
+
+.no_clear{
+	display:none;
+}
+
+.show_filt:after{
+	border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+.hide_filt:after{
+	border-top: 0;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0.3em solid;
+    border-left: 0.3em solid transparent;
+}
+
+.viz_options_dropdown{
+	text-align: left; 
+	font-size: 1.2rem;
+}
+.filter_button_container{
+	text-align:right;
+}
+
+@media (max-width: 768px) {
+  .viz_options_dropdown, 
+  .filter_button_container{
+    text-align: center;
+  }
+}
 </style>
 
 <!-- A block is comprised of a header bar, an optional left column with KPIs and filters, and a main panel
@@ -44,18 +109,21 @@
 <%-- 			${param.block_header } --%>
 <!-- 		</div> -->
 	
-		<c:if test="${not empty param.kpis}">
-			<div class="row kpi-row mt-2">
-				<div id="${param.block}-block-kpi-kpi" class="col-12">
-					<div class="kpi_containter row" style="justify-content: center;">
-						<jsp:include page="${param.kpis}?block=${param.block}&symptom=${param.kpi_filter}"/>
+		
+		<div class="row" style="margin-top: 30px;">
+		
+			<c:if test="${not empty param.kpis}">
+			<div class="col-12 col-md-2">
+				<div class="row kpi-row">
+					<div id="${param.block}-block-kpi-kpi" class="col-12">
+						<div class="kpi_containter row" style="justify-content: center;">
+							<jsp:include page="${param.kpis}?block=${param.block}&symptom=${param.kpi_filter}"/>
+							<div class="kpi-limit"><a onclick="limitlink(); return false;" href="#limitations-section">* See Limitations Below</a></div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</c:if>
-		
-		<div class="row" style="margin-top: 30px;">
-			<!-- the main panel has a strip of optional selection buttons across the top, controlling the visibility of the matched sub-panel -->
+			</c:if>
 			
 			<div id="${param.block}-panel" class="col-12 col-md-10 mx-auto mb-4" >
 				
@@ -65,29 +133,74 @@
 					</div>
 				</c:if>
 				
-				<c:if test="${not empty param.severity_panel || not empty param.age_panel || not empty param.gender_panel || not empty param.ethnicity_panel}">
-				<div style="text-align:center; font-size: 1.2rem;" class="viz_options_dropdown">
-					<span>Explore Topic By </span>
-					<select id="${param.block}toggle_viz_select">
-						<c:if test="${not empty param.severity_panel}">
-							<option value="severity">Severity</option>
-						</c:if>
-						<c:if test="${not empty param.age_panel}">
-							<option value="age">Age</option>
-						</c:if>
-						<c:if test="${not empty param.race_panel}">
-							<option value="race">Race</option>
-						</c:if>
-						<c:if test="${not empty param.gender_panel}">
-							<option value="gender">Gender</option>
-						</c:if>
-						<c:if test="${not empty param.ethnicity_panel}">
-							<option value="ethnicity">Ethnicity</option>
-						</c:if>
-							<option hidden value="verylongtext">verylongtexttext</option>
-					</select>
+				<div class="row">
+					<c:if test="${not empty param.severity_panel || not empty param.age_panel || not empty param.gender_panel || not empty param.ethnicity_panel}">
+						<div class="mt-2 col-12 col-md-6">
+						<div class="viz_options_dropdown">
+							<span class="align-middle">Explore Topic By </span>
+							<select id="${param.block}toggle_viz_select">
+								<c:if test="${not empty param.severity_panel}">
+									<option value="severity">Severity</option>
+								</c:if>
+								<c:if test="${not empty param.age_panel}">
+									<option value="age">Age</option>
+								</c:if>
+								<c:if test="${not empty param.race_panel}">
+									<option value="race">Race</option>
+								</c:if>
+								<c:if test="${not empty param.gender_panel}">
+									<option value="gender">Gender</option>
+								</c:if>
+								<c:if test="${not empty param.ethnicity_panel}">
+									<option value="ethnicity">Ethnicity</option>
+								</c:if>
+									<option hidden value="verylongtextverylongtext">verylongtextverylongtext</option>
+							</select>
+						</div>	
+						</div>
+					</c:if>
+					<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter4 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter || not empty param.symptom_filter}">
+						<div class="mt-2 col-12 col-md-6 filter_button_container">
+							<button id="${param.block}_btn_clear" class="btn button dash-filter-btn2 mt-0 no_clear" onclick="${param.block}_filter_clear()"><i class="fas fa-times-circle"></i> Clear Filters</button>
+							<div class="dropdown" style="display: inline-block;">
+		  						<button data-bs-auto-close="false" class="btn dash-filter-btn dropdown-toggle mt-0 show_filt" type="button" id="${param.block}dropdownMenuButton" data-toggle="" aria-haspopup="true" aria-expanded="false">
+		    						Chart/Table Filters
+		  						</button>
+			  					<div id="${param.block}filter_options_drop" class="dropdown-menu dropdown-menu-right drop_filter" aria-labelledby="${param.block}dropdownMenuButton">
+			    					<div id="${param.block}-block-kpi" class="kpi_section">
+										<!-- filters are enabled by passing in a boolean parameter -->
+										
+										<c:if test="${param.severity_filter}">
+											<jsp:include page="filters/severity.jsp"/>
+										</c:if>
+										<c:if test="${param.age_filter}">
+											<jsp:include page="filters/age.jsp"/>
+										</c:if>
+										<c:if test="${param.age_filter4}">
+											<jsp:include page="filters/age_4.jsp"/>
+										</c:if>
+										<c:if test="${param.race_filter}">
+											<jsp:include page="filters/race.jsp"/>
+										</c:if>
+										<c:if test="${param.gender_filter}">
+											<jsp:include page="filters/gender.jsp"/>
+										</c:if>
+										<c:if test="${param.ethnicity_filter}">
+											<jsp:include page="filters/ethnicity.jsp"/>
+										</c:if>
+										<c:if test="${param.observation_filter}">
+											<jsp:include page="filters/observation.jsp"/>
+										</c:if>
+										<c:if test="${param.symptom_filter}">
+											<jsp:include page="filters/symptom.jsp"/>
+										</c:if>
+									</div>
+			  					</div>
+							</div>
+						</div>
+					</c:if>
+					
 				</div>
-				</c:if>
 				
 				<c:if test="${not empty param.simple_panel}">
 					<div id="${param.block}-simple" class="" style="display: block;">
@@ -116,43 +229,7 @@
 				</c:if>
 				
 			</div>
-			
-			<!-- right column for KPIs and filters -->
-	
-			<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter4 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter}">
-			<div id="${param.block}-block-kpi" class="col-12 col-md-2 kpi_section">
-				<div class="panel-body dash_filter_header">
-					<h5><i class="fas fa-filter"></i> Filter Chart/Table</h5>
-				</div>
 
-				<!-- filters are enabled by passing in a boolean parameter -->
-				
-				<c:if test="${param.severity_filter}">
-					<jsp:include page="filters/severity.jsp"/>
-				</c:if>
-				<c:if test="${param.age_filter}">
-					<jsp:include page="filters/age.jsp"/>
-				</c:if>
-				<c:if test="${param.age_filter4}">
-					<jsp:include page="filters/age_4.jsp"/>
-				</c:if>
-				<c:if test="${param.race_filter}">
-					<jsp:include page="filters/race.jsp"/>
-				</c:if>
-				<c:if test="${param.gender_filter}">
-					<jsp:include page="filters/gender.jsp"/>
-				</c:if>
-				<c:if test="${param.ethnicity_filter}">
-					<jsp:include page="filters/ethnicity.jsp"/>
-				</c:if>
-				<c:if test="${param.observation_filter}">
-					<jsp:include page="filters/observation.jsp"/>
-				</c:if>
-				
-
-				<button id="${param.block}_btn" class="btn button dash-filter-btn mt-3" onclick="${param.block}_filter_clear()"><i class="fas fa-times-circle"></i> Clear all Filters</button>
-			</div>
-			</c:if>
 			
 			
 		</div>
@@ -189,6 +266,12 @@
     		   }
 	    });
 	})
+	
+	$('#${param.block}dropdownMenuButton').on('click', function() {
+		$("#${param.block}filter_options_drop").toggleClass('show');
+		$(this).toggleClass('show_filt hide_filt');
+	});
+	
 
 	function ${param.block}_viz_constrain(element, elementParent) {
 		var options = $("#${param.block}-"+elementParent.toLowerCase()+"-select");
@@ -231,7 +314,8 @@
 	}
 
 
-	$(document).ready(function() {       
+	$(document).ready(function() {   
+		
 		$('#${param.block}-severity-select').multiselect({	
 			onChange: function(option, checked, select) {
 				var options = $('#${param.block}-severity-select');
@@ -278,6 +362,7 @@
 		        
 				${param.block}_constrain("gender",  selected[0].join('|'));
 			    ${param.block}_refreshHistograms();
+
             }
 		});
 		$('#${param.block}-ethnicity-select').multiselect({	
@@ -292,6 +377,38 @@
 			    ${param.block}_refreshHistograms();
             }
 		});
+		
+		$('#${param.block}-symptom-select').multiselect({	
+			onChange: function(option, checked, select) {
+				var options = $('#${param.block}-symptom-select');
+		        var selected = [];
+		        $(options).each(function(){
+		            selected.push($(this).val());
+		        });
+		        
+				${param.block}_constrain("symptom",  selected[0].join('|'));
+			    ${param.block}_refreshHistograms();
+            }
+		});
+	
+		var mut = new MutationObserver(function(mutations, mut){
+			if($('#${param.block}-block-kpi').find('.multiselect.dropdown-toggle[title!="None selected"]').length !== 0){
+				$('#${param.block}_btn_clear').removeClass("no_clear");
+				$('#${param.block}_btn_clear').addClass("show_clear");
+			} else {
+				$('#${param.block}_btn_clear').removeClass("show_clear");
+				$('#${param.block}_btn_clear').addClass("no_clear");
+			}
+		});
+		$( "#${param.block}-block-kpi .multiselect").each(function() {
+			mut.observe(this,{
+				'attributes': true,
+				attributeFilter: ['title']
+			});
+		});
+		
+	
+		
 	});
 
 	function ${param.block}_filter_clear() {
@@ -300,15 +417,19 @@
 		$('#${param.block}-race-select').multiselect('clearSelection');
 		$('#${param.block}-gender-select').multiselect('clearSelection');
 		$('#${param.block}-ethnicity-select').multiselect('clearSelection');
+		$('#${param.block}-symptom-select').multiselect('clearSelection');
 		
 		${param.block}_constrain("severity", '');
 		${param.block}_constrain("age", '');
 		${param.block}_constrain("race", '');
 		${param.block}_constrain("gender", '');
 		${param.block}_constrain("ethnicity", '');
+		${param.block}_constrain("symptom", '');
 		
 		$("#${param.datatable_div}-table").DataTable().columns().search('').draw();
 	    ${param.block}_refreshHistograms();
+	    
+	    
 	}
 	
 	var ${param.block}_AgeArray = new Array();

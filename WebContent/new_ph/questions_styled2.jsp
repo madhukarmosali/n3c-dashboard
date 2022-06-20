@@ -4,13 +4,13 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
 <style>
-#limitations_drop a[aria-expanded = "true"] span:after{
+#limitations_drop a[aria-expanded = "true"] span.btn:after{
 	font-family: "Font Awesome\ 5 Free"; 
 	content: "\f056";
   	font-weight: 900;
 }
 
-#limitations_drop a[aria-expanded = "false"] span:after{
+#limitations_drop a[aria-expanded = "false"] span.btn:after{
 	font-family: "Font Awesome\ 5 Free"; 
 	content: "\f055";
 	font-weight: 900;
@@ -83,13 +83,13 @@ function frame_render(question, description, asked, limitations, frame, seqnum) 
 			'<div id="limitations-section">\
 				<div class="accordion" id="limitations_drop">\
 					<div class="card">\
-						<div class="card-header" id="limitheadingOne">\
-	  						<h4 class="mb-0">Limitations \
-	    						<a alt="expand/collapse limitations section button" href="" style="display:inline; float:right;" class="btn btn-link btn-block text-left collapsed icon-btn p-0 accordion-toggle" data-toggle="collapse" data-target="#limitcollapseOne" aria-expanded="false" aria-controls="collapseOne">\
-	      							<span>&nbsp;</span>\
-	    						</a>\
-	  						</h4>\
-						</div>\
+						<a Title="expand/collapse limitations section" href="" class="accordion-toggle" data-toggle="collapse" data-target="#limitcollapseOne" aria-expanded="false" aria-controls="collapseOne">\
+							<div class="card-header" id="limitheadingOne">\
+	  							<h4 class="mb-0"><span class="accordion_text">Limitations</span> \
+	  							<span style="display:inline; float:right;" class="btn btn-link btn-block text-left collapsed icon-btn p-0 accordion-toggle"></span>\
+	  							</h4>\
+							</div>\
+						</a>\
 						<div id="limitcollapseOne" class="collapse" aria-labelledby="limitheadingOne" data-parent="#limitations_drop">\
 	  						<div class="card-body">' +
 	   							limitations + 

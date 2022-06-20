@@ -17,18 +17,17 @@
 </sql:query>
 
 <c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
-	<div class="col-12 col-md-3 kpi-main-col">
+	<div class="col-12 kpi-main-col">
 		<div class="panel-primary kpi">
 			<div class="kpi-inner">
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> First Diagnosis Count</td>
+							<td><i class="fas fa-users"></i> First Diagnosis Count*</td>
 						</tr>
 					</table>
 				</div>
 				<div id="${param.block}_first_diagnosis_kpi" class="panel-heading kpi_num">${row.first_diagnosis}</div>
-				<div class="kpi-limit"><a onclick="limitlink(); return false;" href="#limitations-section">see limitations below</a></div>
 			</div>
 		</div>
 	</div>

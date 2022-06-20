@@ -16,7 +16,7 @@
   	where test_date_diff_range not in ('0-15','15-30');
 </sql:query>
 <c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
-	<div class="col-12 col-md-3 kpi-main-col">
+	<div class="col-12 kpi-main-col">
 		<div class="panel-primary kpi">
 			<div class="kpi-inner">
 				<div class="panel-body">
@@ -27,7 +27,6 @@
 					</table>
 				</div>
 				<div id="${param.block}_reinfected_kpi" class="panel-heading kpi_num">${row.count}</div>
-				<div class="kpi-limit"><small>&nbsp;</small></div>
 			</div>
 		</div>
 	</div>

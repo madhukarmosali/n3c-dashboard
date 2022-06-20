@@ -16,18 +16,17 @@
 			from n3c_questions.covid_lds_with_reinfection_date_counts_censored) as foo
 </sql:query>
 <c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
-	<div class="col-12 col-md-3 kpi-main-col">
+	<div class="col-12 kpi-main-col">
 		<div class="panel-primary kpi">
 			<div class="kpi-inner">
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Reinfection Count</td>
+							<td><i class="fas fa-users"></i> Reinfection Count*</td>
 						</tr>
 					</table>
 				</div>
 				<div id="${param.block}_reinfected_kpi" class="panel-heading kpi_num">${row.reinfected}</div>
-				<div class="kpi-limit"><a onclick="limitlink(); return false;" href="#limitations-section">see limitations below</a></div>
 			</div>
 		</div>
 	</div>

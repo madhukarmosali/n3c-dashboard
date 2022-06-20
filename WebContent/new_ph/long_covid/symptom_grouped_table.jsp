@@ -21,18 +21,17 @@ function ${param.block}_constrain_table(filter, constraint) {
 		table.column(4).search(constraint, true, false, true).draw();	
 		break;
 	case 'symptom':
-		table.column(5).search(constraint, true, false, true).draw();	
+		console.log(constraint);
+		table.column(6).search(constraint.replace(/[$^]/g, ''), true, false, true).draw();	
 		break;
 	}
 	
-	console.log('${param.target_kpis}')
 	var kpis = '${param.target_kpis}'.split(',');
 	for (var a in kpis) {
 		console.log(kpis[a]);
 		${param.block}_updateKPI(table, kpis[a])
 	}
 	
-	console.log('${param.target_filtered_kpis}')
 	var kpis = '${param.target_filtered_kpis}'.split(',');
 	for (var a in kpis) {
 		console.log('filtered', kpis[a]);
@@ -163,7 +162,8 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
         	{ data: 'race', visible: true, orderable: true },
         	{ data: 'ethnicity', visible: true, orderable: true },
         	{ data: 'observation', visible: true, orderable: true },
-        	{ data: 'symptom', visible: true, orderable: true },
+        	{ data: 'symptom', visible: false, orderable: false },
+        	{ data: 'symptom_long', visible: true, orderable: true },
         	{ data: 'patient_display', visible: true, orderable: true, orderData: [7] },
         	{ data: 'patient_count', visible: false },
         	{ data: 'age_abbrev', visible: false },
