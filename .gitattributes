@@ -203,6 +203,7 @@ WebContent/new_ph/kpis/block2_kpis/long_in_record.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_in_record_grouped.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_in_record_individual_symptom.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_in_record_ungrouped.jsp -text
+WebContent/new_ph/kpis/block2_kpis/long_individual_symptom_clean.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_tested_positive.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_tested_positive_grouped.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_tested_positive_individual_symptom.jsp -text
@@ -215,6 +216,7 @@ WebContent/new_ph/kpis/block2_kpis/long_total_ungrouped.jsp -text
 WebContent/new_ph/kpis/block2_kpis/not_positive.jsp -text
 WebContent/new_ph/kpis/block2_kpis/not_positive_total.jsp -text
 WebContent/new_ph/kpis/block2_kpis/reinfection_30day.jsp -text
+WebContent/new_ph/kpis/block2_kpis/total_w_symptoms_clean.jsp -text
 WebContent/new_ph/kpis/covid_first_diagnosis.jsp -text
 WebContent/new_ph/kpis/covid_positive.jsp -text
 WebContent/new_ph/kpis/covid_reinfections.jsp -text

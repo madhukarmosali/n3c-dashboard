@@ -28,7 +28,7 @@
 	<jsp:param name="datatable" value="long_covid/symptom_ungrouped_table.jsp" />
 	<jsp:param name="datatable_div" value="long_covid_symptom_ungrouped" />
 	<jsp:param name="datatable_feed" value="long_covid/feeds/symptom_ungrouped.jsp" />
-	<jsp:param name="datatable_kpis" value="patient_count" />
+	<jsp:param name="datatable_kpis" value="tested_positive" />
 	<jsp:param name="datatable_filtered_kpis" value="observation|Tested positive|tested_positive|patient_count,observation|Has U09.9 in Record|in_record|patient_count" />
 </jsp:include>
 <script>

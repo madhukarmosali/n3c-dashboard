@@ -15,6 +15,7 @@
 				else count::int
 			end as count
 			from n3c_questions.icd10_individual_symptom_summary_counts_by_symptom
+			where observation = 'Has U09.9 in Record'  or observation = 'Does not have U09.9 in Record'
 			<c:if test="${not empty param.symptom}">where symptom = '${param.symptom}'</c:if>
 		) as foo
 </sql:query>
@@ -29,7 +30,7 @@
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_patient_count_kpi" class="panel-heading kpi_num">${row.patient_count}</div>
+				<div class="panel-heading kpi_num">${row.patient_count}</div>
 			</div>
 		</div>
 	</div>

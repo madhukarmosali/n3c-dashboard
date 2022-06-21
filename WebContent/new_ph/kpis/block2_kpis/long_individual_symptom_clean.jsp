@@ -14,7 +14,8 @@
 				when (count = '<20' or count is null) then 0
 				else count::int
 			end as count
-			from n3c_questions.icd10_individual_symptom_summary_counts_by_symptom where observation = 'Tested positive'
+			from n3c_questions.icd10_individual_symptom_summary_counts_by_symptom 
+			where observation = 'Has U09.9 in Record'  or observation = 'Does not have U09.9 in Record'
 			<c:if test="${not empty param.symptom}">and symptom = '${param.symptom}'</c:if>
 		) as foo
 </sql:query>
@@ -25,11 +26,11 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Patients w/Symptom & Tested Positive*</td>
+							<td><i class="fas fa-users"></i> Patients w/Symptom</td>
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_tested_positive_kpi" class="panel-heading kpi_num">${row.patient_count}</div>
+				<div class="panel-heading kpi_num">${row.patient_count}</div>
 			</div>
 		</div>
 	</div>

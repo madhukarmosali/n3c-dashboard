@@ -19,7 +19,7 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Patients that Have Not Tested Positive in Enclave</td>
+							<td><i class="fas fa-users"></i> Total Patients that Have Not Tested Positive*</td>
 						</tr>
 					</table>
 				</div>

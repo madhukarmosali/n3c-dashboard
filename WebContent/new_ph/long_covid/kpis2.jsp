@@ -79,6 +79,10 @@
 		<jsp:include page="../kpis/block2_kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
+		<jsp:include page="../kpis/block2_kpis/long_individual_symptom_clean.jsp">
+			<jsp:param name="block" value="${param.block}" />
+			<jsp:param name="symptom" value="${param.symptom}" />
+		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_tested_positive_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
@@ -91,6 +95,10 @@
 	<c:when test="${param.block == 'long_covid_8'}">
 		<jsp:include page="../kpis/block2_kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
+		</jsp:include>
+		<jsp:include page="../kpis/block2_kpis/long_individual_symptom_clean.jsp">
+			<jsp:param name="block" value="${param.block}" />
+			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_tested_positive_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
@@ -105,6 +113,10 @@
 		<jsp:include page="../kpis/block2_kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
+		<jsp:include page="../kpis/block2_kpis/long_individual_symptom_clean.jsp">
+			<jsp:param name="block" value="${param.block}" />
+			<jsp:param name="symptom" value="${param.symptom}" />
+		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_tested_positive_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
@@ -118,6 +130,10 @@
 		<jsp:include page="../kpis/block2_kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
+		<jsp:include page="../kpis/block2_kpis/long_individual_symptom_clean.jsp">
+			<jsp:param name="block" value="${param.block}" />
+			<jsp:param name="symptom" value="${param.symptom}" />
+		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_tested_positive_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
 			<jsp:param name="symptom" value="${param.symptom}" />
@@ -130,6 +146,10 @@
 	<c:when test="${param.block == 'long_covid_11'}">
 		<jsp:include page="../kpis/block2_kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
+		</jsp:include>
+		<jsp:include page="../kpis/block2_kpis/long_individual_symptom_clean.jsp">
+			<jsp:param name="block" value="${param.block}" />
+			<jsp:param name="symptom" value="${param.symptom}" />
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_tested_positive_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
@@ -145,6 +165,9 @@
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/not_positive_total.jsp">
+			<jsp:param name="block" value="${param.block}" />
+		</jsp:include>
+		<jsp:include page="../kpis/block2_kpis/total_w_symptoms_clean.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/not_positive.jsp">
