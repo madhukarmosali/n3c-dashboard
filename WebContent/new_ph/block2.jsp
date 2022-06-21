@@ -458,6 +458,9 @@
 	var ${param.block}_MedicationArray = new Array();
 	var ${param.block}_DiabetesArray = new Array();
 
+	var ${param.block}_AgeGenderArray = new Array();
+	var ${param.block}_GenderAgeArray = new Array();
+
 	function ${param.block}_refreshHistograms() {
 	    var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();
 	    var data2 = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data();
@@ -487,6 +490,9 @@
 	    
 	    ${param.block}_refreshMedicationArray(data2);
 	    ${param.block}_refreshDiabetesArray(data);
+	    
+	    ${param.block}_refreshAgeGenderArray(data);
+	    ${param.block}_refreshGenderAgeArray(data);
 	    
 	    if ('${param.block}' === 'long_covid_6') {
 	    	${param.block}_before_refresh();
@@ -763,4 +769,13 @@
 	<jsp:param name="primary" value="observation"/>
 	<jsp:param name="secondary" value="gender"/>
 	<jsp:param name="tertiary" value="age"/>
+</jsp:include>
+
+<jsp:include page="tripleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="AgeGenderArray"/>
+	<jsp:param name="primary" value="observation"/>
+	<jsp:param name="secondary" value="age"/>
+	<jsp:param name="tertiary" value="gender"/>
 </jsp:include>

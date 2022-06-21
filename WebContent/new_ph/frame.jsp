@@ -42,7 +42,7 @@
 		<jsp:include page="smoking/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'hlh'}">
-		<jsp:include page="hlh/panel.jsp"/>
+		<jsp:include page="hlh/panel2.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'hss'}">
 		<jsp:include page="hss/panel.jsp"/>
