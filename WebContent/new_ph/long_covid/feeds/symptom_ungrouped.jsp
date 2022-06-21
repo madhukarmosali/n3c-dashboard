@@ -18,7 +18,8 @@
 						else count::int
 					end as patient_count
 				  from n3c_questions.icd10_individual_symptom_summary_counts_by_symptom
-				<c:if test="${not empty param.symptom}">where symptom = '${param.symptom}'</c:if>
+				  where observation != 'Does not have U09.9 in Record'
+				<c:if test="${not empty param.symptom}">and symptom = '${param.symptom}'</c:if>
 		  	) as foo
 		  	natural left join n3c_dashboard.age_map4
 		  	natural left join n3c_dashboard.gender_map2

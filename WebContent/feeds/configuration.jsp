@@ -6,7 +6,7 @@ var gender_range = ["#455098", "#FFC048", "#844780", "#8B8B8B"];
 var severity_range = ["#F5B1A3", "#EE765E", "#CE3617", "#A02A12", "#5C180A", "#8B8B8B", "#8B8B8B"];
 var race_range = ["#123D63", "#CD4682", "#844780", "#FFC048", "#FF7155", "#8B8B8B"];
 var ethnicity_range = ["#29305b", "#818bc6", "#8B8B8B"];
-var age_range = ["#D7BFD9", "#9A5FA0", "#3E2640", "#8B8B8B"];
+var age_range = ["#ccd1dc", "#6f809b", "#123d63", "#8B8B8B"];
 
 var categorical = ["#455098", "#CD4682", "#844780", "#FFC048", "#FF7155", "#123D63", "#8B8B8B"];
 

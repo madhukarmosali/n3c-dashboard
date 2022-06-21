@@ -12,6 +12,7 @@
 			count as patient_display,
 			count as patient_count
 		  from n3c_questions.symptom_before_or_after_covid
+		  <c:if test="${not empty param.symptom}">where symptom = '${param.symptom}'</c:if>
 		  ) as foo
 		  natural join n3c_dashboard.before_after_map
 		  ) as done;

@@ -20,6 +20,8 @@
 	<jsp:param name="race_panel" value="long_covid/observationRace.jsp" />
 	<jsp:param name="gender_panel" value="long_covid/observationGender.jsp" />
 	<jsp:param name="ethnicity_panel" value="long_covid/observationEthnicity.jsp" />
+	<jsp:param name="static_secondary_panel" value="long_covid/long_before_static.jsp" />
+	<jsp:param name="symptom" value="Cognitive impairment" />
 	<jsp:param name="ethnicity_labelwidth" value="210" />
 	<jsp:param name="gender_labelwidth" value="210" />
 	<jsp:param name="race_labelwidth" value="210" />

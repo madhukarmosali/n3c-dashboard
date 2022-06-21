@@ -25,9 +25,10 @@ font-size: 14px;
 function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data, secondary_range = categorical, legend_label, min_height, nofilter) {
 	
 	var add_filter_text = 1;
+	var filter_icon = " &#xf0b0";
 	if ((nofilter != undefined) && (nofilter == 1) ){
-		console.log("reached");
 		add_filter_text = 0;
+		filter_icon = '';
 	}
 	
 	if (legend_label === undefined){
@@ -45,7 +46,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 	var maxBarWidth = 280; // width of the bar with the max value
 	var valueLabelWidth = 50; // space reserved for value labels (right)
 	var barLabelPadding = 5; // padding between bar and bar labels (left)
-	var paddingInside = 0.5
+	var paddingInside = 0.3;
 
 
 	// get length of longest legend word for tooltip sizing
@@ -80,7 +81,8 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 	function draw() {
 		var svg = d3.select("#"+domName).append("svg")
 			.attr("width", width + margin.left + margin.right)
-			.attr("height", Number(height) + margin.top + margin.bottom);
+			.attr("height", Number(height) + margin.top + margin.bottom)
+			.attr("id", domName.replace("#", "") + "svgarea");
 		
 		var g = svg.append("g")
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -126,16 +128,17 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 	    	.attr("y1", -height+margin.top)
 	    	.attr("x2", 0)
 	    	.attr("y2", 0);
+		
+		var color_cats = [];
 
 		var barsect = g.append("g")
 			.selectAll("g")
 			.data(stackData)
 			.enter().append("g")
-			.attr("class", function(d, i) { return "serie " + "color-" + z[i].substring(1); })
+			.attr("class", function(d, i) {color_cats.push(d[0][2]);  return "serie " + "color-" + z[i].substring(1); })
 			.attr("fill", function(d,i) {return z[i]; });
 		
 
-		
 		barsect.selectAll("rect")
 			.data(function(d) { return d; })
 			.enter().append("rect")
@@ -200,7 +203,61 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			    return num >= item.value;
 			  });
 			  return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0";
-			}
+		}
+		
+		function string_length_test(string) {
+			w = string.length * 7;
+// 			  var f = '12px Lato, sans-serif',
+// 			      o = $('<g></g>')
+// 			            .text(string)
+// 			            .css({'white-space': 'nowrap', 'visibility': 'hidden', 'font': f})
+// 			            .appendTo($("#" + domName + "svgarea")),
+// 			      w = o.width();
+			  return w;
+		};
+			
+		function hexToRgbA(hex){
+		    var c;
+		    if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
+		        c= hex.substring(1).split('');
+		        if(c.length== 3){
+		            c= [c[0], c[0], c[1], c[1], c[2], c[2]];
+		        }
+		        c= '0x'+c.join('');
+		        return [(c>>16)&255, (c>>8)&255, c&255];
+		    }
+		    throw new Error('Bad Hex');
+		}
+		
+		
+		barsect.selectAll("g")
+			.data(function(d) {return d; })
+			.enter().append("text")
+			.text(function(d) {
+				value =  nFormatter(d[1]-d[0], 2);
+				text_width = string_length_test(value);
+				bar_width = x(d[1]) - x(d[0]);
+				if (text_width < (bar_width)){
+					return value;
+				} else{
+					return;
+				};
+			})
+			.style("fill", function(d) {
+				color = z[color_cats.indexOf(d[2])];
+				color_rgb = hexToRgbA(color);
+					
+				brightness_back = (299*color_rgb[0] + 587*color_rgb[1] + 114*color_rgb[2]) / 1000;
+			
+				if (brightness_back >= 128){
+					return 'black';
+				} else{
+					return 'white';
+				};
+			})
+			.attr("y", function(d,i) { return (y(data[i].element)) + ((y.bandwidth()*paddingInside)/4) + (y.bandwidth()/2) ; })
+			.attr("x", function(d) { return (x(d[0])) + 5; })
+			.attr("font-size", "12px");
 		
 		
 		barsect.selectAll("g")
@@ -229,7 +286,11 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.attr("x", width)
 			.attr("y", 9.5)
 			.attr("dy", "5px")
-			.text(legend_label);
+			.text(legend_label)
+			.append("tspan")
+			.attr('font-family', 'FontAwesome')
+			.attr("class", "fa")
+			.html(filter_icon);
 
 		var legend = g.append("g")
 			.attr("transform", "translate(" + ((margin.right/2)) + " ," + 20 + " )")

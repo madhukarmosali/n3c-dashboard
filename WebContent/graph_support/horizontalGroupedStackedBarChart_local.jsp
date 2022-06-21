@@ -165,6 +165,7 @@ function localHorizontalGroupedStackedBarChart(data, domName, barLabelWidth, leg
 		     	tooltip.select("text").text(d[1]-d[0]);
 		    });
 		
+		
 		// Sub-Category Axis ///////////////
 		var subs = [...new Set( data.map( item => item.stack_group ) )];
 		

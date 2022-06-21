@@ -56,6 +56,20 @@ function localHorizontalBarChart(data, domName, barLabelWidth) {
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", Number(height) + margin.top + margin.bottom);
 		
+		var svgDefs = svg.append('defs');
+
+        var mainGradient = svgDefs.append('linearGradient')
+            .attr('id', domName.replace('#', '') + 'mainGradient');
+
+        // Create the stops of the main gradient.
+        mainGradient.append('stop')
+            .style('stop-color', "#445098")
+            .attr('offset', '0');
+
+        mainGradient.append('stop')
+            .style('stop-color', "#4661a4")
+            .attr('offset', '99%');
+		
 	
 		var g = svg.append("g")
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -95,7 +109,9 @@ function localHorizontalBarChart(data, domName, barLabelWidth) {
 			.attr('height', y.bandwidth())
 			.attr('width', function(d) { return x(d.count); })
 			.attr('stroke', 'white')
-			.attr('fill', '#205F88');
+			.attr('fill', 'url(' + domName +'mainGradient)');
+		
+		
 		
 		function nFormatter(num, digits) {
 			  const lookup = [

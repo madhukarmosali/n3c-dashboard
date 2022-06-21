@@ -35,6 +35,7 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 	for (i in data){
 		var option = document.createElement('option');
 		option.text = data[i].question;
+		option.title = data[i].description.replace("<p>","").replace("&nbsp;", "").replace("</p>","");
 		option.value = data[i].question.replace('/g, "\\') + 'arguement_value:' + data[i].description.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[i].asked + 'arguement_value:' + data[i].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[i].iframe_info + 'arguement_value:' + data[i].seqnum;
 		document.getElementById("dashboard_select").appendChild(option);
 	}

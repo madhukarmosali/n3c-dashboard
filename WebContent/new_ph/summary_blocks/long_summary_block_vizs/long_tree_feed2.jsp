@@ -16,6 +16,7 @@
 		when (observation = 'Has U09.9 in Record') then 3
 		end as viz_id
 		from n3c_questions.icd10_individual_symptom_summary_counts 
+		where observation != 'Does not have U09.9 in Record'
 		group by observation
 	) as done;
 </sql:query>

@@ -227,11 +227,12 @@
 					<div id="${param.block}-ethnicity" class="" style="display: none;" src="${param.ethnicity_panel}?panel=${param.ethnicity_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.ethnicity_labelwidth}">&label_width=${param.ethnicity_labelwidth}</c:if><c:if test="${not empty param.ethnicity_height}">&viz_height=${param.ethnicity_height}</c:if><c:if test="${not empty param.topic_description}">&topic_description=${param.topic_description}</c:if>">
 					</div>
 				</c:if>
-				
+				<c:if test="${not empty param.static_secondary_panel}">
+					<div class="testhere mt-4" id="${param.block}-long">
+						<jsp:include page="${param.static_secondary_panel}"/>
+					</div>
+				</c:if>
 			</div>
-
-			
-			
 		</div>
 		
 		<div class="row">

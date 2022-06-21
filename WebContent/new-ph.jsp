@@ -127,6 +127,11 @@
 			$('#rows').text(data['total_rows']);
 			$('#sites').text(data['sites_ingested']); 	
 		});
+		
+// 		Trying to get back broswer button to load, currently only saves last broswer
+		window.addEventListener('popstate', function (event) {
+			location.reload();
+		});
 		</script>
 	</div>
 

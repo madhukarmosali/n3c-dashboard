@@ -63,8 +63,6 @@
 		function draw() {
 			
 			
-			
-			
 			var data2 = data.rows;
 			
 			// set the ranges
@@ -80,6 +78,24 @@
 			    .attr("height", height + margin.top + margin.bottom)
 			    .append("g")
 			    	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			
+			var svgDefs = svg.append('defs');
+
+	        var mainGradient = svgDefs.append('linearGradient')
+	            .attr('id', 'mainGradient')
+	            .attr('x1', '0%')
+	  			.attr('x2', '0%')
+	  			.attr('y1', '100%')
+	  			.attr('y2', '0%');
+
+	        // Create the stops of the main gradient.
+	        mainGradient.append('stop')
+	            .style('stop-color', "#445098")
+	            .attr('offset', '0');
+
+	        mainGradient.append('stop')
+	            .style('stop-color', "#4661a4")
+	            .attr('offset', '99%');
 		    
 			// Scale the range of the data in the domains
 			  x.domain(data2.map(function(d) { return d.time_range; }));
@@ -122,7 +138,7 @@
 			      .attr("width", x.bandwidth())
 			      .attr("y", function(d) { return y(d.actual_count); })
 			      .attr("height", function(d) { return height - y(d.actual_count); })
-			      .attr("fill", "#205F88")
+			      .attr("fill", "url(#mainGradient)")
 			      .on("mouseover", function() { tooltip.style("display", null); })
 				  .on("mouseout", function() { tooltip.style("display", "none"); })
 				  .on("mousemove", function(d) {
