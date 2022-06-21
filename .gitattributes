@@ -256,6 +256,7 @@ WebContent/new_ph/long_covid/feeds/symptom_ungrouped.jsp -text
 WebContent/new_ph/long_covid/genderSeverity.jsp -text
 WebContent/new_ph/long_covid/kpis.jsp -text
 WebContent/new_ph/long_covid/kpis2.jsp -text
+WebContent/new_ph/long_covid/long_before_static.jsp -text
 WebContent/new_ph/long_covid/long_covid_1.jsp -text
 WebContent/new_ph/long_covid/long_covid_10.jsp -text
 WebContent/new_ph/long_covid/long_covid_11.jsp -text
