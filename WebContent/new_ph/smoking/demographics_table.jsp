@@ -58,7 +58,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
     	order: [[0, 'asc']],
      	columns: [
-         	{ data: 'age_bin', visible: true, orderable: true },
+         	{ data: 'age', visible: true, orderable: true },
         	{ data: 'smoking_status', visible: true, orderable: true },
         	{ data: 'race', visible: true, orderable: true },
         	{ data: 'gender', visible: true, orderable: true },
@@ -69,7 +69,9 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
         	{ data: 'race_abbrev', visible: false },
         	{ data: 'race_seq', visible: false },
         	{ data: 'gender_abbrev', visible: false },
-        	{ data: 'gender_seq', visible: false }
+        	{ data: 'gender_seq', visible: false },
+        	{ data: 'smoking_status_abbrev', visible: false },
+        	{ data: 'smoking_status_seq', visible: false }
     	]
 	} );
 

@@ -5,7 +5,7 @@
 <!-- covid_smoking_demographics_censored (2022-03-31 04:54) -->
 <!-- covid_smoking_severity_censored (2022-03-31 04:54) -->
 
-<jsp:include page="../block.jsp">
+<jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="smoking_1" />
 	<jsp:param name="block_header" value="Demographics: COVID+ and Smoking Status" />
 
@@ -16,18 +16,15 @@
 	<jsp:param name="race_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 
-	<jsp:param name="severity_panel" value="test_panel.jsp" />
-	<jsp:param name="age_panel" value="test_panel.jsp" />
-	<jsp:param name="race_panel" value="test_panel.jsp" />
-	<jsp:param name="gender_panel" value="test_panel.jsp" />
+	<jsp:param name="severity_panel" value="smoking/severityStatus.jsp" />
+	<jsp:param name="age_panel" value="smoking/ageStatus.jsp" />
+	<jsp:param name="race_panel" value="smoking/raceStatus.jsp" />
+	<jsp:param name="gender_panel" value="smoking/genderStatus.jsp" />
 
 	<jsp:param name="datatable" value="smoking/demographics_table.jsp" />
 	<jsp:param name="datatable_div" value="smoking_demographics" />
 	<jsp:param name="datatable_feed" value="smoking/feeds/demographics.jsp" />
 
-	<jsp:param name="datatable" value="smoking/severity_table.jsp" />
-	<jsp:param name="datatable_div" value="smoking_severity" />
-	<jsp:param name="datatable_feed" value="smoking/feeds/severity.jsp" />
 </jsp:include>
 <script>
 	smoking_1_toggle("severity");

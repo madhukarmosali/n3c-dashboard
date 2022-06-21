@@ -354,11 +354,15 @@ WebContent/new_ph/reinfection_time_series/panel.jsp -text
 WebContent/new_ph/severity_region/kpis.jsp -text
 WebContent/new_ph/severity_region/panel.jsp -text
 WebContent/new_ph/singleHistogram.jsp -text
+WebContent/new_ph/smoking/ageStatus.jsp -text
 WebContent/new_ph/smoking/demographics_table.jsp -text
 WebContent/new_ph/smoking/feeds/demographics.jsp -text
 WebContent/new_ph/smoking/feeds/severity.jsp -text
+WebContent/new_ph/smoking/genderStatus.jsp -text
 WebContent/new_ph/smoking/kpis.jsp -text
 WebContent/new_ph/smoking/panel.jsp -text
+WebContent/new_ph/smoking/raceStatus.jsp -text
+WebContent/new_ph/smoking/severityStatus.jsp -text
 WebContent/new_ph/smoking/severity_table.jsp -text
 WebContent/new_ph/sotrovimab/demographics_table.jsp -text
 WebContent/new_ph/sotrovimab/feeds/demographics.jsp -text

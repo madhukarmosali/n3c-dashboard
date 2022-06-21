@@ -2,8 +2,8 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
-	select jsonb_pretty(jsonb_agg(done))
-	from (select *
+	select jsonb_pretty(jsonb_agg(done order by age_seq))
+	from (select age_bin as age,smoking_status,race,gender,patient_display,patient_count,age_abbrev,age_seq,race_abbrev,race_seq,gender_abbrev,gender_seq, smoking_status_abbrev, smoking_status_seq
 			from (select
 					age_bin,
 					smoking_status,
@@ -19,11 +19,12 @@
 		  	natural join n3c_dashboard.age_map4
 		  	natural join n3c_dashboard.race_map
 		  	natural join n3c_dashboard.gender_map2
+		  	natural join n3c_dashboard.status_map
 		  ) as done;
 </sql:query>
 {
     "headers": [
-        {"value":"age_bin", "label":"Age"},
+        {"value":"age", "label":"Age"},
         {"value":"smoking_status", "label":"Smoking Status"},
         {"value":"race", "label":"Race"},
         {"value":"gender", "label":"Gender"},
@@ -33,8 +34,10 @@
         {"value":"age_seq", "label":"dummy2"},
         {"value":"race_abbrev", "label":"dummy3"},
         {"value":"race_seq", "label":"dummy4"},
-        {"value":"gender_abbrev", "label":"dummy7"},
-        {"value":"gender_seq", "label":"dummy8"}
+        {"value":"gender_abbrev", "label":"dummy5"},
+        {"value":"gender_seq", "label":"dummy6"},
+        {"value":"smoking_status_abbrev", "label":"dummy7"},
+        {"value":"smoking_status_seq", "label":"dummy8"}
     ],
     "rows" : 
 <c:forEach items="${severity.rows}" var="row" varStatus="rowCounter">

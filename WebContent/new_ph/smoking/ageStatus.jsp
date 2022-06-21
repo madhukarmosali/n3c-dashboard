@@ -3,11 +3,11 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 
-<div id="${param.block}_gender_viz" class="col-12 dash_viz"></div>
+<div id="${param.block}_age_viz" class="col-12 dash_viz"></div>
 
 <c:if test="${not empty param.topic_description}">
 	<div id="viz_caption">
-		<jsp:include page="../hlh/secondary_text/${param.topic_description}.jsp"/>
+		<jsp:include page="../long_covid/secondary_text/${param.topic_description}.jsp"/>
 	</div>
 </c:if>
 				
@@ -19,11 +19,11 @@
 
 <script>
 
-function ${param.block}_gender_refresh() {
-	console.log("gender graph", "${param.block}_gender_viz", ${param.block}_GenderAgeArray)
-   	d3.select("#${param.block}_gender_viz").select("svg").remove();
-	localHorizontalGroupedStackedBarChart(${param.block}_GenderAgeArray,"${param.block}_gender_viz", 120, age_legend_2, age_range, "Age");	
+function ${param.block}_age_refresh() {
+	console.log("reached");
+   	d3.select("#${param.block}_severity_viz").select("svg").remove(); console.log(${param.block}_AgeStatusArray)
+	localHorizontalStackedBarChart(${param.block}_AgeStatusArray,"${param.block}_age_viz", 120, status_legend, categorical, "Status");	
 }
 
-${param.block}_gender_refresh();
+${param.block}_age_refresh();
 </script>

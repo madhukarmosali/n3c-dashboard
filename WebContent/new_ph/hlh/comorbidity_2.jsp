@@ -3,7 +3,7 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 <jsp:include page="../block2.jsp">
-	<jsp:param name="block" value="comorbidity_1" />
+	<jsp:param name="block" value="comorbidity_2" />
 	<jsp:param name="block_header" value="Congestive Heart Failure" />
 	<jsp:param name="topic_description" value="secondary_1" />
 	<jsp:param name="topic_title" value="Demographics of Patients With Diagnosed Long COVID (U09.9)" />

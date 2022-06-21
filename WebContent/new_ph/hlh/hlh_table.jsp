@@ -120,7 +120,8 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
         	{ data: 'age_abbrev', visible: false },
         	{ data: 'age_seq', visible: false },
         	{ data: 'gender_abbrev', visible: false },
-        	{ data: 'gender_seq', visible: false }
+        	{ data: 'gender_seq', visible: false },
+        	{ data: 'observation_seq', visible: false }
     	]
 	} );
 

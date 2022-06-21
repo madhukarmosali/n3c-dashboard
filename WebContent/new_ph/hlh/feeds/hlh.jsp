@@ -3,12 +3,13 @@
 
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
-	from (select observation, age_abbrev as age, gender_abbrev as gender, patient_display, patient_count, age_abbrev, age_seq, gender_abbrev, gender_seq
+	from (select observation, age_abbrev as age, gender_abbrev as gender, patient_display, patient_count, age_abbrev, age_seq, gender_abbrev, gender_seq, observation_seq
 			from (select
 					observation,
 					age_bracket,
 					gender_concept_name as gender,
 					count as patient_display,
+					n_observation as observation_seq,
 					case
 						when (count = '<20' or count is null) then 0
 						else count::int
@@ -29,7 +30,8 @@
         {"value":"age_abbrev", "label":"dummy0"},
         {"value":"age_seq", "label":"dummy1"},
         {"value":"gender_abbrev", "label":"dummy2"},
-        {"value":"gender_seq", "label":"dummy3"}
+        {"value":"gender_seq", "label":"dummy3"},
+        {"value":"observation_seq", "label":"dummy4"}
     ],
     "rows" : 
 <c:forEach items="${severity.rows}" var="row" varStatus="rowCounter">
