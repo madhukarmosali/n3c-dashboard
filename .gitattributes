@@ -55,6 +55,7 @@ WebContent/graph_support/horizontalBarChart_local.jsp -text
 WebContent/graph_support/horizontalBarChart_percentIndicator_local.jsp -text
 WebContent/graph_support/horizontalGroupedStackedBarChart_local.jsp -text
 WebContent/graph_support/horizontalStackedBarChart_local.jsp -text
+WebContent/graph_support/percentage_bar_local.jsp -text
 WebContent/graph_support/pieChart_local.jsp -text
 WebContent/graph_support/radialStackedBarChart.jsp -text
 WebContent/graph_support/radial_data.csv -text
