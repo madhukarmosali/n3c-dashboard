@@ -173,6 +173,7 @@ WebContent/new_ph/filters/age_3.jsp -text
 WebContent/new_ph/filters/age_4.jsp -text
 WebContent/new_ph/filters/age_5.jsp -text
 WebContent/new_ph/filters/age_6.jsp -text
+WebContent/new_ph/filters/comorbidities.jsp -text
 WebContent/new_ph/filters/ethnicity.jsp -text
 WebContent/new_ph/filters/gender.jsp -text
 WebContent/new_ph/filters/gender3.jsp -text

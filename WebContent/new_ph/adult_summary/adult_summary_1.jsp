@@ -20,8 +20,6 @@
 	<jsp:param name="gender_panel" value="adult_summary/gender.jsp" />
 	<jsp:param name="ethnicity_panel" value="adult_summary/ethnicity.jsp" />
 	<jsp:param name="raceseverity_panel" value="adult_summary/raceseverity.jsp" />
-	
-	
 
 	<jsp:param name="datatable" value="adult_summary/aggregated_table.jsp" />
 	<jsp:param name="datatable_div" value="adult_aggregated" />

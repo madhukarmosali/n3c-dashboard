@@ -209,6 +209,9 @@
 										<c:if test="${param.vaccinated_filter}">
 											<jsp:include page="filters/vaccinated.jsp"/>
 										</c:if>
+										<c:if test="${param.comorbidities_filter}">
+											<jsp:include page="filters/comorbidities.jsp"/>
+										</c:if>
 									</div>
 			  					</div>
 							</div>
@@ -317,7 +320,6 @@
 			var text = "";
 			for (let i = 0; i < values.length; ++i) {
 				var clean_text = values[i].replace("+", "\\+");
-				console.log(clean_text);
 
 				if (i < (values.length-1)){
 		    		search = "^" + clean_text + "$|";
@@ -424,6 +426,18 @@
 			    ${param.block}_refreshHistograms();
             }
 		});
+		
+		$('#${param.block}-comorbidities-select').multiselect({	
+			onChange: function(option, checked, select) {
+				var options = $('#${param.block}-comorbidities-select');
+		        var selected = [];
+		        $(options).each(function(){
+		            selected.push($(this).val());
+		        });
+				${param.block}_constrain("comorbidities",  selected[0].join('|'));
+			    ${param.block}_refreshHistograms();
+            }
+		});
 	
 		var mut = new MutationObserver(function(mutations, mut){
 			if($('#${param.block}-block-kpi').find('.multiselect.dropdown-toggle[title!="None selected"]').length !== 0){
@@ -450,6 +464,7 @@
 		$('#${param.block}-ethnicity-select').multiselect('clearSelection');
 		$('#${param.block}-symptom-select').multiselect('clearSelection');
 		$('#${param.block}-vaccinated-select').multiselect('clearSelection');
+		$('#${param.block}-comorbidities-select').multiselect('clearSelection');
 		
 		${param.block}_constrain("severity", '');
 		${param.block}_constrain("age", '');
@@ -457,6 +472,7 @@
 		${param.block}_constrain("gender", '');
 		${param.block}_constrain("ethnicity", '');
 		${param.block}_constrain("symptom", '');
+		${param.block}_constrain("comorbidity", '');
 		
 		$("#${param.datatable_div}-table").DataTable().columns().search('').draw();
 	    ${param.block}_refreshHistograms();

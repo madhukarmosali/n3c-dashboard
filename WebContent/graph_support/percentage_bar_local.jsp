@@ -108,7 +108,6 @@ function localPercentageBarChart(data, domName, barLabelWidth) {
 			
 		for (i in data){
 			data[i]["num2"] = 100;
-			console.log(data[i].count);
 			if (data[i].count == 0){
 				data[i]["num"] = 0;
 			}else{

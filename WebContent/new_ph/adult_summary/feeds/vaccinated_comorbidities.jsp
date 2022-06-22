@@ -3,7 +3,8 @@
 
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
-	from (select *
+	from (select severity, gender_abbrev as gender, age_abbrev as age, race, ethnicity, comorbidities, vaccinated, patient_display, patient_count, age_abbrev,
+	age_seq, race_abbrev, race_seq, ethnicity_abbrev, ethnicity_seq, gender_abbrev, gender_seq, severity_abbrev, severity_seq
 			from (select
 					severity_type as severity,
 					race_concept_name as race,
@@ -13,7 +14,7 @@
 						when (vaccinated = '1') then 'True'
 						else vaccinated
 					end as vaccinated,
-					age_bin,
+					COALESCE (age_bin, 'null') as age,
 					gender_concept_name as gender,
 					num_patients as patient_display,
 					case
@@ -21,11 +22,12 @@
 						else num_patients::int
 					end as patient_count
 				  from n3c_questions.covid_positive_comorbidities_demo_censored
+				  where age_bin in ('Unknown')
 		  	) as foo
-		  	natural join n3c_dashboard.age_map2
+		  	natural join n3c_dashboard.age_map6
 		  	natural join n3c_dashboard.race_map
 		  	natural join n3c_dashboard.ethnicity_map
-		  	natural join n3c_dashboard.gender_map2
+		  	natural join n3c_dashboard.gender_map3
 		  	natural join n3c_dashboard.severity_map
 		  ) as done;
 </sql:query>
@@ -33,7 +35,7 @@
     "headers": [
         {"value":"severity", "label":"Severity"},
         {"value":"gender", "label":"Gender"},
-        {"value":"age_bin", "label":"Age"},
+        {"value":"age, "label":"Age"},
         {"value":"race", "label":"Race"},
         {"value":"ethnicity", "label":"Ethnicity"},
         {"value":"comorbidities", "label":"Comorbidities"},
