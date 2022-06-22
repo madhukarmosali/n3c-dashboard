@@ -12,17 +12,17 @@
 </c:if>
 				
 <div id="${param.block}_age_save_viz"> 
-	<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_severity_viz', '${param.block}_severity.svg');">Save as SVG</button>
-	<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_severity_viz', '${param.block}_severity.png');">Save as PNG</button>
-	<button id='jpegButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_severity_viz', '${param.block}_severity.jpg');">Save as JPEG</button>
+	<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_age_viz', '${param.block}_age.svg');">Save as SVG</button>
+	<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_age_viz', '${param.block}_age.png');">Save as PNG</button>
+	<button id='jpegButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_age_viz', '${param.block}_age.jpg');">Save as JPEG</button>
 </div>
 
 <script>
 
 function ${param.block}_age_refresh() {
 	console.log("reached");
-   	d3.select("#${param.block}_severity_viz").select("svg").remove(); console.log(${param.block}_AgeStatusArray)
-	localHorizontalStackedBarChart(${param.block}_AgeStatusArray,"${param.block}_age_viz", 120, status_legend, categorical, "Status");	
+   	d3.select("#${param.block}_age_viz").select("svg").remove(); console.log(${param.block}_AgeStatusArray)
+	localHorizontalStackedBarChart(${param.block}_AgeStatusArray,"${param.block}_age_viz", 120, status_legend, status_range, "Status");	
 }
 
 ${param.block}_age_refresh();

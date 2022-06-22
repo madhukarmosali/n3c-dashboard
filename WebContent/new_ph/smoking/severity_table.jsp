@@ -56,7 +56,9 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
         	{ data: 'smoking_status', visible: true, orderable: true },
         	{ data: 'patient_count', visible: true, orderable: true },
         	{ data: 'severity_abbrev', visible: false },
-        	{ data: 'severity_seq', visible: false }
+        	{ data: 'severity_seq', visible: false },
+           	{ data: 'smoking_status_abbrev', visible: false },
+        	{ data: 'smoking_status_seq', visible: false }
     	]
 	} );
 

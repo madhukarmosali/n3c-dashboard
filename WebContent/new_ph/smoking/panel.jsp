@@ -26,6 +26,13 @@
 	<jsp:param name="datatable_feed" value="smoking/feeds/demographics.jsp" />
 
 </jsp:include>
+<jsp:include page="../block2.jsp">
+	<jsp:param name="block" value="smoking_2" />
+	<jsp:param name="datatable" value="smoking/severity_table.jsp" />
+	<jsp:param name="datatable_div" value="smoking_severity" />
+	<jsp:param name="datatable_feed" value="smoking/feeds/severity.jsp" />
+
+</jsp:include>
 <script>
 	smoking_1_toggle("severity");
 </script>
