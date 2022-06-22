@@ -11,18 +11,19 @@
 						when (vaccinated = '1') then 'True'
 						else vaccinated
 					end as vaccinated,
-					age_bin,
-					gender_concept_name as gender,
+					COALESCE (age_bin, 'null') as age,
+					COALESCE (gender_concept_name, 'null') as gender,
 					num_patients as patient_display,
 					case
 						when (num_patients = '<20' or num_patients is null) then 0
 						else num_patients::int
 					end as patient_count
 				  from n3c_questions.covid_positive_with_vax_censored
+				  where age_bin in ('Unknown', '18-64', '65+', 'null')
 		  	) as foo
-		  	natural join n3c_dashboard.age_map2
+		  	natural join n3c_dashboard.age_map6
 		  	natural join n3c_dashboard.race_map
-		  	natural join n3c_dashboard.gender_map2
+		  	natural join n3c_dashboard.gender_map3
 		  	natural join n3c_dashboard.severity_map
 		  ) as done;
 </sql:query>
@@ -30,7 +31,7 @@
     "headers": [
         {"value":"severity", "label":"Severity"},
         {"value":"gender", "label":"Gender"},
-        {"value":"age_bin", "label":"Age"},
+        {"value":"age", "label":"Age"},
         {"value":"race", "label":"Race"},
         {"value":"vaccinated", "label":"Vaccinated"},
         {"value":"patient_display", "label":"Patient Count"},

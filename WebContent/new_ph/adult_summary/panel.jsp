@@ -35,7 +35,7 @@ function url_unmap(selector) {
 var frame_crumbs = [];
 
 <c:choose>
-	<c:when test="${empty param.tertiary_tab}">
+	<c:when test="${empty param.tertiary_tab || param.tertiary_tab == 'undefined'}">
 		frame_load('adult_summary_1');
 	</c:when>
 	<c:otherwise>
@@ -47,10 +47,8 @@ var frame_crumbs = [];
 
 function frame_load(selection) {
 	var $this = $("#"+selection);
-	console.log("selection", selection, frame_crumbs)
 
 	if (!frame_crumbs.includes(selection)) {
-		console.log("reachedload");
 		$this.load("<util:applicationRoot/>/new_ph/adult_summary/"+selection+".jsp");
 		frame_crumbs.push(selection);
 	}

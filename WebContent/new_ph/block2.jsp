@@ -162,7 +162,7 @@
 						</div>	
 						</div>
 					</c:if>
-					<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter4 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter || not empty param.symptom_filter}">
+					<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter4 || not empty param.age_filter5 || not empty param.age_filter6 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter || not empty param.symptom_filter}">
 						<div class="mt-2 col-12 col-md-6 filter_button_container">
 							<button id="${param.block}_btn_clear" class="btn button dash-filter-btn2 mt-0 no_clear" onclick="${param.block}_filter_clear()"><i class="fas fa-times-circle"></i> Clear Filters</button>
 							<div class="dropdown" style="display: inline-block;">
@@ -182,11 +182,20 @@
 										<c:if test="${param.age_filter4}">
 											<jsp:include page="filters/age_4.jsp"/>
 										</c:if>
+										<c:if test="${param.age_filter5}">
+											<jsp:include page="filters/age_5.jsp"/>
+										</c:if>
+										<c:if test="${param.age_filter6}">
+											<jsp:include page="filters/age_6.jsp"/>
+										</c:if>
 										<c:if test="${param.race_filter}">
 											<jsp:include page="filters/race.jsp"/>
 										</c:if>
 										<c:if test="${param.gender_filter}">
 											<jsp:include page="filters/gender.jsp"/>
+										</c:if>
+										<c:if test="${param.gender_filter3}">
+											<jsp:include page="filters/gender3.jsp"/>
 										</c:if>
 										<c:if test="${param.ethnicity_filter}">
 											<jsp:include page="filters/ethnicity.jsp"/>
@@ -196,6 +205,9 @@
 										</c:if>
 										<c:if test="${param.symptom_filter}">
 											<jsp:include page="filters/symptom.jsp"/>
+										</c:if>
+										<c:if test="${param.vaccinated_filter}">
+											<jsp:include page="filters/vaccinated.jsp"/>
 										</c:if>
 									</div>
 			  					</div>
@@ -399,6 +411,19 @@
 			    ${param.block}_refreshHistograms();
             }
 		});
+		
+		$('#${param.block}-vaccinated-select').multiselect({	
+			onChange: function(option, checked, select) {
+				var options = $('#${param.block}-vaccinated-select');
+		        var selected = [];
+		        $(options).each(function(){
+		            selected.push($(this).val());
+		        });
+		        
+				${param.block}_constrain("vaccinated",  selected[0].join('|'));
+			    ${param.block}_refreshHistograms();
+            }
+		});
 	
 		var mut = new MutationObserver(function(mutations, mut){
 			if($('#${param.block}-block-kpi').find('.multiselect.dropdown-toggle[title!="None selected"]').length !== 0){
@@ -415,9 +440,6 @@
 				attributeFilter: ['title']
 			});
 		});
-		
-	
-		
 	});
 
 	function ${param.block}_filter_clear() {
@@ -427,6 +449,7 @@
 		$('#${param.block}-gender-select').multiselect('clearSelection');
 		$('#${param.block}-ethnicity-select').multiselect('clearSelection');
 		$('#${param.block}-symptom-select').multiselect('clearSelection');
+		$('#${param.block}-vaccinated-select').multiselect('clearSelection');
 		
 		${param.block}_constrain("severity", '');
 		${param.block}_constrain("age", '');
@@ -437,8 +460,6 @@
 		
 		$("#${param.datatable_div}-table").DataTable().columns().search('').draw();
 	    ${param.block}_refreshHistograms();
-	    
-	    
 	}
 	
 	var ${param.block}_AgeArray = new Array();

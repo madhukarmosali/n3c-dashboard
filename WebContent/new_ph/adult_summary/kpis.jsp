@@ -12,10 +12,10 @@
 		</jsp:include>
 	</c:when>
 	<c:when test="${param.block == 'adult_summary_2' }">
-		<jsp:include page="../kpis/covid_positive.jsp">
+		<jsp:include page="../kpis/block2_kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/adult_vaccinated.jsp">
+		<jsp:include page="../kpis/block2_kpis/adult_vaccinated.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
 	</c:when>

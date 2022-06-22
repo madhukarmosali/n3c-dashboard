@@ -4,7 +4,6 @@
 function ${param.block}_constrain_table(filter, constraint) {
 	var table = $('#${param.target_div}-table').DataTable();
 	
-	console.log(constraint);
 	switch (filter) {
 	case 'severity':
 		table.column(0).search(constraint, true, false, true).draw();	

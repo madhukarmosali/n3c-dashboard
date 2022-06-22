@@ -25,4 +25,6 @@ function ${param.block}_severity_refresh() {
 	localPercentageBarChart(${param.block}_SeverityArray,"#${param.block}_severity_viz", 120);
 }
 
+${param.block}_severity_refresh();
+
 </script>

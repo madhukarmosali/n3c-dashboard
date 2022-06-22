@@ -10,7 +10,7 @@
 					race_concept_name as race,
 					ethnicity_concept_name as ethnicity,
 					age_bin,
-					gender_concept_name as gender,
+					COALESCE (gender_concept_name, 'null') as gender,
 					count as patient_display,
 					case
 						when (count = '<20' or count is null) then 0
@@ -21,7 +21,7 @@
 		  	natural join n3c_dashboard.age_map2
 		  	natural join n3c_dashboard.race_map
 		  	natural join n3c_dashboard.ethnicity_map
-		  	natural join n3c_dashboard.gender_map2
+		  	natural join n3c_dashboard.gender_map3
 		  	natural join n3c_dashboard.severity_map
 		  ) as done;
 </sql:query>
