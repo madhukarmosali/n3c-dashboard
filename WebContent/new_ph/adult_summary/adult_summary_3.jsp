@@ -27,6 +27,7 @@
 	<jsp:param name="datatable" value="adult_summary/vaccinated_comorbidity_table.jsp" />
 	<jsp:param name="datatable_div" value="adult_vaccinated_comorbidity" />
 	<jsp:param name="datatable_feed" value="adult_summary/feeds/vaccinated_comorbidities.jsp" />
+	<jsp:param name="datatable_kpis" value="patient_count" />
 </jsp:include>
 <script>
 	adult_summary_3_toggle("severity");

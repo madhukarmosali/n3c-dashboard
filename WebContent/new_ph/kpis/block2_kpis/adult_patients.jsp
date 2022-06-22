@@ -24,7 +24,7 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Number of Patients *</td>
+							<td><i class="fas fa-users"></i> Number of Patients*</td>
 						</tr>
 					</table>
 				</div>

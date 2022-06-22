@@ -14,7 +14,7 @@
 						when (vaccinated = '1') then 'True'
 						else vaccinated
 					end as vaccinated,
-					COALESCE (age_bin, 'null') as age,
+					COALESCE (age_bin, 'null') as age_bin,
 					gender_concept_name as gender,
 					num_patients as patient_display,
 					case
@@ -22,7 +22,7 @@
 						else num_patients::int
 					end as patient_count
 				  from n3c_questions.covid_positive_comorbidities_demo_censored
-				  where age_bin in ('Unknown')
+				  where age_bin in ('Unknown', '18-64', '65+', 'null')
 		  	) as foo
 		  	natural join n3c_dashboard.age_map6
 		  	natural join n3c_dashboard.race_map
@@ -35,7 +35,7 @@
     "headers": [
         {"value":"severity", "label":"Severity"},
         {"value":"gender", "label":"Gender"},
-        {"value":"age, "label":"Age"},
+        {"value":"age", "label":"Age"},
         {"value":"race", "label":"Race"},
         {"value":"ethnicity", "label":"Ethnicity"},
         {"value":"comorbidities", "label":"Comorbidities"},

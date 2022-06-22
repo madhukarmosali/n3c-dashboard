@@ -2,25 +2,27 @@
 <script>
 
 function ${param.block}_constrain_table(filter, constraint) {
-	//console.log("${param.block}", filter, constraint)
 	switch (filter) {
 	case 'severity':
-	    $("#${param.datatable_div}-table").DataTable().column(0).search(constraint, true, false, true).draw();	
+	    $("#${param.datatable_div}-table").DataTable().column(0).search(constraint, true, false, false).draw();	
 		break;
 	case 'gender':
-	    $("#${param.datatable_div}-table").DataTable().column(1).search(constraint, true, false, true).draw();	
+	    $("#${param.datatable_div}-table").DataTable().column(1).search(constraint, true, false, false).draw();	
 		break;
 	case 'age_bin':
-	    $("#${param.datatable_div}-table").DataTable().column(2).search(constraint, true, false, true).draw();	
+	    $("#${param.datatable_div}-table").DataTable().column(2).search(constraint, true, false, false).draw();	
 		break;
 	case 'race':
-	    $("#${param.datatable_div}-table").DataTable().column(3).search(constraint, true, false, true).draw();	
+	    $("#${param.datatable_div}-table").DataTable().column(3).search(constraint, true, false, false).draw();	
+		break;
+	case 'ethnicity':
+	    $("#${param.datatable_div}-table").DataTable().column(4).search(constraint, true, false, false).draw();	
 		break;
 	case 'comorbidities':
-	    $("#${param.datatable_div}-table").DataTable().column(4).search(constraint, true, false, true).draw();	
+	    $("#${param.datatable_div}-table").DataTable().column(5).search(constraint.replace(/[$^]/g, ''), true, false, true).draw();	
 		break;
 	case 'vaccinated':
-	    $("#${param.datatable_div}-table").DataTable().column(5).search(constraint, true, false, true).draw();	
+	    $("#${param.datatable_div}-table").DataTable().column(6).search(constraint, true, false, false).draw();	
 		break;
 	}
 }
@@ -28,15 +30,15 @@ function ${param.block}_constrain_table(filter, constraint) {
 var ${param.block}_datatable = null;
 
 $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
-		
+	console.log(data);
+	
 	var json = $.parseJSON(JSON.stringify(data));
-
+	
 	var col = [];
 
 	for (i in json['headers']){
 		col.push(json['headers'][i]['label']);
 	}
-
 
 	var table = document.createElement("table");
 	table.className = 'table table-hover compact site-wrapper';
@@ -59,37 +61,62 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 
 	${param.block}_datatable = $('#${param.target_div}-table').DataTable( {
     	data: data,
+    	dom: 'lfrtBip',
+    	buttons: {
+    	    dom: {
+    	      button: {
+    	        tag: 'button',
+    	        className: ''
+    	      }
+    	    },
+    	    buttons: [{
+    	      extend: 'csv',
+    	      className: 'btn btn-sm btn-light',
+    	      titleAttr: 'CSV export.',
+    	      text: 'CSV',
+    	      filename: 'severity_csv_export',
+    	      extension: '.csv'
+    	    }, {
+    	      extend: 'copy',
+    	      className: 'btn btn-sm btn-light',
+    	      titleAttr: 'Copy table data.',
+    	      text: 'Copy'
+    	    }]
+    	},
        	paging: true,
     	pageLength: 10,
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
     	order: [[0, 'asc']],
      	columns: [
-        	{ data: 'severity', visible: true, orderable: true },
-        	{ data: 'gender', visible: true, orderable: true },
-        	{ data: 'age', visible: true, orderable: true },
-        	{ data: 'race', visible: true, orderable: true },
-        	{ data: 'ethnicity', visible: true, orderable: true },
-        	{ data: 'comorbidities', visible: true, orderable: true },
-        	{ data: 'vaccinated', visible: true, orderable: true },
-        	{ data: 'patient_display', visible: true, orderable: true, orderData: [8] },
-        	{ data: 'patient_count', visible: false },
-        	{ data: 'age_abbrev', visible: false },
-        	{ data: 'age_seq', visible: false },
-        	{ data: 'race_abbrev', visible: false },
-        	{ data: 'race_seq', visible: false },
-        	{ data: 'ethnicity_abbrev', visible: false },
-        	{ data: 'ethnicity_seq', visible: false },
-        	{ data: 'gender_abbrev', visible: false },
-        	{ data: 'gender_seq', visible: false },
-        	{ data: 'severity_abbrev', visible: false },
-        	{ data: 'severity_seq', visible: false }
+        	{ data: 'severity', visible: true},
+        	{ data: 'gender', visible: true},
+        	{ data: 'age', visible: true},
+        	{ data: 'race', visible: true},
+        	{ data: 'ethnicity', visible: true},
+        	{ data: 'comorbidities', visible: true},
+        	{ data: 'vaccinated', visible: true},
+        	{ data: 'patient_display', visible: true, orderable: true, orderData: [8], searchable: false },
+        	{ data: 'patient_count', visible: false, orderable: false, searchable: false },
+        	{ data: 'age_abbrev', visible: false, orderable: false, searchable: false },
+        	{ data: 'age_seq', visible: false, orderable: false, searchable: false },
+        	{ data: 'race_abbrev', visible: false, orderable: false, searchable: false },
+        	{ data: 'race_seq', visible: false, orderable: false, searchable: false },
+        	{ data: 'ethnicity_abbrev', visible: false, orderable: false, searchable: false },
+        	{ data: 'ethnicity_seq', visible: false, orderable: false, searchable: false },
+        	{ data: 'gender_abbrev', visible: false, orderable: false, searchable: false },
+        	{ data: 'gender_seq', visible: false, orderable: false, searchable: false },
+        	{ data: 'severity_abbrev', visible: false, orderable: false, searchable: false },
+        	{ data: 'severity_seq', visible: false, orderable: false, searchable: false }
     	]
 	} );
+
 
 	// this is necessary to populate the histograms for the panel's initial D3 rendering
 	${param.block}_refreshHistograms();
 
 	
+}).fail( function(d, textStatus, error) {
+    console.error("getJSON failed, status: " + textStatus + ", error: "+error);
 });
 
 </script>
