@@ -578,7 +578,7 @@
 	    	${param.block}_medication_refresh();
 	    }
 	    if (${param.block}_loaded("raceseverity")) {
-	    	${param.block}_raceSeverity_refresh();
+	    	${param.block}_raceseverity_refresh();
 	    }
 	  }
 	
