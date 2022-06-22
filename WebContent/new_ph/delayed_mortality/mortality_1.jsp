@@ -16,10 +16,10 @@
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
 
-	<jsp:param name="age_panel" value="test_panel.jsp" />
-	<jsp:param name="race_panel" value="test_panel.jsp" />
-	<jsp:param name="gender_panel" value="test_panel.jsp" />
-	<jsp:param name="ethnicity_panel" value="test_panel.jsp" />
+	<jsp:param name="age_panel" value="delayed_mortality/age.jsp" />
+	<jsp:param name="race_panel" value="delayed_mortality/race.jsp" />
+	<jsp:param name="gender_panel" value="delayed_mortality/gender.jsp" />
+	<jsp:param name="ethnicity_panel" value="delayed_mortality/ethnicity.jsp" />
 
 	<jsp:param name="datatable" value="delayed_mortality/demographics_table.jsp" />
 	<jsp:param name="datatable_div" value="delayed_mortality_demographics" />
@@ -28,17 +28,3 @@
 <script>
 	delayed_mortality_1_toggle("age");
 </script>
-<jsp:include page="../block2.jsp">
-	<jsp:param name="block" value="delayed_mortality_2" />
-	<jsp:param name="block_header" value="Mortality: Delayed Mortality" />
-
-	<jsp:param name="kpis" value="delayed_mortality/kpis.jsp" />
-
-	<jsp:param name="age_filter" value="true" />
-
-	<jsp:param name="simple_panel" value="test_panel.jsp" />
-
-	<jsp:param name="datatable" value="delayed_mortality/delayed_table.jsp" />
-	<jsp:param name="datatable_div" value="delayed_mortality_delayed" />
-	<jsp:param name="datatable_feed" value="delayed_mortality/feeds/delayed.jsp" />
-</jsp:include>

@@ -3,7 +3,7 @@
 
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
-	from (select *
+	from (select age_bin as age,gender,race,ethnicity,patient_display,patient_count,age_abbrev,age_seq,race_abbrev,race_seq,ethnicity_abbrev,ethnicity_seq,gender_abbrev,gender_seq
 			from (select
 					age_bin,
 					gender_concept_name as gender,
@@ -25,7 +25,7 @@
 {
     "headers": [
         {"value":"race", "label":"Race"},
-        {"value":"age_bin", "label":"Age"},
+        {"value":"age", "label":"Age"},
         {"value":"ethnicity", "label":"Ethnicity"},
         {"value":"gender", "label":"Gender"},
         {"value":"patient_display", "label":"Mortality Count"},

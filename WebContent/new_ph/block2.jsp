@@ -483,6 +483,7 @@
 	var ${param.block}_EthnicityArray = new Array();
 	var ${param.block}_GenderArray = new Array();
 	var ${param.block}_SeverityArray = new Array();
+	var ${param.block}_DelayArray = new Array();
 	
 	var ${param.block}_raceSeverityArray = new Array();
 	
@@ -524,6 +525,7 @@
 	    ${param.block}_refreshEthnicityArray(data);
 	    ${param.block}_refreshGenderArray(data);
 	    ${param.block}_refreshSeverityArray(data);
+	    ${param.block}_refreshDelayArray(data);
 	    
 	    ${param.block}_refreshraceSeverityArray(data);
 	    
@@ -700,6 +702,13 @@
 	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
 	<jsp:param name="array" value="SeverityArray"/>
 	<jsp:param name="primary" value="severity"/>
+</jsp:include>
+
+<jsp:include page="singleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="DelayArray"/>
+	<jsp:param name="primary" value="datediff_bw_death_and_hos"/>
 </jsp:include>
 
 <jsp:include page="doubleHistogram.jsp">

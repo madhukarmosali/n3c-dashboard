@@ -59,7 +59,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	order: [[0, 'asc']],
      	columns: [
         	{ data: 'race', visible: true, orderable: true },
-         	{ data: 'age_bin', visible: true, orderable: true },
+         	{ data: 'age', visible: true, orderable: true },
         	{ data: 'ethnicity', visible: true, orderable: true },
         	{ data: 'gender', visible: true, orderable: true },
         	{ data: 'patient_display', visible: true, orderable: true, orderData: [5] },

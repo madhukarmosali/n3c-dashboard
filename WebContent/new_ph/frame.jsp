@@ -52,7 +52,7 @@
 		<jsp:include page="long_covid/panel2.jsp?tertiary_tab=${param.tertiary_tab}"/>
 	</c:when>
 	<c:when test="${param.frame == 'delayed-mortality'}">
-		<jsp:include page="delayed_mortality/panel.jsp"/>
+		<jsp:include page="delayed_mortality/panel2.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'reinfection-time-series'}">
 		<jsp:include page="reinfection_time_series/panel.jsp"/>
