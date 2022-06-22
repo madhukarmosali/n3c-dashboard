@@ -154,6 +154,9 @@
 								<c:if test="${not empty param.ethnicity_panel}">
 									<option value="ethnicity">Ethnicity</option>
 								</c:if>
+								<c:if test="${not empty param.raceseverity_panel}">
+									<option value="raceseverity">Race & Severity</option>
+								</c:if>
 									<option hidden value="verylongtextverylongtext">verylongtextverylongtext</option>
 							</select>
 						</div>	
@@ -225,6 +228,10 @@
 				</c:if>
 				<c:if test="${not empty param.ethnicity_panel}">
 					<div id="${param.block}-ethnicity" class="" style="display: none;" src="${param.ethnicity_panel}?panel=${param.ethnicity_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.ethnicity_labelwidth}">&label_width=${param.ethnicity_labelwidth}</c:if><c:if test="${not empty param.ethnicity_height}">&viz_height=${param.ethnicity_height}</c:if><c:if test="${not empty param.topic_description}">&topic_description=${param.topic_description}</c:if>">
+					</div>
+				</c:if>
+				<c:if test="${not empty param.raceseverity_panel}">
+					<div id="${param.block}-raceseverity" class="" style="display: none;" src="${param.raceseverity_panel}?panel=${param.raceseverity_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.raceseverity_labelwidth}">&label_width=${param.raceseverity_labelwidth}</c:if><c:if test="${not empty param.raceseverity_height}">&viz_height=${param.raceseverity_height}</c:if><c:if test="${not empty param.topic_description}">&topic_description=${param.topic_description}</c:if>">
 					</div>
 				</c:if>
 				<c:if test="${not empty param.static_secondary_panel}">
@@ -379,6 +386,7 @@
             }
 		});
 		
+		
 		$('#${param.block}-symptom-select').multiselect({	
 			onChange: function(option, checked, select) {
 				var options = $('#${param.block}-symptom-select');
@@ -439,6 +447,8 @@
 	var ${param.block}_GenderArray = new Array();
 	var ${param.block}_SeverityArray = new Array();
 	
+	var ${param.block}_raceSeverityArray = new Array();
+	
 	var ${param.block}_BeforeAfterArray = new Array();
 
 	var ${param.block}_GenderSeverityArray = new Array();
@@ -478,6 +488,8 @@
 	    ${param.block}_refreshGenderArray(data);
 	    ${param.block}_refreshSeverityArray(data);
 	    
+	    ${param.block}_refreshraceSeverityArray(data);
+	    
 	    ${param.block}_refreshBeforeAfterArray(data);
 	    
 	    ${param.block}_refreshGenderSeverityArray(data);
@@ -496,13 +508,13 @@
 	    ${param.block}_refreshMedicationArray(data2);
 	    ${param.block}_refreshDiabetesArray(data);
 	    
-	    ${param.block}_refreshAgeGenderArray(data);
-	    ${param.block}_refreshGenderAgeArray(data);
+// 	    ${param.block}_refreshAgeGenderArray(data);
+// 	    ${param.block}_refreshGenderAgeArray(data);
 	    
-	    ${param.block}_refreshSeverityStatusArray(data);
-	    ${param.block}_refreshAgeStatusArray(data);
-	    ${param.block}_refreshRaceStatusArray(data);
-	    ${param.block}_refreshGenderStatusArray(data);
+// 	    ${param.block}_refreshSeverityStatusArray(data);
+// 	    ${param.block}_refreshAgeStatusArray(data);
+// 	    ${param.block}_refreshRaceStatusArray(data);
+// 	    ${param.block}_refreshGenderStatusArray(data);
 	    
 	    if ('${param.block}' === 'long_covid_6') {
 	    	${param.block}_before_refresh();
@@ -526,73 +538,65 @@
 	    if (${param.block}_loaded("medication")) {
 	    	${param.block}_medication_refresh();
 	    }
+	    if (${param.block}_loaded("raceseverity")) {
+	    	${param.block}_raceSeverity_refresh();
+	    }
 	  }
 	
 	
 	function ${param.block}_toggle(selection) {
 		if (selection == "severity") {
 			$("#${param.block}-severity").css('display', 'block');
-			$("#${param.block}-severity-btn").addClass("active");
 			$("#${param.block}-age").css('display', 'none');
-			$("#${param.block}-age-btn").removeClass("active");
 			$("#${param.block}-race").css('display', 'none');
-			$("#${param.block}-race-btn").removeClass("active");
 			$("#${param.block}-gender").css('display', 'none');
-			$("#${param.block}-gender-btn").removeClass("active");
 			$("#${param.block}-ethnicity").css('display', 'none');
-			$("#${param.block}-ethnicity-btn").removeClass("active");
+			$("#${param.block}-raceseverity").css('display', 'none');
 //			cache_browser_history("admin", "admin/institutions")
 		}
 		if (selection == "age") {
 			$("#${param.block}-severity").css('display', 'none');
-			$("#${param.block}-severity-btn").removeClass("active");
 			$("#${param.block}-age").css('display', 'block');
-			$("#${param.block}-age-btn").addClass("active");
 			$("#${param.block}-race").css('display', 'none');
-			$("#${param.block}-race-btn").removeClass("active");
 			$("#${param.block}-gender").css('display', 'none');
-			$("#${param.block}-gender-btn").removeClass("active");
 			$("#${param.block}-ethnicity").css('display', 'none');
-			$("#${param.block}-ethnicity-btn").removeClass("active");
+			$("#${param.block}-raceseverity").css('display', 'none');
 //			cache_browser_history("admin", "admin/institutions")
 		}
 		if (selection == "race") {
 			$("#${param.block}-severity").css('display', 'none');
-			$("#${param.block}-severity-btn").removeClass("active");
 			$("#${param.block}-age").css('display', 'none');
-			$("#${param.block}-age-btn").removeClass("active");
 			$("#${param.block}-race").css('display', 'block');
-			$("#${param.block}-race-btn").addClass("active");
 			$("#${param.block}-gender").css('display', 'none');
-			$("#${param.block}-gender-btn").removeClass("active");
 			$("#${param.block}-ethnicity").css('display', 'none');
-			$("#${param.block}-ethnicity-btn").removeClass("active");
+			$("#${param.block}-raceseverity").css('display', 'none');
 //			cache_browser_history("admin", "admin/institutions")
 		}
 		if (selection == "gender") {
 			$("#${param.block}-severity").css('display', 'none');
-			$("#${param.block}-severity-btn").removeClass("active");
 			$("#${param.block}-age").css('display', 'none');
-			$("#${param.block}-age-btn").removeClass("active");
 			$("#${param.block}-race").css('display', 'none');
-			$("#${param.block}-race-btn").removeClass("active");
 			$("#${param.block}-gender").css('display', 'block');
-			$("#${param.block}-gender-btn").addClass("active");
 			$("#${param.block}-ethnicity").css('display', 'none');
-			$("#${param.block}-ethnicity-btn").removeClass("active");
+			$("#${param.block}-raceseverity").css('display', 'none');
 //			cache_browser_history("admin", "admin/institutions")
 		}
 		if (selection == "ethnicity") {
 			$("#${param.block}-severity").css('display', 'none');
-			$("#${param.block}-severity-btn").removeClass("active");
 			$("#${param.block}-age").css('display', 'none');
-			$("#${param.block}-age-btn").removeClass("active");
 			$("#${param.block}-race").css('display', 'none');
-			$("#${param.block}-race-btn").removeClass("active");
 			$("#${param.block}-gender").css('display', 'none');
-			$("#${param.block}-gender-btn").removeClass("active");
 			$("#${param.block}-ethnicity").css('display', 'block');
-			$("#${param.block}-ethnicity-btn").addClass("active");
+			$("#${param.block}-raceseverity").css('display', 'none');
+//			cache_browser_history("admin", "admin/institutions")
+		}
+		if (selection == "raceseverity") {
+			$("#${param.block}-severity").css('display', 'none');
+			$("#${param.block}-age").css('display', 'none');
+			$("#${param.block}-race").css('display', 'none');
+			$("#${param.block}-gender").css('display', 'none');
+			$("#${param.block}-ethnicity").css('display', 'none');
+			$("#${param.block}-raceseverity").css('display', 'block');
 //			cache_browser_history("admin", "admin/institutions")
 		}
 		
@@ -602,12 +606,13 @@
 	$(document).ready(function () {
 		  $('#${param.block}toggle_viz_select').change(function () {
 			${param.block}_toggle($(this).val());
+			console.log($(this).val());
 		  })
 	});
 
 	// manage incremental loading of panels on inner nav bar clicks
 	//
-	var ${param.block}_crumbs = '';
+	var ${param.block}_crumbs = [];
 	
 	function ${param.block}_load(selection) {
 		var $this = $("#${param.block}-"+selection);
@@ -616,10 +621,7 @@
 		//console.log("in main click", "${param.block}-"+selection, "which", which)
 		if (!${param.block}_crumbs.includes(selection)) {
 			$this.load("<util:applicationRoot/>/new_ph/"+which);
-			${param.block}_crumbs = ${param.block}_crumbs + selection;
-			//console.log({
-			//	which : which
-			//});
+			${param.block}_crumbs.push(selection);
 		}
 	};
 	
@@ -669,6 +671,14 @@
 	<jsp:param name="array" value="BeforeAfterArray"/>
 	<jsp:param name="primary" value="symptom"/>
 	<jsp:param name="secondary" value="condition_after_covid_positive"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="raceSeverityArray"/>
+	<jsp:param name="primary" value="race"/>
+	<jsp:param name="secondary" value="severity"/>
 </jsp:include>
 
 <jsp:include page="doubleHistogram.jsp">
@@ -779,54 +789,4 @@
 	<jsp:param name="primary" value="observation"/>
 	<jsp:param name="secondary" value="gender"/>
 	<jsp:param name="tertiary" value="age"/>
-</jsp:include>
-
-<jsp:include page="tripleHistogram.jsp">
-	<jsp:param name="block" value="${param.block}"/>
-	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
-	<jsp:param name="array" value="AgeGenderArray"/>
-	<jsp:param name="primary" value="observation"/>
-	<jsp:param name="secondary" value="age"/>
-	<jsp:param name="tertiary" value="gender"/>
-</jsp:include>
-
-<jsp:include page="tripleHistogram.jsp">
-	<jsp:param name="block" value="${param.block}"/>
-	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
-	<jsp:param name="array" value="GenderAgeArray"/>
-	<jsp:param name="primary" value="observation"/>
-	<jsp:param name="secondary" value="gender"/>
-	<jsp:param name="tertiary" value="age"/>
-</jsp:include>
-
-<jsp:include page="doubleHistogram.jsp">
-	<jsp:param name="block" value="${param.block}"/>
-	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
-	<jsp:param name="array" value="SeverityStatusArray"/>
-	<jsp:param name="primary" value="severity"/>
-	<jsp:param name="secondary" value="smoking_status"/>
-</jsp:include>
-
-<jsp:include page="doubleHistogram.jsp">
-	<jsp:param name="block" value="${param.block}"/>
-	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
-	<jsp:param name="array" value="AgeStatusArray"/>
-	<jsp:param name="primary" value="age"/>
-	<jsp:param name="secondary" value="smoking_status"/>
-</jsp:include>
-
-<jsp:include page="doubleHistogram.jsp">
-	<jsp:param name="block" value="${param.block}"/>
-	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
-	<jsp:param name="array" value="RaceStatusArray"/>
-	<jsp:param name="primary" value="race"/>
-	<jsp:param name="secondary" value="smoking_status"/>
-</jsp:include>
-
-<jsp:include page="doubleHistogram.jsp">
-	<jsp:param name="block" value="${param.block}"/>
-	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
-	<jsp:param name="array" value="GenderStatusArray"/>
-	<jsp:param name="primary" value="gender"/>
-	<jsp:param name="secondary" value="smoking_status"/>
 </jsp:include>

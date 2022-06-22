@@ -52,6 +52,7 @@ WebContent/graph_support/grouped_stacked_bar_horizontal_alexis.jsp -text
 WebContent/graph_support/grouped_stacked_bar_horizontal_alexis_local.jsp -text
 WebContent/graph_support/grouped_stacked_bar_vertical.jsp -text
 WebContent/graph_support/horizontalBarChart_local.jsp -text
+WebContent/graph_support/horizontalBarChart_percentIndicator_local.jsp -text
 WebContent/graph_support/horizontalGroupedStackedBarChart_local.jsp -text
 WebContent/graph_support/horizontalStackedBarChart_local.jsp -text
 WebContent/graph_support/pieChart_local.jsp -text
@@ -139,6 +140,7 @@ WebContent/new_ph/adult_summary/gender.jsp -text
 WebContent/new_ph/adult_summary/kpis.jsp -text
 WebContent/new_ph/adult_summary/panel.jsp -text
 WebContent/new_ph/adult_summary/race.jsp -text
+WebContent/new_ph/adult_summary/raceseverity.jsp -text
 WebContent/new_ph/adult_summary/severity.jsp -text
 WebContent/new_ph/adult_summary/ungrouped_table.jsp -text
 WebContent/new_ph/adult_summary/unknown_vaccination_table.jsp -text
@@ -192,6 +194,7 @@ WebContent/new_ph/kpis/adult_ungrouped.jsp -text
 WebContent/new_ph/kpis/adult_unknown_vaccinated.jsp -text
 WebContent/new_ph/kpis/adult_vaccinated.jsp -text
 WebContent/new_ph/kpis/adult_vaccinated_comorbidities.jsp -text
+WebContent/new_ph/kpis/block2_kpis/adult_patients.jsp -text
 WebContent/new_ph/kpis/block2_kpis/covid_first_diagnosis.jsp -text
 WebContent/new_ph/kpis/block2_kpis/covid_positive.jsp -text
 WebContent/new_ph/kpis/block2_kpis/covid_reinfections.jsp -text

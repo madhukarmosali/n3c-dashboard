@@ -4,10 +4,10 @@
 
 <c:choose>
 	<c:when test="${param.block == 'adult_summary_1' }">
-		<jsp:include page="../kpis/covid_positive.jsp">
+		<jsp:include page="../kpis/block2_kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/adult_patients.jsp">
+		<jsp:include page="../kpis/block2_kpis/adult_patients.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
 	</c:when>
@@ -44,5 +44,4 @@
 		</jsp:include>
 	</c:when>
 </c:choose>
-<div class="panel-body border kpi-limit dash-small-txt">* (see
-	limitations below)</div>
+

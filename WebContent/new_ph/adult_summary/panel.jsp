@@ -4,13 +4,17 @@
 
 <!-- covid_positive_mab_demo_censored (2022-03-31 05:01) -->
 
-<select id="selectMe">
-  <option value="adult_summary_1">COVID+ Patient Demographics</option>
-  <option value="adult_summary_2">Vaccination Status</option>
-  <option value="adult_summary_3">Vaccination and Comorbidities</option>
-  <option value="adult_summary_4">Unknown Vaccination Status and Comorbidities</option>
-  <option value="adult_summary_5">Ungrouped Comorbidities</option>
-</select>
+<div class="topic_dropdown" style="text-align:center; font-size: 1.3rem;">
+	<h4 class="viz_color_header">Select a Dashboard to Explore:</h4>
+	<select id="selectMe">
+		<option value="adult_summary_1">COVID+ Patient Demographics</option>
+		<option value="adult_summary_2">Vaccinated Patient Demographics</option>
+  		<option value="adult_summary_3">Vaccinated Patients with Cormobidities Demographics</option>
+  		<option value="adult_summary_4">Unknown Vaccination Status and Comorbidities</option>
+  		<option value="adult_summary_5">Ungrouped Comorbidities</option>
+	</select>
+</div>
+
 <div id="frame">
 	<div id="adult_summary_1" class="group"></div>
 	<div id="adult_summary_2" class="group"></div>
@@ -20,19 +24,37 @@
 </div>
 
 <script>
+function url_map(selection) {
+	return selection.substring(selection.lastIndexOf("_")+1);
+}
 
-var frame_crumbs = '';
+function url_unmap(selector) {
+	return 'adult_summary_'+selector;
+}
 
-frame_load('adult_summary_1');
+var frame_crumbs = [];
+
+<c:choose>
+	<c:when test="${empty param.tertiary_tab}">
+		frame_load('adult_summary_1');
+	</c:when>
+	<c:otherwise>
+		$('#selectMe').val(url_unmap('${param.tertiary_tab}'));
+		frame_load(url_unmap('${param.tertiary_tab}'));
+	</c:otherwise>
+</c:choose>
+
 
 function frame_load(selection) {
 	var $this = $("#"+selection);
 	console.log("selection", selection, frame_crumbs)
 
 	if (!frame_crumbs.includes(selection)) {
+		console.log("reachedload");
 		$this.load("<util:applicationRoot/>/new_ph/adult_summary/"+selection+".jsp");
-		frame_crumbs = frame_crumbs + selection;
+		frame_crumbs.push(selection);
 	}
+	cache_browser_history("new-ph", "new-ph/summary/"+url_map(selection));
 };
 
 $(document).ready(function () {
@@ -42,5 +64,11 @@ $(document).ready(function () {
 	    $('#'+$(this).val()).show();
 	  })
 	});
+	
+$(document).ready(function() {
+    $('#selectMe').select2({
+		searchInputPlaceholder: 'Search Topics...'
+    });
+});
 
 </script>

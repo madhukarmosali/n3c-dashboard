@@ -7,6 +7,7 @@
 </script>
 
 <jsp:include page="../graph_support/pieChart_local.jsp"/>
+<jsp:include page="../graph_support/percentage_bar_local.jsp"/>
 <jsp:include page="../graph_support/horizontalBarChart_local.jsp"/>
 <jsp:include page="../graph_support/horizontalStackedBarChart_local.jsp"/>
 <jsp:include page="../graph_support/horizontalGroupedStackedBarChart_local.jsp"/>

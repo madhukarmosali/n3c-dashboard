@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
-<jsp:include page="../block.jsp">
+<jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="adult_summary_1" />
 	<jsp:param name="block_header" value="Demographics: COVID+" />
 
@@ -19,10 +19,14 @@
 	<jsp:param name="race_panel" value="adult_summary/race.jsp" />
 	<jsp:param name="gender_panel" value="adult_summary/gender.jsp" />
 	<jsp:param name="ethnicity_panel" value="adult_summary/ethnicity.jsp" />
+	<jsp:param name="raceseverity_panel" value="adult_summary/raceseverity.jsp" />
+	
+	
 
 	<jsp:param name="datatable" value="adult_summary/aggregated_table.jsp" />
 	<jsp:param name="datatable_div" value="adult_aggregated" />
 	<jsp:param name="datatable_feed" value="adult_summary/feeds/severity.jsp" />
+	<jsp:param name="datatable_kpis" value="patient_count" />
 </jsp:include>
 <script>
 	adult_summary_1_toggle("severity");
