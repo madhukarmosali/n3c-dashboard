@@ -14,7 +14,7 @@
 </style>
 <script>
 
-function localHorizontalGroupedStackedBarChart(data, domName, barLabelWidth, legend_data, tertiary_range = categorical) {
+function localHorizontalGroupedStackedBarChart2(data, domName, barLabelWidth, xaxis_label = "xaxis label", legend_data, tertiary_range = categorical, legend_label = 'Legend') {
   
 	var margin = {top: 100, right: 200, bottom: 60, left: 200},
 		width = 1200 - margin.left - margin.right,
@@ -58,11 +58,12 @@ function localHorizontalGroupedStackedBarChart(data, domName, barLabelWidth, leg
 
   
 		y0.domain(data.map(function(d) { return d.element; }));
-		y1.domain(data.map(function(d) { return d.secondary_group; }))
+		y1.domain(data.map(function(d) { return d.secondary; }))
 			.rangeRound([0, y0.bandwidth()])
 			.padding(0.2);
 		  
 		var stackData = myStack(data);
+		console.log("stackData", stackData)
 		x.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
 
 		
@@ -77,7 +78,7 @@ function localHorizontalGroupedStackedBarChart(data, domName, barLabelWidth, leg
 			.attr("y", 0 - (margin.top/2))
 			.attr("x",width/2)
 			.attr("dy", "1em")
-			.text("xaxis_label"); 
+			.text(xaxis_label); 
 		
 		g.append("g")
 			.attr("class", "axis")
@@ -110,7 +111,7 @@ function localHorizontalGroupedStackedBarChart(data, domName, barLabelWidth, leg
 			.attr("x", width - 24)
 			.attr("y", 9.5)
 			.attr("dy", "0.32em")
-			.text("legend_label");
+			.text(legend_label);
 			
 		var legend = g.append("g")
 			.attr("transform", "translate(" + (margin.right/2) + " ," + (0 - (margin.top/2)) + " )")
@@ -150,8 +151,8 @@ function localHorizontalGroupedStackedBarChart(data, domName, barLabelWidth, leg
 			.data(function(d) { return d; })
 			.enter().append("rect")
 			.attr("class", "serie-rect")
-			.attr("transform", function(d) { return "translate(0," + y0(d.data.element) + ")"; })
-			.attr("y", function(d) { return y1(d.data.secondary_group); })
+			.attr("transform", function(d) { return "translate(0," + y0(d.element) + ")"; })
+			.attr("y", function(d) { return y1(d.secondary); })
 			.attr("x", function(d) { return x(d[0]); })
 			.attr("width", function(d) { return Math.max(1,x(d[1]) - x(d[0])); })
 			.attr("height", y1.bandwidth())
