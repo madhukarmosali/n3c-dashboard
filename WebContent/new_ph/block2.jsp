@@ -483,7 +483,7 @@
 	var ${param.block}_EthnicityArray = new Array();
 	var ${param.block}_GenderArray = new Array();
 	var ${param.block}_SeverityArray = new Array();
-	var ${param.block}_DelayArray = new Array();
+	var ${param.block}_DelayArray = new Array(); console.log("delay array", "${param.block}")
 	
 	var ${param.block}_raceSeverityArray = new Array();
 	

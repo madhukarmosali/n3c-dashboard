@@ -22,7 +22,7 @@
 function ${param.block}_delay_refresh() {
 	//console.log("delay graph", "${param.block}_delay_viz", ${param.block}_DelayArray)
 	d3.select("#${param.block}_delay_viz").select("svg").remove();
-	localHorizontalBarChart(${param.block}_DelayArray,"#${param.block}_delay_viz", 120);
+	mortalityVerticalBarChart(${param.block}_DelayArray,"#${param.block}_delay_viz", 120);
 }
 
 ${param.block}_delay_refresh();

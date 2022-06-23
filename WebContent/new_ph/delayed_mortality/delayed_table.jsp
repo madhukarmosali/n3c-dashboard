@@ -47,7 +47,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
        	paging: true,
     	pageLength: 10,
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
-    	order: [[0, 'asc']],
+    	order: [[3, 'asc']],
      	columns: [
         	{ data: 'datediff_bw_death_and_hos', visible: true, orderable: true },
         	{ data: 'patient_display', visible: true, orderable: true, orderData: [2] },
@@ -58,7 +58,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 
 	// this is necessary to populate the histograms for the panel's initial D3 rendering
 	${param.block}_refreshHistograms();
-
+	${param.block}_delay_refresh();
 	
 });
 

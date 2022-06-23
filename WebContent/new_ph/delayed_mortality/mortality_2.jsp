@@ -8,14 +8,9 @@
 
 	<jsp:param name="kpis" value="delayed_mortality/kpis.jsp" />
 
-	<jsp:param name="age_filter" value="true" />
-
-	<jsp:param name="delay_panel" value="delayed_mortality/delay.jsp" />
+	<jsp:param name="static_secondary_panel" value="delayed_mortality/delay.jsp" />
 
 	<jsp:param name="datatable" value="delayed_mortality/delayed_table.jsp" />
 	<jsp:param name="datatable_div" value="delayed_mortality_delayed" />
 	<jsp:param name="datatable_feed" value="delayed_mortality/feeds/delayed.jsp" />
 </jsp:include>
-<script>
-	delayed_mortality_2_toggle("delay");
-</script>
