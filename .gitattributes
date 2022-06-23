@@ -388,6 +388,7 @@ WebContent/new_ph/reinfection/secondary_text/secondary_3.jsp -text
 WebContent/new_ph/reinfection_time_series/kpis.jsp -text
 WebContent/new_ph/reinfection_time_series/panel.jsp -text
 WebContent/new_ph/severity_region/kpis.jsp -text
+WebContent/new_ph/severity_region/map.jsp -text
 WebContent/new_ph/severity_region/panel.jsp -text
 WebContent/new_ph/singleHistogram.jsp -text
 WebContent/new_ph/smoking/ageStatus.jsp -text

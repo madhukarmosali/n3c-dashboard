@@ -4,13 +4,11 @@
 
 <!-- cases_by_severity_by_state_censored (2022-03-31 04:59) -->
 
-<jsp:include page="../block.jsp">
+<jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="severity_region_1" />
 	<jsp:param name="block_header" value="" />
 
 	<jsp:param name="kpis" value="severity_region/kpis.jsp" />
 
-	<jsp:param name="age_filter" value="true" />
-
-	<jsp:param name="simple_panel" value="test_panel.jsp" />
+	<jsp:param name="simple_panel" value="severity_region/map.jsp" />
 </jsp:include>
