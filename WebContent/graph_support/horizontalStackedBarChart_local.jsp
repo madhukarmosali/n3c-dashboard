@@ -326,17 +326,13 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.on("click", function(d, i){window[domName.replace(/_[^_]+_[^_]+$/i,'_')+'viz_constrain'](d, legend_label); })
 			.on("mouseover", function(d, i) {
 				svg.selectAll(".serie:not(.color-" + z[i].substring(1) + ")").style("opacity", "0.2");
+				tooltip2.style("display", null);
 			})
 			.on("mouseout", function(d, i) {
   				svg.selectAll(".serie").style("opacity", "1");
-			})
-			.append('title')
-  			.text(function (){
-  				if (add_filter_text == 1){
-  					return 'Click to add/remove filter'
-  				} else return
-  			});
-
+  				tooltip2.style("display", "none");
+			});
+		
 		legend.append("text")
 			.attr("x", width - 24)
 			.attr("y", 9.5)
@@ -366,6 +362,21 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
     		.style("text-anchor", "start")
     		.attr("font-size", "12px")
     		.attr("font-weight", "bold");
+  		
+  	// Tooltip ////// 
+		var tooltip2 = svg.append("g")
+    		.attr("class", "graph_tooltip")
+    		.style("display", "none")
+    		.attr("transform", "translate(" + width + "," + 10 + ")")
+
+  		tooltip2.append("text")
+    		.attr("x", 30)
+    		.attr("dy", "1.2em")
+    		.style("text-anchor", "start")
+    		.style("fill", "#0d6efd")
+    		.attr("font-size", "12px")
+    		.attr("font-weight", "bold")
+    		.text("Click to add/remove filter");
 	};
 
 	
