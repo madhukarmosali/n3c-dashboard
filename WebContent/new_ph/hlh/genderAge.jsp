@@ -22,8 +22,7 @@
 function ${param.block}_gender_refresh() {
 	console.log("gender graph", "${param.block}_gender_viz", ${param.block}_GenderAgeArray)
    	d3.select("#${param.block}_gender_viz").select("svg").remove();
-	localHorizontalGroupedStackedBarChart2(${param.block}_GenderAgeArray,"${param.block}_gender_viz", 120, "Patient Count", age_legend_2, age_range, "Age");	
-//	localHorizontalGroupedStackedBarChart(${param.block}_DiabetesArray,"${param.block}_diabetes_t2_viz", 120, age_legend, age_range);	
+	localHorizontalGroupedStackedBarChart(${param.block}_GenderAgeArray,"${param.block}_gender_viz", "observation", "gender", "patient_count", "age", "Age");	
 }
 
 ${param.block}_gender_refresh();

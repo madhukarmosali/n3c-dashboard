@@ -554,8 +554,8 @@
 	    ${param.block}_refreshMedicationArray(data2);
 	    ${param.block}_refreshDiabetesArray(data);
 	    
-	    ${param.block}_refreshAgeGenderArray(data);
-	    ${param.block}_refreshGenderAgeArray(data);
+	    ${param.block}_refreshAgeGenderArray(data2);
+	    ${param.block}_refreshGenderAgeArray(data2);
 	    
 	    ${param.block}_refreshSeverityStatusArray(data);
 	    ${param.block}_refreshAgeStatusArray(data);
@@ -874,6 +874,7 @@
 	<jsp:param name="block" value="${param.block}"/>
 	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
 	<jsp:param name="array" value="AgeGenderArray"/>
+	<jsp:param name="wrap" value="no"/>
 	<jsp:param name="primary" value="observation"/>
 	<jsp:param name="secondary" value="age"/>
 	<jsp:param name="tertiary" value="gender"/>
@@ -883,6 +884,7 @@
 	<jsp:param name="block" value="${param.block}"/>
 	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
 	<jsp:param name="array" value="GenderAgeArray"/>
+	<jsp:param name="wrap" value="no"/>
 	<jsp:param name="primary" value="observation"/>
 	<jsp:param name="secondary" value="gender"/>
 	<jsp:param name="tertiary" value="age"/>
