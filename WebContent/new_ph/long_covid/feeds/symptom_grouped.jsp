@@ -18,9 +18,9 @@
 				 observation_seq, symptom_seq
 			from (select
 					coalesce(age_bin, 'Unknown') as age_bin,
-					gender_concept_name as gender,
-					race_concept_name as race,
-					ethnicity_concept_name as ethnicity,
+					coalesce(gender_concept_name, 'Unknown') as gender,
+					coalesce(race_concept_name, 'Missing/Unknown') as race,
+					coalesce(ethnicity_concept_name, 'Missing/Unknown') as ethnicity,
 					observation,
 					symptom,
 					count as patient_display,

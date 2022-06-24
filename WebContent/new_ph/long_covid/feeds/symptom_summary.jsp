@@ -9,9 +9,9 @@
 			from (select
 					observation,
 					coalesce(age_bin, 'Unknown') as age_bin,
-					gender_concept_name as gender,
-					race_concept_name as race,
-					ethnicity_concept_name as ethnicity,
+					coalesce(gender_concept_name, 'Unknown') as gender,
+					coalesce(race_concept_name, 'Missing/Unknown') as race,
+					coalesce(ethnicity_concept_name, 'Missing/Unknown') as ethnicity,
 					count as patient_display,
 					case
 						when (count = '<20' or count is null) then 0
