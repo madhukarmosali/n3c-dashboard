@@ -37,7 +37,7 @@ function ${param.block}_refresh${param.array}(data) {
 	            dData[group][${param.secondary}][${param.tertiary}_seq] += count;
 	            maxIndex = Math.max(maxIndex, ${param.tertiary}_seq);
 	        } else if (typeof cData[group][${param.secondary}] == 'undefined') {
-	        	console.log('in secondary')
+// 	        	console.log('in secondary')
 	            cData[group][${param.secondary}] = count;        	
 	            dData[group][${param.secondary}] = [0,0,0,0,0,0,0,0];
 	            dData[group][${param.secondary}][${param.tertiary}_seq] += count;
@@ -50,7 +50,7 @@ function ${param.block}_refresh${param.array}(data) {
 	         }
 		});
 	
-		console.log('aData', aData, 'bData', bData, 'cData', cData, 'dData', dData, 'eData', eData, maxIndex)
+// 		console.log('aData', aData, 'bData', bData, 'cData', cData, 'dData', dData, 'eData', eData, maxIndex)
 		${param.block}_${param.array} = new Array();
 	    for(var i in aData) {
 	    	var obj = new Object();

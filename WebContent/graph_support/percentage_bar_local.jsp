@@ -19,16 +19,7 @@ rect{
 <script>
 
 function localPercentageBarChart(data, domName, barLabelWidth) {
-	
-	var longest_word = data.reduce(
-		    function (a, b) {
-		        return a.element.length > b.element.length ? a : b;
-		    }
-	);
-	
-	var word_length = longest_word.element.length;
-	
-	
+
 	var margin = {top: 40, right: 50, bottom: 50, left: barLabelWidth},
 	width = 600 - margin.left - margin.right,
 	height = 200 - margin.top - margin.bottom;
@@ -50,9 +41,19 @@ function localPercentageBarChart(data, domName, barLabelWidth) {
 	
 	myObserver.observe(d3.select(domName).node());
 	
+	var word_length = 3;
+	
+	if (data.length > 0){
+		var longest_word = data.reduce(
+			    function (a, b) {
+			        return a.element.length > b.element.length ? a : b;
+			    }
+		);
+		word_length =  longest_word.element.length;
+		
+	}
+	
 	draw();
-	
-	
 	function draw() {
 		
 		
@@ -134,7 +135,7 @@ function localPercentageBarChart(data, domName, barLabelWidth) {
 				.attr("fill", "#000")
 				.attr("font-weight", "bold")
 				.attr("text-anchor", "start")
-				.text("Percentage of Total")
+				.text("Percent of Total")
 				.attr("transform", "translate(" + ((width/2)- margin.right) + "," + 40 + ")"); 
 			
 			d3.selectAll("g.xaxis g.tick")

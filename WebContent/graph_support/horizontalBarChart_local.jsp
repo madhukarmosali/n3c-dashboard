@@ -1,14 +1,25 @@
 <script>
 
-function localHorizontalBarChart(data, domName, barLabelWidth) {
+function localHorizontalBarChart(data, domName, barLabelWidth, min_height, ordered) {
+	
+	
 	var valueLabelWidth = 50; // space reserved for value labels (right)
 	var barHeight = 50; // height of one bar
 	var barLabelPadding = 5; // padding between bar and bar labels (left)
 	var gridLabelHeight = 0; // space reserved for gridline labels
 	var gridChartOffset = 3; // space between start of grid and first bar
 	var maxBarWidth = 280; // width of the bar with the max value
-	var min_height = 300;
 	var paddingInside = 0.5
+	
+	if (min_height === undefined){
+		min_height = 300;
+	}
+	
+	if (ordered !== undefined){
+		data.sort(function(a, b) {
+		    return parseFloat(b.count) - parseFloat(a.count);
+		});
+	}
 	
 	var margin = { top: 40, right: 50, bottom: 30, left: barLabelWidth },
 		width = 1200 - margin.left - margin.right,

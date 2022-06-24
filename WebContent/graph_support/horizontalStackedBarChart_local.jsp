@@ -49,6 +49,17 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 	var paddingInside = 0.3;
 
 
+	var word_length = 3;
+	
+	if (data.length > 0){
+		var longest_word = data.reduce(
+			    function (a, b) {
+			        return a.element.length > b.element.length ? a : b;
+			    }
+		);
+		word_length =  longest_word.element.length;
+		
+	}
 	// get length of longest legend word for tooltip sizing
 	var longest_word = legend_data.reduce(
 		    function (a, b) {

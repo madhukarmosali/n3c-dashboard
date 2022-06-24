@@ -132,6 +132,7 @@ WebContent/new_ph/adult_summary/adult_summary_4.jsp -text
 WebContent/new_ph/adult_summary/adult_summary_5.jsp -text
 WebContent/new_ph/adult_summary/age.jsp -text
 WebContent/new_ph/adult_summary/aggregated_table.jsp -text
+WebContent/new_ph/adult_summary/comorbidity.jsp -text
 WebContent/new_ph/adult_summary/ethnicity.jsp -text
 WebContent/new_ph/adult_summary/feeds/severity.jsp -text
 WebContent/new_ph/adult_summary/feeds/ungrouped.jsp -text
@@ -226,6 +227,8 @@ WebContent/new_ph/kpis/adult_unknown_vaccinated.jsp -text
 WebContent/new_ph/kpis/adult_vaccinated.jsp -text
 WebContent/new_ph/kpis/adult_vaccinated_comorbidities.jsp -text
 WebContent/new_ph/kpis/block2_kpis/adult_patients.jsp -text
+WebContent/new_ph/kpis/block2_kpis/adult_ungrouped.jsp -text
+WebContent/new_ph/kpis/block2_kpis/adult_unknown_vaccinated.jsp -text
 WebContent/new_ph/kpis/block2_kpis/adult_vaccinated.jsp -text
 WebContent/new_ph/kpis/block2_kpis/adult_vaccinated_comorbidities.jsp -text
 WebContent/new_ph/kpis/block2_kpis/covid_first_diagnosis.jsp -text

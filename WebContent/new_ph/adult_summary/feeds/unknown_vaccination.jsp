@@ -2,34 +2,15 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
-	select jsonb_pretty(jsonb_agg(done))
-	from (select *
-			from (select
-					severity_type as severity,
-					gender_concept_name as gender,
-					age_bin,
-					race_concept_name as race,
-					comorbidity_list,
-					num_patients as patient_display,
-					case
-						when (num_patients = '<20' or num_patients is null) then 0
-						else num_patients::int
-					end as patient_count
-				  from n3c_questions.covid_positive_comorbidities_demo_censored_wo_vax
-		  	) as foo
-		  	natural join n3c_dashboard.age_map2
-		  	natural join n3c_dashboard.race_map
-		  	natural join n3c_dashboard.gender_map2
-		  	natural join n3c_dashboard.severity_map
-		  ) as done;
+	select * from n3c_dashboard.comorbidity_grouped_no_twenty;
 </sql:query>
 {
     "headers": [
         {"value":"severity", "label":"Severity"},
         {"value":"gender", "label":"Gender"},
-        {"value":"age_bin", "label":"Age"},
+        {"value":"age", "label":"Age"},
         {"value":"race", "label":"Race"},
-        {"value":"comorbidity_list", "label":"Comorbidities"},
+        {"value":"comorbidities", "label":"Comorbidities"},
         {"value":"patient_display", "label":"Patient Count"},
         {"value":"patient_count", "label":"Patient actual"},
         {"value":"age_abbrev", "label":"dummy1"},

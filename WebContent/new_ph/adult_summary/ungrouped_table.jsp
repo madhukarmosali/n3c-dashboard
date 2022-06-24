@@ -2,25 +2,62 @@
 <script>
 
 function ${param.block}_constrain_table(filter, constraint) {
-	//console.log("${param.block}", filter, constraint)
+	var table = $('#${param.target_div}-table').DataTable();
+	
 	switch (filter) {
 	case 'severity':
-	    $("#${param.datatable_div}-table").DataTable().column(0).search(constraint, true, false, true).draw();	
+		table.column(0).search(constraint, true, false, true).draw();	
 		break;
 	case 'gender':
-	    $("#${param.datatable_div}-table").DataTable().column(1).search(constraint, true, false, true).draw();	
+		table.column(1).search(constraint, true, false, true).draw();	
 		break;
-	case 'age_bin':
-	    $("#${param.datatable_div}-table").DataTable().column(2).search(constraint, true, false, true).draw();	
+	case 'age':
+		table.column(2).search(constraint, true, false, true).draw();	
 		break;
 	case 'race':
-	    $("#${param.datatable_div}-table").DataTable().column(3).search(constraint, true, false, true).draw();	
+		table.column(3).search(constraint, true, false, true).draw();	
 		break;
-	case 'comorbidity':
-	    $("#${param.datatable_div}-table").DataTable().column(4).search(constraint, true, false, true).draw();	
+	case 'comorbidities':
+		table.column(4).search(constraint, true, false, true).draw();	
 		break;
 	}
+	
+	var kpis = '${param.target_kpis}'.split(',');
+	for (var a in kpis) {
+		${param.block}_updateKPI(table, kpis[a])
+	}
 }
+
+function ${param.block}_updateKPI(table, column) {
+	var sum_string = '';
+	var sum = table.rows({search:'applied'}).data().pluck(column).sum();
+	
+	if (sum < 1000) {
+		sumString = sum+'';
+	} else if (sum < 1000000) {
+		sum = sum / 1000.0;
+		sumString = sum.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "k"
+	} else {
+		sum = sum / 1000000.0;
+		sumString = sum.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "M"
+		
+	}
+
+	document.getElementById('${param.block}'+'_'+column+'_kpi').innerHTML = sumString
+}
+
+jQuery.fn.dataTable.Api.register( 'sum()', function ( ) {
+	return this.flatten().reduce( function ( a, b ) {
+		if ( typeof a === 'string' ) {
+			a = a.replace(/[^\d.-]/g, '') * 1;
+		}
+		if ( typeof b === 'string' ) {
+			b = b.replace(/[^\d.-]/g, '') * 1;
+		}
+
+		return a + b;
+	}, 0 );
+} );
 
 var ${param.block}_datatable = null;
 
@@ -63,7 +100,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
      	columns: [
         	{ data: 'severity', visible: true, orderable: true },
         	{ data: 'gender', visible: true, orderable: true },
-        	{ data: 'age_bin', visible: true, orderable: true },
+        	{ data: 'age', visible: true, orderable: true },
         	{ data: 'race', visible: true, orderable: true },
         	{ data: 'comorbidity', visible: true, orderable: true },
         	{ data: 'patient_display', visible: true, orderable: true, orderData: [6] },

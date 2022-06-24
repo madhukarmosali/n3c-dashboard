@@ -2,7 +2,7 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
-	select * from n3c_dashboard.comorbidity;
+	 select * from n3c_dashboard.comorbidity_no_twenty;
 </sql:query>
 {
     "headers": [

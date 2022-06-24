@@ -15,7 +15,7 @@
 						else num_patients::int
 					end as count
 				  from n3c_questions.covid_positive_comorbidities_demo_censored
-				  where age_bin in ('Unknown', '18-64', '65+', 'null')
+				  where age_bin in ('Unknown', '18-64', '65+') or age_bin is null
 				) as foo;
 </sql:query>
 <c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
