@@ -28,6 +28,11 @@
 .accordion_text{
 	color: #212529!important;
 }
+
+#frame .datatable_overflow{
+	width: 100%;
+	overflow:scroll;
+}
 </style>
 
 <body>

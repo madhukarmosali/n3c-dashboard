@@ -80,7 +80,6 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 
 	var table = document.createElement("table");
 	table.className = 'table table-hover compact site-wrapper';
-	table.style.width = '100%';
 	table.id="${param.target_div}-table";
 
 	var header= table.createTHead();
@@ -99,7 +98,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 
 	${param.block}_datatable = $('#${param.target_div}-table').DataTable( {
     	data: data,
-    	dom: 'lfrtBip',
+    	dom: 'lfr<"datatable_overflow"t>Bip',
     	buttons: {
     	    dom: {
     	      button: {

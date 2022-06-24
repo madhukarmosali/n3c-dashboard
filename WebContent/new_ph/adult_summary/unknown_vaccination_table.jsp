@@ -74,7 +74,6 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 
 	var table = document.createElement("table");
 	table.className = 'table table-hover compact site-wrapper';
-	table.style.width = '100%';
 	table.id="${param.target_div}-table";
 
 	var header= table.createTHead();
@@ -93,6 +92,28 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 
 	${param.block}_datatable = $('#${param.target_div}-table').DataTable( {
     	data: data,
+    	dom: 'lfr<"datatable_overflow"t>Bip',
+    	buttons: {
+    	    dom: {
+    	      button: {
+    	        tag: 'button',
+    	        className: ''
+    	      }
+    	    },
+    	    buttons: [{
+    	      extend: 'csv',
+    	      className: 'btn btn-sm btn-light',
+    	      titleAttr: 'CSV export.',
+    	      text: 'CSV',
+    	      filename: 'severity_csv_export',
+    	      extension: '.csv'
+    	    }, {
+    	      extend: 'copy',
+    	      className: 'btn btn-sm btn-light',
+    	      titleAttr: 'Copy table data.',
+    	      text: 'Copy'
+    	    }]
+    	},
        	paging: true,
     	pageLength: 10,
     	lengthMenu: [ 10, 25, 50, 75, 100 ],

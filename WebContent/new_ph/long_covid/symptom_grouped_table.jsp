@@ -131,7 +131,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 	${param.block}_datatable = $('#${param.target_div}-table').DataTable( {
     	data: data,
        	paging: true,
-       	dom: 'lfrtBip',
+       	dom: 'lfr<"datatable_overflow"t>Bip',
        	buttons: {
     	    dom: {
     	      button: {

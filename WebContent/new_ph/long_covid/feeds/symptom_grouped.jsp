@@ -31,6 +31,7 @@
 					end as patient_count
 				  from n3c_questions.icd10_individual_symptom_summary_counts
 				  natural join n3c_dashboard.symptom_grouped_map
+				  WHERE count IS NOT NULL and count != '<20'
 		  	) as foo
 		  	natural join n3c_dashboard.age_map4
 		  	natural join n3c_dashboard.gender_map2
