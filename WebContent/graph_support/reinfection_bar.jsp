@@ -157,7 +157,13 @@
 				    	.attr('x', 30)
 		  				.attr('dy', 20)
 			     		.append("tspan")
-			     		.text(count2)
+			     		.text(function (d){
+			     			if (count2 == '<20'){
+			     				return count2;
+			     			}else{
+			     				return parseInt(count2).toLocaleString();
+			     			}
+			     		})
 			     		.attr('fill', 'black')
 			     		.attr('x', 30)
 		  				.attr('dy', 25);

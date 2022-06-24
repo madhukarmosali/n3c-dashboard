@@ -190,7 +190,7 @@ function localPercentageBarChart(data, domName, barLabelWidth) {
 		     		.attr('x', 20)
   					.attr('dy', 20)
 		     		.append("tspan")
-	     			.text(d.count)
+	     			.text(d.count.toLocaleString())
 	     			.attr('fill', 'black')
 	     			.attr('x', 20)
 					.attr('dy', 20);

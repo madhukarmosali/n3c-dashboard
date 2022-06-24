@@ -1,7 +1,17 @@
 <script>
 
 function localHorizontalBarChart(data, domName, barLabelWidth, min_height, ordered) {
+	var word_length = 3;
 	
+	if (data.length > 0){
+		var longest_word = data.reduce(
+			    function (a, b) {
+			        return a.element.length > b.element.length ? a : b;
+			    }
+		);
+		word_length =  longest_word.element.length;
+		
+	}
 	
 	var valueLabelWidth = 50; // space reserved for value labels (right)
 	var barHeight = 50; // height of one bar
@@ -120,7 +130,30 @@ function localHorizontalBarChart(data, domName, barLabelWidth, min_height, order
 			.attr('height', y.bandwidth())
 			.attr('width', function(d) { return x(d.count); })
 			.attr('stroke', 'white')
-			.attr('fill', 'url(' + domName +'mainGradient)');
+			.attr('fill', 'url(' + domName +'mainGradient)')
+			.on("mouseover", function() { 
+				tooltip.style("display", null); 
+			})
+			.on("mouseout", function() {
+				tooltip.style("display", "none");
+			})
+			.on("mousemove", function(d) {	
+				tooltip.selectAll("tspan").remove();
+				var xPosition = d3.mouse(this)[0];
+		     	var yPosition = d3.mouse(this)[1];
+		     	var count2 = d.count;
+		     	tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")")
+		     	.selectAll("text")
+		     		.append("tspan")
+		     		.text(d.element)
+		     		.attr('x', 10)
+  					.attr('dy', 13)
+		     		.append("tspan")
+		     		.text(count2.toLocaleString())
+		     		.attr('fill', 'black')
+		     		.attr('x', 10)
+  					.attr('dy', 20)
+			});
 		
 		
 		
@@ -150,6 +183,31 @@ function localHorizontalBarChart(data, domName, barLabelWidth, min_height, order
 			.style("font-size", "12px")
 			.style("fill", "#a5a2a2")
 			.text(function(d) { return nFormatter(barValue(d), 2); });
+		
+		// Tooltip ////// 
+		var tooltip = g.append("g")
+    		.attr("class", "graph_tooltip")
+    		.style("display", "none");
+      
+  		tooltip.append("rect")
+    		.attr("width", function(d){
+    			var cal_width = 10 + word_length * 7;
+    			var min_width = 80;
+    			if (cal_width > min_width){
+    				return cal_width;
+    			}else{
+    				return min_width;
+    			}
+    		})
+    		.attr("height", 40)
+    		.attr("fill", "white")
+    		.style("opacity", 0.7);
+
+  		tooltip.append("text")
+    		.style("text-anchor", "start")
+    		.attr("font-size", "12px")
+    		.attr("font-weight", "bold");
+
 	}
 }
 </script>

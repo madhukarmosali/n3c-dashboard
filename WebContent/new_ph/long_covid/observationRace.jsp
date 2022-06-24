@@ -5,6 +5,7 @@
 
 <div id="${param.block}_race_viz" class="col-12 dash_viz"></div>
 
+<c:if test="${not empty param.symptom}">
 <div id="${param.block}-long-race">
 	<jsp:include page="../long_covid/long_before_static.jsp">
 		<jsp:param name="block" value="${param.block}" />
@@ -12,6 +13,7 @@
 		<jsp:param name="symptom" value="${param.symptom}" />
 	</jsp:include>
 </div>
+</c:if>
 
 <c:if test="${not empty param.topic_description}">
 	<div id="viz_caption">

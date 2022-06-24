@@ -185,7 +185,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 		     		.attr('x', 10)
   					.attr('dy', 13)
 		     		.append("tspan")
-		     		.text(count2)
+		     		.text(count2.toLocaleString())
 		     		.attr('fill', 'black')
 		     		.attr('x', 10)
   					.attr('dy', 20)
@@ -349,7 +349,15 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
     		.style("display", "none");
       
   		tooltip.append("rect")
-    		.attr("width", 10 + word_length * 7)
+    		.attr("width", function(d){
+    			var cal_width = 10 + word_length * 7;
+    			var min_width = 80;
+    			if (cal_width > min_width){
+    				return cal_width;
+    			}else{
+    				return min_width;
+    			}
+    		})
     		.attr("height", 60)
     		.attr("fill", "white")
     		.style("opacity", 0.7);
