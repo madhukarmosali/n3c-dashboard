@@ -194,6 +194,15 @@
 										<c:if test="${param.age_filter7}">
 											<jsp:include page="filters/age_7.jsp"/>
 										</c:if>
+										<c:if test="${param.age_filterpeds}">
+											<jsp:include page="filters/age_peds.jsp"/>
+										</c:if>
+										<c:if test="${param.age_filterall}">
+											<jsp:include page="filters/age_all.jsp"/>
+										</c:if>
+										<c:if test="${param.age_filterall2}">
+											<jsp:include page="filters/age_all2.jsp"/>
+										</c:if>
 										<c:if test="${param.race_filter}">
 											<jsp:include page="filters/race.jsp"/>
 										</c:if>

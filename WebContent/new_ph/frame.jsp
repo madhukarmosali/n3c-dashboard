@@ -23,7 +23,7 @@
 		<jsp:include page="adult_summary/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'pediatrics'}">
-		<jsp:include page="pediatrics_summary/panel.jsp"/>
+		<jsp:include page="pediatrics/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'medications'}">
 		<jsp:include page="medications/panel.jsp"/>
@@ -60,6 +60,9 @@
 	</c:when>
 	<c:when test="${param.frame == 'sotrovimab'}">
 		<jsp:include page="sotrovimab/panel.jsp"/>
+	</c:when>
+	<c:when test="${param.frame == 'SummaryDataAllAges'}">
+		<jsp:include page="all_summary/panel.jsp"/>
 	</c:when>
 	<c:otherwise>
 		${param.frame}
