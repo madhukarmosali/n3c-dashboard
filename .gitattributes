@@ -189,6 +189,12 @@ WebContent/new_ph/delayed_mortality/mortality_2.jsp -text
 WebContent/new_ph/delayed_mortality/panel.jsp -text
 WebContent/new_ph/delayed_mortality/panel2.jsp -text
 WebContent/new_ph/delayed_mortality/race.jsp -text
+WebContent/new_ph/diabetes/diabetes_1.jsp -text
+WebContent/new_ph/diabetes/diabetes_2.jsp -text
+WebContent/new_ph/diabetes/diabetes_3.jsp -text
+WebContent/new_ph/diabetes/diabetes_4.jsp -text
+WebContent/new_ph/diabetes/diabetes_5.jsp -text
+WebContent/new_ph/diabetes/diabetes_6.jsp -text
 WebContent/new_ph/diabetes/diabetes_table.jsp -text
 WebContent/new_ph/diabetes/feeds/diabetes_t1_detail.jsp -text
 WebContent/new_ph/diabetes/feeds/diabetes_t2_detail.jsp -text
@@ -196,6 +202,7 @@ WebContent/new_ph/diabetes/feeds/t1_summary.jsp -text
 WebContent/new_ph/diabetes/feeds/t2_summary.jsp -text
 WebContent/new_ph/diabetes/kpis.jsp -text
 WebContent/new_ph/diabetes/panel.jsp -text
+WebContent/new_ph/diabetes/panel2.jsp -text
 WebContent/new_ph/diabetes/type_1.jsp -text
 WebContent/new_ph/diabetes/type_1_detailed.jsp -text
 WebContent/new_ph/diabetes/type_2.jsp -text

@@ -38,7 +38,7 @@
 		<jsp:include page="severity_region/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'diabetes-mellitus'}">
-		<jsp:include page="diabetes/panel.jsp"/>
+		<jsp:include page="diabetes/panel2.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'smoking'}">
 		<jsp:include page="smoking/panel.jsp"/>
