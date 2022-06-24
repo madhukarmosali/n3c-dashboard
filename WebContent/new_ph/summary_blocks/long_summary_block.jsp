@@ -77,7 +77,7 @@
 	</div>
 	
 	<div class="col-12">
-		<h4 class="text-center mt-5 color_header2">2. Explore Symptoms Commonly Associated with Long COVID</h4>
+		<h4 class="text-center mt-2 color_header2">2. Explore Symptoms Commonly Associated with Long COVID</h4>
 		<div class="row mb-4">
 			<div class="col-12 col-md-6" id="diagnosis">
 				<h5 class="text-center mb-2 feature_sub_heading">By Symptom Experience Relative to COVID Diagnosis</h5>

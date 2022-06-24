@@ -10,7 +10,7 @@
 			else num_patients::int
 			end
 		) as count, 
-		'Diagnosed Long COVID (U09.9)' as label, 
+		'Long COVID ICD-10 (U09.9) In Record' as label, 
 		13 as viz_id
 		from n3c_questions.long_covid_icd_agg_censored 
 		UNION 

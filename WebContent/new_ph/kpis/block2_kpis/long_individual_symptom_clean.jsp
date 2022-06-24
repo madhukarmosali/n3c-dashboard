@@ -30,7 +30,7 @@
 						</tr>
 					</table>
 				</div>
-				<div class="panel-heading kpi_num">${row.patient_count}</div>
+				<div id="${param.block}_long_individual_kpi" class="panel-heading kpi_num">${row.patient_count}</div>
 			</div>
 		</div>
 	</div>

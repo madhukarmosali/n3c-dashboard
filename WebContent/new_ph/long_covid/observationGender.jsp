@@ -5,6 +5,14 @@
 
 <div id="${param.block}_gender_viz" class="col-12 dash_viz"></div>
 
+<div id="${param.block}-long-gender">
+	<jsp:include page="../long_covid/long_before_static.jsp">
+		<jsp:param name="block" value="${param.block}" />
+		<jsp:param name="type" value="gender" />
+		<jsp:param name="symptom" value="${param.symptom}" />
+	</jsp:include>
+</div>
+
 <c:if test="${not empty param.topic_description}">
 	<div id="viz_caption">
 		<jsp:include page="../long_covid/secondary_text/${param.topic_description}.jsp"/>
@@ -15,6 +23,7 @@
 	<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_gender_viz', '${param.block}_gender.svg');">Save as SVG</button>
 	<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_gender_viz', '${param.block}_gender.png');">Save as PNG</button>
 	<button id='jpegButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_gender_viz', '${param.block}_gender.jpg');">Save as JPEG</button>
+	<br><small>Note: Download will only include the top graph.</small>
 </div>
 
 

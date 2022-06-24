@@ -11,6 +11,8 @@
 <script>
 
 
+console.log('${param.symptom}');
+
 // set the dimensions and margins of the graph
 var ${param.block}_long_margin = {top: 20, right: 90, bottom: 30, left: 210},
 	${param.block}_long_width = 445 - ${param.block}_long_margin.left - ${param.block}_long_margin.right,
@@ -30,13 +32,17 @@ var ${param.block}_long_barValue = function(d) { return parseFloat(d.patient_cou
 d3.json("<util:applicationRoot/>/new_ph/long_covid/feeds/before_after.jsp?symptom=${param.symptom}", function(error, data) {
 	if (error) throw error;
 	
+	console.log(data);
+	console.log('${param.symptom}');
+	
+	
 	var data = data.rows; 
 	
 	var ${param.block}_longmyObserver = new ResizeObserver(entries => {
 		entries.forEach(entry => {
 			var newWidth = Math.floor(entry.contentRect.width);
 			if (newWidth > 0) {
-				d3.select("#${param.block}-long").select("svg").remove();
+				d3.select("#${param.block}-long-${param.type}").select("svg").remove();
 				${param.block}_long_width = newWidth - ${param.block}_long_margin.left - ${param.block}_long_margin.right;
 				${param.block}_long_height = ${param.block}_long_width/5;
 				maxBarWidth = ${param.block}_long_width - ${param.block}_long_margin.left - ${param.block}_long_barLabelPadding - ${param.block}_long_valueLabelWidth;
@@ -48,15 +54,13 @@ d3.json("<util:applicationRoot/>/new_ph/long_covid/feeds/before_after.jsp?sympto
 		});
 	});
 
-	${param.block}_longmyObserver.observe(d3.select("#${param.block}-long").node());
+	${param.block}_longmyObserver.observe(d3.select("#${param.block}-long-${param.type}").node());
 
 	draw();
 
 	function draw(){
 		
-		console.log('reached_viz');
-		
-		var svg = d3.select("#${param.block}-long").append("svg")
+		var svg = d3.select("#${param.block}-long-${param.type}").append("svg")
 		.attr("width", ${param.block}_long_width + ${param.block}_long_margin.left + ${param.block}_long_margin.right)
 		.attr("height", ${param.block}_long_height + ${param.block}_long_margin.top + ${param.block}_long_margin.bottom);
 		
@@ -75,7 +79,7 @@ d3.json("<util:applicationRoot/>/new_ph/long_covid/feeds/before_after.jsp?sympto
 		var svgDefs = svg.append('defs');
 
     	var mainGradient = svgDefs.append('linearGradient')
-        	.attr('id', '${param.block}_longmainGradient');
+        	.attr('id', '${param.block}${param.type}_longmainGradient');
 
     	// Create the stops of the main gradient.
     	mainGradient.append('stop')
@@ -103,8 +107,8 @@ d3.json("<util:applicationRoot/>/new_ph/long_covid/feeds/before_after.jsp?sympto
 			.attr("fill", "#000")
 			.attr("font-weight", "bold")
 			.attr("text-anchor", "start")
-			.text("Patient Count")
-			.attr("transform", "translate(" + ((${param.block}_long_width/2)- ${param.block}_long_margin.right) + "," + 40 + ")"); 
+			.text("Total Patients w/Symptom")
+			.attr("transform", "translate(" + ((${param.block}_long_width-${param.block}_long_margin.left-${param.block}_long_margin.right)/2) + "," + 40 + ")"); 
 		
 		d3.selectAll("g.xaxis g.tick")
 	    	.append("line")
@@ -124,7 +128,7 @@ d3.json("<util:applicationRoot/>/new_ph/long_covid/feeds/before_after.jsp?sympto
 			.attr('height', y.bandwidth())
 			.attr('width', function(d) { return x(d.patient_count); })
 			.attr('stroke', 'white')
-			.attr('fill', 'url(#${param.block}_longmainGradient)');
+			.attr('fill', 'url(#${param.block}${param.type}_longmainGradient)');
 	
 	
 	

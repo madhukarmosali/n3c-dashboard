@@ -33,6 +33,11 @@ function ${param.block}_constrain_table(filter, constraint) {
 		console.log('filtered', components);
 		${param.block}_updateFilteredKPI(components[0], components[1], table, components[3], components[2])
 	}
+	
+	var kpis2 = '${param.target_kpis2}'.split(',');
+	for (var a in kpis2) {
+		${param.block}_updateKPI2(table, kpis2[a])
+	}
 }
 
 function ${param.block}_updateKPI(table, column) {
@@ -51,6 +56,29 @@ function ${param.block}_updateKPI(table, column) {
 	}
 	console.log('${param.block}', column, sumString)
 	document.getElementById('${param.block}'+'_'+column+'_kpi').innerHTML = sumString
+}
+
+function ${param.block}_updateKPI2(table, column) {
+	var sum_string = '';
+	var data_total = table.rows({search:'applied'}).data();
+	
+	var filtered = data_total.filter(function (el) {
+		  return el.observation == "Tested positive" ||  el.observation == "Has not tested positive" ;
+	});
+	
+	var sum = filtered.pluck('patient_count').sum();
+	
+	if (sum < 1000) {
+		sumString = sum+'';
+	} else if (sum < 1000000) {
+		sum = sum / 1000.0;
+		sumString = sum.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "k"
+	} else {
+		sum = sum / 1000000.0;
+		sumString = sum.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "M"
+		
+	}
+	document.getElementById('${param.block}'+'_'+column+'_kpi').innerHTML = sumString;
 }
 
 function ${param.block}_updateFilteredKPI(filter_column, filter_value, table, column, kpi_label) {

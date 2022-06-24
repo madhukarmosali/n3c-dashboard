@@ -15,13 +15,13 @@
 	<jsp:param name="race_filter" value="true" />
 	<jsp:param name="gender_filter" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />
+	
+	<jsp:param name="symptom" value="Cognitive%20impairment" />
 
 	<jsp:param name="age_panel" value="long_covid/observationAge.jsp" />
 	<jsp:param name="race_panel" value="long_covid/observationRace.jsp" />
 	<jsp:param name="gender_panel" value="long_covid/observationGender.jsp" />
 	<jsp:param name="ethnicity_panel" value="long_covid/observationEthnicity.jsp" />
-	<jsp:param name="static_secondary_panel" value="long_covid/long_before_static.jsp" />
-	<jsp:param name="symptom" value="Cognitive impairment" />
 	<jsp:param name="ethnicity_labelwidth" value="210" />
 	<jsp:param name="gender_labelwidth" value="210" />
 	<jsp:param name="race_labelwidth" value="210" />
@@ -31,6 +31,7 @@
 	<jsp:param name="datatable_div" value="long_covid_symptom_cognitive" />
 	<jsp:param name="datatable_feed" value="long_covid/feeds/symptom_ungrouped.jsp?symptom=Cognitive+impairment" />
 	<jsp:param name="datatable_filtered_kpis" value="observation|Tested positive|tested_positive|patient_count,observation|Has U09.9 in Record|in_record|patient_count" />
+	<jsp:param name="datatable_kpis2" value="long_individual" />
 </jsp:include>
 <script>
 	long_covid_7_toggle("age");
