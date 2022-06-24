@@ -20,7 +20,7 @@
 				  from n3c_questions.${param.comorbidity}_and_covid_summary
 		  	) as foo
 		  	natural join n3c_dashboard.gender_map2
-		  	natural join n3c_dashboard.age_map6
+		  	natural join n3c_dashboard.age_map7
 		  ) as done;
 </sql:query>
 {

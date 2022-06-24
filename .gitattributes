@@ -183,6 +183,7 @@ WebContent/new_ph/filters/age_3.jsp -text
 WebContent/new_ph/filters/age_4.jsp -text
 WebContent/new_ph/filters/age_5.jsp -text
 WebContent/new_ph/filters/age_6.jsp -text
+WebContent/new_ph/filters/age_7.jsp -text
 WebContent/new_ph/filters/comorbidities.jsp -text
 WebContent/new_ph/filters/ethnicity.jsp -text
 WebContent/new_ph/filters/gender.jsp -text
@@ -231,6 +232,8 @@ WebContent/new_ph/kpis/block2_kpis/adult_ungrouped.jsp -text
 WebContent/new_ph/kpis/block2_kpis/adult_unknown_vaccinated.jsp -text
 WebContent/new_ph/kpis/block2_kpis/adult_vaccinated.jsp -text
 WebContent/new_ph/kpis/block2_kpis/adult_vaccinated_comorbidities.jsp -text
+WebContent/new_ph/kpis/block2_kpis/comorbidities.jsp -text
+WebContent/new_ph/kpis/block2_kpis/comorbidities_pediatrics.jsp -text
 WebContent/new_ph/kpis/block2_kpis/covid_first_diagnosis.jsp -text
 WebContent/new_ph/kpis/block2_kpis/covid_positive.jsp -text
 WebContent/new_ph/kpis/block2_kpis/covid_reinfections.jsp -text

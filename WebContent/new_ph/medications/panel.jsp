@@ -4,7 +4,7 @@
 
 <!-- covid_patients_demographics_censored (2022-03-31 05:01) -->
 
-<jsp:include page="../block.jsp">
+<jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="medications_1" />
 	<jsp:param name="block_header" value="COVID+ Patients Distribution by Medication" />
 

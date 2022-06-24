@@ -165,7 +165,7 @@
 						</div>	
 						</div>
 					</c:if>
-					<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter4 || not empty param.age_filter5 || not empty param.age_filter6 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter || not empty param.symptom_filter}">
+					<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter4 || not empty param.age_filter5 || not empty param.age_filter6 || not empty param.age_filter7 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter || not empty param.symptom_filter}">
 						<div class="mt-2 col-12 col-md-6 filter_button_container">
 							<button id="${param.block}_btn_clear" class="btn button dash-filter-btn2 mt-0 no_clear" onclick="${param.block}_filter_clear()"><i class="fas fa-times-circle"></i> Clear Filters</button>
 							<div class="dropdown" style="display: inline-block;">
@@ -190,6 +190,9 @@
 										</c:if>
 										<c:if test="${param.age_filter6}">
 											<jsp:include page="filters/age_6.jsp"/>
+										</c:if>
+										<c:if test="${param.age_filter7}">
+											<jsp:include page="filters/age_7.jsp"/>
 										</c:if>
 										<c:if test="${param.race_filter}">
 											<jsp:include page="filters/race.jsp"/>
@@ -274,6 +277,7 @@
 								<jsp:param name="feed" value="${param.datatable_feed}"/>
 								<jsp:param name="target_div" value="${param.datatable_div}"/>
 								<jsp:param name="target_kpis" value="${param.datatable_kpis}"/>
+								<jsp:param name="target_kpis2" value="${param.datatable_kpis2}"/>
 								<jsp:param name="target_filtered_kpis" value="${param.datatable_filtered_kpis}"/>
 								<jsp:param name="block" value="${param.block}"/>
 							</jsp:include>

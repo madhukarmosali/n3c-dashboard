@@ -59,7 +59,7 @@ function url_unmap(selector) {
 var frame_crumbs = [];
 
 <c:choose>
-	<c:when test="${empty param.tertiary_tab}">
+	<c:when test="${empty param.tertiary_tab || param.tertiary_tab == 'undefined'}">
 		frame_load('comorbidity_1');
 	</c:when>
 	<c:otherwise>

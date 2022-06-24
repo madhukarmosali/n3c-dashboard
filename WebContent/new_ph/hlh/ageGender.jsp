@@ -12,17 +12,16 @@
 </c:if>
 				
 <div id="${param.block}_age_save_viz"> 
-	<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_severity_viz', '${param.block}_severity.svg');">Save as SVG</button>
-	<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_severity_viz', '${param.block}_severity.png');">Save as PNG</button>
-	<button id='jpegButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_severity_viz', '${param.block}_severity.jpg');">Save as JPEG</button>
+	<button id='svgButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_age_viz', '${param.block}_age.svg');">Save as SVG</button>
+	<button id='pngButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_age_viz', '${param.block}_age.png');">Save as PNG</button>
+	<button id='jpegButton' class="btn btn-light btn-sm" onclick="saveVisualization('${param.block}_age_viz', '${param.block}_age.jpg');">Save as JPEG</button>
 </div>
 
 <script>
 
 function ${param.block}_age_refresh() {
-	console.log("age graph", "${param.block}_age_viz", ${param.block}_AgeGenderArray)
    	d3.select("#${param.block}_age_viz").select("svg").remove();
-	localHorizontalGroupedStackedBarChart(${param.block}_AgeGenderArray,"${param.block}_age_viz", "observation", "age", "patient_count", "gender", "Gender");	
+	localHorizontalGroupedStackedBarChart(${param.block}_AgeGenderArray,"${param.block}_age_viz", "observation", "age", "patient_count", "gender", "Gender", gender_range_no_other, "Observation", "Age");	
 }
 
 ${param.block}_age_refresh();
