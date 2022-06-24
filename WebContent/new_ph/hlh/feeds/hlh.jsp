@@ -6,8 +6,11 @@
 	from (select observation, age_abbrev as age, gender_abbrev as gender, patient_display, patient_count, age_abbrev, age_seq, gender_abbrev, gender_seq, observation_seq
 			from (select
 					observation,
-					age_bracket,
-					gender_concept_name as gender,
+					coalesce(age_bracket, 'Unknown') as age_bin,
+					case
+					when (gender_concept_name = 'UNKNOWN') THEN 'Unknown'
+					ELSE gender_concept_name
+					END as gender,
 					count as patient_display,
 					n_observation as observation_seq,
 					case
@@ -17,7 +20,7 @@
 				  from n3c_questions.${param.comorbidity}_and_covid_summary
 		  	) as foo
 		  	natural join n3c_dashboard.gender_map2
-		  	natural join n3c_dashboard.age_map2
+		  	natural join n3c_dashboard.age_map6
 		  ) as done;
 </sql:query>
 {
