@@ -22,7 +22,7 @@ font-size: 14px;
 </style>
 <script>
 
-function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data, secondary_range = categorical, legend_label, min_height, nofilter) {
+function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data, secondary_range = categorical, legend_label, min_height, nofilter, ordered) {
 	
 	var add_filter_text = 1;
 	var filter_icon = " &#xf0b0";
@@ -110,8 +110,29 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 
 		var keys = data.map(function(d) { return d.element; });
 		
+		console.log("keys");
+		console.log(keys);
+		
 		var stackData = myStack(data);
 	
+		console.log("stackdata");
+		console.log(stackData);
+		
+		console.log(data);
+		console.log(data.map(function(d) { return d.element; }));
+		
+		
+		function sortFunction(a, b) {
+			console.log(a.count);
+		    return (a.count > b.count) ? -1 : 1;
+		}
+		if ((ordered != undefined) && (ordered == 1) ){
+			data.sort(sortFunction);
+			console.log('ordered');
+			console.log(data);
+		}
+		
+		
 		
 		
 		y.domain(data.map(function(d) { return d.element; }));					

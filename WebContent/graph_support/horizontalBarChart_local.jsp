@@ -25,8 +25,11 @@ function localHorizontalBarChart(data, domName, barLabelWidth, min_height, order
 		min_height = 300;
 	}
 	
-	if (ordered !== undefined){
+	console.log(ordered);
+	if ((ordered != undefined) && (ordered == 1) ){
+		console.log("ordered");
 		data.sort(function(a, b) {
+			console.log(a);
 		    return parseFloat(b.count) - parseFloat(a.count);
 		});
 	}

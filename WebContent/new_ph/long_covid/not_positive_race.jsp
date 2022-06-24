@@ -22,7 +22,7 @@
 function ${param.block}_race_refresh() {
 	console.log("race graph", "${param.block}_gender_viz", ${param.block}_RaceArray)
 	d3.select("#${param.block}_race_viz").select("svg").remove();
-	localHorizontalBarChart(${param.block}_RaceArray,"#${param.block}_race_viz", 270);
+	localHorizontalBarChart(${param.block}_RaceArray,"#${param.block}_race_viz", 270, 300, 1);
 }
 
 ${param.block}_race_refresh();

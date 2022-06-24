@@ -29,7 +29,7 @@ if (labeltest.length != 0){
 function ${param.block}_gender_refresh() {
 	console.log("gender graph", "${param.block}_gender_viz", ${param.block}_SymptomGenderArray)
    	d3.select("#${param.block}_gender_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_SymptomGenderArray,"${param.block}_gender_viz", labelWidth, gender_legend, gender_range, "Gender", "${param.viz_height}");	
+	localHorizontalStackedBarChart(${param.block}_SymptomGenderArray,"${param.block}_gender_viz", labelWidth, gender_legend, gender_range, "Gender", "${param.viz_height}", 0, 1);	
 }
 
 ${param.block}_gender_refresh();

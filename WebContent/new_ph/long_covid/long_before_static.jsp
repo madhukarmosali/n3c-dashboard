@@ -60,6 +60,14 @@ d3.json("<util:applicationRoot/>/new_ph/long_covid/feeds/before_after.jsp?sympto
 
 	function draw(){
 		
+		
+		function sortFunction(a, b) {
+		    return (a.patient_count > b.patient_count) ? -1 : 1;
+		}
+		
+		data.sort(sortFunction);
+		
+		
 		var svg = d3.select("#${param.block}-long-${param.type}").append("svg")
 		.attr("width", ${param.block}_long_width + ${param.block}_long_margin.left + ${param.block}_long_margin.right)
 		.attr("height", ${param.block}_long_height + ${param.block}_long_margin.top + ${param.block}_long_margin.bottom);
