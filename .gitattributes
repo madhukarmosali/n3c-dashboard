@@ -144,6 +144,11 @@ WebContent/new_ph/adult_summary/kpis.jsp -text
 WebContent/new_ph/adult_summary/panel.jsp -text
 WebContent/new_ph/adult_summary/race.jsp -text
 WebContent/new_ph/adult_summary/raceseverity.jsp -text
+WebContent/new_ph/adult_summary/secondary_text/secondary_1.jsp -text
+WebContent/new_ph/adult_summary/secondary_text/secondary_2.jsp -text
+WebContent/new_ph/adult_summary/secondary_text/secondary_3.jsp -text
+WebContent/new_ph/adult_summary/secondary_text/secondary_4.jsp -text
+WebContent/new_ph/adult_summary/secondary_text/secondary_5.jsp -text
 WebContent/new_ph/adult_summary/severity.jsp -text
 WebContent/new_ph/adult_summary/ungrouped_table.jsp -text
 WebContent/new_ph/adult_summary/unknown_vaccination_table.jsp -text
@@ -168,6 +173,11 @@ WebContent/new_ph/all_summary/kpis.jsp -text
 WebContent/new_ph/all_summary/panel.jsp -text
 WebContent/new_ph/all_summary/race.jsp -text
 WebContent/new_ph/all_summary/raceseverity.jsp -text
+WebContent/new_ph/all_summary/secondary_text/secondary_1.jsp -text
+WebContent/new_ph/all_summary/secondary_text/secondary_2.jsp -text
+WebContent/new_ph/all_summary/secondary_text/secondary_3.jsp -text
+WebContent/new_ph/all_summary/secondary_text/secondary_4.jsp -text
+WebContent/new_ph/all_summary/secondary_text/secondary_5.jsp -text
 WebContent/new_ph/all_summary/severity.jsp -text
 WebContent/new_ph/all_summary/ungrouped_table.jsp -text
 WebContent/new_ph/all_summary/unknown_vaccination_table.jsp -text
@@ -422,6 +432,11 @@ WebContent/new_ph/pediatrics/peds_summary_4.jsp -text
 WebContent/new_ph/pediatrics/peds_summary_5.jsp -text
 WebContent/new_ph/pediatrics/race.jsp -text
 WebContent/new_ph/pediatrics/raceseverity.jsp -text
+WebContent/new_ph/pediatrics/secondary_text/secondary_1.jsp -text
+WebContent/new_ph/pediatrics/secondary_text/secondary_2.jsp -text
+WebContent/new_ph/pediatrics/secondary_text/secondary_3.jsp -text
+WebContent/new_ph/pediatrics/secondary_text/secondary_4.jsp -text
+WebContent/new_ph/pediatrics/secondary_text/secondary_5.jsp -text
 WebContent/new_ph/pediatrics/severity.jsp -text
 WebContent/new_ph/pediatrics/ungrouped_table.jsp -text
 WebContent/new_ph/pediatrics/unknown_vaccination_table.jsp -text

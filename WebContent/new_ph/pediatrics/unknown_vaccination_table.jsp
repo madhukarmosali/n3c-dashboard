@@ -18,13 +18,18 @@ function ${param.block}_constrain_table(filter, constraint) {
 		table.column(3).search(constraint, true, false, true).draw();	
 		break;
 	case 'comorbidities':
-		table.column(4).search(constraint.replace(/[$^]/g, ''), true, false, false).draw();	
+		var filters = constraint;
+		if (constraint != ""){
+			filters = constraint.replace(/[$^]/g, '').split("|").sort().join(", ");
+			filters = "^" + filters + "$";
+		};
+		table.column(4).search(filters, true, false, true).draw();	
 		break;
 	}
 	
 	var kpis = '${param.target_kpis}'.split(',');
 	for (var a in kpis) {
-		${param.block}_updateKPI(table, kpis[a])
+		${param.block}_updateKPI(table, kpis[a]);
 	}
 }
 

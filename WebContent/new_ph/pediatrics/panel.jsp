@@ -6,9 +6,9 @@
 	<h4 class="viz_color_header">Select a Dashboard to Explore:</h4>
 	<select id="selectMe">
 		<option value="peds_summary_1">Demographics of COVID+ Patients</option>
-		<optgroup label="Demographics of COVID+ Pateints Filterable By:">
+		<optgroup label="Demographics of COVID+ Patients Filterable By:">
 		<option value="peds_summary_2">Vaccination Status</option>
-  		<option value="peds_summary_3">Vaccination Status and Grouped Cormobidities</option>
+  		<option value="peds_summary_3">Vaccination Status and Grouped Comorbidities</option>
   		<option value="peds_summary_4">Grouped Comorbidities</option>
   		<option value="peds_summary_5">Ungrouped Comorbidities</option>
   		</optgroup>

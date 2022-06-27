@@ -5,6 +5,7 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="all_summary_1" />
 	<jsp:param name="block_header" value="Demographics: COVID+" />
+	<jsp:param name="topic_description" value="secondary_1" />
 
 	<jsp:param name="kpis" value="all_summary/kpis.jsp" />
 

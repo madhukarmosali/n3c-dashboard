@@ -3,11 +3,13 @@
 
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
 	SELECT jsonb_pretty(jsonb_agg(done.*)) AS jsonb_pretty
-   FROM ( SELECT foo.severity,
+   FROM ( SELECT severity_abbrev as severity,
             gender_map3.gender_abbrev AS gender,
             age_map6.age_abbrev AS age,
             foo.race,
-            foo.comorbidities,
+            case when foo.comorbidities = 'DM' then 'Diabetes'
+            else foo.comorbidities
+            end as comorbidities,
             foo.patient_display,
             foo.patient_count,
             age_map6.age_abbrev,

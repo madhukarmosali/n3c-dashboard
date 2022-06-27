@@ -7,7 +7,7 @@
 
 <c:if test="${not empty param.topic_description}">
 	<div id="viz_caption">
-		<jsp:include page="../adult_summary/secondary_text/${param.topic_description}.jsp"/>
+		<jsp:include page="../all_summary/secondary_text/${param.topic_description}.jsp"/>
 	</div>
 </c:if>
 
@@ -22,7 +22,7 @@
 function ${param.block}_severity_refresh() {
 	//console.log("severity graph", "${param.block}_severity_viz", ${param.block}_SeverityArray)
 	d3.select("#${param.block}_severity_viz").select("svg").remove();
-	localPercentageBarChart(${param.block}_SeverityArray,"#${param.block}_severity_viz", 120);
+	localPercentageBarChart(${param.block}_SeverityArray,"#${param.block}_severity_viz", 120, severity_range);
 }
 
 ${param.block}_severity_refresh();

@@ -110,17 +110,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 
 		var keys = data.map(function(d) { return d.element; });
 		
-		console.log("keys");
-		console.log(keys);
-		
 		var stackData = myStack(data);
-	
-		console.log("stackdata");
-		console.log(stackData);
-		
-		console.log(data);
-		console.log(data.map(function(d) { return d.element; }));
-		
 		
 		function sortFunction(a, b) {
 			console.log(a.count);
@@ -131,9 +121,6 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			console.log('ordered');
 			console.log(data);
 		}
-		
-		
-		
 		
 		y.domain(data.map(function(d) { return d.element; }));					
 		x.domain([0, d3.max(data, function(d) { return d.count; })]).nice();	

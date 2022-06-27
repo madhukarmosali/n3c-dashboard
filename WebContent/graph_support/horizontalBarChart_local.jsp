@@ -1,6 +1,8 @@
 <script>
 
-function localHorizontalBarChart(data, domName, barLabelWidth, min_height, ordered) {
+function localHorizontalBarChart(data, domName, barLabelWidth, min_height, ordered, colorscale) {
+	
+	
 	var word_length = 3;
 	
 	if (data.length > 0){
@@ -25,9 +27,7 @@ function localHorizontalBarChart(data, domName, barLabelWidth, min_height, order
 		min_height = 300;
 	}
 	
-	console.log(ordered);
 	if ((ordered != undefined) && (ordered == 1) ){
-		console.log("ordered");
 		data.sort(function(a, b) {
 			console.log(a);
 		    return parseFloat(b.count) - parseFloat(a.count);
@@ -133,7 +133,13 @@ function localHorizontalBarChart(data, domName, barLabelWidth, min_height, order
 			.attr('height', y.bandwidth())
 			.attr('width', function(d) { return x(d.count); })
 			.attr('stroke', 'white')
-			.attr('fill', 'url(' + domName +'mainGradient)')
+			.attr('fill', function(d){
+				if (colorscale != undefined){
+					return colorscale[(d.seq-1)];
+				}else{
+					return 'url(' + domName +'mainGradient)';
+				}
+			})
 			.on("mouseover", function() { 
 				tooltip.style("display", null); 
 			})

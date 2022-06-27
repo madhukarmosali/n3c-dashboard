@@ -9,7 +9,7 @@
 			select severity,severity_abbrev from n3c_dashboard.severity_map order by severity_seq;
 		</sql:query>
 		<c:forEach items="${cases.rows}" var="row" varStatus="rowCounter">
-			<option value="${row.severity}">${row.severity_abbrev}</option>
+			<option value="${row.severity_abbrev}">${row.severity_abbrev}</option>
 		</c:forEach>
 	</select>
 </div>

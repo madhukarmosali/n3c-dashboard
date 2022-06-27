@@ -18,11 +18,18 @@ rect{
 
 <script>
 
-function localPercentageBarChart(data, domName, barLabelWidth) {
+function localPercentageBarChart(data, domName, barLabelWidth, colorscale, ordered) {
 
 	var margin = {top: 40, right: 50, bottom: 50, left: barLabelWidth},
 	width = 600 - margin.left - margin.right,
 	height = 200 - margin.top - margin.bottom;
+	
+	if ((ordered != undefined) && (ordered == 1) ){
+		data.sort(function(a, b) {
+			console.log(a);
+		    return parseFloat(b.count) - parseFloat(a.count);
+		});
+	}
 	
 	var myObserver = new ResizeObserver(entries => {
 		entries.forEach(entry => {
@@ -170,7 +177,13 @@ function localPercentageBarChart(data, domName, barLabelWidth) {
 		    .attr("width", function(d) { return xScale(d.num); })
 		    .attr("height", y0.bandwidth())
 		    .attr("class", "g-num")
-		    .attr("fill", 'url(' + domName +'mainGradient)')
+		    .attr('fill', function(d){
+				if (colorscale != undefined){
+					return colorscale[(d.seq-1)];
+				}else{
+					return 'url(' + domName +'mainGradient)';
+				}
+			})
 		    .on("mouseover", function() { tooltip.style("display", null); })
 		    .on("mouseout", function() { tooltip.style("display", "none"); })
 		    .on("mousemove", function(d) {

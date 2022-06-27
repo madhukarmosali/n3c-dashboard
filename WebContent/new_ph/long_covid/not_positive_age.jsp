@@ -22,7 +22,7 @@
 function ${param.block}_age_refresh() {
 	console.log("age graph", "${param.block}_age_viz", ${param.block}_AgeArray)
 	d3.select("#${param.block}_age_viz").select("svg").remove();
-	localHorizontalBarChart(${param.block}_AgeArray,"#${param.block}_age_viz", 70);
+	localHorizontalBarChart(${param.block}_AgeArray,"#${param.block}_age_viz", 70, 300, 0, age_range);
 }
 
 ${param.block}_age_refresh();

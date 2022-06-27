@@ -5,6 +5,7 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="all_summary_3" />
 	<jsp:param name="block_header" value="Demographics: Vaccinated and Comorbidities" />
+	<jsp:param name="topic_description" value="secondary_3" />
 
 	<jsp:param name="kpis" value="all_summary/kpis.jsp" />
 

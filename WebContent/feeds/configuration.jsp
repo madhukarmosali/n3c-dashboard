@@ -8,7 +8,11 @@ var severity_range = ["#F5B1A3", "#EE765E", "#CE3617", "#A02A12", "#5C180A", "#8
 var race_range = ["#123D63", "#CD4682", "#844780", "#FFC048", "#FF7155", "#8B8B8B"];
 var ethnicity_range = ["#29305b", "#818bc6", "#8B8B8B"];
 var age_range = ["#ccd1dc", "#6f809b", "#123d63", "#8B8B8B"];
-var age_range_adult = ["#6f809b", "#123d63", "#8B8B8B"];
+
+var age_range_adult = ["#8795ac", "#6d7f9a", "#556b8a", "#395577", "123d63", "#8B8B8B"];
+var age_range_peds = ["#eaecf1", "#c6cbd8", "#a5afc1", "#8795ac", "#8B8B8B"];
+var age_range_all = ["#eaecf1", "#c6cbd8", "#a5afc1", "#8795ac", "#6d7f9a", "#556b8a", "#395577", "#123d63", "#8B8B8B"];
+
 var status_range = ["#455098", "#CD4682", "#8B8B8B"];
 
 var categorical = ["#455098", "#CD4682", "#844780", "#FFC048", "#FF7155", "#123D63", "#8B8B8B"];

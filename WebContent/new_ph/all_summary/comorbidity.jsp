@@ -7,7 +7,7 @@
 
 <c:if test="${not empty param.topic_description}">
 	<div id="viz_caption">
-		<jsp:include page="../adult_summary/secondary_text/${param.topic_description}.jsp"/>
+		<jsp:include page="../all_summary/secondary_text/${param.topic_description}.jsp"/>
 	</div>
 </c:if>
 

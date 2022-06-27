@@ -7,7 +7,7 @@
 
 <c:if test="${not empty param.topic_description}">
 	<div id="viz_caption">
-		<jsp:include page="../adult_summary/secondary_text/${param.topic_description}.jsp"/>
+		<jsp:include page="../all_summary/secondary_text/${param.topic_description}.jsp"/>
 	</div>
 </c:if>
 
@@ -21,7 +21,7 @@
 
 function ${param.block}_age_refresh() {
 	d3.select("#${param.block}_age_viz").select("svg").remove();
-	localHorizontalBarChart(${param.block}_AgeArray,"#${param.block}_age_viz", 120);
+	localHorizontalBarChart(${param.block}_AgeArray,"#${param.block}_age_viz", 120, 300, 0);
 }
 
 ${param.block}_age_refresh();

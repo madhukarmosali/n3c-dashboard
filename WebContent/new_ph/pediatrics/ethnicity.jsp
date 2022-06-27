@@ -7,7 +7,7 @@
 
 <c:if test="${not empty param.topic_description}">
 	<div id="viz_caption">
-		<jsp:include page="../adult_summary/secondary_text/${param.topic_description}.jsp"/>
+		<jsp:include page="../pediatrics/secondary_text/${param.topic_description}.jsp"/>
 	</div>
 </c:if>
 
@@ -22,7 +22,7 @@
 function ${param.block}_ethnicity_refresh() {
 	//console.log("ethnicity graph", "${param.block}_ethnicity_viz", ${param.block}_EthnicityArray)
 	d3.select("#${param.block}_ethnicity_viz").select("svg").remove();
-	localPercentageBarChart(${param.block}_EthnicityArray,"#${param.block}_ethnicity_viz", 150);
+	localPercentageBarChart(${param.block}_EthnicityArray,"#${param.block}_ethnicity_viz", 150, ethnicity_range, 1);
 }
 
 ${param.block}_ethnicity_refresh();

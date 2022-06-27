@@ -5,6 +5,7 @@
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="all_summary_5" />
 	<jsp:param name="block_header" value="Demographics: Ungrouped Comorbidities" />
+	<jsp:param name="topic_description" value="secondary_5" />
 
 	<jsp:param name="kpis" value="all_summary/kpis.jsp" />
 

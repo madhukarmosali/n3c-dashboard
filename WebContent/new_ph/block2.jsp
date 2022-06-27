@@ -477,7 +477,7 @@
 		$('#${param.block}-ethnicity-select').multiselect('clearSelection');
 		$('#${param.block}-symptom-select').multiselect('clearSelection');
 		$('#${param.block}-vaccinated-select').multiselect('clearSelection');
-		$('#${param.block}-comorbidities-select').multiselect('clearSelection');
+		$('#${param.block}-comorbidities-select').multiselect('clearSelection')
 		
 		${param.block}_constrain("severity", '');
 		${param.block}_constrain("age", '');
@@ -485,7 +485,7 @@
 		${param.block}_constrain("gender", '');
 		${param.block}_constrain("ethnicity", '');
 		${param.block}_constrain("symptom", '');
-		${param.block}_constrain("comorbidity", '');
+		${param.block}_constrain("comorbidities", '');
 		
 		$("#${param.datatable_div}-table").DataTable().columns().search('').draw();
 	    ${param.block}_refreshHistograms();

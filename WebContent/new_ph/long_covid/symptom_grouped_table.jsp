@@ -21,8 +21,12 @@ function ${param.block}_constrain_table(filter, constraint) {
 		table.column(4).search(constraint, true, false, true).draw();	
 		break;
 	case 'symptom':
-		console.log(constraint);
-		table.column(6).search(constraint.replace(/[$^]/g, ''), true, false, true).draw();	
+		var filters = constraint;
+		if (constraint != ""){
+			filters = constraint.replace(/[$^]/g, '').split("|").sort().join(", ");
+			filters = "^" + filters + "$";
+		};
+		table.column(6).search(filters, true, false, true).draw();	
 		break;
 	}
 	

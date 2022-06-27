@@ -7,7 +7,7 @@
 
 <c:if test="${not empty param.topic_description}">
 	<div id="viz_caption">
-		<jsp:include page="../adult_summary/secondary_text/${param.topic_description}.jsp"/>
+		<jsp:include page="../pediatrics/secondary_text/${param.topic_description}.jsp"/>
 	</div>
 </c:if>
 
@@ -22,7 +22,7 @@
 function ${param.block}_gender_refresh() {
 	//console.log("gender graph", "${param.block}_gender_viz", ${param.block}_GenderArray)
 	d3.select("#${param.block}_gender_viz").select("svg").remove();
-    localHorizontalBarChart(${param.block}_GenderArray,"#${param.block}_gender_viz", 140);
+    localHorizontalBarChart(${param.block}_GenderArray,"#${param.block}_gender_viz", 140 ,300, 1, gender_range);
 }
 
 ${param.block}_gender_refresh();

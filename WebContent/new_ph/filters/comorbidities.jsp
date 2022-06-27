@@ -7,7 +7,10 @@
 	<select id="${param.block}-comorbidities-select" multiple="multiple">
 		<sql:query var="cases" dataSource="jdbc/N3CPublic">
 			SELECT 
-			distinct(replace(condition_name, 'Charlson - ', '')) AS symptoms
+			distinct(
+				case when (replace(condition_name, 'Charlson - ', '')) = 'DM' then 'Diabetes'
+            	else replace(condition_name, 'Charlson - ', '')
+            	end) AS symptoms
 			from n3c_questions.covid_positive_comorbidity_non_grouped_demo_censored;
 		</sql:query>
 		<c:forEach items="${cases.rows}" var="row" varStatus="rowCounter">
