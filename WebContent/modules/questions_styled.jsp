@@ -103,9 +103,11 @@
 
 
 <script>
+console.log("reached");
+
 $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 	
-	
+	console.log(data);
 		
 	var json = $.parseJSON(JSON.stringify(data));
 
@@ -148,11 +150,8 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 	var divContainer = document.getElementById("question-roster2");
 		divContainer.innerHTML = "";
 		divContainer.appendChild(table);
-	// table 2 append
-	var divContainer2 = document.getElementById("question-roster3");
-		divContainer2.innerHTML = "";
-		divContainer2.appendChild(table2);	
-	
+		
+	console.log(divContainer);
 
 	var data = json['rows'];
 
@@ -263,20 +262,21 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 
 		document.getElementById("question-tile").removeAttribute("style");
 		iframe_render(
-						
-						config.tenantDomain,
-						config.appId,
-						data[index].iframe_content,
-						config.qlikWebIntegrationId,
-						csrfTokenInfo.headers.get("qlik-csrf-token"),
-						data[index].iframe_style,
-						data[index].question.replace(/'/g, "\\'"),
-						data[index].description.replace(/'/g, "\\'"),
-						data[index].asked,
-						data[index].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,""),
-						data[index].iframe_info
-					);
+			config.tenantDomain,
+			config.appId,
+			data[index].iframe_content,
+			config.qlikWebIntegrationId,
+			csrfTokenInfo.headers.get("qlik-csrf-token"),
+			data[index].iframe_style,
+			data[index].question.replace(/'/g, "\\'"),
+			data[index].description.replace(/'/g, "\\'"),
+			data[index].asked,
+			data[index].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,""),
+			data[index].iframe_info
+		);
 	})();
+}).fail(function(jqxhr){
+   alert(jqxhr.responseText);
 });
 
 
