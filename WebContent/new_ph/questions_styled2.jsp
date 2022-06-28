@@ -43,6 +43,9 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 	(async() => {
 		$("body").css("cursor", "wait");
 		
+		const { config, csrfTokenInfo } = await auth2();
+		console.log(csrfTokenInfo);
+		
 		$("body").css("cursor", "default");
 		
 		var index = data.findIndex(object => {

@@ -7,6 +7,7 @@
 
 <html>
 <jsp:include page="head.jsp" flush="true" />
+<script src="<util:applicationRoot/>/resources/auth.js"></script>
 
 <style>
 #ph_data_drop a[aria-expanded = "true"] span.btn:after{
