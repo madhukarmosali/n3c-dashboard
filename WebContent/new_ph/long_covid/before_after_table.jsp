@@ -2,12 +2,14 @@
 <script>
 
 function ${param.block}_constrain_table(filter, constraint) {
-	//console.log("${param.block}", filter, constraint)
+
+	console.log(filter);
+	console.log(constraint);
 	switch (filter) {
 	case 'symptom':
 	    $("#${param.datatable_div}-table").DataTable().column(0).search(constraint, true, false, true).draw();	
 		break;
-	case 'condition_after_covid_positive':
+	case 'beforeafter':
 	    $("#${param.datatable_div}-table").DataTable().column(1).search(constraint, true, false, true).draw();	
 		break;
 	}

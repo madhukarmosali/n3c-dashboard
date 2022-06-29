@@ -103,11 +103,8 @@
 
 
 <script>
-console.log("reached");
 
 $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
-	
-	console.log(data);
 		
 	var json = $.parseJSON(JSON.stringify(data));
 
@@ -150,8 +147,6 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 	var divContainer = document.getElementById("question-roster2");
 		divContainer.innerHTML = "";
 		divContainer.appendChild(table);
-		
-	console.log(divContainer);
 
 	var data = json['rows'];
 

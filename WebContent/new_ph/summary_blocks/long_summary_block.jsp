@@ -32,6 +32,7 @@
 
 .color_header2{
 	color: #646FAA;
+	font-style: italic;
 }
 
 .limitation_link{

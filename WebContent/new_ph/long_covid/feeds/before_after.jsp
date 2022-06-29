@@ -20,7 +20,7 @@
 {
     "headers": [
         {"value":"symptom", "label":"Symptom"},
-        {"value":"condition_after_covid_positive", "label":"Condition Before/After COVID+"},
+        {"value":"condition_after_covid_positive", "label":"Symptom Occurrence"},
         {"value":"patient_display", "label":"Patient Count"},
         {"value":"patient_count", "label":"Patient actual"},
         {"value":"condition_after_covid_positive_seq", "label":"dummy0"}

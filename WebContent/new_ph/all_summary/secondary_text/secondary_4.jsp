@@ -8,7 +8,9 @@
 				linked to EHR medical visits coded for any of the 17 different conditions defined by the Charlson 
 				Comorbidity Index. A patient may have undiagnosed conditions which would not be recorded in their EHR and 
 				therefore would not be represented here. A patient may also have one of these conditions for which they have 
-				not required a medical visit and that would not be represented here.</p>
+				not required a medical visit and that would not be represented here. 
+
+				</p>
 </div>
 
 

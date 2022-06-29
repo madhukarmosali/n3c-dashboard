@@ -79,6 +79,7 @@ d3.json("<util:applicationRoot/>/new_ph/long_covid/feeds/before_after.jsp?sympto
 			.domain(data.map(function(d) { return d.condition_after_covid_positive; }));
 	
 		var yText = function(d, i) { return y(d, i) + y.bandwidth() / 2; };
+		
 	
 		var x = d3.scaleLinear()
 			.domain([0, d3.max(data, function(d){ return d.patient_count; })])
@@ -136,7 +137,9 @@ d3.json("<util:applicationRoot/>/new_ph/long_covid/feeds/before_after.jsp?sympto
 			.attr('height', y.bandwidth())
 			.attr('width', function(d) { return x(d.patient_count); })
 			.attr('stroke', 'white')
-			.attr('fill', 'url(#${param.block}${param.type}_longmainGradient)');
+			.attr('fill', function(d, i){
+				return categorical[i]
+			});
 	
 	
 	

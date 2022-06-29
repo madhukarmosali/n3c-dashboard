@@ -165,8 +165,8 @@
 						</div>	
 						</div>
 					</c:if>
-					<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter4 || not empty param.age_filter5 || not empty param.age_filter6 || not empty param.age_filter7 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter || not empty param.symptom_filter}">
-						<div class="mt-2 col-12 col-md-6 filter_button_container">
+					<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter4 || not empty param.age_filter5 || not empty param.age_filter6 || not empty param.age_filter7 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter || not empty param.symptom_filter || not empty param.beforeafter_filter}">
+						<div class="mt-2 ml-auto col-12 col-md-6 filter_button_container">
 							<button id="${param.block}_btn_clear" class="btn button dash-filter-btn2 mt-0 no_clear" onclick="${param.block}_filter_clear()"><i class="fas fa-times-circle"></i> Clear Filters</button>
 							<div class="dropdown" style="display: inline-block;">
 		  						<button data-bs-auto-close="false" class="btn dash-filter-btn dropdown-toggle mt-0 show_filt" type="button" id="${param.block}dropdownMenuButton" data-toggle="" aria-haspopup="true" aria-expanded="false">
@@ -226,6 +226,9 @@
 										</c:if>
 										<c:if test="${param.comorbidities_filter}">
 											<jsp:include page="filters/comorbidities.jsp"/>
+										</c:if>
+										<c:if test="${param.beforeafter_filter}">
+											<jsp:include page="filters/beforeafter.jsp"/>
 										</c:if>
 									</div>
 			  					</div>
@@ -312,6 +315,9 @@
 	
 
 	function ${param.block}_viz_constrain(element, elementParent) {
+		console.log(element);
+		console.log(elementParent);
+		
 		var options = $("#${param.block}-"+elementParent.toLowerCase()+"-select");
         var selected = [];
         
@@ -427,7 +433,7 @@
             }
 		});
 		
-		$('#${param.block}-vaccinated-select').multiselect({	
+		$('#${param.block}-vaccinated-select').multiselect({
 			onChange: function(option, checked, select) {
 				var options = $('#${param.block}-vaccinated-select');
 		        var selected = [];
@@ -435,7 +441,7 @@
 		            selected.push($(this).val());
 		        });
 		        
-				${param.block}_constrain("vaccinated",  selected[0].join('|'));
+				${param.block}_constrain("vaccinated", selected[0].join('|'));
 			    ${param.block}_refreshHistograms();
             }
 		});
@@ -448,6 +454,18 @@
 		            selected.push($(this).val());
 		        });
 				${param.block}_constrain("comorbidities",  selected[0].join('|'));
+			    ${param.block}_refreshHistograms();
+            }
+		});
+		
+		$('#${param.block}-symptomoccurrence-select').multiselect({	
+			onChange: function(option, checked, select) {
+				var options = $('#${param.block}-symptomoccurrence-select');
+		        var selected = [];
+		        $(options).each(function(){
+		            selected.push($(this).val());
+		        });
+				${param.block}_constrain("beforeafter",  selected[0].join('|'));
 			    ${param.block}_refreshHistograms();
             }
 		});
@@ -477,7 +495,8 @@
 		$('#${param.block}-ethnicity-select').multiselect('clearSelection');
 		$('#${param.block}-symptom-select').multiselect('clearSelection');
 		$('#${param.block}-vaccinated-select').multiselect('clearSelection');
-		$('#${param.block}-comorbidities-select').multiselect('clearSelection')
+		$('#${param.block}-comorbidities-select').multiselect('clearSelection');
+		$('#${param.block}-symptomoccurrence-select').multiselect('clearSelection')
 		
 		${param.block}_constrain("severity", '');
 		${param.block}_constrain("age", '');
@@ -486,6 +505,7 @@
 		${param.block}_constrain("ethnicity", '');
 		${param.block}_constrain("symptom", '');
 		${param.block}_constrain("comorbidities", '');
+		${param.block}_constrain("beforeafter", '');
 		
 		$("#${param.datatable_div}-table").DataTable().columns().search('').draw();
 	    ${param.block}_refreshHistograms();

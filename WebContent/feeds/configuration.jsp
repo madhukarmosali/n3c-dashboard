@@ -46,7 +46,7 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 
 <sql:query var="severities" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done order by secondary_seq))
-	from (select distinct severity_abbrev as secondary, severity_seq as secondary_seq, severity as secondary_name
+	from (select distinct severity_abbrev as secondary, severity_seq as secondary_seq, severity_abbrev as secondary_name
 		  from n3c_dashboard.severity_map
 		  ) as done;
 </sql:query>

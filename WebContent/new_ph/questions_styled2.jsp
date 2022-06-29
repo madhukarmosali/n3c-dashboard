@@ -39,12 +39,13 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 		option.value = data[i].question.replace('/g, "\\') + 'arguement_value:' + data[i].description.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[i].asked + 'arguement_value:' + data[i].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[i].iframe_info + 'arguement_value:' + data[i].seqnum;
 		document.getElementById("dashboard_select").appendChild(option);
 	}
+	
 
 	(async() => {
 		$("body").css("cursor", "wait");
 		
-		const { config, csrfTokenInfo } = await auth2();
-		console.log(csrfTokenInfo);
+// 		const { config, csrfTokenInfo } = await auth2();
+// 		console.log(csrfTokenInfo);
 		
 		$("body").css("cursor", "default");
 		
@@ -55,15 +56,18 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 		if ($('.ph-tab .active > a').attr("href") == '#ph-summary'){
 			cache_browser_history("new-ph", "new-ph" + (index == -1 ? '' : "/${param.secondary_tab}"))
 		};
-		
 		if (index < 0) {index = 0;};
+		
+	 	$('#dashboard_select').val(data[index].question.replace('/g, "\\') + 'arguement_value:' + data[index].description.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[index].asked + 'arguement_value:' + data[index].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[index].iframe_info + 'arguement_value:' + data[index].seqnum);
+	 	$('#dashboard_select').trigger('change'); 
 			
 		document.getElementById("question-tile").removeAttribute("style");
 		
 		frame_render(data[index].question.replace('/g, "\\'), data[index].description.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,""), data[index].asked, data[index].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,""), data[index].iframe_info, ${param.tertiary_tab});
+
+		console.log("reached");
 		
-		$('#dashboard_select').val(data[index].question.replace('/g, "\\') + 'arguement_value:' + data[index].description.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[index].asked + 'arguement_value:' + data[index].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[index].iframe_info + 'arguement_value:' + data[index].seqnum);
-		
+
 	})();
 });
 

@@ -2,12 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
-<div style="text-align:center; font-size: 1.3rem; margin-top: 40px;">
-	<h3>Select a Dashboard to Explore:</h3>
+<div class="topic_dropdown" style="text-align:center; font-size: 1.3rem;">
+	<h4 class="viz_color_header">Select a Dashboard to Explore:</h4>
 	<select id="selectMe">
-		<option value="reinfection_1">Cases and Reinfections per Cohort</option>
-		<option value="reinfection_2">Cases and Reinfections per Day</option>
-		<option value="reinfection_3">Reinfection Counts Grouped by 30 Day Increments</option>
+		<option value="reinfection_1">First Diagnosis Versus Reinfected Patients Per COVID+ Cohort</option>
+		<option value="reinfection_2">First Diagnosis Versus Number of Reinfections Per Day</option>
+		<option value="reinfection_3">Reinfection Counts Grouped by 30 Day Increments</option>	
+		<option disabled hidden="hidden">First Diagnosis Versus Reinfected Patients Per COVID+ Cohort++++++++</option>	
 	</select>
 </div>
 <div id="frame">

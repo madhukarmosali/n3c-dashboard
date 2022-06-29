@@ -11,6 +11,8 @@
 	<jsp:param name="kpis" value="long_covid/kpis2.jsp" />
 
 	<jsp:param name="simple_panel" value="long_covid/beforeAfter.jsp" />
+	
+	<jsp:param name="beforeafter_filter" value="true" />
 
 	<jsp:param name="datatable" value="long_covid/before_after_table.jsp" />
 	<jsp:param name="datatable_div" value="long_covid_before_after" />

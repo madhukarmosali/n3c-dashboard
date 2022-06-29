@@ -228,6 +228,7 @@ WebContent/new_ph/filters/age_7.jsp -text
 WebContent/new_ph/filters/age_all.jsp -text
 WebContent/new_ph/filters/age_all2.jsp -text
 WebContent/new_ph/filters/age_peds.jsp -text
+WebContent/new_ph/filters/beforeafter.jsp -text
 WebContent/new_ph/filters/comorbidities.jsp -text
 WebContent/new_ph/filters/ethnicity.jsp -text
 WebContent/new_ph/filters/gender.jsp -text
@@ -413,6 +414,7 @@ WebContent/new_ph/medications/kpis.jsp -text
 WebContent/new_ph/medications/medications.jsp -text
 WebContent/new_ph/medications/medications_table.jsp -text
 WebContent/new_ph/medications/panel.jsp -text
+WebContent/new_ph/medications/panel_qlik.jsp -text
 WebContent/new_ph/pediatrics/age.jsp -text
 WebContent/new_ph/pediatrics/aggregated_table.jsp -text
 WebContent/new_ph/pediatrics/comorbidity.jsp -text

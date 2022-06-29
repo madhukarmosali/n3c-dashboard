@@ -113,13 +113,10 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 		var stackData = myStack(data);
 		
 		function sortFunction(a, b) {
-			console.log(a.count);
 		    return (a.count > b.count) ? -1 : 1;
 		}
 		if ((ordered != undefined) && (ordered == 1) ){
 			data.sort(sortFunction);
-			console.log('ordered');
-			console.log(data);
 		}
 		
 		y.domain(data.map(function(d) { return d.element; }));					
@@ -331,7 +328,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.attr("width", 19)
 			.attr("height", 19)
 			.attr("fill", function(d, i) { return z[i]; })
-			.on("click", function(d, i){window[domName.replace(/_[^_]+_[^_]+$/i,'_')+'viz_constrain'](d, legend_label); })
+			.on("click", function(d, i){window[domName.replace(/_[^_]+_[^_]+$/i,'_')+'viz_constrain'](d, legend_label.replace(/\s/g, "")); })
 			.on("mouseover", function(d, i) {
 				svg.selectAll(".serie:not(.color-" + z[i].substring(1) + ")").style("opacity", "0.2");
 				if ((nofilter == undefined) || (nofilter == 0) ){

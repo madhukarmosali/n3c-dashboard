@@ -35,7 +35,7 @@
 		<jsp:param name="column2_tip" value="Reinfection" />
 		<jsp:param name="column2_tip_offset" value="120" />
 		<jsp:param name="column2_color" value="#955195" />
-		<jsp:param name="column2_opacity" value="0.4" />
+		<jsp:param name="column2_opacity" value="0.7" />
 		<jsp:param name="constraintPropagator" value="constraint" />
 	</jsp:include>
 	

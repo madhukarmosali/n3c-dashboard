@@ -117,7 +117,7 @@
 
 
 // set the dimensions and margins of the graph
-	var margin = {top: 40, right: 100, bottom: 140, left: 100},
+	var margin = {top: 0, right: 100, bottom: 140, left: 100},
 	    width = 960 - margin.left - margin.right,
 	    height = 600 - margin.top - margin.bottom;
 	
@@ -165,8 +165,8 @@
 			
 			// set the ranges
 			var ${param.namespace}x = d3.scaleTime().domain(d3.extent(data, function(d) { return d.date; })).range([0, width]);
-			var y1 = d3.scaleLinear().range([height, 0]);
-			var y2 = d3.scaleLinear().range([height, 0]);
+			var y1 = d3.scaleLinear().range([height, 40]);
+			var y2 = d3.scaleLinear().range([height, 40]);
 			var line = d3.line().x(d => x(d.${param.date_column})).y(d => y(d.${param.column1}));
 			
 			
