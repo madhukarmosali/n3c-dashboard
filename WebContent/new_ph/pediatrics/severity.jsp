@@ -22,7 +22,7 @@
 function ${param.block}_severity_refresh() {
 	//console.log("severity graph", "${param.block}_severity_viz", ${param.block}_SeverityArray)
 	d3.select("#${param.block}_severity_viz").select("svg").remove();
-	localPercentageBarChart(${param.block}_SeverityArray,"#${param.block}_severity_viz", 120, severity_range);
+	localPercentageBarChart(${param.block}_SeverityArray,"#${param.block}_severity_viz", 120, severity_range, 0, "Severity", severity_legend);
 }
 
 ${param.block}_severity_refresh();

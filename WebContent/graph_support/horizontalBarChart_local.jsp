@@ -1,6 +1,6 @@
 <script>
 
-function localHorizontalBarChart(data, domName, barLabelWidth, min_height, ordered, colorscale) {
+function localHorizontalBarChart(data, domName, barLabelWidth, min_height, ordered, colorscale, noseq) {
 	
 	
 	var word_length = 3;
@@ -133,9 +133,15 @@ function localHorizontalBarChart(data, domName, barLabelWidth, min_height, order
 			.attr('height', y.bandwidth())
 			.attr('width', function(d) { return x(d.count); })
 			.attr('stroke', 'white')
-			.attr('fill', function(d){
+			.attr('fill', function(d, i){
 				if (colorscale != undefined){
-					return colorscale[(d.seq-1)];
+					if (noseq != 1){
+						return colorscale[(d.seq-1)];
+					} else {
+						console.log(colorscale);
+						console.log(d);
+						return colorscale[i];
+					}
 				}else{
 					return 'url(' + domName +'mainGradient)';
 				}

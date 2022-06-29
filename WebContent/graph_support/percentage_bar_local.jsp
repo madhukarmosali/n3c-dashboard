@@ -18,9 +18,11 @@ rect{
 
 <script>
 
-function localPercentageBarChart(data, domName, barLabelWidth, colorscale, ordered) {
+function localPercentageBarChart(data, domName, barLabelWidth, colorscale, ordered, legend_label, legend_data) {
 
-	var margin = {top: 40, right: 50, bottom: 50, left: barLabelWidth},
+	var filter_icon = " &#xf0b0";
+	
+	var margin = {top: 40, right: 100, bottom: 50, left: barLabelWidth},
 	width = 600 - margin.left - margin.right,
 	height = 200 - margin.top - margin.bottom;
 	
@@ -89,7 +91,7 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 		
 		//Creates the xScale 
 		var xScale = d3.scaleLinear()
-		  .range([0,width]);
+		  .range([0,width-margin.right]);
 		
 		//Creates the yScale
 		var y0 = d3.scaleBand()
@@ -231,6 +233,54 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 		    .attr("y", (y0.bandwidth() / 1.4))
 		    .attr("class", "g-labels");    
 		  
+		// Legend ////////////////////	
+			var legend_text = svg.append("g")
+				.attr("transform", "translate(" + ((margin.right/2)) + " ," + 20 + " )")
+				.attr("font-family", "sans-serif")
+				.attr("font-size", '14px')
+				.attr("font-weight", "bold")
+				.attr("text-anchor", "end")
+				.append("text")
+				.attr("x", width)
+				.attr("y", 9.5)
+				.attr("dy", "5px")
+				.text(legend_label)
+				.append("tspan")
+				.attr('font-family', 'FontAwesome')
+				.attr("class", "fa")
+				.html(filter_icon);
+
+			var legend = svg.append("g")
+				.attr("transform", "translate(" + ((margin.right/2)) + " ," + 40 + " )")
+				.attr("font-family", "sans-serif")
+				.attr("font-size", '14px')
+				.attr("text-anchor", "end")
+				.selectAll("g")
+					.data(legend_data)
+					.enter().append("g")
+					.attr("transform", function(d, i) {
+						return "translate(0," + i * 20 + ")";
+				});
+		
+			legend.append("rect")
+				.attr("x", width-19)
+				.attr("width", 19)
+				.attr("height", 19)
+				.attr("fill", function(d, i) { return colorscale[i]; })
+				.on("mouseover", function(d, i) {
+					tooltip2.style("display", null);
+				})
+				.on("mouseout", function(d, i) {
+  					tooltip2.style("display", "none");
+				})
+				.on("click", function(d, i){window[domName.replace(/_[^_]+_[^_]+$/i,'_').replace('#', '')+'viz_constrain'](d, legend_label.replace(/\s/g, "")); });
+			
+			legend.append("text")
+				.attr("x", width - 24)
+				.attr("y", 9.5)
+				.attr("dy", "5px")
+				.text(function(d) {	return d.secondary; });
+		  
 		// Tooltip ////// 
 			var tooltip = svg.append("g")
 	    		.attr("class", "graph_tooltip")
@@ -248,6 +298,22 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 	    		.style("text-anchor", "start")
 	    		.attr("font-size", "12px")
 	    		.attr("font-weight", "bold");
+	  		
+	  	// Legend Tooltip ////// 
+			var tooltip2 = svg.append("g")
+	    		.attr("class", "graph_tooltip")
+	    		.style("display", "none")
+	    		.attr("transform", "translate(" + ((width + margin.right/2)) + "," + 0 + ")")
+
+	  		tooltip2.append("text")
+	    		.attr("x", 10)
+	    		.attr("dy", "1.2em")
+	    		.style("text-anchor", "end")
+	    		.style("fill", "#0d6efd")
+	    		.attr("font-size", "12px")
+	    		.attr("font-weight", "bold")
+	    		.text("Click to add/remove filter");
+	  		
 		
 	};
 

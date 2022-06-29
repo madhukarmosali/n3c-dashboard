@@ -348,6 +348,7 @@ WebContent/new_ph/long_covid/covid_long_percentage_simple.jsp -text
 WebContent/new_ph/long_covid/covid_long_percentage_table.jsp -text
 WebContent/new_ph/long_covid/feeds/before_after.jsp -text
 WebContent/new_ph/long_covid/feeds/clinic_severity.jsp -text
+WebContent/new_ph/long_covid/feeds/covid_long_percentage.jsp -text
 WebContent/new_ph/long_covid/feeds/severity.jsp -text
 WebContent/new_ph/long_covid/feeds/symptom_grouped.jsp -text
 WebContent/new_ph/long_covid/feeds/symptom_grouped2.jsp -text
@@ -408,6 +409,14 @@ WebContent/new_ph/long_covid/symptom_not_positive_table.jsp -text
 WebContent/new_ph/long_covid/symptom_pots_table.jsp -text
 WebContent/new_ph/long_covid/symptom_summary_table.jsp -text
 WebContent/new_ph/long_covid/symptom_ungrouped_table.jsp -text
+WebContent/new_ph/medication_snapshot/feeds/greater_condition.jsp -text
+WebContent/new_ph/medication_snapshot/feeds/less20_condition.jsp -text
+WebContent/new_ph/medication_snapshot/feeds/topten_condition.jsp -text
+WebContent/new_ph/medication_snapshot/panel.jsp -text
+WebContent/new_ph/medication_snapshot/tables/greater_table.jsp -text
+WebContent/new_ph/medication_snapshot/tables/less20_table.jsp -text
+WebContent/new_ph/medication_snapshot/tables/top10_table.jsp -text
+WebContent/new_ph/medication_snapshot/vizs/stacked_bar_conditions.jsp -text
 WebContent/new_ph/medications/feeds/medications.jsp -text
 WebContent/new_ph/medications/feeds/medications_raw.jsp -text
 WebContent/new_ph/medications/kpis.jsp -text
@@ -620,6 +629,8 @@ WebContent/resources/d3-scale-radial.js -text
 WebContent/resources/d3-tip.js -text
 WebContent/resources/d3.hive.min.js -text
 WebContent/resources/d3.v4.min.js -text
+WebContent/resources/jquery-colorize.js -text
+WebContent/resources/jquery.hottie.js -text
 WebContent/resources/main_style.css -text
 WebContent/resources/n3c_login_style.css -text
 WebContent/resources/select2_search.js -text

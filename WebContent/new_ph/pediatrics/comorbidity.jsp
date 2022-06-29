@@ -21,7 +21,7 @@
 
 function ${param.block}_comorbidity_refresh() {
 	d3.select("#${param.block}_comorbidity_viz").select("svg").remove();
-	localHorizontalBarChart(${param.block}_comorbidityArray,"#${param.block}_comorbidity_viz", 90, 600, true);
+	localHorizontalBarChart(${param.block}_comorbidityArray,"#${param.block}_comorbidity_viz", 90, 600, 1, categorical2, 1);
 }
 
 ${param.block}_comorbidity_refresh();

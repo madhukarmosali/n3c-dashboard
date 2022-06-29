@@ -9,6 +9,7 @@
 <jsp:include page="../graph_support/pieChart_local.jsp"/>
 <jsp:include page="../graph_support/percentage_bar_local.jsp"/>
 <jsp:include page="../graph_support/horizontalBarChart_local.jsp"/>
+<jsp:include page="../graph_support/horizontalBarChart_local2.jsp"/>
 <jsp:include page="../graph_support/horizontalStackedBarChart_local.jsp"/>
 <jsp:include page="../graph_support/horizontalGroupedStackedBarChart_local.jsp"/>
 
@@ -63,6 +64,9 @@
 	</c:when>
 	<c:when test="${param.frame == 'SummaryDataAllAges'}">
 		<jsp:include page="all_summary/panel.jsp"/>
+	</c:when>
+	<c:when test="${param.frame == 'MedicationsSnapshots'}">
+		<jsp:include page="medication_snapshot/panel.jsp"/>
 	</c:when>
 	<c:otherwise>
 		${param.frame}
