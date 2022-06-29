@@ -411,11 +411,17 @@ WebContent/new_ph/long_covid/symptom_pots_table.jsp -text
 WebContent/new_ph/long_covid/symptom_summary_table.jsp -text
 WebContent/new_ph/long_covid/symptom_ungrouped_table.jsp -text
 WebContent/new_ph/medication_snapshot/feeds/greater_condition.jsp -text
+WebContent/new_ph/medication_snapshot/feeds/greater_drugs.jsp -text
 WebContent/new_ph/medication_snapshot/feeds/less20_condition.jsp -text
+WebContent/new_ph/medication_snapshot/feeds/less20_drugs.jsp -text
 WebContent/new_ph/medication_snapshot/feeds/topten_condition.jsp -text
+WebContent/new_ph/medication_snapshot/feeds/topten_drugs.jsp -text
 WebContent/new_ph/medication_snapshot/panel.jsp -text
+WebContent/new_ph/medication_snapshot/tables/greater_drugs_table.jsp -text
 WebContent/new_ph/medication_snapshot/tables/greater_table.jsp -text
+WebContent/new_ph/medication_snapshot/tables/less20_drugs_table.jsp -text
 WebContent/new_ph/medication_snapshot/tables/less20_table.jsp -text
+WebContent/new_ph/medication_snapshot/tables/top10_drugs_table.jsp -text
 WebContent/new_ph/medication_snapshot/tables/top10_table.jsp -text
 WebContent/new_ph/medication_snapshot/vizs/stacked_bar_conditions.jsp -text
 WebContent/new_ph/medications/feeds/medications.jsp -text

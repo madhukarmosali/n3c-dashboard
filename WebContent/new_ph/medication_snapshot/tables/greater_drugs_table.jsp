@@ -1,7 +1,7 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 <script>
 
-$.getJSON("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/greater_condition.jsp", function(data){
+$.getJSON("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/greater_drugs.jsp", function(data){
 		
 	var json = $.parseJSON(JSON.stringify(data));
 
@@ -15,7 +15,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/greater_cond
 	var table = document.createElement("table");
 	table.className = 'table table-hover compact site-wrapper';
 	table.style.width = '100%';
-	table.id="condition_table_2-table";
+	table.id="drugs_table_2-table";
 
 	var header= table.createTHead();
 	var header_row = header.insertRow(0); 
@@ -26,12 +26,12 @@ $.getJSON("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/greater_cond
 		header_row.appendChild(th);
 	}
 
-	var divContainer = document.getElementById("condition_table_2");
+	var divContainer = document.getElementById("drugs_table_2");
 	divContainer.appendChild(table);
 
 	var data = json['rows'];
 
-	${param.block}_datatable = $('#condition_table_2-table').DataTable( {
+	${param.block}_datatable = $('#drugs_table_2-table').DataTable( {
     	data: data,
     	dom: 'lfr<"datatable_overflow"t>Bip',
     	buttons: {
