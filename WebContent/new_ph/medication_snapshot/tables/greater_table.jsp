@@ -30,6 +30,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/greater_cond
 	divContainer.appendChild(table);
 
 	var data = json['rows'];
+	
 
 	${param.block}_datatable = $('#condition_table_2-table').DataTable( {
     	data: data,
@@ -57,7 +58,15 @@ $.getJSON("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/greater_cond
     	},
        	paging: true,
         drawCallback: function () {
-            $("#condition_table_2-table tbody td").not(":nth-child(1),:nth-child(2),:nth-child(3),:nth-child(4)").colorize();
+            $("#condition_table_2-table tbody td").not(":nth-child(1),:nth-child(2),:nth-child(3),:nth-child(4)").colorize({
+            	theme: { 
+					my_custom_theme: { 
+						color_min: "#000000", 
+						color_mid:"#DDDDDD", 
+						color_max: "#FFFFFF"
+					}
+        		}
+            });
           },
     	pageLength: 10,
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
