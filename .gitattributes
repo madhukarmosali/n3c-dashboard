@@ -52,6 +52,7 @@ WebContent/graph_support/grouped_stacked_bar_horizontal_alexis.jsp -text
 WebContent/graph_support/grouped_stacked_bar_horizontal_alexis_local.jsp -text
 WebContent/graph_support/grouped_stacked_bar_vertical.jsp -text
 WebContent/graph_support/horizontalBarChart_local.jsp -text
+WebContent/graph_support/horizontalBarChart_local2.jsp -text
 WebContent/graph_support/horizontalBarChart_percentIndicator_local.jsp -text
 WebContent/graph_support/horizontalGroupedStackedBarChart_local.jsp -text
 WebContent/graph_support/horizontalStackedBarChart_local.jsp -text
