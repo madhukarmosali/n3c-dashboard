@@ -113,10 +113,11 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	order: [[0, 'asc']],
      	columns: [
         	{ data: 'age', visible: true, orderable: true },
-        	{ data: 'result_abbrev', visible: true, orderable: true },
+        	{ data: 'result', visible: true, orderable: true },
         	{ data: 'patient_display', visible: true, orderable: true, orderData: [3] },
         	{ data: 'patient_count', visible: false },
-        	{ data: 'result_seq', visible: false }
+        	{ data: 'age_seq', visible: false },
+           	{ data: 'result_seq', visible: false }
     	]
 	} );
 

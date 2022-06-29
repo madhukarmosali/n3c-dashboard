@@ -894,7 +894,7 @@
 	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
 	<jsp:param name="array" value="AgeResultArray"/>
 	<jsp:param name="primary" value="age"/>
-	<jsp:param name="secondary" value="result_abbrev"/>
+	<jsp:param name="secondary" value="result"/>
 </jsp:include>
 
 <jsp:include page="doubleHistogram.jsp">
@@ -902,7 +902,7 @@
 	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
 	<jsp:param name="array" value="GenderResultArray"/>
 	<jsp:param name="primary" value="gender"/>
-	<jsp:param name="secondary" value="result_abbrev"/>
+	<jsp:param name="secondary" value="result"/>
 </jsp:include>
 
 <jsp:include page="doubleHistogram.jsp">
@@ -910,7 +910,7 @@
 	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
 	<jsp:param name="array" value="RaceResultArray"/>
 	<jsp:param name="primary" value="race"/>
-	<jsp:param name="secondary" value="result_abbrev"/>
+	<jsp:param name="secondary" value="result"/>
 </jsp:include>
 
 <jsp:include page="doubleHistogram.jsp">
@@ -918,7 +918,7 @@
 	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
 	<jsp:param name="array" value="EthnicityResultArray"/>
 	<jsp:param name="primary" value="ethnicity"/>
-	<jsp:param name="secondary" value="result_abbrev"/>
+	<jsp:param name="secondary" value="result"/>
 </jsp:include>
 
 <jsp:include page="tripleHistogram.jsp">
