@@ -19,11 +19,11 @@
 
 <script>
 
-function ${param.block}_paxlovid_refresh() {
+function ${param.block}_age_refresh() {
 	console.log("reached");
    	d3.select("#${param.block}_paxlovid_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_AgeResultArray,"${param.block}_paxlovid_viz", 120, gender_legend, gender_range, "Gender");	
+	localHorizontalStackedBarChart(${param.block}_AgeResultArray,"${param.block}_paxlovid_viz", 120, result_legend, result_range, "Test Result");	
 }
 
-${param.block}_paxlovid_refresh();
+${param.block}_age_refresh();
 </script>

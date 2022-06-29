@@ -15,6 +15,8 @@ var age_range_adult1 = ["#eaecf1", "#123d63", "#8B8B8B",  "#8B8B8B"];
 
 var status_range = ["#455098", "#CD4682", "#8B8B8B"];
 
+var result_range = ["#8B8B8B", "#CD4682", "#455098"];
+
 var categorical = ["#455098", "#CD4682", "#844780", "#FFC048", "#FF7155", "#123D63", "#8B8B8B"];
 
 var categorical2 = ["#455098", "#CD4682", "#844780", "#FFC048", "#FF7155", "#123D63", "#8B8B8B", "#455098", "#CD4682", "#844780", "#FFC048", "#FF7155", "#123D63", "#8B8B8B", "#455098", "#CD4682", "#844780", "#FFC048", "#FF7155", "#123D63", "#8B8B8B"];
@@ -155,4 +157,14 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 </sql:query>
 <c:forEach items="${statuses.rows}" var="row" varStatus="rowCounter">
 	var status_legend = ${row.jsonb_pretty};
+</c:forEach>
+
+<sql:query var="statuses" dataSource="jdbc/N3CPublic">
+	select jsonb_pretty(jsonb_agg(done))
+	from (select distinct test_result as secondary
+		  from n3c_questions.table1_union order by test_result
+		  ) as done;
+</sql:query>
+<c:forEach items="${statuses.rows}" var="row" varStatus="rowCounter">
+	var result_legend = ${row.jsonb_pretty};
 </c:forEach>

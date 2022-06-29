@@ -548,6 +548,11 @@
 	var ${param.block}_RaceStatusArray = new Array();
 	var ${param.block}_GenderStatusArray = new Array();
 
+	var ${param.block}_AgeResultArray = new Array();
+	var ${param.block}_GenderResultArray = new Array();
+	var ${param.block}_RaceResultArray = new Array();
+	var ${param.block}_EthnicityResultArray = new Array();
+
 	function ${param.block}_refreshHistograms() {
 	    var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();
 	    var data2 = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data();
@@ -589,6 +594,11 @@
 	    ${param.block}_refreshAgeStatusArray(data);
 	    ${param.block}_refreshRaceStatusArray(data);
 	    ${param.block}_refreshGenderStatusArray(data);
+	    
+	    ${param.block}_refreshAgeResultArray(data);
+	    ${param.block}_refreshGenderResultArray(data);
+	    ${param.block}_refreshRaceResultArray(data);
+	    ${param.block}_refreshEthnicityResultArray(data);
 	    
 	    if ('${param.block}' === 'long_covid_6') {
 	    	${param.block}_before_refresh();
@@ -877,6 +887,38 @@
 	<jsp:param name="array" value="SymptomObservationArray"/>
 	<jsp:param name="primary" value="symptom"/>
 	<jsp:param name="secondary" value="observation"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="AgeResultArray"/>
+	<jsp:param name="primary" value="age"/>
+	<jsp:param name="secondary" value="result_abbrev"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="GenderResultArray"/>
+	<jsp:param name="primary" value="gender"/>
+	<jsp:param name="secondary" value="result_abbrev"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="RaceResultArray"/>
+	<jsp:param name="primary" value="race"/>
+	<jsp:param name="secondary" value="result_abbrev"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="EthnicityResultArray"/>
+	<jsp:param name="primary" value="ethnicity"/>
+	<jsp:param name="secondary" value="result_abbrev"/>
 </jsp:include>
 
 <jsp:include page="tripleHistogram.jsp">
