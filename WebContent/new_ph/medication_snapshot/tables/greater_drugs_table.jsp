@@ -56,9 +56,6 @@ $.getJSON("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/greater_drug
     	    }]
     	},
        	paging: true,
-        drawCallback: function () {
-            $("#condition_table_2-table tbody td").not(":nth-child(1),:nth-child(2),:nth-child(3),:nth-child(4)").colorize();
-          },
     	pageLength: 10,
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
     	order: [[4, 'desc']],
