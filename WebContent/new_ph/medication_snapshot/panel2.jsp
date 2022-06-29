@@ -9,7 +9,12 @@
 			<option value="paxlovid_1">Conditions</option>
 			<option value="paxlovid_2">Drugs</option>
 			<option value="paxlovid_3">Visits</option>
-			<option value="paxlovid_4">Demographics</option>
+		</optgroup>
+		<optgroup label="Demographics">
+			<option value="paxlovid_4">Age</option>
+			<option value="paxlovid_5">Gender</option>
+			<option value="paxlovid_6">Race</option>
+			<option value="paxlovid_7">Ethnicity</option>
 		</optgroup>
 	</select>
 </div>
@@ -18,6 +23,9 @@
 	<div id="paxlovid_2" class="group"></div>
 	<div id="paxlovid_3" class="group"></div>
 	<div id="paxlovid_4" class="group"></div>
+	<div id="paxlovid_5" class="group"></div>
+	<div id="paxlovid_6" class="group"></div>
+	<div id="paxlovid_7" class="group"></div>
 </div>
 
 <script>
