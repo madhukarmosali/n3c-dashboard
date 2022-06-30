@@ -34,6 +34,25 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 	data = [];
 	
 	
+// 	for (i in data_rows){
+// 		var negativecount = data_rows[i].KnownNegative;
+// 		var positivecount = data_rows[i].KnownPositive;
+// 		var unknowncount = data_rows[i].UnknownCovidTestStatus;
+		
+// 		if (negativecount == '<20'){
+// 			negativecount = 0;
+// 		}
+// 		if (positivecount == '<20'){
+// 			positivecount = 0;
+// 		}
+// 		if (unknowncount == '<20'){
+// 			unknowncount = 0;
+// 		}	
+// 		data.push({'element': data_rows[i].condition, 'count': negativecount, 'patient_display': data_rows[i].KnownNegative, "result_seq": 2,  'secondary': 'Negative' });
+// 		data.push({'element': data_rows[i].condition, 'count': positivecount,  'patient_display': data_rows[i].KnownPositive, "result_seq": 1,  'secondary': 'Positive' });
+// 		data.push({'element': data_rows[i].condition, 'count': unknowncount, 'patient_display': data_rows[i].UnknownCovidTestStatus, "result_seq": 3, 'secondary': 'Unknown' });
+// 	}
+
 	for (i in data_rows){
 		var negativecount = data_rows[i].KnownNegative;
 		var positivecount = data_rows[i].KnownPositive;
@@ -48,9 +67,9 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 		if (unknowncount == '<20'){
 			unknowncount = 0;
 		}	
-		data.push({'element': data_rows[i].condition, 'count': negativecount, 'patient_display': data_rows[i].KnownNegative, "result_seq": 2,  'secondary': 'Negative' });
-		data.push({'element': data_rows[i].condition, 'count': positivecount,  'patient_display': data_rows[i].KnownPositive, "result_seq": 1,  'secondary': 'Positive' });
-		data.push({'element': data_rows[i].condition, 'count': unknowncount, 'patient_display': data_rows[i].UnknownCovidTestStatus, "result_seq": 3, 'secondary': 'Unknown' });
+		
+		data.push({'element': data_rows[i].condition, 'count': data_rows[i].total, 'secondary': [unknowncount, negativecount, positivecount]})
+		
 	}
 	
 	console.log(data);
@@ -386,6 +405,8 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 		
 		if (data.length == 0)
 			return result;
+		
+		console.log(data);
 		
 		var previous = 0;
 		for (let secondary = 1; secondary < data[0].secondary.length; secondary++) {
