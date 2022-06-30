@@ -61,14 +61,15 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 		if (negativecount == '<20'){
 			negativecount = 0;
 		}
-		if (positivecount == '<20'){
+		if (negativecount == '<20'){
 			positivecount = 0;
 		}
 		if (unknowncount == '<20'){
 			unknowncount = 0;
 		}	
 		
-		data.push({'element': data_rows[i].condition, 'count': data_rows[i].total, 'secondary': [unknowncount, negativecount, positivecount]})
+		console.log(positivecount, negativecount, unknowncount)
+		data.push({'element': data_rows[i].condition, 'count': data_rows[i].total, 'secondary': [parseInt(positivecount), parseInt(negativecount), parseInt(unknowncount) ]})
 		
 	}
 	
