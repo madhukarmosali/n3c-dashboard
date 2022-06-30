@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
+<jsp:include page="kpis.jsp"/>
+
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="paxlovid_3" />
 	<jsp:param name="block_header" value="Paxlovid" />

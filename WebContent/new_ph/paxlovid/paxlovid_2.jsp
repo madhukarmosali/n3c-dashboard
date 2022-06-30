@@ -10,45 +10,11 @@
 </style>
 
 <div class="paxlovid_1">
-	<div class="row">
-			<sql:query var="totals" dataSource="jdbc/N3CPublic">
-				select to_char(value::int/1000000.0, '999.99')||'M' as count from n3c_admin.enclave_stats where title='covid_positive_patients';
-			</sql:query>
-			<c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
-				<div class="col-12 col-sm-6 kpi-main-col">
-					<div class="panel-primary kpi">
-						<div class="kpi-inner">
-							<div class="panel-body">
-								<table>
-									<tr>
-										<td><i class="fas fa-user-plus"></i> COVID+ Patients*</td>
-									</tr>
-								</table>
-							</div>
-							<div class="panel-heading kpi_num">${row.count}</div>
-						</div>
-					</div>
-				</div>
-			</c:forEach>
-			<div class="col-12 col-sm-6 kpi-main-col">
-					<div class="panel-primary kpi">
-						<div class="kpi-inner">
-							<div class="panel-body">
-								<table>
-									<tr>
-										<td><i class="fas fa-users"></i> # of Patients Taking Paxlovid</td>
-									</tr>
-								</table>
-							</div>
-							<div  class="panel-heading kpi_num">21,993</div>
-						</div>
-					</div>
-			</div>
-		</div>
-	</div>
+<jsp:include page="kpis.jsp"/>
+
 	<div class="row">
 		<div class="col-12 mx-auto mt-2 mb-2 text-center">
-			<h4>Top 20 Most Frequent Medications Seen Between 6 to 29 Days After Paxlovid Treatment</h4>
+			<h4>Top 20 Most Frequent Medications Seen Between 6 to 27 Days After Paxlovid Treatment</h4>
 		</div>
 		<div class="col-12 col-md-6 viz" id="drugs_viz_1">
 			<div id="drugs_viz"></div>
@@ -66,7 +32,7 @@
 	</div>
 	<div class="row">
 		<div class="col-12 mx-auto mt-2 mb-2 text-center">
-			<h4>All Medications Seen Between 6 to 29 Days After Paxlovid Treatment </h4>
+			<h4>All Medications Seen Between 6 to 27 Days After Paxlovid Treatment </h4>
 		</div>
 		<div class="col-12 col-md-6 viz-table" id="drugs_table_2">
 			<h5 class="text-center">Total Occurrences Greater Than 20</h5>
