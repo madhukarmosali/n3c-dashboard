@@ -7,7 +7,7 @@
 
 <c:if test="${not empty param.topic_description}">
 	<div id="viz_caption">
-		<jsp:include page="../long_covid/secondary_text/${param.topic_description}.jsp"/>
+		<jsp:include page="../medication_snapshot/secondary_text/${param.topic_description}.jsp"/>
 	</div>
 </c:if>
 				
@@ -22,7 +22,7 @@
 function ${param.block}_race_refresh() {
 	console.log("reached");
    	d3.select("#${param.block}_paxlovid_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_RaceResultArray,"${param.block}_paxlovid_viz", 220, result_legend, result_range, "Test Result");	
+	localHorizontalStackedBarChart(${param.block}_RaceResultArray,"${param.block}_paxlovid_viz", 220, result_legend, result_range, "Test Result", 200, 1);	
 }
 
 ${param.block}_race_refresh();

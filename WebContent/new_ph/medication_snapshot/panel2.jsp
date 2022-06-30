@@ -18,7 +18,7 @@
 		<optgroup label="Paxlovid">
 			<option value="paxlovid_1">Conditions</option>
 			<option value="paxlovid_2">Medications</option>
-			<option value="paxlovid_3">Visits</option>
+<!-- 			<option value="paxlovid_3">Visits</option> -->
 		</optgroup>
 		<optgroup label="Demographics">
 			<option value="paxlovid_4">Age</option>
@@ -70,7 +70,7 @@ function frame_load(selection) {
 		$this.load("<util:applicationRoot/>/new_ph/medication_snapshot/"+selection+".jsp");
 		frame_crumbs.push(selection);
 	}
-	cache_browser_history("new-ph", "new-ph/medication_snapshot/"+url_map(selection));
+	cache_browser_history("new-ph", "new-ph/MedicationsSnapshots/"+url_map(selection));
 };
 
 $(document).ready(function () {
