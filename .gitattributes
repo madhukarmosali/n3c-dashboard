@@ -417,6 +417,7 @@ WebContent/new_ph/medication_snapshot/demographics_gender_table.jsp -text
 WebContent/new_ph/medication_snapshot/demographics_race_table.jsp -text
 WebContent/new_ph/medication_snapshot/ethnicity.jsp -text
 WebContent/new_ph/medication_snapshot/feeds/demographics_age.jsp -text
+WebContent/new_ph/medication_snapshot/feeds/demographics_ethnicity.jsp -text
 WebContent/new_ph/medication_snapshot/feeds/demographics_gender.jsp -text
 WebContent/new_ph/medication_snapshot/feeds/demographics_race.jsp -text
 WebContent/new_ph/medication_snapshot/feeds/drugs_viz_feed.jsp -text
@@ -426,11 +427,13 @@ WebContent/new_ph/medication_snapshot/feeds/less20_condition.jsp -text
 WebContent/new_ph/medication_snapshot/feeds/less20_drugs.jsp -text
 WebContent/new_ph/medication_snapshot/feeds/topten_condition.jsp -text
 WebContent/new_ph/medication_snapshot/feeds/topten_drugs.jsp -text
+WebContent/new_ph/medication_snapshot/feeds/visits.jsp -text
 WebContent/new_ph/medication_snapshot/gender.jsp -text
 WebContent/new_ph/medication_snapshot/panel.jsp -text
 WebContent/new_ph/medication_snapshot/panel2.jsp -text
 WebContent/new_ph/medication_snapshot/paxlovid_1.jsp -text
 WebContent/new_ph/medication_snapshot/paxlovid_2.jsp -text
+WebContent/new_ph/medication_snapshot/paxlovid_3.jsp -text
 WebContent/new_ph/medication_snapshot/paxlovid_4.jsp -text
 WebContent/new_ph/medication_snapshot/paxlovid_5.jsp -text
 WebContent/new_ph/medication_snapshot/paxlovid_6.jsp -text
@@ -443,6 +446,8 @@ WebContent/new_ph/medication_snapshot/tables/less20_drugs_table.jsp -text
 WebContent/new_ph/medication_snapshot/tables/less20_table.jsp -text
 WebContent/new_ph/medication_snapshot/tables/top10_drugs_table.jsp -text
 WebContent/new_ph/medication_snapshot/tables/top10_table.jsp -text
+WebContent/new_ph/medication_snapshot/visits.jsp -text
+WebContent/new_ph/medication_snapshot/visits_table.jsp -text
 WebContent/new_ph/medication_snapshot/vizs/long_bar.jsp -text
 WebContent/new_ph/medication_snapshot/vizs/stacked_bar.jsp -text
 WebContent/new_ph/medication_snapshot/vizs/stacked_bar_conditions.jsp -text
@@ -517,6 +522,7 @@ WebContent/new_ph/reinfection/secondary_text/secondary_2.jsp -text
 WebContent/new_ph/reinfection/secondary_text/secondary_3.jsp -text
 WebContent/new_ph/reinfection_time_series/kpis.jsp -text
 WebContent/new_ph/reinfection_time_series/panel.jsp -text
+WebContent/new_ph/severity_region/iframe.jsp -text
 WebContent/new_ph/severity_region/kpis.jsp -text
 WebContent/new_ph/severity_region/map.jsp -text
 WebContent/new_ph/severity_region/panel.jsp -text

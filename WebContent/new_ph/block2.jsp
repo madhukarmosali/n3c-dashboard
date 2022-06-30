@@ -552,6 +552,7 @@
 	var ${param.block}_GenderResultArray = new Array();
 	var ${param.block}_RaceResultArray = new Array();
 	var ${param.block}_EthnicityResultArray = new Array();
+	var ${param.block}_CategoryResultArray = new Array();
 
 	function ${param.block}_refreshHistograms() {
 	    var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();
@@ -599,6 +600,7 @@
 	    ${param.block}_refreshGenderResultArray(data);
 	    ${param.block}_refreshRaceResultArray(data);
 	    ${param.block}_refreshEthnicityResultArray(data);
+	    ${param.block}_refreshCategoryResultArray(data);
 	    
 	    if ('${param.block}' === 'long_covid_6') {
 	    	${param.block}_before_refresh();
@@ -918,6 +920,14 @@
 	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
 	<jsp:param name="array" value="EthnicityResultArray"/>
 	<jsp:param name="primary" value="ethnicity"/>
+	<jsp:param name="secondary" value="result"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="CategoryResultArray"/>
+	<jsp:param name="primary" value="category"/>
 	<jsp:param name="secondary" value="result"/>
 </jsp:include>
 

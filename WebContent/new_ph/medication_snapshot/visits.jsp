@@ -19,11 +19,11 @@
 
 <script>
 
-function ${param.block}_ethnicity_refresh() {
+function ${param.block}_visits_refresh() {
 	console.log("reached");
    	d3.select("#${param.block}_paxlovid_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_EthnicityResultArray,"${param.block}_paxlovid_viz", 220, result_legend, result_range, "Test Result");	
+	localHorizontalStackedBarChart(${param.block}_CategoryResultArray,"${param.block}_paxlovid_viz", 220, result_legend, result_range, "Test Result");	
 }
 
-${param.block}_ethnicity_refresh();
+${param.block}_visits_refresh();
 </script>
