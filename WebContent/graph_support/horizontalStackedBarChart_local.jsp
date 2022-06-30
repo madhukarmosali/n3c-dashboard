@@ -113,6 +113,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 		var keys = data.map(function(d) { return d.element; });
 		
 		var stackData = myStack(data);
+		console.log(stackData);
 		
 		function sortFunction(a, b) {
 		    return (a.count > b.count) ? -1 : 1;

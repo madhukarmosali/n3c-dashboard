@@ -48,9 +48,9 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 		if (unknowncount == '<20'){
 			unknowncount = 0;
 		}	
-		data.push({'primary': data_rows[i].condition, 'patient_count': negativecount, 'patient_display': data_rows[i].KnownNegative, "result_seq": 2,  'secondary': 'Negative' });
-		data.push({'primary': data_rows[i].condition, 'patient_count': positivecount,  'patient_display': data_rows[i].KnownPositive, "result_seq": 1,  'secondary': 'Positive' });
-		data.push({'primary': data_rows[i].condition, 'patient_count': unknowncount, 'patient_display': data_rows[i].UnknownCovidTestStatus, "result_seq": 3, 'secondary': 'Unknown' });
+		data.push({'element': data_rows[i].condition, 'count': negativecount, 'patient_display': data_rows[i].KnownNegative, "result_seq": 2,  'secondary': 'Negative' });
+		data.push({'element': data_rows[i].condition, 'count': positivecount,  'patient_display': data_rows[i].KnownPositive, "result_seq": 1,  'secondary': 'Positive' });
+		data.push({'element': data_rows[i].condition, 'count': unknowncount, 'patient_display': data_rows[i].UnknownCovidTestStatus, "result_seq": 3, 'secondary': 'Unknown' });
 	}
 	
 	console.log(data);
@@ -61,6 +61,7 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 	var secondary_range = categorical;
 	var legend_label = "Condition";
 	var legend_data = result_legend;
+	console.log(legend_data);
 	
 	if (legend_label === undefined){
 		legend_label = "Legend";
@@ -85,16 +86,15 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 	if (data.length > 0){
 		var longest_word = data.reduce(
 			    function (a, b) {
-			        return a.condition.length > b.condition.length ? a : b;
+			        return a.element.length > b.element.length ? a : b;
 			    }
 		);
-		word_length =  longest_word.condition.length
+		word_length =  longest_word.element.length
 	}
 	// get length of longest legend word for tooltip sizing
 
 	var word_length = 7;
 	
-	console.log(domName2);
 
 
 	var myObserver = new ResizeObserver(entries => {
@@ -139,6 +139,7 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 		var keys = data.map(function(d) { return d.element; });
 		
 		var stackData = myStack(data);
+		console.log(stackData);
 		
 		
 		y.domain(data.map(function(d) { return d.element; }));					
@@ -318,11 +319,7 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 			.attr("x", width)
 			.attr("y", 9.5)
 			.attr("dy", "5px")
-			.text(legend_label)
-			.append("tspan")
-			.attr('font-family', 'FontAwesome')
-			.attr("class", "fa")
-			.html(filter_icon);
+			.text(legend_label);
 
 		var legend = g.append("g")
 			.attr("transform", "translate(" + ((margin.right/2)) + " ," + 20 + " )")
@@ -344,15 +341,9 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 			.on("click", function(d, i){window[domName2.replace(/_[^_]+_[^_]+$/i,'_')+'viz_constrain'](d, legend_label.replace(/\s/g, "")); })
 			.on("mouseover", function(d, i) {
 				svg.selectAll(".serie:not(.color-" + z[i].substring(1) + ")").style("opacity", "0.2");
-				if ((nofilter == undefined) || (nofilter == 0) ){
-					tooltip2.style("display", null);
-				}
 			})
 			.on("mouseout", function(d, i) {
   				svg.selectAll(".serie").style("opacity", "1");
-  				if ((nofilter == undefined) || (nofilter == 0) ){
-  					tooltip2.style("display", "none");
-  				}
 			});
 		
 		legend.append("text")
@@ -384,24 +375,7 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
     		.style("text-anchor", "start")
     		.attr("font-size", "12px")
     		.attr("font-weight", "bold");
-  		
-  		if ((nofilter == undefined) || (nofilter == 0) ){
 
-  		// Legend Tooltip ////// 
-		var tooltip2 = svg.append("g")
-    		.attr("class", "graph_tooltip")
-    		.style("display", "none")
-    		.attr("transform", "translate(" + ((width + margin.left + margin.right)-40) + "," + 10 + ")")
-
-  		tooltip2.append("text")
-    		.attr("x", 30)
-    		.attr("dy", "1.2em")
-    		.style("text-anchor", "end")
-    		.style("fill", "#0d6efd")
-    		.attr("font-size", "12px")
-    		.attr("font-weight", "bold")
-    		.text("Click to add/remove filter");
-  		}
 	
 	
 	};
@@ -420,7 +394,7 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 				if (previous == 0){
 					newrow.push([0, data[primary].secondary[secondary], legend_data[secondary-1].secondary, data[primary].count ]);
 				}else{
-					newrow.push([previous[primary][1], previous[primary][1] + data[primary].secondary[secondary], legend_data[secondary-1].secondary, data[primary].count ]);
+					newrow.push([previous[primary][1], previous[primary][1] + data[primary].secondary[secondary], legend_data[secondary-1], data[primary].count ]);
 				}
 			}	
 			result.push(newrow);
