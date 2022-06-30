@@ -556,10 +556,13 @@
 
 	function ${param.block}_refreshHistograms() {
 	    var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();
+	    
+	    console.log("block2");
+	    console.log(data);
+	    
 	    var data2 = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data();
 
 	    
-	    //console.log('${param.block}', "table data", data)
 	    ${param.block}_refreshAgeArray(data);
 	    ${param.block}_refreshRaceArray(data);
 	    ${param.block}_refreshEthnicityArray(data);
@@ -629,7 +632,12 @@
 	    }
 	    if (${param.block}_loaded("comorbidity")) {
 	    	${param.block}_comorbidity_refresh();
+	    }  
+	    
+	    if ('${param.block}' === 'paxlovid_3') {
+	    	${param.block}_visits_refresh();
 	    }
+
 	  }
 	
 	

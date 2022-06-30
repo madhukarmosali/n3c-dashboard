@@ -2,6 +2,7 @@
 <script>
 
 function ${param.block}_constrain_table(filter, constraint) {
+	console.log('#${param.target_div}-table');
 	var table = $('#${param.target_div}-table').DataTable();
 	console.log("${param.block}", filter, constraint)
 	switch (filter) {

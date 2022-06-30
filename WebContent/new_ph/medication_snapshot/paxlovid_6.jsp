@@ -38,7 +38,6 @@
 					</div>
 			</div>
 		</div>
-	</div>
 
 <jsp:include page="../block2.jsp">
 	<jsp:param name="block" value="paxlovid_6" />
