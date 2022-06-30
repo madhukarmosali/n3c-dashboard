@@ -27,31 +27,11 @@ font-size: 14px;
 
 d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}", function(error, data_raw) {
 
-	console.log(data_raw.rows);
+
 	
 	data_rows = data_raw.rows;
 	
 	data = [];
-	
-	
-// 	for (i in data_rows){
-// 		var negativecount = data_rows[i].KnownNegative;
-// 		var positivecount = data_rows[i].KnownPositive;
-// 		var unknowncount = data_rows[i].UnknownCovidTestStatus;
-		
-// 		if (negativecount == '<20'){
-// 			negativecount = 0;
-// 		}
-// 		if (positivecount == '<20'){
-// 			positivecount = 0;
-// 		}
-// 		if (unknowncount == '<20'){
-// 			unknowncount = 0;
-// 		}	
-// 		data.push({'element': data_rows[i].condition, 'count': negativecount, 'patient_display': data_rows[i].KnownNegative, "result_seq": 2,  'secondary': 'Negative' });
-// 		data.push({'element': data_rows[i].condition, 'count': positivecount,  'patient_display': data_rows[i].KnownPositive, "result_seq": 1,  'secondary': 'Positive' });
-// 		data.push({'element': data_rows[i].condition, 'count': unknowncount, 'patient_display': data_rows[i].UnknownCovidTestStatus, "result_seq": 3, 'secondary': 'Unknown' });
-// 	}
 
 	for (i in data_rows){
 		var negativecount = data_rows[i].KnownNegative;
@@ -59,27 +39,25 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 		var unknowncount = data_rows[i].UnknownCovidTestStatus;
 		
 		if (negativecount == '<20'){
-			negativecount = 0;
+			negativecount = 1;
 		}
-		if (negativecount == '<20'){
-			positivecount = 0;
+		if (positivecount == '<20'){
+			positivecount = 1;
 		}
 		if (unknowncount == '<20'){
-			unknowncount = 0;
+			unknowncount = 1;
 		}	
 		
-		console.log(positivecount, negativecount, unknowncount)
-		data.push({'element': data_rows[i].condition, 'count': data_rows[i].total, 'secondary': [parseInt(positivecount), parseInt(negativecount), parseInt(unknowncount) ]})
+		data.push({'element': data_rows[i].condition, 'count': data_rows[i].total, 'secondary': [0, parseInt(unknowncount), parseInt(negativecount), parseInt(positivecount)  ]})
 		
 	}
 	
-	console.log(data);
 	
-	var barLabelWidth = 300;
+	var barLabelWidth = 340;
 	var domName2 = '${param.domName}';
 	var min_height = 600;
 	var secondary_range = categorical;
-	var legend_label = "Condition";
+	var legend_label = "COVID Status";
 	var legend_data = result_legend;
 	console.log(legend_data);
 	
@@ -222,14 +200,17 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 			})
 			.on("mousemove", function(d) {	
 				tooltip.selectAll("tspan").remove();
-				
+				var text = d[2];
+				if (d[2].secondary){
+					text = d[2].secondary;
+				}
 				var xPosition = d3.mouse(this)[0];
 		     	var yPosition = d3.mouse(this)[1];
 		     	var count2 = d[1]-d[0];
 		     	tooltip.attr("transform", "translate(" + xPosition + "," + yPosition + ")")
 		     	.selectAll("text")
 		     		.append("tspan")
-		     		.text(d[2])
+		     		.text(text)
 		     		.attr('x', 10)
   					.attr('dy', 13)
 		     		.append("tspan")
