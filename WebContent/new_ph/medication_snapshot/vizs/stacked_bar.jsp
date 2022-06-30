@@ -90,13 +90,13 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 			var unknowncount = data_rows[i].UnknownCovidTestStatus;
 			
 			if (negativecount == '<20'){
-				negativecount = 1;
+				negativecount = 0;
 			}
 			if (positivecount == '<20'){
-				positivecount = 1;
+				positivecount = 0;
 			}
 			if (unknowncount == '<20'){
-				unknowncount = 1;
+				unknowncount = 0;
 			}	
 			var test = '';
 			test = data_rows[i].condition;
