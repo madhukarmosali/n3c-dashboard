@@ -11,10 +11,16 @@
 <div id="paxlovid_1">
 	<div class="row">
 		<div class="col-12 col-md-6 viz" id="condition_viz_1">
-			<jsp:include page="vizs/" flush="true"/>
+			<div id="condition_viz"></div>
+			<jsp:include page="vizs/stacked_bar.jsp">
+				<jsp:param name="domName" value='condition_viz' />
+				<jsp:param name="feed" value="topten_condition.jsp" />
+				<jsp:param name="primary" value="condition" />
+				<jsp:param name="secondary" value="result" />
+			</jsp:include>
 		</div>
 		<div class="col-12 col-md-6 viz-table" id="condition_table_1">
-			<h4>Top 10 Most Frequent Conditions Seen Between 6 to 29 Days After Paxlovid Treatment</h4>
+			<h4>Top 20 Most Frequent Conditions Seen Between 6 to 29 Days After Paxlovid Treatment</h4>
 			<jsp:include page="tables/top10_table.jsp" flush="true"/>
 		</div>
 	</div>

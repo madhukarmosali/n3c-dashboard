@@ -11,7 +11,7 @@
 		sum(case when ptct = '<20' then '0'::int else ptct::int end) as Total
 		FROM n3c_questions.atc_drugs_in_the_window
 		GROUP BY first_four_name order by total desc
-	) as foo limit 10) as done;
+	) as foo limit 20) as done;
 </sql:query>
 {
     "headers": [

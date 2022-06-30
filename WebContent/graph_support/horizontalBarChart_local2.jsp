@@ -1,6 +1,8 @@
 <script>
 
 function localHorizontalBarChart_legend(data, domName, barLabelWidth, min_height, ordered, colorscale, legend_label, legend_data) {
+	console.log(data);
+	
 	var filter_icon = " &#xf0b0";
 	
 	var word_length = 3;
