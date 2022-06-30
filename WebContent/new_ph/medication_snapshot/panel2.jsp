@@ -2,6 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
+<style>
+	#paxlovid .dataTables_filter{
+		display: unset;
+	}
+</style>
+
 <div class="topic_dropdown" style="text-align:center; font-size: 1.3rem;">
 	<h4 class="viz_color_header">Select a Medication to Explore:</h4>
 	<select id="selectMe">
@@ -18,16 +24,18 @@
 		</optgroup>
 	</select>
 </div>
-<div id="frame">
-	<div id="paxlovid_1" class="group"></div>
-	<div id="paxlovid_2" class="group"></div>
-	<div id="paxlovid_3" class="group"></div>
-	<div id="paxlovid_4" class="group"></div>
-	<div id="paxlovid_5" class="group"></div>
-	<div id="paxlovid_6" class="group"></div>
-	<div id="paxlovid_7" class="group"></div>
+	
+<div id="paxlovid">
+	<div id="frame">
+		<div id="paxlovid_1" class="group"></div>
+		<div id="paxlovid_2" class="group"></div>
+		<div id="paxlovid_3" class="group"></div>
+		<div id="paxlovid_4" class="group"></div>
+		<div id="paxlovid_5" class="group"></div>
+		<div id="paxlovid_6" class="group"></div>
+		<div id="paxlovid_7" class="group"></div>
+	</div>
 </div>
-
 <script>
 
 function url_map(selection) {
