@@ -10,6 +10,9 @@
 
 <div id="paxlovid_1">
 	<div class="row">
+		<div class="col-12 mx-auto mt-2 mb-2 text-center">
+			<h4>Top 20 Most Frequent Conditions Seen Between 6 to 29 Days After Paxlovid Treatment</h4>
+		</div>
 		<div class="col-12 col-md-6 viz" id="condition_viz_1">
 			<div id="condition_viz"></div>
 			<jsp:include page="vizs/stacked_bar.jsp">
@@ -20,17 +23,19 @@
 			</jsp:include>
 		</div>
 		<div class="col-12 col-md-6 viz-table" id="condition_table_1">
-			<h4>Top 20 Most Frequent Conditions Seen Between 6 to 29 Days After Paxlovid Treatment</h4>
 			<jsp:include page="tables/top10_table.jsp" flush="true"/>
 		</div>
 	</div>
 	<div class="row">
+		<div class="col-12 mx-auto mt-2 mb-2 text-center">
+			<h4>All Conditions Seen Between 6 to 29 Days After Paxlovid Treatment </h4>
+		</div>
 		<div class="col-12 col-md-6 viz-table" id="condition_table_2">
-			<h4>Conditions Seen Between 6 to 29 Days After Paxlovid Treatment (Occurrences Greater Than 20)</h4>
+			<h5 class="text-center">Total Occurrences Greater Than 20</h5>
 			<jsp:include page="tables/greater_table.jsp" flush="true"/>
 		</div>
 		<div class="col-12 col-md-6 viz-table" id="condition_table_3">
-			<h4>Conditions Seen Between 6 to 29 Days After Paxlovid Treatment (Occurrences Less Than 20)</h4>
+			<h5 class="text-center">Total Occurrences Less Than 20</h5>
 			<jsp:include page="tables/less20_table.jsp" flush="true"/>
 		</div>
 	</div>
