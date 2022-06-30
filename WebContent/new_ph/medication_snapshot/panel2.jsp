@@ -17,7 +17,7 @@
 	<select id="selectMe">
 		<optgroup label="Paxlovid">
 			<option value="paxlovid_1">Conditions</option>
-			<option value="paxlovid_2">Drugs</option>
+			<option value="paxlovid_2">Medications</option>
 			<option value="paxlovid_3">Visits</option>
 		</optgroup>
 		<optgroup label="Demographics">

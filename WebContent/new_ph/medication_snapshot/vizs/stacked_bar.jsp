@@ -27,39 +27,12 @@ font-size: 14px;
 
 d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}", function(error, data_raw) {
 
-
-	
-	data_rows = data_raw.rows;
-	
-	data = [];
-
-	for (i in data_rows){
-		var negativecount = data_rows[i].KnownNegative;
-		var positivecount = data_rows[i].KnownPositive;
-		var unknowncount = data_rows[i].UnknownCovidTestStatus;
-		
-		if (negativecount == '<20'){
-			negativecount = 1;
-		}
-		if (positivecount == '<20'){
-			positivecount = 1;
-		}
-		if (unknowncount == '<20'){
-			unknowncount = 1;
-		}	
-		
-		data.push({'element': data_rows[i].condition, 'count': data_rows[i].total, 'secondary': [0, parseInt(unknowncount), parseInt(negativecount), parseInt(positivecount)  ]})
-		
-	}
-	
-	
-	var barLabelWidth = 340;
-	var domName2 = '${param.domName}';
 	var min_height = 600;
 	var secondary_range = categorical;
 	var legend_label = "COVID Status";
 	var legend_data = result_legend;
-	console.log(legend_data);
+	var barLabelWidth = ${param.textmargin};
+	var domName2 = '${param.domName}';
 	
 	if (legend_label === undefined){
 		legend_label = "Legend";
@@ -77,25 +50,13 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 	var valueLabelWidth = 50; // space reserved for value labels (right)
 	var barLabelPadding = 5; // padding between bar and bar labels (left)
 	var paddingInside = 0.3;
-
-
-	var word_length = 7;
 	
-	if (data.length > 0){
-		var longest_word = data.reduce(
-			    function (a, b) {
-			        return a.element.length > b.element.length ? a : b;
-			    }
-		);
-		word_length =  longest_word.element.length
-	}
-	// get length of longest legend word for tooltip sizing
+	
 
-	var word_length = 7;
 	
 
 
-	var myObserver = new ResizeObserver(entries => {
+	var ${param.domName}myObserver = new ResizeObserver(entries => {
 		entries.forEach(entry => {
 			var newWidth = Math.floor(entry.contentRect.width);
 			if (newWidth > 0) {
@@ -106,20 +67,69 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 				if (height < min_height) {
 					height = min_height;
 				};
-				draw();
+				${param.domName}draw();
 			}
 		});
 	});
 
-	myObserver.observe(d3.select("#"+domName2).node());
+	${param.domName}myObserver.observe(d3.select("#"+domName2).node());
 
-	draw();
+	${param.domName}draw();
 
-	function draw() {
+	function ${param.domName}draw() {
+		
+		
+		
+		data_rows = data_raw.rows;
+		
+		data = [];
+
+		for (i in data_rows){
+			var negativecount = data_rows[i].KnownNegative;
+			var positivecount = data_rows[i].KnownPositive;
+			var unknowncount = data_rows[i].UnknownCovidTestStatus;
+			
+			if (negativecount == '<20'){
+				negativecount = 1;
+			}
+			if (positivecount == '<20'){
+				positivecount = 1;
+			}
+			if (unknowncount == '<20'){
+				unknowncount = 1;
+			}	
+			var test = '';
+			test = data_rows[i].condition;
+			var trimmedString = test.substring(0, 40);
+			if (trimmedString != test){
+				trimmedString = trimmedString + '...'
+			}
+			
+			data.push({'element': trimmedString, 'count': data_rows[i].total, 'secondary': [0, parseInt(unknowncount), parseInt(negativecount), parseInt(positivecount)  ]})
+			
+		}
+		
+		var word_length = 7;
+		
+		if (data.length > 0){
+			var longest_word = data.reduce(
+				    function (a, b) {
+				        return a.element.length > b.element.length ? a : b;
+				    }
+			);
+			word_length =  longest_word.element.length
+		}
+		// get length of longest legend word for tooltip sizing
+
+		var word_length = 7;
+		
+		
+
+		
+		
 		var svg = d3.select("#"+domName2).append("svg")
 			.attr("width", width + margin.left + margin.right)
-			.attr("height", Number(height) + margin.top + margin.bottom)
-			.attr("id", domName2.replace("#", "") + "svgarea");
+			.attr("height", Number(height) + margin.top + margin.bottom);
 		
 		var g = svg.append("g")
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -137,7 +147,7 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 		var keys = data.map(function(d) { return d.element; });
 		
 		var stackData = myStack(data);
-		console.log(stackData);
+		
 		
 		
 		y.domain(data.map(function(d) { return d.element; }));					
@@ -388,7 +398,7 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 		if (data.length == 0)
 			return result;
 		
-		console.log(data);
+		
 		
 		var previous = 0;
 		for (let secondary = 1; secondary < data[0].secondary.length; secondary++) {
