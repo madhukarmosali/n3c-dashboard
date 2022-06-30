@@ -431,6 +431,7 @@ WebContent/new_ph/medication_snapshot/feeds/visits.jsp -text
 WebContent/new_ph/medication_snapshot/gender.jsp -text
 WebContent/new_ph/medication_snapshot/images/image1.png -text
 WebContent/new_ph/medication_snapshot/images/image2.png -text
+WebContent/new_ph/medication_snapshot/outcomes.jsp -text
 WebContent/new_ph/medication_snapshot/panel.jsp -text
 WebContent/new_ph/medication_snapshot/panel2.jsp -text
 WebContent/new_ph/medication_snapshot/paxlovid_1.jsp -text

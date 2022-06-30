@@ -16,6 +16,7 @@
 	<h4 class="viz_color_header">Select a Dashboard to Explore:</h4>
 	<select id="selectMe">
 		<optgroup label="Paxlovid">
+			<option value="paxlovid_8">Paxlovid Outcomes</option>
 			<option value="paxlovid_1">Conditions</option>
 			<option value="paxlovid_2">Medications</option>
 			<option value="paxlovid_3">Visits</option>
@@ -39,6 +40,7 @@
 		<div id="paxlovid_5" class="group"></div>
 		<div id="paxlovid_6" class="group"></div>
 		<div id="paxlovid_7" class="group"></div>
+		<div id="paxlovid_8" class="group"></div>
 	</div>
 </div>
 <script>
