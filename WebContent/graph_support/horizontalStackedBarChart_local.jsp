@@ -400,6 +400,8 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 	function myStack(data) {
 		var result = new Array();
 		
+		console.log(data);
+		
 		if (data.length == 0)
 			return result;
 		
