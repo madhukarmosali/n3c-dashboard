@@ -6,10 +6,14 @@
 	#paxlovid .dataTables_filter{
 		display: unset;
 	}
+	
+	.select2-container--default .select2-results__option--disabled{
+		display:none;
+	}
 </style>
 
 <div class="topic_dropdown" style="text-align:center; font-size: 1.3rem;">
-	<h4 class="viz_color_header">Select a Medication to Explore:</h4>
+	<h4 class="viz_color_header">Select a Dashboard to Explore:</h4>
 	<select id="selectMe">
 		<optgroup label="Paxlovid">
 			<option value="paxlovid_1">Conditions</option>
@@ -22,6 +26,7 @@
 			<option value="paxlovid_6">Race</option>
 			<option value="paxlovid_7">Ethnicity</option>
 		</optgroup>
+			<option disabled value="veryveryverylongveryveryverylong">veryveryverylongveryveryverylong</option>
 	</select>
 </div>
 	
