@@ -7,7 +7,7 @@
 
 <c:if test="${not empty param.topic_description}">
 	<div id="viz_caption">
-		<jsp:include page="../medication_snapshot/secondary_text/${param.topic_description}.jsp"/>
+		<jsp:include page="../paxlovid/secondary_text/${param.topic_description}.jsp"/>
 	</div>
 </c:if>
 				
@@ -19,12 +19,11 @@
 
 <script>
 
-function ${param.block}_age_refresh() {
+function ${param.block}_gender_refresh() {
 	console.log("reached");
    	d3.select("#${param.block}_paxlovid_viz").select("svg").remove();
-   	console.log(${param.block}_AgeResultArray);
-	localHorizontalStackedBarChart(${param.block}_AgeResultArray,"${param.block}_paxlovid_viz", 120, result_legend2, result_range, "Test Result", 200, 1);	
+	localHorizontalStackedBarChart(${param.block}_GenderResultArray,"${param.block}_paxlovid_viz", 120, result_legend2, result_range, "Test Result", 200, 1);
 }
 
-${param.block}_age_refresh();
+${param.block}_gender_refresh();
 </script>

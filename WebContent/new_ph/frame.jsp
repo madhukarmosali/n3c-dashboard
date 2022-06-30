@@ -68,6 +68,9 @@
 	<c:when test="${param.frame == 'MedicationsSnapshots'}">
 		<jsp:include page="medication_snapshot/panel2.jsp"/>
 	</c:when>
+	<c:when test="${param.frame == 'Paxlovid'}">
+		<jsp:include page="paxlovid/panel2.jsp"/>
+	</c:when>
 	<c:otherwise>
 		${param.frame}
 	</c:otherwise>

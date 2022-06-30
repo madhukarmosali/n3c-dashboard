@@ -22,7 +22,7 @@
 function ${param.block}_race_refresh() {
 	console.log("reached");
    	d3.select("#${param.block}_paxlovid_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_RaceResultArray,"${param.block}_paxlovid_viz", 220, result_legend, result_range, "Test Result", 200, 1);	
+	localHorizontalStackedBarChart(${param.block}_RaceResultArray,"${param.block}_paxlovid_viz", 220, result_legend2, result_range, "Test Result", 200, 1);	
 }
 
 ${param.block}_race_refresh();
