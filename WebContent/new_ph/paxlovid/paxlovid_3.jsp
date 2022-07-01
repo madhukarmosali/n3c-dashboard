@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
-<jsp:include page="kpis.jsp">
+<jsp:include page="kpis2.jsp">
 	<jsp:param value="paxlovid_3" name="block"/>
 </jsp:include>
 

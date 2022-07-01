@@ -161,7 +161,7 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 
 <sql:query var="statuses" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
-	from (select distinct test_result as secondary
+	from (select distinct test_result as secondary, test_result as secondary_name
 		  from n3c_questions.table1_union order by test_result
 		  ) as done;
 </sql:query>
@@ -171,7 +171,7 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 
 <sql:query var="statuses" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
-	from (select distinct result_abbrev as secondary, result_seq
+	from (select distinct result_abbrev as secondary, result_abbrev as secondary_name, result_seq
 		  from n3c_dashboard.result_map order by result_seq
 		  ) as done;
 </sql:query>

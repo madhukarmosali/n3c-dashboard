@@ -15,17 +15,17 @@
 <div class="topic_dropdown" style="text-align:center; font-size: 1.3rem;">
 	<h4 class="viz_color_header">Select a Dashboard to Explore:</h4>
 	<select id="selectMe">
-		<optgroup label="Paxlovid">
-			<option value="paxlovid_8">Paxlovid Outcomes</option>
-			<option value="paxlovid_1">Conditions</option>
-			<option value="paxlovid_2">Medications</option>
-			<option value="paxlovid_3">Visits</option>
-		</optgroup>
 		<optgroup label="Demographics">
 			<option value="paxlovid_4">Age</option>
 			<option value="paxlovid_5">Gender</option>
 			<option value="paxlovid_6">Race</option>
 			<option value="paxlovid_7">Ethnicity</option>
+		</optgroup>
+		<optgroup label="Paxlovid">
+			<option value="paxlovid_8">Paxlovid Outcomes</option>
+			<option value="paxlovid_1">Conditions</option>
+			<option value="paxlovid_2">Medications</option>
+			<option value="paxlovid_3">Visits</option>
 		</optgroup>
 			<option disabled value="veryveryverylongveryveryverylong">veryveryverylongveryveryverylong</option>
 	</select>
@@ -57,7 +57,7 @@ var frame_crumbs = [];
 
 <c:choose>
 	<c:when test="${empty param.tertiary_tab || param.tertiary_tab == 'undefined'}">
-		frame_load('paxlovid_8');
+		frame_load('paxlovid_4');
 	</c:when>
 	<c:otherwise>
 		$('#selectMe').val(url_unmap('${param.tertiary_tab}'));

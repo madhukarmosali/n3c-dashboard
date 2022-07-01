@@ -4,7 +4,7 @@
 
 <div class="panel-body">
 	<h6>Test Result</h6>
-	<select id="${param.block}-result-select" multiple="multiple">
+	<select id="${param.block}-testresult-select" multiple="multiple">
 		<sql:query var="cases" dataSource="jdbc/N3CPublic">
 			select distinct result_abbrev, result_seq from n3c_dashboard.result_map order by result_seq;
 		</sql:query>

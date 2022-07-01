@@ -318,8 +318,8 @@
 	
 
 	function ${param.block}_viz_constrain(element, elementParent) {
-		console.log(element);
-		console.log(elementParent);
+		console.log("element", element);
+		console.log("parent", elementParent);
 		
 		var options = $("#${param.block}-"+elementParent.toLowerCase()+"-select");
         var selected = [];
@@ -328,6 +328,7 @@
             selected.push($(this).val());
         });
 	        
+        console.log("selected", selected);
 		if (selected[0].includes( element.secondary_name)){
 			$("#${param.block}-"+elementParent.toLowerCase()+"-select").multiselect('deselect', $("#${param.block}-"+elementParent.toLowerCase()+"-select option[value='" + element.secondary_name + "']").val(), true);
 		} else {
@@ -473,9 +474,9 @@
             }
 		});
 	
-		$('#${param.block}-result-select').multiselect({	
+		$('#${param.block}-testresult-select').multiselect({	
 			onChange: function(option, checked, select) {
-				var options = $('#${param.block}-result-select');
+				var options = $('#${param.block}-testresult-select');
 		        var selected = [];
 		        $(options).each(function(){
 		            selected.push($(this).val());
@@ -512,7 +513,7 @@
 		$('#${param.block}-vaccinated-select').multiselect('clearSelection');
 		$('#${param.block}-comorbidities-select').multiselect('clearSelection');
 		$('#${param.block}-symptomoccurrence-select').multiselect('clearSelection')
-		$('#${param.block}-result-select').multiselect('clearSelection')
+		$('#${param.block}-testresult-select').multiselect('clearSelection')
 		
 		${param.block}_constrain("severity", '');
 		${param.block}_constrain("age", '');

@@ -15,7 +15,7 @@
                                   from n3c_questions.table1_union
                                   where demographic_feature = 'race'
                         ) as foo
-                        natural join n3c_dashboard.race_map
+                        natural join n3c_dashboard.race_map2
                         natural join n3c_dashboard.result_map
                   ) as done;
 </sql:query>
