@@ -236,6 +236,7 @@ WebContent/new_ph/filters/gender.jsp -text
 WebContent/new_ph/filters/gender3.jsp -text
 WebContent/new_ph/filters/observation.jsp -text
 WebContent/new_ph/filters/race.jsp -text
+WebContent/new_ph/filters/result.jsp -text
 WebContent/new_ph/filters/severity.jsp -text
 WebContent/new_ph/filters/symptom.jsp -text
 WebContent/new_ph/filters/vaccinated.jsp -text

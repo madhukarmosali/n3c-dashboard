@@ -165,7 +165,7 @@
 						</div>	
 						</div>
 					</c:if>
-					<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter4 || not empty param.age_filter5 || not empty param.age_filter6 || not empty param.age_filter7 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter || not empty param.symptom_filter || not empty param.beforeafter_filter}">
+					<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter4 || not empty param.age_filter5 || not empty param.age_filter6 || not empty param.age_filter7 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter || not empty param.symptom_filter || not empty param.beforeafter_filter || not empty param.result_filter}">
 						<div class="mt-2 ml-auto col-12 col-md-6 filter_button_container">
 							<button id="${param.block}_btn_clear" class="btn button dash-filter-btn2 mt-0 no_clear" onclick="${param.block}_filter_clear()"><i class="fas fa-times-circle"></i> Clear Filters</button>
 							<div class="dropdown" style="display: inline-block;">
@@ -229,6 +229,9 @@
 										</c:if>
 										<c:if test="${param.beforeafter_filter}">
 											<jsp:include page="filters/beforeafter.jsp"/>
+										</c:if>
+										<c:if test="${param.result_filter}">
+											<jsp:include page="filters/result.jsp"/>
 										</c:if>
 									</div>
 			  					</div>
@@ -470,6 +473,18 @@
             }
 		});
 	
+		$('#${param.block}-result-select').multiselect({	
+			onChange: function(option, checked, select) {
+				var options = $('#${param.block}-result-select');
+		        var selected = [];
+		        $(options).each(function(){
+		            selected.push($(this).val());
+		        });
+				${param.block}_constrain("result",  selected[0].join('|'));
+			    ${param.block}_refreshHistograms();
+            }
+		});
+	
 		var mut = new MutationObserver(function(mutations, mut){
 			if($('#${param.block}-block-kpi').find('.multiselect.dropdown-toggle[title!="None selected"]').length !== 0){
 				$('#${param.block}_btn_clear').removeClass("no_clear");
@@ -497,6 +512,7 @@
 		$('#${param.block}-vaccinated-select').multiselect('clearSelection');
 		$('#${param.block}-comorbidities-select').multiselect('clearSelection');
 		$('#${param.block}-symptomoccurrence-select').multiselect('clearSelection')
+		$('#${param.block}-result-select').multiselect('clearSelection')
 		
 		${param.block}_constrain("severity", '');
 		${param.block}_constrain("age", '');
@@ -506,6 +522,7 @@
 		${param.block}_constrain("symptom", '');
 		${param.block}_constrain("comorbidities", '');
 		${param.block}_constrain("beforeafter", '');
+		${param.block}_constrain("result", '');
 		
 		$("#${param.datatable_div}-table").DataTable().columns().search('').draw();
 	    ${param.block}_refreshHistograms();
@@ -557,7 +574,7 @@
 	function ${param.block}_refreshHistograms() {
 	    var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();
 	    
-	    console.log("block2");
+	    console.log("block2", '${param.block}');
 	    console.log(data);
 	    
 	    var data2 = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data();
@@ -632,6 +649,9 @@
 	    }
 	    if (${param.block}_loaded("comorbidity")) {
 	    	${param.block}_comorbidity_refresh();
+	    }  
+	    if (${param.block}_loaded("result")) {
+	    	${param.block}_result_refresh();
 	    }  
 	    
 	    if ('${param.block}' === 'paxlovid_3') {

@@ -171,8 +171,8 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 
 <sql:query var="statuses" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
-	from (select distinct test_result as secondary
-		  from n3c_questions.table1_union order by test_result desc
+	from (select distinct result_abbrev as secondary, result_seq
+		  from n3c_dashboard.result_map order by result_seq
 		  ) as done;
 </sql:query>
 <c:forEach items="${statuses.rows}" var="row" varStatus="rowCounter">

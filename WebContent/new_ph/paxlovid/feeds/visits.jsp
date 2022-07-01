@@ -3,7 +3,7 @@
 
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
         select jsonb_pretty(jsonb_agg(done order by category,result_seq))
-        from (select category, test_result as result, patient_display, patient_count, category_seq, result_seq
+        from (select category, result_abbrev as result, patient_display, patient_count, category_seq, result_seq
                         from (select
                                         category,
                                         test_result,
@@ -15,7 +15,7 @@
                                   from n3c_questions.persons_with_visits
                         ) as foo
                         natural join n3c_dashboard.category_map
-                        natural join n3c_dashboard.result_map2
+                        natural join n3c_dashboard.result_map
                   ) as done;
 </sql:query>
 {

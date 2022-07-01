@@ -11,5 +11,5 @@
 	<jsp:param name="topic_description" value="secondary_1" />
 	<jsp:param name="topic_title" value="Demographics of Patients With Paxlovid" />
 	
-	<jsp:param name="simple_panel" value="medication_snapshot/outcomes.jsp" />
+	<jsp:param name="simple_panel" value="paxlovid/outcomes.jsp" />
 </jsp:include>
