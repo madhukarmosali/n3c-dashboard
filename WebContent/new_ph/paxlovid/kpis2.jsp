@@ -54,7 +54,7 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Total Filtered Visits</td>
+							<td><i class="fas fa-users"></i> Filtered Patients with Visits</td>
 						</tr>
 					</table>
 				</div>
