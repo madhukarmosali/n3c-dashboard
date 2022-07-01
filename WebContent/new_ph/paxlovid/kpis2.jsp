@@ -48,7 +48,7 @@
 			from n3c_questions.persons_with_visits) as foo
 </sql:query>
 <c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
-	<div class="ccol-4 col-sm-4 kpi-main-col"">
+	<div class="ccol-4 col-sm-4 kpi-main-col">
 		<div class="panel-primary kpi">
 			<div class="kpi-inner">
 				<div class="panel-body">
