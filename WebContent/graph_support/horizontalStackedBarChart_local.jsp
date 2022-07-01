@@ -112,6 +112,8 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 
 		var keys = data.map(function(d) { return d.element; });
 		
+		var legend_map = d3.map(legend_data, function(d) { return d.secondary_name; });
+
 		var stackData = myStack(data);
 		console.log(stackData);
 		
@@ -166,6 +168,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.attr("x", function(d) { return x(d[0]); })
 			.attr("width", function(d) {return x(d[1]) - x(d[0]); })
 			.attr("height", y.bandwidth())	
+			.on("click", function(d, i){window[domName.replace(/_[^_]+_[^_]+$/i,'_')+'viz_constrain'](legend_map.get(d[2]), legend_label.replace(/\s/g, "")); })
 			.on("mouseover", function() { 
 				tooltip.style("display", null); 
 			    // Reduce opacity of all rect to 0.2
