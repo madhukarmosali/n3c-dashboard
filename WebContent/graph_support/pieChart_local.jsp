@@ -18,7 +18,7 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 
 	var myObserver = new ResizeObserver(entries => {
 		entries.forEach(entry => {
-			var newWidth = Math.floor(entry.contentRect.width);
+			var newWidth = Math.floor(entry.contentRect.width)/2;
 			if (newWidth > 0) {
 				d3.select(domName).select("svg").remove();
 				//console.log('${param.dom_element} width '+newWidth);

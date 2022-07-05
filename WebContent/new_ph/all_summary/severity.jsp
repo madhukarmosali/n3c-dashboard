@@ -2,6 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
+<jsp:include page="../barPieToggle.jsp">
+	<jsp:param name="block" value="${param.block}" />
+	<jsp:param name="dimension" value="severity" />
+	<jsp:param name="dimension_name" value="Severity" />
+	<jsp:param name="dimension_range" value="severity_range" />
+	<jsp:param name="dimension_legend" value="severity_legend" />
+</jsp:include>
 
 <div id="${param.block}_severity_viz" class="dash_viz"></div>
 
@@ -26,5 +33,4 @@ function ${param.block}_severity_refresh() {
 }
 
 ${param.block}_severity_refresh();
-
 </script>

@@ -27,7 +27,9 @@
 		<jsp:include page="pediatrics/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'medications'}">
-		<jsp:include page="medications/panel_qlik.jsp"/>
+		<jsp:include page="panel_qlik.jsp">
+			<jsp:param value="medications" name="iframe"/>
+		</jsp:include>
 	</c:when>
 	<c:when test="${param.frame == 'reinfection'}">
 		<jsp:include page="reinfection/panel2.jsp?tertiary_tab=${param.tertiary_tab}"/>

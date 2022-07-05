@@ -184,6 +184,7 @@ WebContent/new_ph/all_summary/ungrouped_table.jsp -text
 WebContent/new_ph/all_summary/unknown_vaccination_table.jsp -text
 WebContent/new_ph/all_summary/vaccinated_comorbidity_table.jsp -text
 WebContent/new_ph/all_summary/vaccinated_table.jsp -text
+WebContent/new_ph/barPieToggle.jsp -text
 WebContent/new_ph/block.jsp -text
 WebContent/new_ph/block2.jsp -text
 WebContent/new_ph/delayed_mortality/age.jsp -text
@@ -463,6 +464,7 @@ WebContent/new_ph/medications/medications.jsp -text
 WebContent/new_ph/medications/medications_table.jsp -text
 WebContent/new_ph/medications/panel.jsp -text
 WebContent/new_ph/medications/panel_qlik.jsp -text
+WebContent/new_ph/panel_qlik.jsp -text
 WebContent/new_ph/paxlovid/age.jsp -text
 WebContent/new_ph/paxlovid/demographics_age_table.jsp -text
 WebContent/new_ph/paxlovid/demographics_ethnicity_table.jsp -text

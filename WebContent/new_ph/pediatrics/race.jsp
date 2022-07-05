@@ -3,6 +3,14 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
 
+<jsp:include page="../barPieToggle.jsp">
+	<jsp:param name="block" value="${param.block}" />
+	<jsp:param name="dimension" value="race" />
+	<jsp:param name="dimension_name" value="Race" />
+	<jsp:param name="dimension_range" value="race_range" />
+	<jsp:param name="dimension_legend" value="race_legend" />
+</jsp:include>
+
 <div id="${param.block}_race_viz" class="dash_viz"></div>
 
 <c:if test="${not empty param.topic_description}">
