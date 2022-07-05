@@ -41,7 +41,7 @@
 		iframe_render(
 			config.tenantDomain,
 			config.appId,
-			'35bc4004-de7d-4555-a356-386fd2008e07&theme=palette3b&opt=ctxmenu',
+			'${iframe_content}',
 			config.qlikWebIntegrationId,
 			csrfTokenInfo.headers.get("qlik-csrf-token"),
 			'border:none;width:100%;height:1200px;", "iframe_content": "${iframe_content}',
@@ -53,7 +53,7 @@
 function iframe_render(tenant, appID, content, integrationID, token, style, iframe) {
 	var divContainer = document.getElementById("question-tile-iframe");
 	console.log("iframe", iframe)
-	cache_browser_history("new-ph", "new-ph/medications");
+	cache_browser_history("new-ph", "new-ph/${param.iframe}");
 		divContainer.innerHTML = 
 			'<div id="d3viz"></div>'
 			+'<iframe src="https://'+tenant+'/single/?appid='+appID+'&sheet='+content

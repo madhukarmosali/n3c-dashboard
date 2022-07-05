@@ -28,7 +28,7 @@
 	</c:when>
 	<c:when test="${param.frame == 'medications'}">
 		<jsp:include page="panel_qlik.jsp">
-			<jsp:param value="medications" name="iframe"/>
+			<jsp:param name="iframe" value="medications" />
 		</jsp:include>
 	</c:when>
 	<c:when test="${param.frame == 'reinfection'}">
@@ -38,37 +38,50 @@
 		<jsp:include page="timeline/panel2.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'severity-region'}">
-		<jsp:include page="severity_region/iframe.jsp"/>
+		<jsp:include page="panel_qlik.jsp">
+			<jsp:param name="iframe" value="severity-region" />
+		</jsp:include>
 	</c:when>
 	<c:when test="${param.frame == 'diabetes-mellitus'}">
-		<jsp:include page="diabetes/panel2.jsp"/>
+		<jsp:include page="panel_qlik.jsp">
+			<jsp:param name="iframe" value="diabetes-mellitus" />
+		</jsp:include>
 	</c:when>
 	<c:when test="${param.frame == 'smoking'}">
-		<jsp:include page="smoking/panel.jsp"/>
+		<jsp:include page="panel_qlik.jsp">
+			<jsp:param name="iframe" value="smoking" />
+		</jsp:include>
 	</c:when>
 	<c:when test="${param.frame == 'hlh'}">
-		<jsp:include page="hlh/panel2.jsp"/>
+		<jsp:include page="panel_qlik.jsp">
+			<jsp:param name="iframe" value="hlh" />
+		</jsp:include>
 	</c:when>
 	<c:when test="${param.frame == 'hss'}">
-		<jsp:include page="hss/panel.jsp"/>
+		<jsp:include page="panel_qlik.jsp">
+			<jsp:param name="iframe" value="hss" />
+		</jsp:include>
 	</c:when>
 	<c:when test="${param.frame == 'long-covid'}">
 		<jsp:include page="long_covid/panel2.jsp?tertiary_tab=${param.tertiary_tab}"/>
 	</c:when>
 	<c:when test="${param.frame == 'delayed-mortality'}">
-		<jsp:include page="delayed_mortality/panel2.jsp"/>
+		<jsp:include page="panel_qlik.jsp">
+			<jsp:param name="iframe" value="delayed-mortality" />
+		</jsp:include>
 	</c:when>
 	<c:when test="${param.frame == 'reinfection-time-series'}">
-		<jsp:include page="reinfection_time_series/panel.jsp"/>
-	</c:when>
-	<c:when test="${param.frame == 'sotrovimab'}">
-		<jsp:include page="sotrovimab/panel.jsp"/>
+		<jsp:include page="panel_qlik.jsp">
+			<jsp:param name="iframe" value="reinfection-time-series" />
+		</jsp:include>
 	</c:when>
 	<c:when test="${param.frame == 'SummaryDataAllAges'}">
 		<jsp:include page="all_summary/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'MedicationsSnapshots'}">
-		<jsp:include page="medication_snapshot/panel2.jsp"/>
+		<jsp:include page="panel_qlik.jsp">
+			<jsp:param name="iframe" value="MedicationsSnapshots" />
+		</jsp:include>
 	</c:when>
 	<c:when test="${param.frame == 'Paxlovid'}">
 		<jsp:include page="paxlovid/panel2.jsp"/>

@@ -463,7 +463,6 @@ WebContent/new_ph/medications/kpis.jsp -text
 WebContent/new_ph/medications/medications.jsp -text
 WebContent/new_ph/medications/medications_table.jsp -text
 WebContent/new_ph/medications/panel.jsp -text
-WebContent/new_ph/medications/panel_qlik.jsp -text
 WebContent/new_ph/panel_qlik.jsp -text
 WebContent/new_ph/paxlovid/age.jsp -text
 WebContent/new_ph/paxlovid/demographics_age_table.jsp -text
@@ -576,7 +575,6 @@ WebContent/new_ph/reinfection/secondary_text/secondary_2.jsp -text
 WebContent/new_ph/reinfection/secondary_text/secondary_3.jsp -text
 WebContent/new_ph/reinfection_time_series/kpis.jsp -text
 WebContent/new_ph/reinfection_time_series/panel.jsp -text
-WebContent/new_ph/severity_region/iframe.jsp -text
 WebContent/new_ph/severity_region/kpis.jsp -text
 WebContent/new_ph/severity_region/map.jsp -text
 WebContent/new_ph/severity_region/panel.jsp -text
