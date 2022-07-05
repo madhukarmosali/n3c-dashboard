@@ -112,7 +112,7 @@
 					<c:choose>
 						<c:when test="${not empty param.secondary_tab }">
 							<script>
- 								cache_browser_history("new-ph", "new-ph")
+ 								cache_browser_history("public-health", "public-health")
 							</script>
 							<jsp:include page="new_ph/questions.jsp?secondary_tab=${param.secondary_tab}&tertiary_tab=${param.tertiary_tab}" flush="true" />
 						</c:when>

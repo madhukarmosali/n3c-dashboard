@@ -100,7 +100,7 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 				.attr("transform", function(d, i) {return "translate(0," + (yScale(i) + ${param.container}_margin.top) + ")";});
 
 		bar.append("a")
-			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/new-ph/long-covid/5";})
+			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/public-health/long-covid/5";})
 				.append("text")
 			    .attr("class", "below")
 			    .attr("x", ${param.container}_margin.left+12)
@@ -127,7 +127,7 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 		};
 		
 		bar.append("a")
-			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/new-ph/long-covid/5";})
+			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/public-health/long-covid/5";})
 				.append("text")
 		    	.attr("class", "below couunt")
 		    	.attr("x", ${param.container}_margin.left+12)
@@ -138,7 +138,7 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 	
 
 		bar.append("a")
-			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/new-ph/long-covid/5";})
+			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/public-health/long-covid/5";})
 			.append("rect")
 				.style("cursor", "pointer")
 		    	.attr("class", "${param.container}longbar_bar")
@@ -152,7 +152,7 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 		    .attr("height", barWidth - gap)
 		    .attr("width", function(d) { return total(d.total) ; })
 		    .append("a")
-    			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/new-ph/long-covid/5";})
+    			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/public-health/long-covid/5";})
 		    		.append("text")
 		    			.attr("class", "up")
 		    			.attr("x", ${param.container}_margin.left+12)
@@ -165,7 +165,7 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 	    	.attr("height", barWidth - gap)
 	    	.attr("width", function(d) { return total(d.total) ; })
 	    	.append("a")
-    			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/new-ph/long-covid/5" ;})
+    			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/public-health/long-covid/5" ;})
 			    	.append("text")
 			    	.attr("class", "up count")
 			    	.attr("x", ${param.container}_margin.left+12)

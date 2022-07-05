@@ -273,7 +273,7 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 			  return object.iframe_info === '${param.tertiary_tab}';
 			});
 		if ($('.ph-tab .active > a').attr("href") == '#ph-summary')
-			cache_browser_history("new-ph", "new-ph/summary" + (index == -1 ? '' : "/${param.tertiary_tab}"))
+			cache_browser_history("public-health", "public-health/summary" + (index == -1 ? '' : "/${param.tertiary_tab}"))
 		if (index < 0)
 			index = 0;
 
@@ -315,7 +315,7 @@ function question_detail_toggle() {
 
 function frame_render(question, description, asked, limitations, iframe) {
 	console.log("iframe", iframe)
-	cache_browser_history("new-ph", "new-ph/"+iframe)
+	cache_browser_history("public-health", "public-health/"+iframe)
 	var divContainer = document.getElementById("question-tile");
 	divContainer.innerHTML = 
 		'<h2 class="header-text">' + question + '</h2>'

@@ -43,7 +43,7 @@ function frame_load(selection) {
 		$this.load("<util:applicationRoot/>/new_ph/delayed_mortality/"+selection+".jsp");
 		frame_crumbs.push(selection);
 	}
-	cache_browser_history("new-ph", "new-ph/delayed_mortality/"+url_map(selection));
+	cache_browser_history("public-health", "public-health/delayed_mortality/"+url_map(selection));
 };
 
 $(document).ready(function () {

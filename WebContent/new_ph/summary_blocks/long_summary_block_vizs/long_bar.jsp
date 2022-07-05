@@ -97,7 +97,7 @@ d3.json("<util:applicationRoot/>/new_ph/summary_blocks/long_summary_block_vizs/$
 				.attr("transform", function(d, i) {return "translate(0," + (yScale(i) + ${param.container}_margin.top) + ")";});
 
 		bar.append("a")
-			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/new-ph/long-covid/" + d.viz_id;})
+			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/public-health/long-covid/" + d.viz_id;})
 				.append("text")
 			    .attr("class", "below")
 			    .attr("x", ${param.container}_margin.left+12)
@@ -124,7 +124,7 @@ d3.json("<util:applicationRoot/>/new_ph/summary_blocks/long_summary_block_vizs/$
 		};
 		
 		bar.append("a")
-			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/new-ph/long-covid/" + d.viz_id;})
+			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/public-health/long-covid/" + d.viz_id;})
 				.append("text")
 		    	.attr("class", "below couunt")
 		    	.attr("x", ${param.container}_margin.left+12)
@@ -135,7 +135,7 @@ d3.json("<util:applicationRoot/>/new_ph/summary_blocks/long_summary_block_vizs/$
 	
 
 		bar.append("a")
-			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/new-ph/long-covid/" + d.viz_id;})
+			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/public-health/long-covid/" + d.viz_id;})
 			.append("rect")
 				.style("cursor", "pointer")
 		    	.attr("class", "${param.container}longbar_bar")
@@ -149,7 +149,7 @@ d3.json("<util:applicationRoot/>/new_ph/summary_blocks/long_summary_block_vizs/$
 		    .attr("height", barWidth - gap)
 		    .attr("width", function(d) { return total(d.count) ; })
 		    .append("a")
-    			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/new-ph/long-covid/" + d.viz_id;})
+    			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/public-health/long-covid/" + d.viz_id;})
 		    		.append("text")
 		    			.attr("class", "up")
 		    			.attr("x", ${param.container}_margin.left+12)
@@ -162,7 +162,7 @@ d3.json("<util:applicationRoot/>/new_ph/summary_blocks/long_summary_block_vizs/$
 	    	.attr("height", barWidth - gap)
 	    	.attr("width", function(d) { return total(d.count) ; })
 	    	.append("a")
-    			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/new-ph/long-covid/" + d.viz_id;})
+    			.attr("xlink:href", function(d) {return "<util:applicationRoot/>" + "/public-health/long-covid/" + d.viz_id;})
 			    	.append("text")
 			    	.attr("class", "up count")
 			    	.attr("x", ${param.container}_margin.left+12)

@@ -54,7 +54,7 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 		});
 		
 		if ($('.ph-tab .active > a').attr("href") == '#ph-summary'){
-			cache_browser_history("new-ph", "new-ph" + (index == -1 ? '' : "/${param.secondary_tab}"))
+			cache_browser_history("public-health", "public-health" + (index == -1 ? '' : "/${param.secondary_tab}"))
 		};
 		if (index < 0) {index = 0;};
 		
@@ -83,7 +83,7 @@ function frame_render(question, description, asked, limitations, frame, seqnum) 
 		var viz_id = String(seqnum);
 
 		
-		cache_browser_history("new-ph", "new-ph/"+frame);
+		cache_browser_history("public-health", "public-health/"+frame);
 		console.log("viz id: " + viz_id);
 		
 		divContainer.innerHTML = '<div id="d3viz"></div>'

@@ -35,7 +35,7 @@
 		
 		$("body").css("cursor", "default");
 
-		cache_browser_history("new-ph", "new-ph/${param.iframe}");
+		cache_browser_history("public-health", "public-health/${param.iframe}");
 
 		document.getElementById("question-tile-iframe").removeAttribute("style");
 		iframe_render(
@@ -53,7 +53,7 @@
 function iframe_render(tenant, appID, content, integrationID, token, style, iframe) {
 	var divContainer = document.getElementById("question-tile-iframe");
 	console.log("iframe", iframe)
-	cache_browser_history("new-ph", "new-ph/${param.iframe}");
+	cache_browser_history("public-health", "public-health/${param.iframe}");
 		divContainer.innerHTML = 
 			'<div id="d3viz"></div>'
 			+'<iframe src="https://'+tenant+'/single/?appid='+appID+'&sheet='+content

@@ -72,7 +72,7 @@ function frame_load(selection) {
 		$this.load("<util:applicationRoot/>/new_ph/paxlovid/"+selection+".jsp");
 		frame_crumbs.push(selection);
 	}
-	cache_browser_history("new-ph", "new-ph/Paxlovid/"+url_map(selection));
+	cache_browser_history("public-health", "public-health/Paxlovid/"+url_map(selection));
 };
 
 $(document).ready(function () {

@@ -72,7 +72,7 @@ function frame_load(selection) {
 		$this.load("<util:applicationRoot/>/new_ph/medication_snapshot/"+selection+".jsp");
 		frame_crumbs.push(selection);
 	}
-	cache_browser_history("new-ph", "new-ph/MedicationsSnapshots/"+url_map(selection));
+	cache_browser_history("public-health", "public-health/MedicationsSnapshots/"+url_map(selection));
 };
 
 $(document).ready(function () {
