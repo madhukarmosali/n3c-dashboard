@@ -156,7 +156,6 @@ function localHorizontalBarChart_legend(data, domName, barLabelWidth, min_height
 			.attr('width', function(d) { return x(d.count); })
 			.attr('stroke', 'white')
 			.attr('fill', function(d){
-				console.log(d);
 				if (colorscale != undefined){
 					return colorscale[(d.seq-1)];
 				}else{

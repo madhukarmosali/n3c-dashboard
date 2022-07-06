@@ -157,8 +157,6 @@ function localHorizontalBarChart(data, domName, barLabelWidth, min_height, order
 					if (noseq != 1){
 						return colorscale[(d.seq-1)];
 					} else {
-						console.log(colorscale);
-						console.log(d);
 						return colorscale[i];
 					}
 				}else{
