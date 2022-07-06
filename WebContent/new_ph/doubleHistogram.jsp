@@ -5,6 +5,7 @@ function ${param.block}_refresh${param.array}(data) {
 	var aData = new Object;
 	var bData = new Object;
 	var cData = new Object;
+	var dData = new Object;
 	var maxIndex = 0;
 	$("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().each( function ( group, i ) {
 		<c:choose>
@@ -19,6 +20,13 @@ function ${param.block}_refresh${param.array}(data) {
     	var count = data[i].patient_count;
     	var ${param.secondary} = data[i].${param.secondary};
     	var ${param.secondary}_seq = data[i].${param.secondary}_seq;
+    	
+    	if (data[i].${param.primary}_abbrev){
+			dData[group] = data[i].${param.primary}_abbrev;
+		}else{
+			dData[group] = data[i].${param.primary};
+		};
+		
         if (typeof aData[group] == 'undefined') {
             aData[group] = count;
             bData[group] = seq;
@@ -47,6 +55,9 @@ function ${param.block}_refresh${param.array}(data) {
     	Object.defineProperty(obj, 'secondary', {
     		  value: cData[i].slice(0, maxIndex + 1)
     		});
+    	Object.defineProperty(obj, 'abbrev', {
+  		  value: dData[i]
+  		});
     	${param.block}_${param.array}.push(obj);
     }
     ${param.block}_${param.array}.sort((a,b) => (a.seq > b.seq) ? 1 : ((b.seq > a.seq) ? -1 : 0));

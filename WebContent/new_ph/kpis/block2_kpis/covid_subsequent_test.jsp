@@ -22,11 +22,11 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Subsequent Positive Test Count*</td>
+							<td>Subsequent Positive Test Count*</td>
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_subsequent_test_kpi" class="panel-heading kpi_num">${row.subsequent_test}</div>
+				<div id="${param.block}_subsequent_test_kpi" class="panel-heading kpi_num"><i class="fas fa-users"></i> ${row.subsequent_test}</div>
 			</div>
 		</div>
 	</div>

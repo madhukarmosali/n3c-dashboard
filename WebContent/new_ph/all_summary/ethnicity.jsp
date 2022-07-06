@@ -9,6 +9,8 @@
 	<jsp:param name="dimension_name" value="Ethnicity" />
 	<jsp:param name="dimension_range" value="ethnicity_range" />
 	<jsp:param name="dimension_legend" value="ethnicity_legend" />
+	<jsp:param name="dimension_minheight" value="300" />
+	<jsp:param name="dimension_minheight" value="300" />
 </jsp:include>
 
 <div id="${param.block}_ethnicity_viz" class="dash_viz"></div>

@@ -16,7 +16,7 @@
 	<jsp:param name="comorbidities_filter" value="true" /> 
 
 	<jsp:param name="severity_panel" value="adult_summary/severity.jsp" />
-	<jsp:param name="age_panel" value="adult_summary/age.jsp" />
+	<jsp:param name="age_panel" value="adult_summary/age2.jsp" />
 	<jsp:param name="race_panel" value="adult_summary/race.jsp" />
 	<jsp:param name="gender_panel" value="adult_summary/gender.jsp" />
 	<jsp:param name="comorbidity_panel" value="adult_summary/comorbidity.jsp" />

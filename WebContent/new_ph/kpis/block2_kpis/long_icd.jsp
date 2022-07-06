@@ -20,11 +20,11 @@
 					<table>
 						<tr>
 <!-- 							<td><i class="fas fa-users"></i> Patients w/U09.9 in Record</td> -->
-							<td><i class="fas fa-users"></i> Patients ICD</td>
+							<td>Patients ICD</td>
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_patient_count_kpi" class="panel-heading kpi_num">${row.patient_count}</div>
+				<div id="${param.block}_patient_count_kpi" class="panel-heading kpi_num"><i class="fas fa-users"></i> ${row.patient_count}</div>
 			</div>
 		</div>
 	</div>

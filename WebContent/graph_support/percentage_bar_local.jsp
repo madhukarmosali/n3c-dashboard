@@ -19,7 +19,7 @@ rect{
 <script>
 
 function localPercentageBarChart(data, domName, barLabelWidth, colorscale, ordered, legend_label, legend_data) {
-
+	
 	var filter_icon = " &#xf0b0";
 	
 	var margin = {top: 40, right: 100, bottom: 50, left: barLabelWidth},
@@ -28,7 +28,6 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 	
 	if ((ordered != undefined) && (ordered == 1) ){
 		data.sort(function(a, b) {
-			console.log(a);
 		    return parseFloat(b.count) - parseFloat(a.count);
 		});
 	}
@@ -82,11 +81,11 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 
         // Create the stops of the main gradient.
         mainGradient.append('stop')
-            .style('stop-color', "#445098")
+            .style('stop-color', "#33298D")
             .attr('offset', '0');
 
         mainGradient.append('stop')
-            .style('stop-color', "#4661a4")
+            .style('stop-color', "#3F50B0")
             .attr('offset', '99%');
 		
 		//Creates the xScale 
@@ -97,7 +96,7 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 		var y0 = d3.scaleBand()
 			.paddingInner(0.4)
 			.range([0, height])
-			.domain(data.map(function(d) { return d.element; }));
+			.domain(data.map(function(d) { return d.abbrev; }));
 		
 		//Defines the y axis styles
 		var yAxis = d3.axisLeft(y0);
@@ -106,6 +105,26 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 		var yAxisGroup = svg.append("g")
 			.attr("class", "y axis")
 			.call(yAxis);
+		
+		//add y axis tooltip 
+		svg.select(".y.axis")
+	    	.selectAll(".tick")
+	    	.on("mouseover", function() { tooltip3.style("display", null); })
+		    .on("mouseout", function() { tooltip3.style("display", "none"); })
+		    .on("mousemove", function(d, i) {
+		    	var label = data[i].element;
+		    	tooltip3.selectAll("tspan").remove();
+		    	tooltip3.selectAll("rect").attr("width", ((label.length * 8)+10) + 'px');
+		     	var xPosition = d3.mouse(this)[0];
+		     	var yPosition = d3.mouse(this)[1];
+		     	tooltip3.attr("transform", "translate(" + xPosition + "," + (yPosition + y0(d)) + ")")
+		     	.selectAll("text")
+		     		.append("tspan")
+		     		.text(label)
+		     		.attr('x', 10)
+  					.attr('dy', 13);
+		    });
+
 		
 		var sumelement = 0;
 		for (i in data){
@@ -162,7 +181,7 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 		    .append("g")
 		    .attr("class", "g-category-group")
 		    .attr("transform", function(d) {
-		    	return "translate(0," + (y0(d.element)) + " )";
+		    	return "translate(0," + (y0(d.abbrev)) + " )";
 		    });
 		  
 		
@@ -193,7 +212,7 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 		    	
 		     	var xPosition = d3.mouse(this)[0];
 		     	var yPosition = d3.mouse(this)[1];
-		     	tooltip.attr("transform", "translate(" + xPosition + "," + (d3.mouse(this)[1] + y0(d.element)) + ")")
+		     	tooltip.attr("transform", "translate(" + xPosition + "," + (d3.mouse(this)[1] + y0(d.abbrev)) + ")")
 		     	.selectAll("text")
 		     		.append("tspan")
 		     		.text(d.element)
@@ -218,7 +237,7 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 		    .append("g")
 		    .attr("class", "g-label-group")
 		    .attr("transform", function(d) {
-		    	return "translate(0," + y0(d.element) + ")";
+		    	return "translate(0," + y0(d.abbrev) + ")";
 		    });
 		
 		  //Appends main bar labels   
@@ -303,7 +322,7 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 			var tooltip2 = svg.append("g")
 	    		.attr("class", "graph_tooltip")
 	    		.style("display", "none")
-	    		.attr("transform", "translate(" + ((width + margin.right/2)) + "," + 0 + ")")
+	    		.attr("transform", "translate(" + ((width + margin.right/2)) + "," + 0 + ")");
 
 	  		tooltip2.append("text")
 	    		.attr("x", 10)
@@ -313,6 +332,24 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 	    		.attr("font-size", "12px")
 	    		.attr("font-weight", "bold")
 	    		.text("Click to add/remove filter");
+	  	
+		// Y axis Tooltip ////// 
+			var tooltip3 = svg.append("g")
+	    		.attr("class", "graph_tooltip")
+	    		.style("display", "none");
+		
+			tooltip3.append("rect")
+    			.attr("width", word_length * 7)
+				.attr("height", 20)
+				.attr("fill", "white")
+				.style("opacity", 0.7);
+
+	  		tooltip3.append("text")
+	  			.attr("x", 10)
+    			.attr("dy", "1.2em")
+    			.style("text-anchor", "start")
+    			.attr("font-size", "12px")
+    			.attr("font-weight", "bold");
 	  		
 		
 	};

@@ -22,11 +22,11 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Reinfection Count*</td>
+							<td>Reinfection Count*</td>
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_reinfected_kpi" class="panel-heading kpi_num">${row.reinfected}</div>
+				<div id="${param.block}_reinfected_kpi" class="panel-heading kpi_num"><i class="fas fa-users"></i> ${row.reinfected}</div>
 			</div>
 		</div>
 	</div>

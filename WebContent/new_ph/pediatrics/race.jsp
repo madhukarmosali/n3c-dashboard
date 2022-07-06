@@ -9,6 +9,7 @@
 	<jsp:param name="dimension_name" value="Race" />
 	<jsp:param name="dimension_range" value="race_range" />
 	<jsp:param name="dimension_legend" value="race_legend" />
+	<jsp:param name="dimension_minheight" value="300" />
 </jsp:include>
 
 <div id="${param.block}_race_viz" class="dash_viz"></div>
@@ -30,7 +31,7 @@
 function ${param.block}_race_refresh() {
 	//console.log("race graph", "${param.block}_gender_viz", ${param.block}_RaceArray)
 	d3.select("#${param.block}_race_viz").select("svg").remove();
-	localPercentageBarChart(${param.block}_RaceArray,"#${param.block}_race_viz", 280, race_range,  1, "Race", race_legend);
+	localPercentageBarChart(${param.block}_RaceArray,"#${param.block}_race_viz", 120, race_range,  0, "Race", race_legend);
 }
 
 ${param.block}_race_refresh();

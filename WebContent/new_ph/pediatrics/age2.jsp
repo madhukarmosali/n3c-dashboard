@@ -7,8 +7,8 @@
 	<jsp:param name="block" value="${param.block}" />
 	<jsp:param name="dimension" value="age" />
 	<jsp:param name="dimension_name" value="Age" />
-	<jsp:param name="dimension_range" value="age_range_adult2" />
-	<jsp:param name="dimension_legend" value="age_legend_2" />
+	<jsp:param name="dimension_range" value="age_range_peds2" />
+	<jsp:param name="dimension_legend" value="age_legend_3" />
 	<jsp:param name="dimension_minheight" value="300" />
 </jsp:include>
 
@@ -16,7 +16,7 @@
 
 <c:if test="${not empty param.topic_description}">
 	<div id="viz_caption">
-		<jsp:include page="../adult_summary/secondary_text/${param.topic_description}.jsp"/>
+		<jsp:include page="../pediatrics/secondary_text/${param.topic_description}.jsp"/>
 	</div>
 </c:if>
 
@@ -30,7 +30,7 @@
 
 function ${param.block}_age_refresh() {
 	d3.select("#${param.block}_age_viz").select("svg").remove();
-	localPercentageBarChart(${param.block}_AgeArray,"#${param.block}_age_viz", 120, age_range_adult2, 0, "Age", age_legend_2);
+	localPercentageBarChart(${param.block}_AgeArray,"#${param.block}_age_viz", 120, age_range_peds2, 0, "Age", age_legend_3);
 }
 
 ${param.block}_age_refresh();

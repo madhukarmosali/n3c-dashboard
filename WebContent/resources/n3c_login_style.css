@@ -439,7 +439,7 @@ a:hover, .btn-link:hover{
 .kpi_num{
 	text-align: center;
     font-size: 1.7rem;
-    color: #4661a4;
+    color: #3F50B0;
 /*     font-weight: 600; */
 }
 
@@ -451,7 +451,7 @@ a:hover, .btn-link:hover{
 }
 
 .viz_secondary_info i{
-	color: #4661a4;
+	color: #3F50B0;
 	font-size: 12px;
 	vertical-align: super;
 }
@@ -468,7 +468,7 @@ a:hover, .btn-link:hover{
 
 .viz_color_header{
 	font-weight: 800;
-	color: #4661a4;
+	color: #3F50B0;
 }
 
 #choose_dash{
@@ -501,21 +501,21 @@ a:hover, .btn-link:hover{
 
 
 .viz_options_dropdown .select2-selection.select2-selection--single{
-/* 	background-color: #4661a4; */
-/* 	border-color: #4661a4; */
+/* 	background-color: #3F50B0; */
+/* 	border-color: #3F50B0; */
 }
 
 .viz_options_dropdown .select2-selection__rendered{
 /* 	color: white !important; */
-	color: #4661a4 !important;
+	color: #3F50B0 !important;
 }
 
 .viz_options_dropdown .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
-    border-color: transparent transparent #4661a4 transparent;
+    border-color: transparent transparent #3F50B0 transparent;
 }
 
 .viz_options_dropdown .select2-container--default .select2-selection--single .select2-selection__arrow b{
-	border-color: #4661a4 transparent transparent transparent;
+	border-color: #3F50B0 transparent transparent transparent;
 }
 
 
@@ -533,7 +533,7 @@ a:hover, .btn-link:hover{
 
 .dash_select .select2-selection__rendered{
 	line-height: 3rem !important;
-	background: #4661a4;
+	background: #3F50B0;
     color: white !important;
     white-space: normal !important;
 }
@@ -558,7 +558,7 @@ a:hover, .btn-link:hover{
 }
 
 .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable{
-	background-color: #4661a4;
+	background-color: #3F50B0;
 }
 
 /* Datatable style  ---------------- */
@@ -579,7 +579,7 @@ a:hover, .btn-link:hover{
 }
 
 #d3viz .dataTable thead{
-	background: #4661a4;
+	background: #3F50B0;
 }
 
 #d3viz .dataTable thead span{
@@ -618,7 +618,7 @@ a:hover, .btn-link:hover{
 .dash-filter-btn{
 	margin-top: 20px;
 	border-radius: 5px;
-    background: #4661a4;
+    background: #3F50B0;
     color: white;
     padding: 7px;
 }
@@ -631,9 +631,9 @@ a:hover, .btn-link:hover{
 	margin-top: 20px;
 	border-radius: 5px;
     background: white;
-    color: #4661a4;
+    color: #3F50B0;
     padding: 7px;
-/*     border-color: #4661a4; */
+/*     border-color: #3F50B0; */
 	border: none;
 	box-shadow: none !important;
 }

@@ -12,11 +12,11 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-user-plus"></i> COVID+ Patients*</td>
+							<td>COVID+ Patients*</td>
 						</tr>
 					</table>
 				</div>
-				<div class="panel-heading kpi_num">${row.count}</div>
+				<div class="panel-heading kpi_num"><i class="fas fa-user-plus"></i> ${row.count}</div>
 			</div>
 		</div>
 	</div>

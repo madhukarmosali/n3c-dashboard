@@ -7,8 +7,8 @@
 	<jsp:param name="block" value="${param.block}" />
 	<jsp:param name="dimension" value="age" />
 	<jsp:param name="dimension_name" value="Age" />
-	<jsp:param name="dimension_range" value="age_range_adult2" />
-	<jsp:param name="dimension_legend" value="age_legend_2" />
+	<jsp:param name="dimension_range" value="age_range_adult1" />
+	<jsp:param name="dimension_legend" value="age_legend_6" />
 	<jsp:param name="dimension_minheight" value="300" />
 </jsp:include>
 
@@ -28,9 +28,10 @@
 
 <script>
 
+
 function ${param.block}_age_refresh() {
 	d3.select("#${param.block}_age_viz").select("svg").remove();
-	localPercentageBarChart(${param.block}_AgeArray,"#${param.block}_age_viz", 120, age_range_adult2, 0, "Age", age_legend_2);
+	localPercentageBarChart(${param.block}_AgeArray,"#${param.block}_age_viz", 120, age_range_adult1, 0, "Age", age_legend_6);
 }
 
 ${param.block}_age_refresh();

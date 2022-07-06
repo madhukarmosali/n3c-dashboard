@@ -24,11 +24,11 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Pediatrics Patients in Enclave</td>
+							<td>Pediatrics Patients in Enclave</td>
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_total_patient_count_kpi" class="panel-heading kpi_num">${row.count}</div>
+				<div id="${param.block}_total_patient_count_kpi" class="panel-heading kpi_num"><i class="fas fa-users"></i> ${row.count}</div>
 			</div>
 		</div>
 	</div>

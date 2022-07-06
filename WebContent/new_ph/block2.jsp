@@ -97,6 +97,10 @@
     text-align: center;
   }
 }
+
+.select2-container--default .select2-results__option--disabled{
+	display:none;
+}
 </style>
 
 <!-- A block is comprised of a header bar, an optional left column with KPIs and filters, and a main panel
@@ -165,7 +169,7 @@
 						</div>	
 						</div>
 					</c:if>
-					<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter4 || not empty param.age_filter5 || not empty param.age_filter6 || not empty param.age_filter7 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter || not empty param.symptom_filter || not empty param.beforeafter_filter || not empty param.result_filter}">
+					<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter2 || not empty param.age_filter4 || not empty param.age_filter5 || not empty param.age_filter6 || not empty param.age_filter7 || not empty param.age_filterpeds || not empty param.age_filterpeds2 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter || not empty param.symptom_filter || not empty param.beforeafter_filter || not empty param.result_filter}">
 						<div class="mt-2 ml-auto col-12 col-md-6 filter_button_container">
 							<button id="${param.block}_btn_clear" class="btn button dash-filter-btn2 mt-0 no_clear" onclick="${param.block}_filter_clear()"><i class="fas fa-times-circle"></i> Clear Filters</button>
 							<div class="dropdown" style="display: inline-block;">
@@ -182,6 +186,9 @@
 										<c:if test="${param.age_filter}">
 											<jsp:include page="filters/age.jsp"/>
 										</c:if>
+										<c:if test="${param.age_filter2}">
+											<jsp:include page="filters/age_2.jsp"/>
+										</c:if>
 										<c:if test="${param.age_filter4}">
 											<jsp:include page="filters/age_4.jsp"/>
 										</c:if>
@@ -196,6 +203,9 @@
 										</c:if>
 										<c:if test="${param.age_filterpeds}">
 											<jsp:include page="filters/age_peds.jsp"/>
+										</c:if>
+										<c:if test="${param.age_filterpeds2}">
+											<jsp:include page="filters/age_peds2.jsp"/>
 										</c:if>
 										<c:if test="${param.age_filterall}">
 											<jsp:include page="filters/age_all.jsp"/>
@@ -574,9 +584,6 @@
 
 	function ${param.block}_refreshHistograms() {
 	    var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();
-	    
-	    console.log("block2", '${param.block}');
-	    console.log(data);
 	    
 	    var data2 = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data();
 

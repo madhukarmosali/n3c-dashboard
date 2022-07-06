@@ -25,11 +25,11 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Total Patients w/U09.9 in Record*</td>
+							<td>Total Patients w/U09.9 in Record*</td>
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_in_record_kpi" class="panel-heading kpi_num">${row.patient_count}</div>
+				<div id="${param.block}_in_record_kpi" class="panel-heading kpi_num"><i class="fas fa-users"></i> ${row.patient_count}</div>
 			</div>
 		</div>
 	</div>

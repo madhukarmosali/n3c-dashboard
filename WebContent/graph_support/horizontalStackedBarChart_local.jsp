@@ -124,12 +124,31 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			data.sort(sortFunction);
 		}
 		
-		y.domain(data.map(function(d) { return d.element; }));					
+		y.domain(data.map(function(d) { return d.abbrev; }));					
 		x.domain([0, d3.max(data, function(d) { return d.count; })]).nice();	
 		g.append("g")
-			.attr("class", "axis")
+			.attr("class", "y axis")
 			.attr("transform", "translate(0,0)") 						
-			.call(d3.axisLeft(y));									
+			.call(d3.axisLeft(y));		
+		
+		//add y axis tooltip 
+		g.select(".y.axis")
+	    	.selectAll(".tick")
+	    	.on("mouseover", function() { tooltip3.style("display", null); })
+		    .on("mouseout", function() { tooltip3.style("display", "none"); })
+		    .on("mousemove", function(d, i) {
+		    	var label = data[i].element;
+		    	tooltip3.selectAll("tspan").remove();
+		    	tooltip3.selectAll("rect").attr("width", ((label.length * 8)+10) + 'px');
+		     	var xPosition = d3.mouse(this)[0];
+		     	var yPosition = d3.mouse(this)[1];
+		     	tooltip3.attr("transform", "translate(" + xPosition + "," + (yPosition + y(d)) + ")")
+		     	.selectAll("text")
+		     		.append("tspan")
+		     		.text(label)
+		     		.attr('x', 10)
+  					.attr('dy', 13);
+		    });
 
 		g.append("g")
 			.attr("class", "axis xaxis")
@@ -164,7 +183,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.data(function(d) { return d; })
 			.enter().append("rect")
 			.attr("class", function(d){ return domName+"-rect "; })
-			.attr("y", function(d,i) { return y(data[i].element); })
+			.attr("y", function(d,i) { return y(data[i].abbrev); })
 			.attr("x", function(d) { return x(d[0]); })
 			.attr("width", function(d) {return x(d[1]) - x(d[0]); })
 			.attr("height", y.bandwidth())	
@@ -277,7 +296,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 					return 'white';
 				};
 			})
-			.attr("y", function(d,i) { return (y(data[i].element)) + ((y.bandwidth()*paddingInside)/4) + (y.bandwidth()/2) ; })
+			.attr("y", function(d,i) { return (y(data[i].abbrev)) + ((y.bandwidth()*paddingInside)/4) + (y.bandwidth()/2) ; })
 			.attr("x", function(d) { return (x(d[0])) + 5; })
 			.attr("font-size", "12px");
 		
@@ -289,7 +308,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.attr("class", "secondary")
 			.style("text-anchor", "start")
 			.style("font-size", "12px")
-			.attr("y", function(d,i) { return (y(data[i].element)) + ((y.bandwidth()*paddingInside)/4) + (y.bandwidth()/2) ; })
+			.attr("y", function(d,i) { return (y(data[i].abbrev)) + ((y.bandwidth()*paddingInside)/4) + (y.bandwidth()/2) ; })
 			.attr("x", function(d) { return (x(d[3])) + 5; })
 			.text(function(d) {
 				if(d[2] == legend_data[0].secondary){
@@ -395,6 +414,24 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
     		.attr("font-weight", "bold")
     		.text("Click to add/remove filter");
   		}
+  		
+  	// Y axis Tooltip ////// 
+		var tooltip3 = g.append("g")
+    		.attr("class", "graph_tooltip")
+    		.style("display", "none");
+	
+		tooltip3.append("rect")
+			.attr("width", word_length * 7)
+			.attr("height", 20)
+			.attr("fill", "white")
+			.style("opacity", 0.7);
+
+  		tooltip3.append("text")
+  			.attr("x", 10)
+			.attr("dy", "1.2em")
+			.style("text-anchor", "start")
+			.attr("font-size", "12px")
+			.attr("font-weight", "bold");
 	
 	
 	};

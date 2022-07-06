@@ -9,6 +9,7 @@
 	<jsp:param name="dimension_name" value="Gender" />
 	<jsp:param name="dimension_range" value="gender_range" />
 	<jsp:param name="dimension_legend" value="gender_legend" />
+	<jsp:param name="dimension_minheight" value="300" />
 </jsp:include>
 
 <div id="${param.block}_gender_viz" class="dash_viz"></div>
@@ -30,7 +31,7 @@
 function ${param.block}_gender_refresh() {
 	//console.log("gender graph", "${param.block}_gender_viz", ${param.block}_GenderArray)
 	d3.select("#${param.block}_gender_viz").select("svg").remove();
-    localHorizontalBarChart_legend(${param.block}_GenderArray,"#${param.block}_gender_viz", 140, 300, 1, gender_range, "Gender", gender_legend);
+    localPercentageBarChart(${param.block}_GenderArray,"#${param.block}_gender_viz", 140, gender_range, 0, "Gender", gender_legend);
 }
 
 ${param.block}_gender_refresh();

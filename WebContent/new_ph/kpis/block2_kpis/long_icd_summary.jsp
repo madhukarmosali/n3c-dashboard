@@ -19,11 +19,11 @@
 					<table>
 						<tr>
 <!-- 							<td><i class="fas fa-users"></i> Patients w/Long COVID-Related Symptoms</td> -->
-							<td><i class="fas fa-users"></i> Patient ICD Summary</td>
+							<td>Patient ICD Summary</td>
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_patient_count_kpi" class="panel-heading kpi_num">${row.patient_count}</div>
+				<div id="${param.block}_patient_count_kpi" class="panel-heading kpi_num"><i class="fas fa-users"></i> ${row.patient_count}</div>
 			</div>
 		</div>
 	</div>

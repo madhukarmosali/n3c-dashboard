@@ -10,7 +10,7 @@
 	<jsp:param name="kpis" value="adult_summary/kpis.jsp" />
 
 	<jsp:param name="severity_filter" value="true" />
-	<jsp:param name="age_filter" value="true" />
+	<jsp:param name="age_filter2" value="true" />
 	<jsp:param name="race_filter" value="true" />
 	<jsp:param name="gender_filter3" value="true" />
 	<jsp:param name="ethnicity_filter" value="true" />

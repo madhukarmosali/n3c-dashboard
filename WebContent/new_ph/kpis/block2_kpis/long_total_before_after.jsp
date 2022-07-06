@@ -15,11 +15,11 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Total Patients w/Symptoms</td>
+							<td>Total Patients w/Symptoms</td>
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_long_total_before_after_kpi" class="panel-heading kpi_num">${row.count}</div>
+				<div id="${param.block}_long_total_before_after_kpi" class="panel-heading kpi_num"><i class="fas fa-users"></i> ${row.count}</div>
 			</div>
 		</div>
 	</div>

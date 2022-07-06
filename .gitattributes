@@ -132,6 +132,7 @@ WebContent/new_ph/adult_summary/adult_summary_3.jsp -text
 WebContent/new_ph/adult_summary/adult_summary_4.jsp -text
 WebContent/new_ph/adult_summary/adult_summary_5.jsp -text
 WebContent/new_ph/adult_summary/age.jsp -text
+WebContent/new_ph/adult_summary/age2.jsp -text
 WebContent/new_ph/adult_summary/aggregated_table.jsp -text
 WebContent/new_ph/adult_summary/comorbidity.jsp -text
 WebContent/new_ph/adult_summary/ethnicity.jsp -text
@@ -156,6 +157,7 @@ WebContent/new_ph/adult_summary/unknown_vaccination_table.jsp -text
 WebContent/new_ph/adult_summary/vaccinated_comorbidity_table.jsp -text
 WebContent/new_ph/adult_summary/vaccinated_table.jsp -text
 WebContent/new_ph/all_summary/age.jsp -text
+WebContent/new_ph/all_summary/age2.jsp -text
 WebContent/new_ph/all_summary/aggregated_table.jsp -text
 WebContent/new_ph/all_summary/all_summary_1.jsp -text
 WebContent/new_ph/all_summary/all_summary_2.jsp -text
@@ -230,6 +232,7 @@ WebContent/new_ph/filters/age_7.jsp -text
 WebContent/new_ph/filters/age_all.jsp -text
 WebContent/new_ph/filters/age_all2.jsp -text
 WebContent/new_ph/filters/age_peds.jsp -text
+WebContent/new_ph/filters/age_peds2.jsp -text
 WebContent/new_ph/filters/beforeafter.jsp -text
 WebContent/new_ph/filters/comorbidities.jsp -text
 WebContent/new_ph/filters/ethnicity.jsp -text
@@ -512,6 +515,7 @@ WebContent/new_ph/paxlovid/vizs/long_bar.jsp -text
 WebContent/new_ph/paxlovid/vizs/stacked_bar.jsp -text
 WebContent/new_ph/paxlovid/vizs/stacked_bar_conditions.jsp -text
 WebContent/new_ph/pediatrics/age.jsp -text
+WebContent/new_ph/pediatrics/age2.jsp -text
 WebContent/new_ph/pediatrics/aggregated_table.jsp -text
 WebContent/new_ph/pediatrics/comorbidity.jsp -text
 WebContent/new_ph/pediatrics/ethnicity.jsp -text

@@ -7,6 +7,7 @@ function ${param.block}_refresh${param.array}(data) {
 	var cData = new Object;
 	var dData = new Object;
 	var eData = new Object;
+
 	var maxIndex = 0;
 	
 	

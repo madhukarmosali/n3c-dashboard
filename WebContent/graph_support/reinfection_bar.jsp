@@ -90,11 +90,11 @@
 
 	        // Create the stops of the main gradient.
 	        mainGradient.append('stop')
-	            .style('stop-color', "#445098")
+	            .style('stop-color', "#33298D")
 	            .attr('offset', '0');
 
 	        mainGradient.append('stop')
-	            .style('stop-color', "#4661a4")
+	            .style('stop-color', "#3F50B0")
 	            .attr('offset', '99%');
 		    
 			// Scale the range of the data in the domains

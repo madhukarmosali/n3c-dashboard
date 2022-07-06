@@ -21,7 +21,7 @@
 
 function ${param.block}_raceseverity_refresh() {
 	d3.select("#${param.block}_raceseverity_viz").select("svg").remove();
-	localHorizontalStackedBarChart(${param.block}_raceSeverityArray,"${param.block}_raceseverity_viz", 280, severity_legend, severity_range, "Severity");
+	localHorizontalStackedBarChart(${param.block}_raceSeverityArray,"${param.block}_raceseverity_viz", 120, severity_legend, severity_range, "Severity");
 }
 
 ${param.block}_raceseverity_refresh();

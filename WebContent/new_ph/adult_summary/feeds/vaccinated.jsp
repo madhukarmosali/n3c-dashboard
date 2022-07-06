@@ -22,7 +22,7 @@
 				  from n3c_questions.covid_positive_with_vax_censored
 				  where age_bin in ('Unknown', '18-64', '65+') or age_bin is null
 		  	) as foo
-		  	natural join n3c_dashboard.age_map6
+		  	left join n3c_dashboard.age_map6 on foo.age = n3c_dashboard.age_map6.age_bin
 		  	natural join n3c_dashboard.race_map
 		  	natural join n3c_dashboard.gender_map3
 		  	natural join n3c_dashboard.severity_map

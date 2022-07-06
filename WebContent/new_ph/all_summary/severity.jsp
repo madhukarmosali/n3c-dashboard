@@ -8,6 +8,7 @@
 	<jsp:param name="dimension_name" value="Severity" />
 	<jsp:param name="dimension_range" value="severity_range" />
 	<jsp:param name="dimension_legend" value="severity_legend" />
+	<jsp:param name="dimension_minheight" value="300" />
 </jsp:include>
 
 <div id="${param.block}_severity_viz" class="dash_viz"></div>

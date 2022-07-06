@@ -23,11 +23,11 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> First Diagnosis Count*</td>
+							<td>First Diagnosis Count*</td>
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_first_diagnosis_kpi" class="panel-heading kpi_num">${row.first_diagnosis}</div>
+				<div id="${param.block}_first_diagnosis_kpi" class="panel-heading kpi_num"><i class="fas fa-users"></i> ${row.first_diagnosis}</div>
 			</div>
 		</div>
 	</div>

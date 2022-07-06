@@ -15,11 +15,11 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Patients with Condition Before COVID+</td>
+							<td>Patients with Condition Before COVID+</td>
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_long_total_before_kpi" class="panel-heading kpi_num">${row.count}</div>
+				<div id="${param.block}_long_total_before_kpi" class="panel-heading kpi_num"><i class="fas fa-users"></i> ${row.count}</div>
 			</div>
 		</div>
 	</div>

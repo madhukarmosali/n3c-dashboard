@@ -9,6 +9,7 @@
 	<jsp:param name="dimension_name" value="Ethnicity" />
 	<jsp:param name="dimension_range" value="ethnicity_range" />
 	<jsp:param name="dimension_legend" value="ethnicity_legend" />
+	<jsp:param name="dimension_minheight" value="300" />
 </jsp:include>
 
 <div id="${param.block}_ethnicity_viz" class="dash_viz"></div>
@@ -30,7 +31,7 @@
 function ${param.block}_ethnicity_refresh() {
 	//console.log("ethnicity graph", "${param.block}_ethnicity_viz", ${param.block}_EthnicityArray)
 	d3.select("#${param.block}_ethnicity_viz").select("svg").remove();
-	localPercentageBarChart(${param.block}_EthnicityArray,"#${param.block}_ethnicity_viz", 150, ethnicity_range, 1, "Ethnicity", ethnicity_legend);
+	localPercentageBarChart(${param.block}_EthnicityArray,"#${param.block}_ethnicity_viz", 150, ethnicity_range, 0, "Ethnicity", ethnicity_legend);
 }
 
 ${param.block}_ethnicity_refresh();

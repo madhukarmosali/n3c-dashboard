@@ -22,11 +22,11 @@
 				<div class="panel-body">
 					<table>
 						<tr>
-							<td><i class="fas fa-users"></i> Patients w/Symptoms & Have Not Tested Positive</td>
+							<td>Patients w/Symptoms & Have Not Tested Positive</td>
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_tested_positive_kpi" class="panel-heading kpi_num">${row.count}</div>
+				<div id="${param.block}_tested_positive_kpi" class="panel-heading kpi_num"><i class="fas fa-users"></i> ${row.count}</div>
 			</div>
 		</div>
 	</div>
