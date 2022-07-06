@@ -24,7 +24,7 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 			if (newWidth > 0) {
 				d3.select(domName).select("svg").remove();
 				width = newWidth;
-				height = newWidth;
+				height = newWidth/1.3;
 				full_width = newFull;
 				draw();
 			}
@@ -57,7 +57,7 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 			.attr("height", height)
 			.append("g")
 			.attr("width", full_width)
-			.attr("transform", "translate(" + full_width / 2 + "," + ((height / 2)+10) + ")");
+			.attr("transform", "translate(" + full_width / 2 + "," + ((height / 2)+20) + ")");
 
 		data.forEach(function(d) {
 			d.count = +d.count;
@@ -121,20 +121,24 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 		    var thisbb = this.getBoundingClientRect(),
 		        prevbb = prev.getBoundingClientRect();
 		    // move if they overlap
-		    if(!(thisbb.right < prevbb.left || 
-		            thisbb.left > prevbb.right || 
-		            thisbb.bottom < prevbb.top || 
-		            thisbb.top > prevbb.bottom)) {
+		    if(!(thisbb.right < prevbb.left || thisbb.left > prevbb.right || thisbb.bottom < prevbb.top || thisbb.top > prevbb.bottom)) {
 		        var ctx = thisbb.left + (thisbb.right - thisbb.left)/2,
 		            cty = thisbb.top + (thisbb.bottom - thisbb.top)/2,
 		            cpx = prevbb.left + (prevbb.right - prevbb.left)/2,
 		            cpy = prevbb.top + (prevbb.bottom - prevbb.top)/2,
 		            off = Math.sqrt(Math.pow(ctx - cpx, 2) + Math.pow(cty - cpy, 2))/2;
+		        
+		        // keep labels that go above from overflowing svg
+		        var max = -(height / 2);
+		        var translatey = (Math.sin((d.startAngle + d.endAngle - Math.PI) / 2) * (radius + off)) - 20;
+		        if (translatey < max){
+		        	translatey = max;
+		        };
+
 		        var element = d.data.element;
-		        var change = Math.cos(((d.startAngle + d.endAngle - Math.PI) / 2)) * (radius + 20 + off) + "," + Math.sin((d.startAngle + d.endAngle - Math.PI) / 2) * (radius + off-40);
-		        console.log(change);
+		        var change = Math.cos(((d.startAngle + d.endAngle - Math.PI) / 2)) * (radius + 20 + off) + "," + translatey;
 		        label_changes[element] = change;
-		        d3.select(this).attr("transform", "translate(" + Math.cos(((d.startAngle + d.endAngle - Math.PI) / 2)) * (radius + 20 + off) + "," + Math.sin((d.startAngle + d.endAngle - Math.PI) / 2) * (radius + off-40) + ")");   
+		        d3.select(this).attr("transform", "translate(" + Math.cos(((d.startAngle + d.endAngle - Math.PI) / 2)) * (radius + 20 + off) + "," + translatey + ")");   
 		    }
 		  }
 		  prev = this;
