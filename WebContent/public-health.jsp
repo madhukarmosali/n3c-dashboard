@@ -3,18 +3,36 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 <!DOCTYPE html>
+
+
 <html>
 <jsp:include page="head.jsp" flush="true" />
 <script src="<util:applicationRoot/>/resources/auth.js"></script>
+
 <style>
-.btn-select {
-	text-align: center;
-	margin-bottom: 20px;
+#ph_data_drop a[aria-expanded = "true"] span.btn:after{
+	font-family: "Font Awesome\ 5 Free"; 
+	content: "\f056";
+  	font-weight: 900;
 }
-.center {
-	margin: auto;
-	width: 70%;
-	padding: 5px;
+
+#ph_data_drop a[aria-expanded = "false"] span.btn:after{
+	font-family: "Font Awesome\ 5 Free"; 
+	content: "\f055";
+	font-weight: 900;
+}
+
+#ph_data_drop .card-header{
+	background-color: white;
+}
+
+.accordion_text{
+	color: #212529!important;
+}
+
+#frame .datatable_overflow{
+	width: 100%;
+	overflow:scroll;
 }
 </style>
 
@@ -23,90 +41,103 @@
 		<jsp:param name="page" value="health" />
 	</jsp:include>
 
-	<div class="container-fluid">
+	<div class="container-fluid content" style="margin-top: 30px;">
 		<div class="row">
-			<div class="col-11 center">
-				<h3 class="header-text">N3C Public Health Browser</h3>
-				<div>
-					<p>
-						The data dashboards provide interactive views of <i>N3C</i> Research Program participant data. The N3C public health browser provides high value health data for policy makers, and investigators
-						a snapshot of the clinical status of COVID as well as signal for further investigation within the N3C open science enclave.
-					</p>
-					<p>
-						The data shown in the N3C public health browser comes from the N3C enclave, which is the largest collection of real-world data in the USA. The N3C Enclave comes from 69 health care institutions,
-						from 49/50 states across the USA, and as of January 2022 consists of over 12 billion rows of clinical information. In addition to the RWD, the N3C enclave has a library of over 30 external data
-						sets from that vary from mortality, pollution index that can be linked to the clinical data. A full list of available external data sets can be found at <a
-							href="https://discovery.biothings.io/dataset?guide=/guide/n3c/dataset">https://discovery.biothings.io/dataset?guide=/guide/n3c/dataset</a>.
-					</p>
-					<p>
-						In order to protect participant privacy, the data are de-identified, limited to aggregate counts and summary demographic information, with cell counts &lt;20 not being displayed. For more
-						information, please visit our <a href="https://covid.cd2h.org/faq">FAQ</a> page.
-					</p>
+			<div class="col-12 mx-auto">
+				<div class="row">
+					<div class="col-12 col-md-5">
+						<div class="text-max mx-auto" style="padding: 20px; background: #f1f1f1; border: 1px solid lightgray;">
+							<h3 class="header-text" >N3C Public Health Data Browser</h3>
+							
+							<div>
+								<p>
+									The N3C public health browser provides interactive views of N3C Research Program 
+									participant data. These dashboards offer policymakers access to high-value health 
+									data and investigators access to a snapshot of the clinical status of COVID as well 
+									as a signal for further investigation within the N3C open science Enclave.
+								</p>
+								<div class="accordion" id="ph_data_drop">
+  									<div class="card">
+  										<a Title="expand/collapse learn more about data" href="" class="accordion-toggle" data-toggle="collapse" data-target="#factcollapseOne" aria-expanded="false" aria-controls="collapseOne">
+	    									<div class="card-header" id="ph_data_heading_one">
+	      										<h4 class="mb-0">
+	      											<span class="accordion_text">More about the Data:</span>
+	      											<span style="display:inline; float:right;" class="btn btn-link btn-block text-left collapsed icon-btn p-0 accordion-toggle">
+	      											</span>
+	      										</h4>
+	   						 				</div>
+   						 				</a>
+    									<div id="factcollapseOne" class="collapse" aria-labelledby="ph_data_heading_one" data-parent="#ph_data_drop">
+      										<div class="card-body">
+       											<p>
+													The data shown in the N3C public health browser comes from the N3C Data Enclave, 
+													the largest collection of real-world COVID-19 data in the USA. Data in the Enclave 
+													comes from <span id="sites">&nbsp;</span> health care institutions, from 49/50 states in the USA, 
+													and consists of <span id="rows">&nbsp;</span> rows of clinical information. 
+													The Enclave also has an additional library of over 30 external data sets 
+													varying in scope from mortality to pollution that can be linked to its real-world 
+													clinical data. A full list of available external data sets can be found 
+													<a href="https://discovery.biothings.io/dataset?guide=/guide/n3c/dataset" title="Full External Dataset Browser">here</a>.
+												</p>
+												<div style="line-height: 1rem;">
+													<small>
+													In order to protect participant privacy, the data are de-identified and limited to aggregate counts and summary demographic information, with cell counts <20 not being displayed. For more information, please visit our <a href="https://covid.cd2h.org/faq" Title="N3C FAQ Page">FAQ page</a>.
+													</small>
+												</div>
+      										</div>
+    									</div>
+  									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-7">
+						<div id="ph-dash-top" style="padding-top: 20px;">
+							<div id="choose_dash">
+								<h3>Choose a Topic:</h3>
+								<select id="dashboard_select">
+								</select>
+							</div>
+							<div id="question-description" style="padding: 10px;"></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div id="summary_btns" class="btn-select">
-			<a id="ph-summary-btn" class="btn btn-primary active" role="button" onclick="toggle_subpanel('summary');">Summary Data</a>
-			<a id="ph-pediatrics-btn" class="btn btn-primary" role="button" onclick="toggle_subpanel('pediatrics');">Pediatrics</a>
-		</div>
-		<div class="row mb-5">
-			<div class="col-11 center">
+		
+		
+		<div class="mb-5" style="margin-top: 30px;">
+			<div class="">
 				<div id="ph-summary" style="display: block;">
 					<c:choose>
-						<c:when test="${empty param.secondary_tab || param.secondary_tab == 'summary' }">
+						<c:when test="${not empty param.secondary_tab }">
 							<script>
- 								cache_browser_history("public-health", "public-health/summary")
+ 								cache_browser_history("public-health", "public-health")
 							</script>
-							<jsp:include page="modules/questions.jsp?tertiary_tab=${param.tertiary_tab}" flush="true" />
+							<jsp:include page="new_ph/questions.jsp?secondary_tab=${param.secondary_tab}&tertiary_tab=${param.tertiary_tab}" flush="true" />
 						</c:when>
 						<c:otherwise>
-							<jsp:include page="modules/questions.jsp" flush="true" />
-						</c:otherwise>
-					</c:choose>
-				</div>
-				<div id="ph-pediatrics" style="display: none;">
-					<c:choose>
-						<c:when test="${param.secondary_tab == 'pediatrics' }">
-							<script>
- 								console.log("in peds choose", ${param.tertiary_tab})
-								cache_browser_history("public-health", "public-health/pediatrics")
-							</script>
-							<jsp:include page="modules/pediatrics.jsp?tertiary_tab=${param.tertiary_tab}" flush="true" />
-						</c:when>
-						<c:otherwise>
-							<jsp:include page="modules/pediatrics.jsp" flush="true" />
+							<jsp:include page="new_ph/questions.jsp" flush="true" />
 						</c:otherwise>
 					</c:choose>
 				</div>
 			</div>
 		</div>
+		
+		
+		
 		<script>
-
-		function toggle_subpanel(selection) {
-			if (selection == "summary") {
-				$("#ph-summary").css('display', 'block');
-				$("#ph-summary-btn").addClass("active");
-				$("#ph-pediatrics").css('display', 'none');
-				$("#ph-pediatrics-btn").removeClass("active");
-				cache_browser_history("public-health", "public-health/summary")
-			}
-			if (selection == "pediatrics") {
-				$("#ph-summary").css('display', 'none');
-				$("#ph-summary-btn").removeClass("active");
-				$("#ph-pediatrics").css('display', 'block');
-				$("#ph-pediatrics-btn").addClass("active");
-				cache_browser_history("public-health", "public-health/pediatrics")
-			}
-		}
-
-		<c:choose>
-			<c:when test="${empty param.secondary_tab || param.secondary_tab == 'summary' }">
-				toggle_subpanel("summary")
-			</c:when>
-			<c:when test="${param.secondary_tab == 'pediatrics' }">
-				toggle_subpanel("pediatrics")
-			</c:when>
-		</c:choose>
+		$.getJSON("<util:applicationRoot/>/feeds/embedded_fact_sheet.jsp", function(json){
+			var data = $.parseJSON(JSON.stringify(json));
+			
+			$('#rows').text(data['total_rows']);
+			$('#sites').text(data['sites_ingested']); 	
+		});
+		
+// 		Trying to get back broswer button to load, currently only saves last broswer
+		window.addEventListener('popstate', function (event) {
+			location.reload();
+		});
 		</script>
 	</div>
 
