@@ -131,9 +131,10 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 		            cpy = prevbb.top + (prevbb.bottom - prevbb.top)/2,
 		            off = Math.sqrt(Math.pow(ctx - cpx, 2) + Math.pow(cty - cpy, 2))/2;
 		        var element = d.data.element;
-		        var change = (Math.sin((d.startAngle + d.endAngle - Math.PI) / 2) * (radius + 14 + off));
+		        var change = Math.cos(((d.startAngle + d.endAngle - Math.PI) / 2)) * (radius + 20 + off) + "," + Math.sin((d.startAngle + d.endAngle - Math.PI) / 2) * (radius + off-40);
+		        console.log(change);
 		        label_changes[element] = change;
-		        d3.select(this).attr("transform", "translate(" + Math.cos(((d.startAngle + d.endAngle - Math.PI) / 2)) * (radius + 14 + off) + "," + Math.sin((d.startAngle + d.endAngle - Math.PI) / 2) * (radius + 14 + off) + ")");   
+		        d3.select(this).attr("transform", "translate(" + Math.cos(((d.startAngle + d.endAngle - Math.PI) / 2)) * (radius + 20 + off) + "," + Math.sin((d.startAngle + d.endAngle - Math.PI) / 2) * (radius + off-40) + ")");   
 		    }
 		  }
 		  prev = this;
@@ -144,13 +145,12 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 		var label_keys = Object.keys(label_changes);	
 		label_lines.each(function(d, i) {
  			if (label_keys.includes(d.data.element)){
- 				console.log(this);
  				d3.select(this).attr('points', function(d) {
 						var posA = arc.centroid(d) // line insertion in the slice
 						var posB = outerArc.centroid(d) // line break: we use the other arc generator that has been built only for that
-						var posC = outerArc.centroid(d); // Label position = almost the same as posB
+						
 						var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2 // we need the angle to see if the X position will be at the extreme right or extreme left
-						posC[1] = label_changes[d.data.element]; // multiply by 1 or -1 to put it on the right or on the left
+						posC = label_changes[d.data.element]; // multiply by 1 or -1 to put it on the right or on the left
 						return [posA, posB, posC];
 				})
  			}
