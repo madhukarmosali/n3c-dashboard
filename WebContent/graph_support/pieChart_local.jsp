@@ -96,7 +96,7 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 			.append('text')
 			.text( function(d) { 
 				if (d.value > 0){
-					return d.data.element + " " + d.data.num + "%";
+					return d.data.element + " (" + d.data.num + "%)";
 				} else {
 					return;
 				}
