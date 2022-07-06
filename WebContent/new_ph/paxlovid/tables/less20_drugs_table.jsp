@@ -60,7 +60,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/less20_drugs
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
     	order: [[0, 'asc']],
      	columns: [
-        	{ data: 'condition', visible: true, orderable: true },
+        	{ data: 'medication', visible: true, orderable: true },
         	{ data: 'KnownPositive', visible: true, orderable: true },
         	{ data: 'UnknownCovidTestStatus', visible: true, orderable: true },
         	{ data: 'KnownNegative', visible: true, orderable: true },

@@ -4,7 +4,7 @@
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
 		from (select * from (SELECT
-			first_four_name as condition,
+			first_four_name as medication,
 			MAX(ptct) FILTER (WHERE covid_test_post_pax = 'known positive') AS "KnownPositive",
 			MAX(ptct) FILTER (WHERE covid_test_post_pax = 'unknown covid test status') AS "UnknownCovidTestStatus",
 			MAX(ptct) FILTER (WHERE covid_test_post_pax = 'known negative') AS "KnownNegative", 
@@ -15,7 +15,7 @@
 </sql:query>
 {
     "headers": [
-        {"value":"condition", "label":"Condition"},
+        {"value":"medication", "label":"Medication"},
         {"value":"KnownPositive", "label":"Known Positive"},
         {"value":"UnknownCovidTestStatus", "label":"Unknown Covid Test Status"},
         {"value":"KnownNegative", "label":"Known Negative"},

@@ -99,7 +99,7 @@ d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}"
 				unknowncount = 0;
 			}	
 			var test = '';
-			test = data_rows[i].condition;
+			test = data_rows[i].${param.primary};
 			var trimmedString = test.substring(0, 40);
 			if (trimmedString != test){
 				trimmedString = trimmedString + '...'

@@ -21,7 +21,7 @@
 			<jsp:include page="vizs/stacked_bar.jsp">
 				<jsp:param name="domName" value='drugs_viz' />
 				<jsp:param name="feed" value="topten_drugs.jsp" />
-				<jsp:param name="primary" value="drug" />
+				<jsp:param name="primary" value="medication" />
 				<jsp:param name="secondary" value="result" />
 				<jsp:param name="textmargin" value="400" />
 			</jsp:include>
