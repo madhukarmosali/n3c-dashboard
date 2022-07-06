@@ -101,6 +101,10 @@
 .select2-container--default .select2-results__option--disabled{
 	display:none;
 }
+
+.dash_viz{
+	text-align:center;
+}
 </style>
 
 <!-- A block is comprised of a header bar, an optional left column with KPIs and filters, and a main panel
