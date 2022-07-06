@@ -57,7 +57,7 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 			.attr("height", height)
 			.append("g")
 			.attr("width", full_width)
-			.attr("transform", "translate(" + full_width / 2 + "," + ((height / 2)+50) + ")");
+			.attr("transform", "translate(" + full_width / 2 + "," + ((height / 2)+10) + ")");
 
 		data.forEach(function(d) {
 			d.count = +d.count;
@@ -158,7 +158,7 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 
 		var tooltip = d3.select(domName)
 		.append('div')
-		.attr('class', 'tooltip')
+		.attr('class', 'tooltip pie-tool')
 		.style('background-color', 'rgba(255, 255, 255, 0.5)');
 
 
