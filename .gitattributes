@@ -431,6 +431,7 @@ WebContent/new_ph/medication_snapshot/feeds/greater_drugs.jsp -text
 WebContent/new_ph/medication_snapshot/feeds/less20_condition.jsp -text
 WebContent/new_ph/medication_snapshot/feeds/less20_drugs.jsp -text
 WebContent/new_ph/medication_snapshot/feeds/topten_condition.jsp -text
+WebContent/new_ph/medication_snapshot/feeds/topten_condition_by_category.jsp -text
 WebContent/new_ph/medication_snapshot/feeds/topten_drugs.jsp -text
 WebContent/new_ph/medication_snapshot/feeds/visits.jsp -text
 WebContent/new_ph/medication_snapshot/gender.jsp -text
@@ -483,6 +484,7 @@ WebContent/new_ph/paxlovid/feeds/greater_drugs.jsp -text
 WebContent/new_ph/paxlovid/feeds/less20_condition.jsp -text
 WebContent/new_ph/paxlovid/feeds/less20_drugs.jsp -text
 WebContent/new_ph/paxlovid/feeds/topten_condition.jsp -text
+WebContent/new_ph/paxlovid/feeds/topten_condition_by_category.jsp -text
 WebContent/new_ph/paxlovid/feeds/topten_drugs.jsp -text
 WebContent/new_ph/paxlovid/feeds/visits.jsp -text
 WebContent/new_ph/paxlovid/gender.jsp -text

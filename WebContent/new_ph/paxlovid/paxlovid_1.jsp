@@ -17,10 +17,33 @@
 			<h4>Top 20 Most Frequent Conditions Seen Between 6 to 27 Days After Paxlovid Treatment</h4>
 		</div>
 		<div class="col-12 col-md-6 viz" id="condition_viz_1">
-			<div id="condition_viz"></div>
+			Category:
+			<select id="selectCat">
+				<option value="any">Any</option>
+				<option value="pulmonary">Pulmonary</option>
+				<option value="renal">Renal</option>
+			</select>
+			
+			<div id="condition_viz_any" style="display: block;"></div>
 			<jsp:include page="vizs/stacked_bar.jsp">
-				<jsp:param name="domName" value='condition_viz' />
+				<jsp:param name="domName" value='condition_viz_any' />
 				<jsp:param name="feed" value="topten_condition.jsp" />
+				<jsp:param name="primary" value="condition" />
+				<jsp:param name="secondary" value="result" />
+				<jsp:param name="textmargin" value="340" />
+			</jsp:include>
+			<div id="condition_viz_pulmonary" style="display: none;"></div>
+			<jsp:include page="vizs/stacked_bar.jsp">
+				<jsp:param name="domName" value='condition_viz_pulmonary' />
+				<jsp:param name="feed" value="topten_condition_by_category.jsp?category=pulmonary" />
+				<jsp:param name="primary" value="condition" />
+				<jsp:param name="secondary" value="result" />
+				<jsp:param name="textmargin" value="340" />
+			</jsp:include>
+			<div id="condition_viz_renal" style="display: none;"></div>
+			<jsp:include page="vizs/stacked_bar.jsp">
+				<jsp:param name="domName" value='condition_viz_renal' />
+				<jsp:param name="feed" value="topten_condition_by_category.jsp?category=renal" />
 				<jsp:param name="primary" value="condition" />
 				<jsp:param name="secondary" value="result" />
 				<jsp:param name="textmargin" value="340" />
@@ -44,3 +67,15 @@
 		</div>
 	</div>
 </div>
+
+<script>
+$(document).ready(function () {
+	  $('#selectCat').change(function () {
+		  console.log("selected", $(this).val())
+		  document.getElementById("condition_viz_any").style.display = "none";
+		  document.getElementById("condition_viz_pulmonary").style.display = "none";
+		  document.getElementById("condition_viz_renal").style.display = "none";
+		  document.getElementById("condition_viz_"+$(this).val()).style.display = "block";
+	  })
+	});
+</script>
