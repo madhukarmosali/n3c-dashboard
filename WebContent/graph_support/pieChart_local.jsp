@@ -158,7 +158,8 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 
 		var tooltip = d3.select(domName)
 		.append('div')
-		.attr('class', 'tooltip');
+		.attr('class', 'tooltip')
+		.style('background-color', 'rgba(255, 255, 255, 0.5)');
 
 
 		tooltip.append('div')
