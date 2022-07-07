@@ -46,11 +46,7 @@
 				if (newWidth > 0) {
 					d3.select("${param.dom_element}").select("svg").remove();
 					width = newWidth - margin.left - margin.right;
-					if ((width/2 - margin.top - margin.bottom) > 400){
-						height = width - margin.top - margin.bottom;
-					} else { 
-						height = 400;
-					}
+					height = width / 3.0;
 					draw();
 				}
 			});
