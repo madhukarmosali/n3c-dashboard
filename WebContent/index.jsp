@@ -76,29 +76,6 @@
 		</div>
 	
 		
-		<div class="container content">
-			<div class="row n3c-page-header" padding-top:20px; padding-bottom:20px;">
-				<div class="col-12 col-md-4 display-xs-none" style="text-align:center; padding-right:0px; display:flex;">
-					<img alt="Spotlight Dashboard Preview" style="width:100%; heigh:auto; margin:auto; border:1px solid lightgray;" src="<util:applicationRoot/>/images/spotlight_preview.png"/>
-				</div>
-				<div class="col-12 col-md-8" style="display:flex; padding:0px">
-					<div style="background: #f8f9fa; padding: 20px; display: flex; flex-direction: column; margin: auto;">
-						<h3>In the Spotlight</h3>
-						<h4>The N3C Pediatrics Dashboard</h4>
-						<p>Funded in part by the National Institutes of Health's Eunice Kennedy Shriver 
-						National Institute of Child Health and Human Development (NICHD), the N3C Pediatrics Dashboard seeks to
-						make information about the trajectories of pediatric COVID-19 hospitalization rates and disease severity 
-						readily available for national-level decision-making. The team is led by 
-						<a href="https://som.ucdenver.edu/Profiles/Faculty/Profile/22381">Tell Bennett, MD</a>, who has been a part 
-						of the N3C since its inception in March 2020. 
-						<br>
-						<br>
-						<a href="<util:applicationRoot/>/public-health/pediatrics/severity" role="button" class="btn btn-sm btn-n3c">Learn More</a>
-					</div>
-				</div>	
-			</div>
-		</div>
-			
 		<div class="row n3c-page-header">
 			<h3>Explore our Dashboards:</h3>
 		</div>
