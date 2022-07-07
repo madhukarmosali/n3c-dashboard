@@ -2,8 +2,6 @@
 
 function localHorizontalBarChart_legend(data, domName, barLabelWidth, min_height, ordered, colorscale, legend_label, legend_data) {
 	
-	console.log(data);
-	
 	var filter_icon = " &#xf0b0";
 	
 	var word_length = 3;
@@ -32,7 +30,6 @@ function localHorizontalBarChart_legend(data, domName, barLabelWidth, min_height
 	
 	if ((ordered != undefined) && (ordered == 1) ){
 		data.sort(function(a, b) {
-			console.log(a);
 		    return parseFloat(b.count) - parseFloat(a.count);
 		});
 	}
@@ -44,7 +41,7 @@ function localHorizontalBarChart_legend(data, domName, barLabelWidth, min_height
 	//accessor functions
 	var barValue = function(d) { return parseFloat(d.count); };
 
-	var myObserver = new ResizeObserver(entries => {
+	myObserver = new ResizeObserver(entries => {
 		entries.forEach(entry => {
 			var newWidth = Math.floor(entry.contentRect.width);
 			if (newWidth > 0) {
@@ -60,9 +57,8 @@ function localHorizontalBarChart_legend(data, domName, barLabelWidth, min_height
 		});
 	});
 	
+	
 	myObserver.observe(d3.select(domName).node());
-
-	draw();
 
 	function draw() {
 		

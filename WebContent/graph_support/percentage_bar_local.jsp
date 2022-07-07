@@ -64,7 +64,6 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 	draw();
 	function draw() {
 		
-		
 		var barHeight = 25;      
 		
 		//Appends the svg to the chart-container div

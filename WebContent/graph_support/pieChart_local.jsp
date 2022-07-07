@@ -17,7 +17,7 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 		full_width = width,
 		border = 10;
 
-	var myObserver = new ResizeObserver(entries => {
+	myObserver = new ResizeObserver(entries => {
 		entries.forEach(entry => {
 			var newWidth = Math.floor(entry.contentRect.width)/2;
 			var newFull = Math.floor(entry.contentRect.width);
@@ -30,11 +30,29 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 			}
 		});
 	});
+	
 	myObserver.observe(d3.select(domName).node());
 
-	draw();
-
 	function draw() {
+		
+		var sumelement = 0;
+		for (i in data){
+			sumelement = sumelement+data[i].count;
+		}
+		
+		function round(value, decimals) {
+			 return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+		}   
+		
+		for (i in data){
+			data[i]["num2"] = 100;
+			if (data[i].count == 0){
+				data[i]["num"] = 0;
+			}else{
+				data[i]["num"] = round((data[i].count/sumelement)*100, 2);
+			}
+		}
+		
 		var formatComma = d3.format(",");
 		var radius = Math.min(width - border, height - border) / 2;
 		var color = d3.scaleOrdinal()
@@ -159,7 +177,7 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 				})
  			}
 		});
-
+		
 		var tooltip = d3.select(domName)
 		.append('div')
 		.attr('class', 'tooltip pie-tool')

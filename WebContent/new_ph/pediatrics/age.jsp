@@ -33,18 +33,18 @@ function ${param.block}_age_refresh() {
 	var strings = id.split('-');
 	var mode = strings[strings.length-1];
 	
-	console.log(mode);
+	if (typeof myObserver !== 'undefined') {
+		myObserver.unobserve($("#${param.block}_age_viz")[0]);
+		myObserver.disconnect;
+	}
 	
 	d3.select("#${param.block}_age_viz").select("svg").remove();
 	
-	if (mode =='pie'){
-		console.log("reached pie");
+	if (mode =='pie'){		
 		localPieChart(${param.block}_AgeArray,"#${param.block}_age_viz", age_legend_peds, age_range_peds1, 0.5);
 	} else if (mode == 'bar'){
-		console.log("reached bar");
 		localHorizontalBarChart_legend(${param.block}_AgeArray,"#${param.block}_age_viz", 120, 300, 0, age_range_peds1, "Age", age_legend_peds);
 	} else {
-		console.log("reached per");
 		localPercentageBarChart(${param.block}_AgeArray,"#${param.block}_age_viz", 120, age_range_peds1, 0, "Age", age_legend_peds);
 	};
 	
