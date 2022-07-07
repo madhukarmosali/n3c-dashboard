@@ -124,8 +124,22 @@
 					</div>
 					<h5>Content:</h5>
 					<ul class="list-group list-group-flush">
-  						<li class="list-group-item">Public Health Dashboards</li>
-						<li class="list-group-item">Pediatrics Dashboard</li>
+  						<li class="list-group-item"><a href="public-health/SummaryDataAllAges">Cumulative</a>
+  							/ <a href="public-health/summary">Adult</a>
+  							/ <a href="public-health/pediatrics">Pediatrics</a> Summaries</li>
+						<li class="list-group-item"><a href="public-health/medications">Medications</a></li>
+						<li class="list-group-item"><a href="public-health/Paxlovid">Paxlovid</a></li>
+						<li class="list-group-item"><a href="public-health/long-covid">Long COVID</a></li>
+						<li class="list-group-item"><a href="public-health/timeline">Cumulative &amp; Average Cases</a></li>
+						<li class="list-group-item"><a href="public-health/reinfection">COVID+ Reinfection</a></li>
+						<li class="list-group-item"><a href="public-health/diabetes-mellitus">Diabetes Mellitus</a></li>
+						<li class="list-group-item"><a href="public-health/MedicationsSnapshots">Medication</a>
+							/ <a href="public-health/hlh">Disease</a> Snapshots</li>
+						<li class="list-group-item"><a href="public-health/smoking">Smoking</a></li>
+						<li class="list-group-item"><a href="public-health/delayed-mortality">Mortality</a></li>
+						<li class="list-group-item"><a href="public-health/hss">Cumulative Participant Data</a></li>
+						<li class="list-group-item"><a href="public-health/reinfection-time-series">Reinfection Time Series</a></li>
+						<li class="list-group-item"><a href="public-health/severity-region">Regional Patient Distribution</a></li>
 					</ul>
 				</div>
 			</div>		
