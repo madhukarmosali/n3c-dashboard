@@ -41,7 +41,7 @@ function ${param.block}_age_refresh() {
 	d3.select("#${param.block}_age_viz").select("svg").remove();
 	
 	if (mode =='pie'){		
-		localPieChart(${param.block}_AgeArray,"#${param.block}_age_viz", age_legend_peds, age_range_peds1, 0.5);
+		localPieChart(${param.block}_AgeArray,"#${param.block}_age_viz", age_legend_peds, age_range_peds1, 0.5, "Age", age_legend_peds);
 	} else if (mode == 'bar'){
 		localHorizontalBarChart_legend(${param.block}_AgeArray,"#${param.block}_age_viz", 120, 300, 0, age_range_peds1, "Age", age_legend_peds);
 	} else {

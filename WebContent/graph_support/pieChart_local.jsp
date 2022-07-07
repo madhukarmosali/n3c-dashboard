@@ -11,12 +11,16 @@ chart {
 
 <script>
 
-function localPieChart(data, domName, legend_data, range = categorical, donutRatio = 0) {
-	var width = 325, //var width = parseInt(d3.select("${param.dom_element}").style("width"))-10,
+function localPieChart(data, domName, legend_data, range, donutRatio, legend_label, legend_data) {
+	var width = 325, 
 		height = width,
 		full_width = width,
 		border = 10;
-
+	
+	var margin = {right: 100};
+	var filter_icon = " &#xf0b0";
+	
+	
 	myObserver = new ResizeObserver(entries => {
 		entries.forEach(entry => {
 			var newWidth = Math.floor(entry.contentRect.width)/2;
@@ -55,8 +59,6 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 		
 		var formatComma = d3.format(",");
 		var radius = Math.min(width - border, height - border) / 2;
-		var color = d3.scaleOrdinal()
-			.range(range);
 
 		var arc = d3.arc()
 			.outerRadius(radius * 0.8)
@@ -73,7 +75,8 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 		var svg = d3.select(domName).append("svg")
 			.attr("width", full_width)
 			.attr("height", height)
-			.append("g")
+			
+		var g = svg.append("g")
 			.attr("width", full_width)
 			.attr("transform", "translate(" + full_width / 2 + "," + ((height / 2)+20) + ")");
 
@@ -81,13 +84,13 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 			d.count = +d.count;
 		});
 		
-		var g = svg.selectAll(".arc")
-		.data(pie(data))
-		.enter().append("g")
-		.attr("class", "arc");
+		var arcs = g.selectAll(".arc")
+			.data(pie(data))
+			.enter().append("g")
+			.attr("class", "arc");
 		
 		// add label lines
-		var label_lines = svg.selectAll('allPolylines')
+		var label_lines = g.selectAll('allPolylines')
 			.data(pie(data))
 			.enter()
 			.append('polyline')
@@ -106,9 +109,10 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 						return;
 					}
 				});
-		  
+		
+		
 		// add label text
-		var labels = svg.selectAll('allLabels')
+		var labels = g.selectAll('allLabels')
 			.data(pie(data))
 			.enter()
 			.append('text')
@@ -129,7 +133,8 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
 			.style('text-anchor', function(d) {
 				var midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
 				return (midangle < Math.PI ? 'start' : 'end')
-			})
+			});
+		
 		
 		// jitter overlapping label text
 		var prev;
@@ -178,50 +183,109 @@ function localPieChart(data, domName, legend_data, range = categorical, donutRat
  			}
 		});
 		
-		var tooltip = d3.select(domName)
-		.append('div')
-		.attr('class', 'tooltip pie-tool')
-		.style('background-color', 'rgba(255, 255, 255, 0.5)');
 
-
-		tooltip.append('div')
-		.attr('class', 'label');
-
-		tooltip.append('div')
-		.attr('class', 'count');
-
-		tooltip.append('div')
-		.attr('class', 'percent');
-
-		var path = g.append("path")
+		// add the arcs
+		var path = arcs.append("path")
 			.attr("d", arc)
-			.style("fill", function(d) { return color(d.data.element); });
+			.style("fill", function(d) { return range[d.data.seq-1]; })
+			.on('mouseover', function(d) {
+				var total = d3.sum(data.map(function(d) {
+					return d.count;
+				}));
+				var percent = Math.round(1000 * d.data.count / total) / 10;
+				tooltip.select('.label').html(d.data.element).style('color','black').style("font-size", "14px");
+				tooltip.select('.count').html(formatComma(d.data.count) + " patients");
+				tooltip.select('.percent').html(percent + '% of category');
+				tooltip.style('display', 'block');
+				tooltip.style('opacity',2);
+			})
+			.on('mousemove', function(d) {
+				tooltip.style('top', (d3.event.layerY + 10) + 'px')
+				.style('left', (d3.event.layerX - 25) + 'px');
+			})
+			.on('mouseout', function() {
+				tooltip.style('display', 'none');
+				tooltip.style('opacity',0);
+			});
+		
+		// Legend ////////////////////	
+		var legend_text = svg.append("g")
+			.attr("transform", "translate(" + full_width/2 + " ," + 20 + " )")
+			.attr("font-family", "sans-serif")
+			.attr("font-size", '14px')
+			.attr("font-weight", "bold")
+			.attr("text-anchor", "end")
+			.append("text")
+				.attr("x", width)
+				.attr("y", 9.5)
+				.attr("dy", "5px")
+				.text(legend_label)
+				.append("tspan")
+					.attr('font-family', 'FontAwesome')
+					.attr("class", "fa")
+					.html(filter_icon);
+		
+		var legend = svg.append("g")
+			.attr("transform", "translate(" + full_width/2 + " ," + 40 + " )")
+			.attr("font-family", "sans-serif")
+			.attr("font-size", '14px')
+			.attr("text-anchor", "end")
+			.selectAll("g")
+				.data(legend_data)
+				.enter().append("g")
+				.attr("transform", function(d, i) {
+					return "translate(0," + i * 20 + ")";
+			});
 
-		path.on('mouseover', function(d) {
-			var total = d3.sum(data.map(function(d) {
-				return d.count;
-			}));
+		legend.append("rect")
+			.attr("x", width-19)
+			.attr("width", 19)
+			.attr("height", 19)
+			.attr("fill", function(d, i) { return range[i]; })
+			.on("mouseover", function(d, i) {
+				tooltip2.style("display", null);
+			})
+			.on("mouseout", function(d, i) {
+					tooltip2.style("display", "none");
+			})
+			.on("click", function(d, i){window[domName.replace(/_[^_]+_[^_]+$/i,'_').replace('#', '')+'viz_constrain'](d, legend_label.replace(/\s/g, "")); });
+		
+		legend.append("text")
+			.attr("x", width - 24)
+			.attr("y", 9.5)
+			.attr("dy", "5px")
+			.text(function(d) {	return d.secondary; });
+		
+		// Legend Tooltip ////// 
+		var tooltip2 = svg.append("g")
+    		.attr("class", "graph_tooltip")
+    		.style("display", "none")
+    		.attr("transform", "translate(" + (full_width-20) + " ," + 0 + " )");
 
-			var percent = Math.round(1000 * d.data.count / total) / 10;
-			tooltip.select('.label').html(d.data.element).style('color','black').style("font-size", "14px");
-			tooltip.select('.count').html(formatComma(d.data.count) + " patients");
-			tooltip.select('.percent').html(percent + '% of category');
+  		tooltip2.append("text")
+    		.attr("x", 10)
+    		.attr("dy", "1.2em")
+    		.style("text-anchor", "end")
+    		.style("fill", "#0d6efd")
+    		.attr("font-size", "12px")
+    		.attr("font-weight", "bold")
+    		.text("Click to add/remove filter");
+	
+		// add the tooltip for the chart
+		var tooltip = d3.select(domName)
+			.append('div')
+			.attr('class', 'tooltip pie-tool')
+			.style('background-color', 'rgba(255, 255, 255, 0.5)');
+		tooltip.append('div')
+			.attr('class', 'label');
+		tooltip.append('div')
+			.attr('class', 'count');
+		tooltip.append('div')
+			.attr('class', 'percent');
+		
+		
 
-			tooltip.style('display', 'block');
-			tooltip.style('opacity',2);
-
-		});
-
-		path.on('mousemove', function(d) {
-			tooltip.style('top', (d3.event.layerY + 10) + 'px')
-			.style('left', (d3.event.layerX - 25) + 'px');
-		});
-
-		path.on('mouseout', function() {
-			tooltip.style('display', 'none');
-			tooltip.style('opacity',0);
-		});
-
+		// this is for adding text on the arcs
 // 		g.append("text")
 // 			.attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
 // 			.attr("dy", ".35em")

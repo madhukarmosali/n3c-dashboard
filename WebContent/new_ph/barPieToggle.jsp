@@ -68,7 +68,7 @@ $('#${param.block}-${param.dimension}-mode-pie').on('click', function() {
 	document.getElementById("${param.block}-${param.dimension}-mode-bar").classList.remove("text-primary");
 	$("#${param.block}_${param.dimension}_viz svg").remove();
 	$("#${param.block}_${param.dimension}_viz .pie-tool").remove();
-	localPieChart(${param.block}_${param.dimension_name}Array,"#${param.block}_${param.dimension}_viz", ${param.dimension_legend}, ${param.dimension_range}, 0.5);
+	localPieChart(${param.block}_${param.dimension_name}Array,"#${param.block}_${param.dimension}_viz", ${param.dimension_legend}, ${param.dimension_range}, 0.5, "${param.dimension_name}", ${param.dimension_legend});
 });
 
 </script>
