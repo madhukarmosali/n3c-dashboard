@@ -10,11 +10,13 @@
 			distinct(
 				case when (replace(condition_name, 'Charlson - ', '')) = 'DM' then 'Diabetes'
             	else replace(condition_name, 'Charlson - ', '')
-            	end) AS symptoms
-			from n3c_questions.covid_positive_comorbidity_non_grouped_demo_censored;
+            	end) AS symptoms, 
+            	(replace(condition_name, 'Charlson - ', '')) as condition_name
+			from n3c_questions.covid_positive_comorbidity_non_grouped_demo_censored
+			order by symptoms;
 		</sql:query>
 		<c:forEach items="${cases.rows}" var="row" varStatus="rowCounter">
-			<option value="${row.symptoms}">${row.symptoms}</option>
+			<option value="${row.condition_name}">${row.symptoms}</option>
 		</c:forEach>
 	</select>
 </div>

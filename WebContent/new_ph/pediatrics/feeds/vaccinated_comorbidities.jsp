@@ -8,9 +8,7 @@
             age_map6.age_abbrev AS age,
             foo.race,
             foo.ethnicity,
-            case when foo.comorbidities = 'DM' then 'Diabetes'
-            else foo.comorbidities
-            end as comorbidities,
+            foo.comorbidities,
             foo.vaccinated,
             foo.patient_display,
             foo.patient_count,

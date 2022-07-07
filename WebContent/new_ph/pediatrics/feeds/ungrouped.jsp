@@ -7,9 +7,7 @@ SELECT jsonb_pretty(jsonb_agg(done.*)) AS jsonb_pretty
             gender_map3.gender_abbrev AS gender,
             age_map6.age_bin AS age,
             foo.race,
-            case when foo.comorbidity = 'DM' then 'Diabetes'
-            else foo.comorbidity
-            end as comorbidity,
+            foo.comorbidity,
             foo.patient_display,
             foo.patient_count,
             age_map6.age_abbrev,
