@@ -26,7 +26,7 @@
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_subsequent_test_kpi" class="panel-heading kpi_num"><i class="fas fa-users"></i> ${row.subsequent_test}</div>
+				<div class="panel-heading kpi_num"><i class="fas fa-users"></i> <span id="${param.block}_subsequent_test_kpi">${row.subsequent_test}</span></div>
 			</div>
 		</div>
 	</div>

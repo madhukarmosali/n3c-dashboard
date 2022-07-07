@@ -27,7 +27,7 @@
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_first_diagnosis_kpi" class="panel-heading kpi_num"><i class="fas fa-users"></i> ${row.first_diagnosis}</div>
+				<div class="panel-heading kpi_num"><i class="fas fa-users"></i> <span id="${param.block}_first_diagnosis_kpi">${row.first_diagnosis}</span></div>
 			</div>
 		</div>
 	</div>

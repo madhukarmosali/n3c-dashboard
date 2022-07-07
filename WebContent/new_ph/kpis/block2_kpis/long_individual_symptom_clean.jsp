@@ -30,7 +30,7 @@
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_long_individual_kpi" class="panel-heading kpi_num"><i class="fas fa-users"></i> ${row.patient_count}</div>
+				<div class="panel-heading kpi_num"><i class="fas fa-users"></i> <span id="${param.block}_long_individual_kpi">${row.patient_count}</span></div>
 			</div>
 		</div>
 	</div>

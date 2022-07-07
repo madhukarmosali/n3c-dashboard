@@ -19,7 +19,7 @@
 						</tr>
 					</table>
 				</div>
-				<div id="${param.block}_long_total_grouped_kpi" class="panel-heading kpi_num"><i class="fas fa-users"></i> ${row.count}</div>
+				<div class="panel-heading kpi_num"><i class="fas fa-users"></i> <span id="${param.block}_long_total_grouped_kpi">${row.count}</span></div>
 			</div>
 		</div>
 	</div>
