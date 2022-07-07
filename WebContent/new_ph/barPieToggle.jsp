@@ -25,7 +25,7 @@ $('#${param.block}-${param.dimension}-mode-pie').tooltip();
 
 $('#${param.block}-${param.dimension}-mode-barpercent').on('click', function() {
 	if (typeof myObserver !== 'undefined') {
-		myObserver.unobserve($("#${param.block}_age_viz")[0]);
+		myObserver.unobserve($("#${param.block}_${param.dimension}_viz")[0]);
 		myObserver.disconnect;
 	}
 	
@@ -41,7 +41,7 @@ $('#${param.block}-${param.dimension}-mode-barpercent').on('click', function() {
 
 $('#${param.block}-${param.dimension}-mode-bar').on('click', function() {
 	if (typeof myObserver !== 'undefined') {
-		myObserver.unobserve($("#${param.block}_age_viz")[0]);
+		myObserver.unobserve($("#${param.block}_${param.dimension}_viz")[0]);
 		myObserver.disconnect;
 	}
 	
@@ -57,7 +57,7 @@ $('#${param.block}-${param.dimension}-mode-bar').on('click', function() {
 
 $('#${param.block}-${param.dimension}-mode-pie').on('click', function() {
 	if (typeof myObserver !== 'undefined') {
-		myObserver.unobserve($("#${param.block}_age_viz")[0]);
+		myObserver.unobserve($("#${param.block}_${param.dimension}_viz")[0]);
 		myObserver.disconnect;
 	}
 	
