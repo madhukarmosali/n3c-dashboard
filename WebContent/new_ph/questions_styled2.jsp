@@ -126,8 +126,19 @@ $(document).ready(function () {
 	 
 	$('#dashboard_select').change(function () {
 		frame_vars = $(this).val().split('arguement_value:');
-		console.log("frame: " + frame_vars[5]);
-		frame_render(frame_vars[0], frame_vars[1], frame_vars[2], frame_vars[3], frame_vars[4], 1);
+		console.log("frame: " + frame_vars);
+
+		// support different default panels by topic
+		var tertiary = 1;
+		switch (frame_vars[4]) {
+		case "Paxlovid":
+			tertiary = 4;
+			break;
+		default:
+			tertiary = 1;
+		}
+
+		frame_render(frame_vars[0], frame_vars[1], frame_vars[2], frame_vars[3], frame_vars[4], tertiary);
 	})
 });
 
