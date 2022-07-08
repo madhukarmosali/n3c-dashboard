@@ -29,8 +29,20 @@
 <script>
 
 function ${param.block}_age_refresh() {
+	var id = $("#${param.block}-age-mode").find('.text-primary').attr('id');
+	var strings = id.split('-');
+	var mode = strings[strings.length-1];
+	
 	d3.select("#${param.block}_age_viz").select("svg").remove();
-	localPercentageBarChart(${param.block}_AgeArray,"#${param.block}_age_viz", 120, age_range_peds2, 0, "Age", age_legend_3);
+	
+	if (mode =='pie'){		
+		localPieChart(${param.block}_AgeArray,"#${param.block}_age_viz", age_legend_3, age_range_peds2, 0.5, "Age");
+	} else if (mode == 'bar'){
+		localHorizontalBarChart_legend(${param.block}_AgeArray,"#${param.block}_age_viz", 120, 300, 0, age_range_peds2, "Age", age_legend_3);
+	} else {
+		localPercentageBarChart(${param.block}_AgeArray,"#${param.block}_age_viz", 120, age_range_peds2, 0, "Age", age_legend_3);
+	};
+	
 }
 
 ${param.block}_age_refresh();

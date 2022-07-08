@@ -33,15 +33,10 @@ function ${param.block}_age_refresh() {
 	var strings = id.split('-');
 	var mode = strings[strings.length-1];
 	
-	if (typeof myObserver !== 'undefined') {
-		myObserver.unobserve($("#${param.block}_age_viz")[0]);
-		myObserver.disconnect;
-	}
-	
 	d3.select("#${param.block}_age_viz").select("svg").remove();
 	
 	if (mode =='pie'){		
-		localPieChart(${param.block}_AgeArray,"#${param.block}_age_viz", age_legend_peds, age_range_peds1, 0.5, "Age", age_legend_peds);
+		localPieChart(${param.block}_AgeArray,"#${param.block}_age_viz", age_legend_peds, age_range_peds1, 0.5, "Age");
 	} else if (mode == 'bar'){
 		localHorizontalBarChart_legend(${param.block}_AgeArray,"#${param.block}_age_viz", 120, 300, 0, age_range_peds1, "Age", age_legend_peds);
 	} else {

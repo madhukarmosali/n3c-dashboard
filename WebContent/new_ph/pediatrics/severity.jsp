@@ -29,9 +29,19 @@
 <script>
 
 function ${param.block}_severity_refresh() {
-	//console.log("severity graph", "${param.block}_severity_viz", ${param.block}_SeverityArray)
+	var id = $("#${param.block}-severity-mode").find('.text-primary').attr('id');
+	var strings = id.split('-');
+	var mode = strings[strings.length-1];
+	
 	d3.select("#${param.block}_severity_viz").select("svg").remove();
-	localPercentageBarChart(${param.block}_SeverityArray,"#${param.block}_severity_viz", 120, severity_range, 0, "Severity", severity_legend);
+	
+	if (mode =='pie'){		
+		localPieChart(${param.block}_SeverityArray,"#${param.block}_severity_viz", severity_legend, severity_range, 0.5, "Severity");
+	} else if (mode == 'bar'){
+		localHorizontalBarChart_legend(${param.block}_SeverityArray,"#${param.block}_severity_viz", 120, 300, 0, severity_range, "Severity", severity_legend);
+	} else {
+		localPercentageBarChart(${param.block}_SeverityArray,"#${param.block}_severity_viz", 120, severity_range, 0, "Severity", severity_legend);
+	};
 }
 
 ${param.block}_severity_refresh();

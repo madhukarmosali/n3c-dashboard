@@ -586,58 +586,57 @@
 	var ${param.block}_EthnicityResultArray = new Array();
 	var ${param.block}_CategoryResultArray = new Array();
 
-	function ${param.block}_refreshHistograms() {
-	    var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();
+	function ${param.block}_refreshHistograms(just_viz) {
+	    if (typeof just_viz === 'undefined'){
+	    	var data = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data().toArray();
+	 	    var data2 = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data();
+	 	    
+	    	${param.block}_refreshAgeArray(data);
+	    	${param.block}_refreshRaceArray(data);
+	    	${param.block}_refreshEthnicityArray(data);
+	    	${param.block}_refreshGenderArray(data);
+	    	${param.block}_refreshSeverityArray(data);
+	    	${param.block}_refreshDelayArray(data);
 	    
-	    var data2 = $("#${param.datatable_div}-table").DataTable().rows({search:'applied'}).data();
+	    	${param.block}_refreshraceSeverityArray(data);
+	    	${param.block}_refreshcomorbidityArray(data);
+	    
+	    	${param.block}_refreshBeforeAfterArray(data);
+	    
+	    	${param.block}_refreshGenderSeverityArray(data);
+	    	${param.block}_refreshSeverityGenderArray(data);
+	    	${param.block}_refreshObservationAgeArray(data);
+	    	${param.block}_refreshObservationGenderArray(data);
+	    	${param.block}_refreshObservationRaceArray(data);
+	    	${param.block}_refreshObservationEthnicityArray(data);
 
+	    	${param.block}_refreshSymptomAgeArray(data);
+	    	${param.block}_refreshSymptomGenderArray(data);
+	    	${param.block}_refreshSymptomRaceArray(data);
+	    	${param.block}_refreshSymptomEthnicityArray(data);
+	    	${param.block}_refreshSymptomObservationArray(data);
 	    
-	    ${param.block}_refreshAgeArray(data);
-	    ${param.block}_refreshRaceArray(data);
-	    ${param.block}_refreshEthnicityArray(data);
-	    ${param.block}_refreshGenderArray(data);
-	    ${param.block}_refreshSeverityArray(data);
-	    ${param.block}_refreshDelayArray(data);
+	    	${param.block}_refreshMedicationArray(data2);
+	    	${param.block}_refreshDiabetesArray(data);
 	    
-	    ${param.block}_refreshraceSeverityArray(data);
-	    ${param.block}_refreshcomorbidityArray(data);
+	    	${param.block}_refreshAgeGenderArray(data2);
+	    	${param.block}_refreshGenderAgeArray(data2);
 	    
-	    ${param.block}_refreshBeforeAfterArray(data);
+	    	${param.block}_refreshSeverityStatusArray(data);
+	    	${param.block}_refreshAgeStatusArray(data);
+	    	${param.block}_refreshRaceStatusArray(data);
+	    	${param.block}_refreshGenderStatusArray(data);
 	    
-	    ${param.block}_refreshGenderSeverityArray(data);
-	    ${param.block}_refreshSeverityGenderArray(data);
-	    ${param.block}_refreshObservationAgeArray(data);
-	    ${param.block}_refreshObservationGenderArray(data);
-	    ${param.block}_refreshObservationRaceArray(data);
-	    ${param.block}_refreshObservationEthnicityArray(data);
-
-	    ${param.block}_refreshSymptomAgeArray(data);
-	    ${param.block}_refreshSymptomGenderArray(data);
-	    ${param.block}_refreshSymptomRaceArray(data);
-	    ${param.block}_refreshSymptomEthnicityArray(data);
-	    ${param.block}_refreshSymptomObservationArray(data);
-	    
-	    ${param.block}_refreshMedicationArray(data2);
-	    ${param.block}_refreshDiabetesArray(data);
-	    
-	    ${param.block}_refreshAgeGenderArray(data2);
-	    ${param.block}_refreshGenderAgeArray(data2);
-	    
-	    ${param.block}_refreshSeverityStatusArray(data);
-	    ${param.block}_refreshAgeStatusArray(data);
-	    ${param.block}_refreshRaceStatusArray(data);
-	    ${param.block}_refreshGenderStatusArray(data);
-	    
-	    ${param.block}_refreshAgeResultArray(data);
-	    ${param.block}_refreshGenderResultArray(data);
-	    ${param.block}_refreshRaceResultArray(data);
-	    ${param.block}_refreshEthnicityResultArray(data);
-	    ${param.block}_refreshCategoryResultArray(data);
+	    	${param.block}_refreshAgeResultArray(data);
+	    	${param.block}_refreshGenderResultArray(data);
+	    	${param.block}_refreshRaceResultArray(data);
+	    	${param.block}_refreshEthnicityResultArray(data);
+	    	${param.block}_refreshCategoryResultArray(data);
+	    };
 	    
 	    if ('${param.block}' === 'long_covid_6') {
 	    	${param.block}_before_refresh();
 	    }
-
 	    if (${param.block}_loaded("severity")) {
 	    	${param.block}_severity_refresh();
 	    }
@@ -665,7 +664,6 @@
 	    if (${param.block}_loaded("result")) {
 	    	${param.block}_result_refresh();
 	    }  
-	    
 	    if ('${param.block}' === 'paxlovid_3') {
 	    	${param.block}_visits_refresh();
 	    }
@@ -751,8 +749,15 @@
 	$(document).ready(function () {
 		  $('#${param.block}toggle_viz_select').change(function () {
 			${param.block}_toggle($(this).val());
-			console.log($(this).val());
+			// wait for a little bit for new page to load so dropdown doesn't throw error about function not defined
+			function stateChange(newState) {
+			    setTimeout(function () {
+			        	${param.block}_refreshHistograms('just_viz');
+			    }, 50);
+			}
+			stateChange();
 		  })
+		  
 	});
 
 	// manage incremental loading of panels on inner nav bar clicks

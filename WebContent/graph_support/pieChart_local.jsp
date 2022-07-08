@@ -11,33 +11,35 @@ chart {
 
 <script>
 
-function localPieChart(data, domName, legend_data, range, donutRatio, legend_label, legend_data) {
-	var width = 325, 
-		height = width,
-		full_width = width,
+function localPieChart(data, domName, legend_data, range, donutRatio, legend_label) {
+	
+	var full_width = $(domName).width(), 
+		width = full_width/2,
+		height = width/1.3,
 		border = 10;
 	
 	var margin = {right: 100};
 	var filter_icon = " &#xf0b0";
 	
+	function drawgraphnew(){
+		var newWidth = ($(domName).width())/2;
+		var newFull = $(domName).width();
+		if (newWidth > 0) {
+			d3.select(domName).select("svg").remove();
+			width = newWidth;
+			height = newWidth/1.3;
+			full_width = newFull;
+			draw();
+		}
+	}
 	
-	myObserver = new ResizeObserver(entries => {
-		entries.forEach(entry => {
-			var newWidth = Math.floor(entry.contentRect.width)/2;
-			var newFull = Math.floor(entry.contentRect.width);
-			if (newWidth > 0) {
-				d3.select(domName).select("svg").remove();
-				width = newWidth;
-				height = newWidth/1.3;
-				full_width = newFull;
-				draw();
-			}
-		});
-	});
+	d3.select(domName).select("svg").remove();
+	draw();
 	
-	myObserver.observe(d3.select(domName).node());
+ 	window.onresize = drawgraphnew;
 
 	function draw() {
+
 		
 		var sumelement = 0;
 		for (i in data){
@@ -71,6 +73,9 @@ function localPieChart(data, domName, legend_data, range, donutRatio, legend_lab
 		var pie = d3.pie()
 			.sort(null)
 			.value(function(d) { return d.count; });
+		
+		var piedata = [];
+		var piedata = pie(data);
 
 		var svg = d3.select(domName).append("svg")
 			.attr("width", full_width)
@@ -91,7 +96,7 @@ function localPieChart(data, domName, legend_data, range, donutRatio, legend_lab
 		
 		// add label lines
 		var label_lines = g.selectAll('allPolylines')
-			.data(pie(data))
+			.data(piedata)
 			.enter()
 			.append('polyline')
 				.attr("stroke", "black")
@@ -113,7 +118,7 @@ function localPieChart(data, domName, legend_data, range, donutRatio, legend_lab
 		
 		// add label text
 		var labels = g.selectAll('allLabels')
-			.data(pie(data))
+			.data(piedata)
 			.enter()
 			.append('text')
 			.text( function(d) { 
@@ -140,7 +145,7 @@ function localPieChart(data, domName, legend_data, range, donutRatio, legend_lab
 		var prev;
 		var label_changes = {};
 		labels.each(function(d, i) {
-		  if(i > 0) {
+		  if(i > 0 && d.value > 0) {
 		    var thisbb = this.getBoundingClientRect(),
 		        prevbb = prev.getBoundingClientRect();
 		    // move if they overlap
@@ -248,7 +253,9 @@ function localPieChart(data, domName, legend_data, range, donutRatio, legend_lab
 			.on("mouseout", function(d, i) {
 					tooltip2.style("display", "none");
 			})
-			.on("click", function(d, i){window[domName.replace(/_[^_]+_[^_]+$/i,'_').replace('#', '')+'viz_constrain'](d, legend_label.replace(/\s/g, "")); });
+			.on("click", function(d, i){
+				window[domName.replace(/_[^_]+_[^_]+$/i,'_').replace('#', '')+'viz_constrain'](d, legend_label.replace(/\s/g, "")); 
+				});
 		
 		legend.append("text")
 			.attr("x", width - 24)

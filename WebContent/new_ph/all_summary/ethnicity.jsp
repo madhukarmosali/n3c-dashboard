@@ -30,9 +30,21 @@
 <script>
 
 function ${param.block}_ethnicity_refresh() {
-	//console.log("ethnicity graph", "${param.block}_ethnicity_viz", ${param.block}_EthnicityArray)
+	var id = $("#${param.block}-ethnicity-mode").find('.text-primary').attr('id');
+	var strings = id.split('-');
+	var mode = strings[strings.length-1];
+	
 	d3.select("#${param.block}_ethnicity_viz").select("svg").remove();
-	localPercentageBarChart(${param.block}_EthnicityArray,"#${param.block}_ethnicity_viz", 150, ethnicity_range, 1, "Ethnicity", ethnicity_legend);
+	
+	if (mode =='pie'){		
+		localPieChart(${param.block}_EthnicityArray,"#${param.block}_ethnicity_viz", ethnicity_legend, ethnicity_range, 0.5, "Ethnicity");
+	} else if (mode == 'bar'){
+		localHorizontalBarChart_legend(${param.block}_EthnicityArray,"#${param.block}_ethnicity_viz", 150, 300, 0, ethnicity_range, "Ethnicity", ethnicity_legend);
+	} else {
+		localPercentageBarChart(${param.block}_EthnicityArray,"#${param.block}_ethnicity_viz", 150, ethnicity_range, 0, "Ethnicity", ethnicity_legend);
+	};
+	
+	
 }
 
 ${param.block}_ethnicity_refresh();

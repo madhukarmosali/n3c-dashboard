@@ -23,8 +23,8 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 	var filter_icon = " &#xf0b0";
 	
 	var margin = {top: 40, right: 100, bottom: 50, left: barLabelWidth},
-	width = 600 - margin.left - margin.right,
-	height = 200 - margin.top - margin.bottom;
+	width = $(domName).width() - margin.left - margin.right,
+	height = width/3;
 	
 	if ((ordered != undefined) && (ordered == 1) ){
 		data.sort(function(a, b) {
@@ -32,22 +32,40 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 		});
 	}
 	
-	var myObserver = new ResizeObserver(entries => {
-		entries.forEach(entry => {
-			var newWidth = Math.floor(entry.contentRect.width);
-			if (newWidth > 0) {
-				d3.select(domName).select("svg").remove();
-				width = newWidth - margin.left - margin.right;
-				height = width/3;
-				if (height > 300){
-					height = 300;
-				}
-				draw();
+	function drawgraphnew(){
+		var newWidth = $(domName).width();
+		if (newWidth > 0) {
+			d3.select(domName).select("svg").remove();
+			width = newWidth - margin.left - margin.right;;
+			height = width/3;
+			if (height > 300){
+				height = 300;
 			}
-		});
-	});
+			draw();
+		}
+	}
 	
-	myObserver.observe(d3.select(domName).node());
+	d3.select(domName).select("svg").remove();
+
+	
+ 	window.onresize = drawgraphnew;
+	
+// 	var myObserver = new ResizeObserver(entries => {
+// 		entries.forEach(entry => {
+// 			var newWidth = Math.floor(entry.contentRect.width);
+// 			if (newWidth > 0) {
+// 				d3.select(domName).select("svg").remove();
+// 				width = newWidth - margin.left - margin.right;
+// 				height = width/3;
+// 				if (height > 300){
+// 					height = 300;
+// 				}
+// 				draw();
+// 			}
+// 		});
+// 	});
+	
+// 	myObserver.observe(d3.select(domName).node());
 	
 	var word_length = 3;
 	

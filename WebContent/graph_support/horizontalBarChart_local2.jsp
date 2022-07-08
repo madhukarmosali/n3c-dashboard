@@ -21,7 +21,7 @@ function localHorizontalBarChart_legend(data, domName, barLabelWidth, min_height
 	var barLabelPadding = 5; // padding between bar and bar labels (left)
 	var gridLabelHeight = 0; // space reserved for gridline labels
 	var gridChartOffset = 3; // space between start of grid and first bar
-	var maxBarWidth = 280; // width of the bar with the max value
+	var maxBarWidth = width - barLabelWidth - barLabelPadding - valueLabelWidth;
 	var paddingInside = 0.5
 	
 	if (min_height === undefined){
@@ -35,30 +35,31 @@ function localHorizontalBarChart_legend(data, domName, barLabelWidth, min_height
 	}
 	
 	var margin = { top: 40, right: 100, bottom: 30, left: barLabelWidth },
-		width = 1200 - margin.left - margin.right,
-		height = width/3 - margin.top - margin.bottom;
-
+		width = $(domName).width() - margin.left - margin.right,
+		height = width/3;
+	
 	//accessor functions
 	var barValue = function(d) { return parseFloat(d.count); };
-
-	myObserver = new ResizeObserver(entries => {
-		entries.forEach(entry => {
-			var newWidth = Math.floor(entry.contentRect.width);
-			if (newWidth > 0) {
-				d3.select(domName).select("svg").remove();
-				width = newWidth - margin.left - margin.right;
-				height = width/3;
-				maxBarWidth = width - barLabelWidth - barLabelPadding - valueLabelWidth;
-				if (height < min_height) {
-					height = min_height;
-				};
-				draw();
+	
+	function drawgraphnew(){
+		var newWidth = $(domName).width();
+		if (newWidth > 0) {
+			d3.select(domName).select("svg").remove();
+			width = newWidth - margin.left - margin.right;
+			height = width/3;
+			if (height > min_height){
+				height = min_height;
 			}
-		});
-	});
+			draw();
+		}
+	}
 	
+	d3.select(domName).select("svg").remove();
+
 	
-	myObserver.observe(d3.select(domName).node());
+ 	window.onresize = drawgraphnew;
+ 	
+ 	draw();
 
 	function draw() {
 		

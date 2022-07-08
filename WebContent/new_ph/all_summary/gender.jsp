@@ -29,9 +29,20 @@
 <script>
 
 function ${param.block}_gender_refresh() {
-	//console.log("gender graph", "${param.block}_gender_viz", ${param.block}_GenderArray)
+	var id = $("#${param.block}-gender-mode").find('.text-primary').attr('id');
+	var strings = id.split('-');
+	var mode = strings[strings.length-1];
+	
 	d3.select("#${param.block}_gender_viz").select("svg").remove();
-    localPercentageBarChart(${param.block}_GenderArray,"#${param.block}_gender_viz", 140, gender_range, 0, "Gender", gender_legend);
+	
+	if (mode =='pie'){		
+		localPieChart(${param.block}_GenderArray,"#${param.block}_gender_viz", gender_legend, gender_range, 0.5, "Gender");
+	} else if (mode == 'bar'){
+		localHorizontalBarChart_legend(${param.block}_GenderArray,"#${param.block}_gender_viz", 140, 300, 0, gender_range, "Gender", gender_legend);
+	} else {
+		localPercentageBarChart(${param.block}_GenderArray,"#${param.block}_gender_viz", 140, gender_range, 0, "Gender", gender_legend);
+	};
+    
 }
 
 ${param.block}_gender_refresh();
