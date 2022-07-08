@@ -504,6 +504,9 @@
 			if($('#${param.block}-block-kpi').find('.multiselect.dropdown-toggle[title!="None selected"]').length !== 0){
 				$('#${param.block}_btn_clear').removeClass("no_clear");
 				$('#${param.block}_btn_clear').addClass("show_clear");
+			} else if ($('#${param.datatable_div}-table').DataTable().search().length > 0){
+				// leave things alone, there's an active search
+				console.log("active search box", $('#${param.datatable_div}-table').DataTable().search())
 			} else {
 				$('#${param.block}_btn_clear').removeClass("show_clear");
 				$('#${param.block}_btn_clear').addClass("no_clear");
@@ -539,6 +542,7 @@
 		${param.block}_constrain("beforeafter", '');
 		${param.block}_constrain("result", '');
 		
+		$("#${param.datatable_div}-table").DataTable().search('');
 		$("#${param.datatable_div}-table").DataTable().columns().search('').draw();
 	    ${param.block}_refreshHistograms();
 	}

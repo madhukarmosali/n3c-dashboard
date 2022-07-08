@@ -566,9 +566,6 @@ a:hover, .btn-link:hover{
 	margin-top: 20px;
 }
 
-#d3viz .dataTables_filter{
-    display: none;
-}
 
 #d3viz .dataTable tbody tr{
 /* 	background: #f2f2f2; */
