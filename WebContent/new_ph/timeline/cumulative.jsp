@@ -35,6 +35,7 @@
 		<jsp:param name="column2_tip" value="7-Day Ave" />
 		<jsp:param name="column2_tip_offset" value="80" />
 		<jsp:param name="column2_color" value="#8406D1" />
+		<jsp:param name="column1_opacity" value="0.7" />
 		<jsp:param name="constraintPropagator" value="constraint" />
 	</jsp:include>
 </div>
