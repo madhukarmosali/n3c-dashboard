@@ -28,13 +28,13 @@
 		<jsp:param name="column1_label" value="First Diagnosis Countt" />
 		<jsp:param name="column1_tip" value="First Diagnosis" />
 		<jsp:param name="column1_tip_offset" value="110" />
-		<jsp:param name="column1_color" value="#173f59" />
-		<jsp:param name="column1_opacity" value="0.4" />
+		<jsp:param name="column1_color" value="#4833B2" />
+		<jsp:param name="column1_opacity" value="1" />
 		<jsp:param name="column2" value="reinfected" />
 		<jsp:param name="column2_label" value="Reinfection Count" />
 		<jsp:param name="column2_tip" value="Reinfection" />
 		<jsp:param name="column2_tip_offset" value="85" />
-		<jsp:param name="column2_color" value="#955195" />
+		<jsp:param name="column2_color" value="#A772DF" />
 		<jsp:param name="column2_opacity" value="0.7" />
 		<jsp:param name="constraintPropagator" value="constraint" />
 	</jsp:include>
