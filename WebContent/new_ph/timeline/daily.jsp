@@ -29,12 +29,12 @@
 		<jsp:param name="column1_label" value="COVID+ Patient Count" />
 		<jsp:param name="column1_tip" value="COVID+" />
 		<jsp:param name="column1_tip_offset" value="70" />
-		<jsp:param name="column1_color" value="#173f59" />
+		<jsp:param name="column1_color" value="#09405A" />
 		<jsp:param name="column2" value="seven_day_rolling_avg" />
 		<jsp:param name="column2_label" value="Rolling 7-Day Average Patient Count" />
 		<jsp:param name="column2_tip" value="7-Day Ave" />
 		<jsp:param name="column2_tip_offset" value="80" />
-		<jsp:param name="column2_color" value="#955195" />
+		<jsp:param name="column2_color" value="#8406D1" />
 		<jsp:param name="useColumn1Scaling" value="true" />
 		<jsp:param name="column1_opacity" value="0.25" />
 		<jsp:param name="constraintPropagator" value="constraint" />
