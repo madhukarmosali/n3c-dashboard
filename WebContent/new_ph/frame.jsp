@@ -66,9 +66,7 @@
 		<jsp:include page="long_covid/panel2.jsp?tertiary_tab=${param.tertiary_tab}"/>
 	</c:when>
 	<c:when test="${param.frame == 'delayed-mortality'}">
-		<jsp:include page="panel_qlik.jsp">
-			<jsp:param name="iframe" value="delayed-mortality" />
-		</jsp:include>
+		<jsp:include page="mortality/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'reinfection-time-series'}">
 		<jsp:include page="panel_qlik.jsp">
@@ -90,3 +88,9 @@
 		${param.frame}
 	</c:otherwise>
 </c:choose>
+
+
+<script>
+console.log("frame tertiary");
+console.log(${param.tertiary_tab});
+</script>

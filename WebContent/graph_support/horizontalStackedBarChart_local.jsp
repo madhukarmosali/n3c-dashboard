@@ -24,8 +24,6 @@ font-size: 14px;
 
 function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data, secondary_range = categorical, legend_label, min_height, nofilter, ordered) {
 	
-	console.log(data);
-	
 	var add_filter_text = 1;
 	var filter_icon = " &#xf0b0";
 	if ((nofilter != undefined) && (nofilter == 1) ){
@@ -115,7 +113,6 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 		var legend_map = d3.map(legend_data, function(d) { return d.secondary_name; });
 
 		var stackData = myStack(data);
-		console.log(stackData);
 		
 		function sortFunction(a, b) {
 		    return (a.count > b.count) ? -1 : 1;
@@ -439,8 +436,6 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 	
 	function myStack(data) {
 		var result = new Array();
-		
-		console.log(data);
 		
 		if (data.length == 0)
 			return result;

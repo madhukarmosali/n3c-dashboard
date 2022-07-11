@@ -24,6 +24,23 @@ $(document).ready(function() {
     	selectionCssClass: "dash_select",
     	searchInputPlaceholder: 'Search Dashboards...'
     });
+    
+    $('#dashboard_select').change(function () {
+		frame_vars = JSON.parse($(this).val());
+
+		// support different default panels by topic
+		var tertiary = 1;
+		switch (frame_vars.iframe_info) {
+		case "Paxlovid":
+			tertiary = 4;
+			break;
+		default:
+			tertiary = 1;
+		}
+		
+		frame_render(frame_vars, tertiary);
+	});
+    
 });
 
 $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
@@ -42,10 +59,6 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 	
 
 	(async() => {
-		$("body").css("cursor", "wait");
-		
-// 		const { config, csrfTokenInfo } = await auth2();
-// 		console.log(csrfTokenInfo);
 		
 		$("body").css("cursor", "default");
 		
@@ -59,59 +72,66 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 		if (index < 0) {index = 0;};
 		
 	 	$('#dashboard_select').val(JSON.stringify(data[index]));
-	 	$('#dashboard_select').trigger('change'); 
+	 	//$('#dashboard_select').trigger('change'); 
 			
 		document.getElementById("question-tile").removeAttribute("style");
 		
 		frame_render(data[index]);
-
-		console.log("reached");
 		
 
 	})();
 });
 
 
+function frame_render(question, tertiary) {	
+	
+	var paramcheck = "";
+	paramcheck += paramcheck + "${param.tertiary_tab}";
+	
+	var tertiary_check = tertiary;
+	
+	if (tertiary_check === undefined){
+		if (paramcheck != ''){
+			tertiary_check = "${param.tertiary_tab}";
+		} else {
+			tertiary_check = "";
+		}
+	}
+	
+	var descriptionContainer = document.getElementById("question-description");
+	var divContainer = document.getElementById("question-tile");
 
-function frame_render(question) {	
-		
-		var descriptionContainer = document.getElementById("question-description");
-		var divContainer = document.getElementById("question-tile");
-		console.log("question", question)
+	descriptionContainer.innerHTML = question.description;
 
-		descriptionContainer.innerHTML = question.description;
+	var viz_id = question.seqnum;
 
-		var viz_id = question.seqnum;
-
-		
-		cache_browser_history("public-health", "public-health/"+question.iframe_info);
-		console.log("viz id: " + viz_id);
-		
-		divContainer.innerHTML = '<div id="d3viz"></div>'
-			+'<br>'+
-			'<div id="limitations-section">\
-				<div class="accordion" id="limitations_drop">\
-					<div class="card">\
-						<a Title="expand/collapse limitations section" href="" class="accordion-toggle" data-toggle="collapse" data-target="#limitcollapseOne" aria-expanded="false" aria-controls="collapseOne">\
-							<div class="card-header" id="limitheadingOne">\
-	  							<h4 class="mb-0"><span class="accordion_text">Limitations</span> \
-	  							<span style="display:inline; float:right;" class="btn btn-link btn-block text-left collapsed icon-btn p-0 accordion-toggle"></span>\
-	  							</h4>\
-							</div>\
-						</a>\
-						<div id="limitcollapseOne" class="collapse" aria-labelledby="limitheadingOne" data-parent="#limitations_drop">\
-	  						<div class="card-body">' +
-	   							question.limitations + 
-	  						'</div>\
+	cache_browser_history("public-health", "public-health/"+question.iframe_info);
+	
+	divContainer.innerHTML = '<div id="d3viz"></div>'
+		+'<br>'+
+		'<div id="limitations-section">\
+			<div class="accordion" id="limitations_drop">\
+				<div class="card">\
+					<a Title="expand/collapse limitations section" href="" class="accordion-toggle" data-toggle="collapse" data-target="#limitcollapseOne" aria-expanded="false" aria-controls="collapseOne">\
+						<div class="card-header" id="limitheadingOne">\
+  							<h4 class="mb-0"><span class="accordion_text">Limitations</span> \
+  							<span style="display:inline; float:right;" class="btn btn-link btn-block text-left collapsed icon-btn p-0 accordion-toggle"></span>\
+  							</h4>\
 						</div>\
+					</a>\
+					<div id="limitcollapseOne" class="collapse" aria-labelledby="limitheadingOne" data-parent="#limitations_drop">\
+  						<div class="card-body">' +
+   							question.limitations + 
+  						'</div>\
 					</div>\
 				</div>\
-			</div>'
-		;
-			
-		console.log("url: " + "<util:applicationRoot/>/new_ph/frame.jsp?frame="+question.iframe_info+"&tertiary_tab="+viz_id)
-		$("#d3viz").load("<util:applicationRoot/>/new_ph/frame.jsp?frame="+question.iframe_info+"&tertiary_tab="+viz_id);
+			</div>\
+		</div>'
+	;
 		
+	console.log("url: " + "<util:applicationRoot/>/new_ph/frame.jsp?frame="+question.iframe_info+"&tertiary_tab="+tertiary_check)
+	$("#d3viz").load("<util:applicationRoot/>/new_ph/frame.jsp?frame="+question.iframe_info+"&tertiary_tab="+tertiary_check);
+	
 		
 // 	});
 }
@@ -123,25 +143,6 @@ function limitlink(){
     }, 500);
 }
 
-$(document).ready(function () {
-	 
-	$('#dashboard_select').change(function () {
-		frame_vars = JSON.parse($(this).val());
-		console.log("frame vars",frame_vars);
-
-		// support different default panels by topic
-		var tertiary = 1;
-		switch (frame_vars.iframe_info) {
-		case "Paxlovid":
-			tertiary = 4;
-			break;
-		default:
-			tertiary = 1;
-		}
-
-		frame_render(frame_vars);
-	})
-});
 
 </script>
 

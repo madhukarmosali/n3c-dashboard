@@ -124,7 +124,7 @@ function localHorizontalBarChart_legend(data, domName, barLabelWidth, min_height
 
 		// axis labels & ticks
 		var axisContainer = g.append('g')
-			.attr("class", "axis xaxis")
+			.attr("class", "axis xaxis " + legend_label)
 			.attr("transform", "translate(0," + (height-margin.bottom) + ")")				
 			.call(d3.axisBottom(x).ticks(Math.round(width/100), "s"))
 			.append("text")										
@@ -134,7 +134,7 @@ function localHorizontalBarChart_legend(data, domName, barLabelWidth, min_height
 			.text("Patient Count")
 			.attr("transform", "translate(" + ((width/2)- margin.right) + "," + 40 + ")"); 
 		
-		d3.selectAll("g.xaxis g.tick")
+		d3.selectAll("g.xaxis." + legend_label + " g.tick")
 	    	.append("line")
 	    	.attr("class", "gridline")
 	    	.attr("x1", 0)

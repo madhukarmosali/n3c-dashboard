@@ -190,6 +190,16 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 	var age_legend_7 = ${row.jsonb_pretty};
 </c:forEach>
 
+<sql:query var="ages10" dataSource="jdbc/N3CPublic">
+	select jsonb_pretty(jsonb_agg(done order by secondary_seq))
+	from (select distinct age as secondary, age_seq as secondary_seq, age as secondary_name
+		  from n3c_dashboard.age_map10
+		  ) as done;
+</sql:query>
+<c:forEach items="${ages10.rows}" var="row" varStatus="rowCounter">
+	var age_legend_10 = ${row.jsonb_pretty};
+</c:forEach>
+
 <sql:query var="statuses" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
 	from (select distinct smoking_status as secondary

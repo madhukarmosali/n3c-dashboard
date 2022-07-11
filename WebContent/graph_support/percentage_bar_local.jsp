@@ -47,25 +47,7 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 	
 	d3.select(domName).select("svg").remove();
 
-	
  	window.onresize = drawgraphnew;
-	
-// 	var myObserver = new ResizeObserver(entries => {
-// 		entries.forEach(entry => {
-// 			var newWidth = Math.floor(entry.contentRect.width);
-// 			if (newWidth > 0) {
-// 				d3.select(domName).select("svg").remove();
-// 				width = newWidth - margin.left - margin.right;
-// 				height = width/3;
-// 				if (height > 300){
-// 					height = 300;
-// 				}
-// 				draw();
-// 			}
-// 		});
-// 	});
-	
-// 	myObserver.observe(d3.select(domName).node());
 	
 	var word_length = 3;
 	
@@ -76,9 +58,9 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 			    }
 		);
 		word_length =  longest_word.element.length;
-		
 	}
 	
+
 	draw();
 	function draw() {
 		
@@ -173,7 +155,7 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 			
 		// axis labels & ticks
 			var axisContainer = svg.append('g')
-				.attr("class", "axis xaxis")
+				.attr("class", "axis xaxis " + legend_label)
 				.attr("transform", "translate(0," + (height) + ")")				
 				.call(d3.axisBottom(xScale).ticks(Math.round(width/100), "s").tickFormat(function(d) {  return  d + "%" }))
 				.append("text")										
@@ -183,7 +165,7 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 				.text("Percent of Total")
 				.attr("transform", "translate(" + ((width/2)- margin.right) + "," + 40 + ")"); 
 			
-			d3.selectAll("g.xaxis g.tick")
+			d3.selectAll("g.xaxis." + legend_label + " g.tick")
 		    	.append("line")
 		    	.attr("class", "gridline")
 		    	.attr("x1", 0)
@@ -192,17 +174,15 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 		    	.attr("y2", 0);
 		
 		  //Binds the data to the bars      
-		  var categoryGroup = svg.selectAll(".g-category-group")
+		  var categoryGroup = svg.selectAll(".g-category-group " + legend_label)
 		    .data(data)
 		    .enter()
 		    .append("g")
-		    .attr("class", "g-category-group")
+		    .attr("class", "g-category-group " + legend_label)
 		    .attr("transform", function(d) {
 		    	return "translate(0," + (y0(d.abbrev)) + " )";
 		    });
 		  
-		
-	
 		  //Appends background bar   
 		  var bars2 = categoryGroup.append("rect")
 		    .attr("width", function(d) { return xScale(d.num2); })
@@ -214,7 +194,7 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 		  var bars = categoryGroup.append("rect")
 		    .attr("width", function(d) { return xScale(d.num); })
 		    .attr("height", y0.bandwidth())
-		    .attr("class", "g-num")
+		    .attr("class", "g-num " + legend_label)
 		    .attr('fill', function(d){
 				if (colorscale != undefined){
 					return colorscale[(d.seq-1)];
@@ -248,7 +228,7 @@ function localPercentageBarChart(data, domName, barLabelWidth, colorscale, order
 		    });
 		  
 		  //Binds data to labels
-		  var labelGroup = svg.selectAll("g-num")
+		  var labelGroup = svg.selectAll("g-num " + legend_label)
 		    .data(data)
 		    .enter()
 		    .append("g")

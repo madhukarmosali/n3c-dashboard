@@ -223,6 +223,7 @@ WebContent/new_ph/diabetes/type_2.jsp -text
 WebContent/new_ph/diabetes/type_2_detailed.jsp -text
 WebContent/new_ph/doubleHistogram.jsp -text
 WebContent/new_ph/filters/age.jsp -text
+WebContent/new_ph/filters/age_10.jsp -text
 WebContent/new_ph/filters/age_2.jsp -text
 WebContent/new_ph/filters/age_3.jsp -text
 WebContent/new_ph/filters/age_4.jsp -text
@@ -235,6 +236,7 @@ WebContent/new_ph/filters/age_peds.jsp -text
 WebContent/new_ph/filters/age_peds2.jsp -text
 WebContent/new_ph/filters/beforeafter.jsp -text
 WebContent/new_ph/filters/comorbidities.jsp -text
+WebContent/new_ph/filters/death_delay.jsp -text
 WebContent/new_ph/filters/ethnicity.jsp -text
 WebContent/new_ph/filters/gender.jsp -text
 WebContent/new_ph/filters/gender3.jsp -text
@@ -311,6 +313,7 @@ WebContent/new_ph/kpis/block2_kpis/long_total_before.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_total_before_after.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_total_grouped.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_total_ungrouped.jsp -text
+WebContent/new_ph/kpis/block2_kpis/mortality.jsp -text
 WebContent/new_ph/kpis/block2_kpis/not_positive.jsp -text
 WebContent/new_ph/kpis/block2_kpis/not_positive_total.jsp -text
 WebContent/new_ph/kpis/block2_kpis/peds_patients.jsp -text
@@ -467,6 +470,21 @@ WebContent/new_ph/medications/kpis.jsp -text
 WebContent/new_ph/medications/medications.jsp -text
 WebContent/new_ph/medications/medications_table.jsp -text
 WebContent/new_ph/medications/panel.jsp -text
+WebContent/new_ph/mortality/age.jsp -text
+WebContent/new_ph/mortality/delay.jsp -text
+WebContent/new_ph/mortality/delayed_table.jsp -text
+WebContent/new_ph/mortality/ethnicity.jsp -text
+WebContent/new_ph/mortality/feeds/delayed.jsp -text
+WebContent/new_ph/mortality/feeds/hospitalization.jsp -text
+WebContent/new_ph/mortality/gender.jsp -text
+WebContent/new_ph/mortality/hospitalization_table.jsp -text
+WebContent/new_ph/mortality/kpis.jsp -text
+WebContent/new_ph/mortality/mortality_1.jsp -text
+WebContent/new_ph/mortality/mortality_2.jsp -text
+WebContent/new_ph/mortality/panel.jsp -text
+WebContent/new_ph/mortality/race.jsp -text
+WebContent/new_ph/mortality/secondary_text/secondary_1.jsp -text
+WebContent/new_ph/mortality/secondary_text/secondary_2.jsp -text
 WebContent/new_ph/panel_qlik.jsp -text
 WebContent/new_ph/paxlovid/age.jsp -text
 WebContent/new_ph/paxlovid/demographics_age_table.jsp -text

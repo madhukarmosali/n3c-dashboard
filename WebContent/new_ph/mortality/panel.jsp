@@ -5,22 +5,15 @@
 <div class="topic_dropdown" style="text-align:center; font-size: 1.3rem;">
 	<h4 class="viz_color_header">Select a Dashboard to Explore:</h4>
 	<select id="selectMe">
-		<option value="all_summary_1">Demographics of COVID+ Patients</option>
-		<optgroup label="Demographics of COVID+ Patients Filterable By:">
-		<option value="all_summary_2">Vaccination Status</option>
-  		<option value="all_summary_3">Vaccination Status and Grouped Comorbidities</option>
-  		<option value="all_summary_4">Grouped Comorbidities</option>
-  		<option value="all_summary_5">Ungrouped Comorbidities</option>
-  		</optgroup>
+		<option value="mortality_1">COVID+ and Hospitalization</option>
+		<option value="mortality_2">Delayed Mortality</option>
+		<option disabled hidden="hidden">COVID+ and Hospitalization++++++++</option>
 	</select>
 </div>
 
 <div id="frame">
-	<div id="all_summary_1" class="group"></div>
-	<div id="all_summary_2" class="group"></div>
-	<div id="all_summary_3" class="group"></div>
-	<div id="all_summary_4" class="group"></div>
-	<div id="all_summary_5" class="group"></div>
+	<div id="mortality_1" class="group"></div>
+	<div id="mortality_2" class="group"></div>
 </div>
 
 <script>
@@ -29,15 +22,14 @@ function url_map(selection) {
 }
 
 function url_unmap(selector) {
-	return 'all_summary_'+selector;
+	return 'mortality_'+selector;
 }
 
 var frame_crumbs = [];
 
-
 <c:choose>
 	<c:when test="${empty param.tertiary_tab || param.tertiary_tab == 'undefined'}">
-		frame_load('all_summary_1');
+		frame_load('mortality_1');
 	</c:when>
 	<c:otherwise>
 		$('#selectMe').val(url_unmap('${param.tertiary_tab}'));
@@ -50,10 +42,10 @@ function frame_load(selection) {
 	var $this = $("#"+selection);
 
 	if (!frame_crumbs.includes(selection)) {
-		$this.load("<util:applicationRoot/>/new_ph/all_summary/"+selection+".jsp");
+		$this.load("<util:applicationRoot/>/new_ph/mortality/"+selection+".jsp");
 		frame_crumbs.push(selection);
 	}
-	cache_browser_history("public-health", "public-health/SummaryDataAllAges/"+url_map(selection));
+	cache_browser_history("public-health", "public-health/delayed-mortality/"+url_map(selection));
 };
 
 $(document).ready(function () {
@@ -66,7 +58,7 @@ $(document).ready(function () {
 	
 $(document).ready(function() {
     $('#selectMe').select2({
-		searchInputPlaceholder: 'Search Topics...'
+    	minimumResultsForSearch: Infinity
     });
 });
 

@@ -24,10 +24,6 @@ $('#${param.block}-${param.dimension}-mode-bar').tooltip();
 $('#${param.block}-${param.dimension}-mode-pie').tooltip();
 
 $('#${param.block}-${param.dimension}-mode-barpercent').on('click', function() {
-	if (typeof myObserver !== 'undefined') {
-		myObserver.unobserve($("#${param.block}_${param.dimension}_viz")[0]);
-		myObserver.disconnect;
-	}
 	
 	if (!document.getElementById("${param.block}-${param.dimension}-mode-barpercent").classList.contains("text-primary")) {
 		document.getElementById("${param.block}-${param.dimension}-mode-barpercent").classList.add("text-primary");
@@ -40,10 +36,6 @@ $('#${param.block}-${param.dimension}-mode-barpercent').on('click', function() {
 });
 
 $('#${param.block}-${param.dimension}-mode-bar').on('click', function() {
-	if (typeof myObserver !== 'undefined') {
-		myObserver.unobserve($("#${param.block}_${param.dimension}_viz")[0]);
-		myObserver.disconnect;
-	}
 	
 	if (!document.getElementById("${param.block}-${param.dimension}-mode-bar").classList.contains("text-primary")) {
 		document.getElementById("${param.block}-${param.dimension}-mode-bar").classList.add("text-primary");
@@ -56,10 +48,6 @@ $('#${param.block}-${param.dimension}-mode-bar').on('click', function() {
 });
 
 $('#${param.block}-${param.dimension}-mode-pie').on('click', function() {
-	if (typeof myObserver !== 'undefined') {
-		myObserver.unobserve($("#${param.block}_${param.dimension}_viz")[0]);
-		myObserver.disconnect;
-	}
 	
 	if (!document.getElementById("${param.block}-${param.dimension}-mode-pie").classList.contains("text-primary")) {
 		document.getElementById("${param.block}-${param.dimension}-mode-pie").classList.add("text-primary");

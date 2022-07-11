@@ -1,8 +1,7 @@
 <script>
 
 function localHorizontalBarChart(data, domName, barLabelWidth, min_height, ordered, colorscale, noseq) {
-	console.log(data);
-	
+
 	var word_length = 3;
 	
 	if (data.length > 0){

@@ -16,8 +16,7 @@
 
 d3.json("${param.data_page}", function(error, data) {
 	if (error) throw error;
-	
-	console.log(data);
+
   
 	var margin = {top: 100, right: 100, bottom: 50, left: 400},
 		width = 1200 - margin.left - margin.right,
@@ -69,7 +68,6 @@ d3.json("${param.data_page}", function(error, data) {
 		var keys = z.domain();
 		keys.reverse();
 
-		console.log(keys);
 
 		//var stringToFilter = '<18';
 		//keys.unshift(keys.splice(keys.findIndex(item => item.id === stringToFilter), 1)[0]);

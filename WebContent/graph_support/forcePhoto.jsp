@@ -63,7 +63,6 @@ div.tooltip {
         var myObserver = new ResizeObserver(entries => {
     		entries.forEach(entry => {
     			var newWidth = Math.floor(entry.contentRect.width);
-   				//console.log(newWidth);
    				setSize(newWidth);
     		});
     	});
