@@ -36,7 +36,7 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 		var option = document.createElement('option');
 		option.text = data[i].question;
 		option.title = data[i].description.replace("<p>","").replace("&nbsp;", "").replace("</p>","");
-		option.value = data[i].question.replace('/g, "\\') + 'arguement_value:' + data[i].description.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[i].asked + 'arguement_value:' + data[i].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[i].iframe_info + 'arguement_value:' + data[i].seqnum;
+		option.value = JSON.stringify(data[i]);
 		document.getElementById("dashboard_select").appendChild(option);
 	}
 	
@@ -58,12 +58,12 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 		};
 		if (index < 0) {index = 0;};
 		
-	 	$('#dashboard_select').val(data[index].question.replace('/g, "\\') + 'arguement_value:' + data[index].description.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[index].asked + 'arguement_value:' + data[index].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,"") + 'arguement_value:' + data[index].iframe_info + 'arguement_value:' + data[index].seqnum);
+	 	$('#dashboard_select').val(JSON.stringify(data[index]));
 	 	$('#dashboard_select').trigger('change'); 
 			
 		document.getElementById("question-tile").removeAttribute("style");
 		
-		frame_render(data[index].question.replace('/g, "\\'), data[index].description.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,""), data[index].asked, data[index].limitations.replace(/\"/g,"'").replace(/'/g, "\\'").replace(/\r?\n/g,""), data[index].iframe_info, ${param.tertiary_tab});
+		frame_render(data[index]);
 
 		console.log("reached");
 		
@@ -73,17 +73,18 @@ $.getJSON("<util:applicationRoot/>/feeds/questions.jsp", function(data){
 
 
 
-function frame_render(question, description, asked, limitations, frame, seqnum) {	
+function frame_render(question) {	
 		
 		var descriptionContainer = document.getElementById("question-description");
 		var divContainer = document.getElementById("question-tile");
+		console.log("question", question)
 
-		descriptionContainer.innerHTML = description;
+		descriptionContainer.innerHTML = question.description;
 
-		var viz_id = String(seqnum);
+		var viz_id = question.seqnum;
 
 		
-		cache_browser_history("public-health", "public-health/"+frame);
+		cache_browser_history("public-health", "public-health/"+question.iframe_info);
 		console.log("viz id: " + viz_id);
 		
 		divContainer.innerHTML = '<div id="d3viz"></div>'
@@ -100,7 +101,7 @@ function frame_render(question, description, asked, limitations, frame, seqnum) 
 						</a>\
 						<div id="limitcollapseOne" class="collapse" aria-labelledby="limitheadingOne" data-parent="#limitations_drop">\
 	  						<div class="card-body">' +
-	   							limitations + 
+	   							question.limitations + 
 	  						'</div>\
 						</div>\
 					</div>\
@@ -108,8 +109,8 @@ function frame_render(question, description, asked, limitations, frame, seqnum) 
 			</div>'
 		;
 			
-		console.log("url: " + "<util:applicationRoot/>/new_ph/frame.jsp?frame="+frame+"&tertiary_tab="+viz_id)
-		$("#d3viz").load("<util:applicationRoot/>/new_ph/frame.jsp?frame="+frame+"&tertiary_tab="+viz_id);
+		console.log("url: " + "<util:applicationRoot/>/new_ph/frame.jsp?frame="+question.iframe_info+"&tertiary_tab="+viz_id)
+		$("#d3viz").load("<util:applicationRoot/>/new_ph/frame.jsp?frame="+question.iframe_info+"&tertiary_tab="+viz_id);
 		
 		
 // 	});
@@ -125,12 +126,12 @@ function limitlink(){
 $(document).ready(function () {
 	 
 	$('#dashboard_select').change(function () {
-		frame_vars = $(this).val().split('arguement_value:');
-		console.log("frame: " + frame_vars);
+		frame_vars = JSON.parse($(this).val());
+		console.log("frame vars",frame_vars);
 
 		// support different default panels by topic
 		var tertiary = 1;
-		switch (frame_vars[4]) {
+		switch (frame_vars.iframe_info) {
 		case "Paxlovid":
 			tertiary = 4;
 			break;
@@ -138,7 +139,7 @@ $(document).ready(function () {
 			tertiary = 1;
 		}
 
-		frame_render(frame_vars[0], frame_vars[1], frame_vars[2], frame_vars[3], frame_vars[4], tertiary);
+		frame_render(frame_vars);
 	})
 });
 
