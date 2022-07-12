@@ -8,7 +8,7 @@
 	<jsp:param name="topic_description2" value="secondary_1" />
 	<jsp:param name="topic_title" value="Demographics of Patients With Diagnosed Long COVID (U09.9)" />
 	
-	<jsp:param name="kpis" value="hlh/kpis.jsp" />
+	<jsp:param name="kpisx" value="hlh/kpis.jsp" />
 	
 	<jsp:param name="age_filter7" value="true" />
 	<jsp:param name="gender_filter3" value="true" />

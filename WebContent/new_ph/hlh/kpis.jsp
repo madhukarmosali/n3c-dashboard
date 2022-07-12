@@ -7,10 +7,10 @@
 		<jsp:include page="../kpis/block2_kpis/covid_positive.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/comorbidities.jsp?comorbidity=cancer">
+		<jsp:include page="../kpis/block2_kpis/comorbidities.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
-		<jsp:include page="../kpis/block2_kpis/comorbidities_pediatrics.jsp?comorbidity=cancer">
+		<jsp:include page="../kpis/block2_kpis/comorbidities_pediatrics.jsp">
 			<jsp:param name="block" value="${param.block}" />
 		</jsp:include>
 	</c:when>

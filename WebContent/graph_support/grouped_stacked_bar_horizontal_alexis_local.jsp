@@ -31,11 +31,7 @@ function localHorizontalGroupedStackedBarChart(data, domName, primary, secondary
 			if (newWidth > 0) {
 				d3.select("#"+domName).select("svg").remove();
 				width = newWidth - margin.left - margin.right;
-				if ((width*1.5 - margin.left - margin.right) > 400){
-					height = width*2.5 - margin.left - margin.right;
-				} else { 
-					height = 800;
-				}
+				height = Math.max(width, data.length * 4) * 1.2;
 				draw();
 			}
 		});
@@ -47,7 +43,7 @@ function localHorizontalGroupedStackedBarChart(data, domName, primary, secondary
 	draw();
 	
 	function draw() {
-
+console.log("height", height, "data length", data.length)
 		var barPadding = 0;
 
 		var x = d3.scaleLinear()
@@ -163,8 +159,8 @@ function localHorizontalGroupedStackedBarChart(data, domName, primary, secondary
 		
 		 
 		var y_category = d3.scaleLinear().range([0, height]);
-		var y_defect = d3.scaleBand().domain(rangeBands2).range([0, height]).padding(0.1);
-		var y_category_domain = y_defect.bandwidth() * rangeBands2.length;
+		var y_defect = d3.scaleBand().domain(rangeBands).range([0, height]).padding(0.1);
+		var y_category_domain = y_defect.bandwidth() * rangeBands.length;
 		y_category.domain([0, y_category_domain]);
 
 
@@ -304,7 +300,7 @@ function localHorizontalGroupedStackedBarChart(data, domName, primary, secondary
 			.data(function(d) {return d.values;})
 			.enter().append("g")
 			.attr("class",function(d) { return "serie ${param.namespace}" + d.key.replace(/[^A-Za-z0-9]/g, ""); })
-			.attr("fill", function(d) { return z(d.key); });
+			.attr("fill", function(d, i) { console.log("fill",d,i); return z(d.key); });
 		
 		serie.selectAll("rect")
 			.data(function(d) {return d; })

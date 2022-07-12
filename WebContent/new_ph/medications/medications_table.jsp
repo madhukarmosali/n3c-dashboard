@@ -10,7 +10,7 @@ function ${param.block}_constrain_table(filter, constraint) {
 	case 'concept_set_name':
 	    $("#${param.datatable_div}-table").DataTable().column(1).search(constraint, true, false, true).draw();	
 		break;
-	case 'age_bin':
+	case 'age':
 	    $("#${param.datatable_div}-table").DataTable().column(2).search(constraint, true, false, true).draw();	
 		break;
 	}
@@ -64,6 +64,13 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
         	{ data: 'age_abbrev', visible: false },
         	{ data: 'age_seq', visible: false }
     	]
+	} );
+
+	${param.block}_datatable.on( 'search.dt', function () {
+		console.log('${param.target_div}-table search', ${param.block}_datatable.search());
+		${param.block}_refreshHistograms();
+		$('#${param.block}_btn_clear').removeClass("no_clear");
+		$('#${param.block}_btn_clear').addClass("show_clear");
 	} );
 
 	// this is necessary to populate the histograms for the panel's initial D3 rendering

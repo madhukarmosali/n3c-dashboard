@@ -27,9 +27,7 @@
 		<jsp:include page="pediatrics/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'medications'}">
-		<jsp:include page="panel_qlik.jsp">
-			<jsp:param name="iframe" value="medications" />
-		</jsp:include>
+		<jsp:include page="medications/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'reinfection'}">
 		<jsp:include page="reinfection/panel2.jsp?tertiary_tab=${param.tertiary_tab}"/>
@@ -43,9 +41,7 @@
 		</jsp:include>
 	</c:when>
 	<c:when test="${param.frame == 'diabetes-mellitus'}">
-		<jsp:include page="panel_qlik.jsp">
-			<jsp:param name="iframe" value="diabetes-mellitus" />
-		</jsp:include>
+		<jsp:include page="diabetes/panel2.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'smoking'}">
 		<jsp:include page="panel_qlik.jsp">
@@ -53,9 +49,7 @@
 		</jsp:include>
 	</c:when>
 	<c:when test="${param.frame == 'hlh'}">
-		<jsp:include page="panel_qlik.jsp">
-			<jsp:param name="iframe" value="hlh" />
-		</jsp:include>
+		<jsp:include page="hlh/panel2.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'hss'}">
 		<jsp:include page="panel_qlik.jsp">
