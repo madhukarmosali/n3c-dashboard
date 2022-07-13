@@ -79,7 +79,28 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 	var data = json['rows'];
 
 	${param.block}_datatable = $('#${param.target_div}-table').DataTable( {
-    	data: data,
+		initComplete : function() {
+			var input = $('.dataTables_filter input').unbind(),
+				self = this.api(),
+	            $searchButton = $('<button>')
+					.text('Search')
+					.attr('class', 'btn btn-sm btn-light')
+					.click(function() {
+						self.search(input.val()).draw();
+						${param.block}_refreshHistograms();
+						console.log("reached search");
+						${param.block}_constrain_table();
+					}),
+				$clearButton = $('<button>')
+					.text('Clear')
+					.attr('class', 'btn btn-sm btn-light')
+					.click(function() {
+						input.val('');
+						$searchButton.click(); 
+					})
+	        $('.dataTables_filter').append($searchButton, $clearButton);
+	    },
+		data: data,
        	paging: true,
     	pageLength: 10,
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
@@ -90,14 +111,6 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
         	{ data: 'patient_count', visible: false },
         	{ data: 'diff_seq', visible: false }
     	]
-	} );
-	
-	${param.block}_datatable.on( 'search.dt', function () {
-		console.log('${param.target_div}-table search', ${param.block}_datatable.search());
-		${param.block}_refreshHistograms();
-		${param.block}_constrain_table();
-		$('#${param.block}_btn_clear').removeClass("no_clear");
-		$('#${param.block}_btn_clear').addClass("show_clear");
 	} );
 
 

@@ -30,7 +30,7 @@ function ${param.block}_refresh${param.array}(data) {
         if (typeof aData[group] == 'undefined') {
             aData[group] = count;
             bData[group] = seq;
-            cData[group] = [0,0,0,0,0,0,0,0];
+            cData[group] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
             cData[group][${param.secondary}_seq] = count;
             maxIndex = Math.max(maxIndex, ${param.secondary}_seq);
          } else {

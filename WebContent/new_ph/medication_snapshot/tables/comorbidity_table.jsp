@@ -6,24 +6,10 @@ function ${param.block}_constrain_table(filter, constraint) {
 	
 	switch (filter) {
 	case 'severity':
-		table.column(0).search(constraint, true, false, true).draw();	
-		break;
-	case 'gender':
 		table.column(1).search(constraint, true, false, true).draw();	
 		break;
-	case 'age':
-		table.column(2).search(constraint, true, false, true).draw();	
-		break;
-	case 'race':
-		table.column(3).search(constraint, true, false, true).draw();	
-		break;
-	case 'comorbidities':
-		var filters = constraint;
-		if (constraint != ""){
-			filters = constraint.replace(/[$^]/g, '').split("|").sort().join(", ");
-			filters = "^" + filters + "$";
-		};
-		table.column(4).search(filters, true, false, true).draw();	
+	case 'comorbidity_number':
+		table.column(0).search(constraint, true, false, true).draw();	
 		break;
 	}
 	
@@ -36,7 +22,7 @@ function ${param.block}_constrain_table(filter, constraint) {
 function ${param.block}_updateKPI(table, column) {
 	var sum_string = '';
 	var sum = table.rows({search:'applied'}).data().pluck(column).sum();
-	
+	console.log(sum);
 	if (sum < 1000) {
 		sumString = sum+'';
 	} else if (sum < 1000000) {
@@ -47,7 +33,7 @@ function ${param.block}_updateKPI(table, column) {
 		sumString = sum.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "M"
 		
 	}
-
+	console.log('${param.block}', column, sumString)
 	document.getElementById('${param.block}'+'_'+column+'_kpi').innerHTML = sumString
 }
 
@@ -67,7 +53,7 @@ jQuery.fn.dataTable.Api.register( 'sum()', function ( ) {
 var ${param.block}_datatable = null;
 
 $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
-		
+	console.log("getting json");
 	var json = $.parseJSON(JSON.stringify(data));
 
 	var col = [];
@@ -79,6 +65,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 
 	var table = document.createElement("table");
 	table.className = 'table table-hover compact site-wrapper';
+	table.style.width = '100%';
 	table.id="${param.target_div}-table";
 
 	var header= table.createTHead();
@@ -145,21 +132,14 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
     	order: [[0, 'asc']],
      	columns: [
+        	{ data: 'numberofcomorbidities', visible: true, orderable: true, orderData: [7] },
         	{ data: 'severity', visible: true, orderable: true },
-        	{ data: 'gender', visible: true, orderable: true },
-        	{ data: 'age', visible: true, orderable: true },
-        	{ data: 'race', visible: true, orderable: true },
-        	{ data: 'comorbidities', visible: true, orderable: true },
-        	{ data: 'patient_display', visible: true, orderable: true, orderData: [6] },
+        	{ data: 'patient_display', visible: true, orderable: true, orderData: [3] },
         	{ data: 'patient_count', visible: false },
-        	{ data: 'age_abbrev', visible: false },
-        	{ data: 'age_seq', visible: false },
-        	{ data: 'race_abbrev', visible: false },
-        	{ data: 'race_seq', visible: false },
-        	{ data: 'gender_abbrev', visible: false },
-        	{ data: 'gender_seq', visible: false },
         	{ data: 'severity_abbrev', visible: false },
-        	{ data: 'severity_seq', visible: false }
+        	{ data: 'severity_seq', visible: false },
+        	{ data: 'numberofcomorbidities_abbrev', visible: false },
+        	{ data: 'numberofcomorbidities_seq', visible: false }
     	]
 	} );
 

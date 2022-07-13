@@ -256,6 +256,9 @@
 										<c:if test="${param.diagnosis_filter}">
 											<jsp:include page="filters/diagnosis.jsp"/>
 										</c:if>
+										<c:if test="${param.comorbiditynumber_filter}">
+											<jsp:include page="filters/comorbidity_number.jsp"/>
+										</c:if>
 									</div>
 			  					</div>
 							</div>
@@ -533,6 +536,19 @@
 			    ${param.block}_refreshHistograms();
             }
 		});
+		
+		$('#${param.block}-numberofcomorbidities-select').multiselect({	
+			maxHeight: 300,
+			onChange: function(option, checked, select) {
+				var options = $('#${param.block}-numberofcomorbidities-select');
+		        var selected = [];
+		        $(options).each(function(){
+		            selected.push($(this).val());
+		        });
+				${param.block}_constrain("comorbidity_number",  selected[0].join('|'));
+			    ${param.block}_refreshHistograms();
+            }
+		});
 	
 		var mut = new MutationObserver(function(mutations, mut){
 			if($('#${param.block}-block-kpi').find('.multiselect.dropdown-toggle[title!="None selected"]').length !== 0){
@@ -555,30 +571,60 @@
 	});
 
 	function ${param.block}_filter_clear() {
-		$('#${param.block}-severity-select').multiselect('clearSelection');
-		$('#${param.block}-age-select').multiselect('clearSelection');
-		$('#${param.block}-race-select').multiselect('clearSelection');
-		$('#${param.block}-gender-select').multiselect('clearSelection');
-		$('#${param.block}-ethnicity-select').multiselect('clearSelection');
-		$('#${param.block}-symptom-select').multiselect('clearSelection');
-		$('#${param.block}-vaccinated-select').multiselect('clearSelection');
-		$('#${param.block}-comorbidities-select').multiselect('clearSelection');
-		$('#${param.block}-symptomoccurrence-select').multiselect('clearSelection');
-		$('#${param.block}-testresult-select').multiselect('clearSelection');
-		$('#${param.block}-delay-select').multiselect('clearSelection');
-		$('#${param.block}-diagnosis-select').multiselect('clearSelection');
-		
-		${param.block}_constrain("severity", '');
-		${param.block}_constrain("age", '');
-		${param.block}_constrain("race", '');
-		${param.block}_constrain("gender", '');
-		${param.block}_constrain("ethnicity", '');
-		${param.block}_constrain("symptom", '');
-		${param.block}_constrain("comorbidities", '');
-		${param.block}_constrain("beforeafter", '');
-		${param.block}_constrain("result", '');
-		${param.block}_constrain("delay", '');
-		${param.block}_constrain("diagnosis_type", '');
+
+		<c:if test="${param.severity_filter}">
+			$('#${param.block}-severity-select').multiselect('clearSelection');
+			${param.block}_constrain("severity", '');
+		</c:if>
+		<c:if test="${param.age_filter || param.age_filter2 || param.age_filter4 || param.age_filter5 || param.age_filter6 || param.age_filter7 || param.age_filter10 || param.age_filterpeds || param.age_filterpeds2 || param.age_filterall || param.age_filterall2}">
+			$('#${param.block}-age-select').multiselect('clearSelection');
+			${param.block}_constrain("age", '');
+		</c:if>
+		<c:if test="${param.race_filter}">
+			$('#${param.block}-race-select').multiselect('clearSelection');
+			${param.block}_constrain("race", '');
+		</c:if>
+		<c:if test="${param.gender_filter3 || param.gender_filter}">
+			$('#${param.block}-gender-select').multiselect('clearSelection');
+			${param.block}_constrain("gender", '');
+		</c:if>
+		<c:if test="${param.ethnicity_filter}">
+			$('#${param.block}-ethnicity-select').multiselect('clearSelection');
+			${param.block}_constrain("ethnicity", '');
+		</c:if>
+		<c:if test="${param.symptom_filter}">
+			$('#${param.block}-symptom-select').multiselect('clearSelection');
+			${param.block}_constrain("symptom", '');
+		</c:if>
+		<c:if test="${param.vaccinated_filter}">
+			$('#${param.block}-vaccinated-select').multiselect('clearSelection');
+			// are we missing the constrain here ??? 
+		</c:if>
+		<c:if test="${param.comorbidities_filter}">
+			$('#${param.block}-comorbidities-select').multiselect('clearSelection');
+			${param.block}_constrain("comorbidities", '');
+		</c:if>
+		<c:if test="${param.beforeafter_filter}">
+			$('#${param.block}-symptomoccurrence-select').multiselect('clearSelection');
+			${param.block}_constrain("beforeafter", '');
+		</c:if>
+		<c:if test="${param.result_filter}">
+			$('#${param.block}-testresult-select').multiselect('clearSelection');
+			${param.block}_constrain("result", '');
+		</c:if>
+		<c:if test="${param.delay_filter}">
+			$('#${param.block}-delay-select').multiselect('clearSelection');
+			${param.block}_constrain("delay", '');
+		</c:if>
+		<c:if test="${param.diagnosis_filter}">
+			$('#${param.block}-diagnosis-select').multiselect('clearSelection');
+			${param.block}_constrain("diagnosis_type", '');
+		</c:if>
+		<c:if test="${param.comorbiditynumber_filter}">
+			$('#${param.block}-numberofcomorbidities-select').multiselect('clearSelection');
+			${param.block}_constrain("comorbidity_number", '');
+		</c:if>
+
 		
 		$("#${param.datatable_div}-table").DataTable().search('');
 		$("#${param.datatable_div}-table").DataTable().columns().search('').draw();
@@ -594,6 +640,7 @@
 	
 	var ${param.block}_raceSeverityArray = new Array();
 	var ${param.block}_diagnosisSeverityArray = new Array();
+	var ${param.block}_comorbiditySeverityArray = new Array();
 	var ${param.block}_comorbidityArray = new Array();
 	
 	var ${param.block}_BeforeAfterArray = new Array();
@@ -643,6 +690,8 @@
 	    
 	    	${param.block}_refreshraceSeverityArray(data);
 	    	${param.block}_refreshdiagnosisSeverityArray(data);
+	    	${param.block}_refreshcomorbiditySeverityArray(data);
+
 	    	${param.block}_refreshcomorbidityArray(data);
 	    
 	    	${param.block}_refreshBeforeAfterArray(data);
@@ -716,6 +765,9 @@
 	    }
 	    if ('${param.block}' === 'med_snap_2') {
 	    	${param.block}_severitydiagnosis_refresh();
+	    }
+	    if ('${param.block}' === 'med_snap_4') {
+	    	${param.block}_severitycomorbidity_refresh();
 	    }
 
 	  }
@@ -894,6 +946,15 @@
 	<jsp:param name="array" value="diagnosisSeverityArray"/>
 	<jsp:param name="primary" value="severity"/>
 	<jsp:param name="secondary" value="diagnosis"/>
+</jsp:include>
+
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="comorbiditySeverityArray"/>
+	<jsp:param name="primary" value="severity"/>
+	<jsp:param name="secondary" value="numberofcomorbidities"/>
 </jsp:include>
 
 <jsp:include page="singleHistogram.jsp">

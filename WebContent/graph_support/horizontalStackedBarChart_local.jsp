@@ -24,6 +24,8 @@ font-size: 14px;
 
 function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data, secondary_range = categorical, legend_label, min_height, nofilter, ordered) {
 	
+	console.log('reached this chart');
+	
 	var add_filter_text = 1;
 	var filter_icon = " &#xf0b0";
 	if ((nofilter != undefined) && (nofilter == 1) ){
@@ -184,8 +186,11 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.attr("x", function(d) { return x(d[0]); })
 			.attr("width", function(d) {return x(d[1]) - x(d[0]); })
 			.attr("height", y.bandwidth())	
-			.on("click", function(d, i){window[domName.replace(/_[^_]+_[^_]+$/i,'_')+'viz_constrain'](legend_map.get(d[2]), legend_label.replace(/\s/g, "")); })
+			.on("click", function(d, i){
+				window[domName.replace(/_[^_]+_[^_]+$/i,'_')+'viz_constrain'](legend_map.get(d[2]), legend_label.replace(/\s/g, "")); 
+			})
 			.on("mouseover", function() { 
+				console.log("reached mouseover");
 				tooltip.style("display", null); 
 			    // Reduce opacity of all rect to 0.2
 			    d3.selectAll("."+domName+"-rect").style("opacity", 0.2)
@@ -350,7 +355,9 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 			.attr("width", 19)
 			.attr("height", 19)
 			.attr("fill", function(d, i) { return z[i]; })
-			.on("click", function(d, i){window[domName.replace(/_[^_]+_[^_]+$/i,'_')+'viz_constrain'](d, legend_label.replace(/\s/g, "")); })
+			.on("click", function(d, i){
+				window[domName.replace(/_[^_]+_[^_]+$/i,'_')+'viz_constrain'](d, legend_label.replace(/\s/g, "")); 
+			})
 			.on("mouseover", function(d, i) {
 				svg.selectAll(".serie:not(.color-" + z[i].substring(1) + ")").style("opacity", "0.2");
 				if ((nofilter == undefined) || (nofilter == 0) ){
