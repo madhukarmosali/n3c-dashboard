@@ -61,10 +61,13 @@ $.getJSON("<util:applicationRoot/>/new_ph/paxlovid/feeds/greater_drugs.jsp", fun
     	order: [[4, 'desc']],
      	columns: [
         	{ data: 'medication', visible: true, orderable: true },
-        	{ data: 'KnownPositive', visible: true, orderable: true },
-        	{ data: 'UnknownCovidTestStatus', visible: true, orderable: true },
-        	{ data: 'KnownNegative', visible: true, orderable: true },
-        	{ data: 'total', visible: true, orderable: true, }
+        	{ data: 'KnownPositive', visible: true, orderable: true, orderData: [5] },
+        	{ data: 'UnknownCovidTestStatus', visible: true, orderable: true, orderData: [7] },
+        	{ data: 'KnownNegative', visible: true, orderable: true, orderData: [6] },
+        	{ data: 'total', visible: true, orderable: true, },
+        	{ data: 'positive_sort', visible: false},
+        	{ data: 'negative_sort', visible: false},
+        	{ data: 'unknown_sort', visible: false}
     	]
 	} );
 

@@ -249,7 +249,7 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 		}
 		
 		function string_length_test(string) {
-			w = string.length * 7;
+			w = string.length * 8.5;
 // 			  var f = '12px Lato, sans-serif',
 // 			      o = $('<g></g>')
 // 			            .text(string)

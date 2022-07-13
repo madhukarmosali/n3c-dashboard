@@ -24,12 +24,15 @@ var age_range_adult2 = ["#762AC6", "#6512BD", "#4C1EA5", "#33298D"];
 var age_range_peds1 = ["#EADEF7", "#C9A8EB", "#A772DF", "#8642CE", "#a6a6a6", "#a6a6a6","#a6a6a6","#a6a6a6"];
 var age_range_peds2 = ["#EADEF7", "#C9A8EB", "#A772DF", "#8642CE"];
 
+<!-- This don't seem correct as far as colors go, seems to be the old colors-->
 var status_range = ["#455098", "#CD4682", "#a6a6a6"];
 
-var result_range = ["#455098", "#CD4682", "#a6a6a6"];
+var result_range = ["#4833B2", "#AD1181", "#a6a6a6"];
+
+var vaccinated_range = ["#4833B2", "#a6a6a6"];
 
 var diagnosis_range = ["#09405A", "#AD1181", "#8406D1"];
-var comorbidity_number_range = ["#EADEF7", "#C9A8EB", "#A772DF", "#8642CE", "#762AC6", "#6512BD", "#4C1EA5", "#33298D", "#a6a6a6", "#a6a6a6", "#a6a6a6", "#a6a6a6", "#a6a6a6", "#a6a6a6"];
+var comorbidity_number_range = ["#EADEF7", "#DECBF2", "#D1B7ED", "#C5A4E8", "#B890E3", "#9F69D9", "#9356D4", "#8642CE", "#7C3FC6", "#723CBE", "#6839B6", "#5D36AE", "#33298D", "#a6a6a6"];
 
 var categorical = ["#09405A", "#AD1181", "#8406D1", "#ffa600", "#ff7155", "#4833B2", "#a6a6a6"];
 var categorical2 = ["#09405A", "#AD1181", "#8406D1", "#ffa600", "#ff7155", "#4833B2", "#a6a6a6", "#09405A", "#AD1181", "#8406D1", "#ffa600", "#ff7155", "#4833B2", "#a6a6a6", "#09405A", "#AD1181", "#8406D1", "#ffa600", "#ff7155", "#4833B2", "#a6a6a6"];
@@ -252,3 +255,17 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 <c:forEach items="${statuses.rows}" var="row" varStatus="rowCounter">
 	var comorbidity_number_legend = ${row.jsonb_pretty};
 </c:forEach>
+
+<sql:query var="statuses" dataSource="jdbc/N3CPublic">
+	select jsonb_pretty(jsonb_agg(done))
+	from (select distinct vaccinated_abbrev as secondary, vaccinated_abbrev as secondary_name, vaccinated_seq
+		  from n3c_dashboard.vaccinated_map order by vaccinated_seq
+		  ) as done;
+</sql:query>
+<c:forEach items="${statuses.rows}" var="row" varStatus="rowCounter">
+	var vaccinated_legend = ${row.jsonb_pretty};
+</c:forEach>
+
+
+
+var sotrovimaboccurrence_legend = [ { "secondary": "Before Other Med", "secondary_name": "Before Other Med", "sotrovimaboccurrence_seq": 1 }, { "secondary": "After Other Med", "secondary_name": "After Other Med", "sotrovimaboccurrence_seq": 2 } ];

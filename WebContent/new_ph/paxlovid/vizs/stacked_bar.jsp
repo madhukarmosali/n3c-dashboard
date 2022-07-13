@@ -28,9 +28,9 @@ font-size: 14px;
 d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(error, data_raw) {
 
 	var min_height = 600;
-	var secondary_range = categorical;
+	var secondary_range = result_range;
 	var legend_label = "COVID Status";
-	var legend_data = result_legend;
+	var legend_data = result_legend2;
 	var barLabelWidth = ${param.textmargin};
 	var domName2 = '${param.domName}';
 	
@@ -50,10 +50,6 @@ d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(
 	var valueLabelWidth = 50; // space reserved for value labels (right)
 	var barLabelPadding = 5; // padding between bar and bar labels (left)
 	var paddingInside = 0.3;
-	
-	
-
-	
 
 
 	var ${param.domName}myObserver = new ResizeObserver(entries => {
@@ -105,7 +101,7 @@ d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(
 				trimmedString = trimmedString + '...'
 			}
 			
-			data.push({'element': trimmedString, 'count': data_rows[i].total, 'secondary': [0, parseInt(unknowncount), parseInt(negativecount), parseInt(positivecount)  ]})
+			data.push({'element': trimmedString, 'count': data_rows[i].total, 'secondary': [0, parseInt(positivecount), parseInt(negativecount), parseInt(unknowncount)  ]})
 			
 		}
 		

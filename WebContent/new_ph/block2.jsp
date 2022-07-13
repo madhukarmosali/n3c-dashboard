@@ -146,7 +146,7 @@
 				</c:if>
 				
 				<div class="row">
-					<c:if test="${not empty param.severity_panel || not empty param.age_panel || not empty param.gender_panel || not empty param.ethnicity_panel}">
+					<c:if test="${not empty param.severity_panel || not empty param.age_panel || not empty param.gender_panel || not empty param.ethnicity_panel || not empty param.sotrovimab_panel1}">
 						<div class="mt-2 col-12 col-md-6">
 						<div class="viz_options_dropdown">
 							<span class="align-middle">Explore Topic By </span>
@@ -171,6 +171,12 @@
 								</c:if>
 								<c:if test="${not empty param.comorbidity_panel}">
 									<option value="comorbidity">Comorbidities</option>
+								</c:if>
+								<c:if test="${not empty param.sotrovimab_panel1}">
+									<option value="sotrovimab1">Severity & Medications</option>
+								</c:if>
+								<c:if test="${not empty param.sotrovimab_panel2}">
+									<option value="sotrovimab2">Additional Medications</option>
 								</c:if>
 									<option hidden value="verylongtextverylongtext">verylongtextverylongtext</option>
 							</select>
@@ -246,11 +252,17 @@
 										<c:if test="${param.vaccinated_filter}">
 											<jsp:include page="filters/vaccinated.jsp"/>
 										</c:if>
+										<c:if test="${param.vaccinated_filter2}">
+											<jsp:include page="filters/vaccinated2.jsp"/>
+										</c:if>
 										<c:if test="${param.comorbidities_filter}">
 											<jsp:include page="filters/comorbidities.jsp"/>
 										</c:if>
 										<c:if test="${param.beforeafter_filter}">
 											<jsp:include page="filters/beforeafter.jsp"/>
+										</c:if>
+										<c:if test="${param.beforeaftersotrovimab_filter}">
+											<jsp:include page="filters/beforeafter_sotrovimab.jsp"/>
 										</c:if>
 										<c:if test="${param.result_filter}">
 											<jsp:include page="filters/result.jsp"/>
@@ -263,6 +275,9 @@
 										</c:if>
 										<c:if test="${param.comorbiditynumber_filter}">
 											<jsp:include page="filters/comorbidity_number.jsp"/>
+										</c:if>
+										<c:if test="${param.sotrovimabmeds_filter}">
+											<jsp:include page="filters/sotrovimab_meds.jsp"/>
 										</c:if>
 									</div>
 			  					</div>
@@ -303,6 +318,14 @@
 				</c:if>
 				<c:if test="${not empty param.comorbidity_panel}">
 					<div id="${param.block}-comorbidity" class="" style="display: none;" src="${param.comorbidity_panel}?panel=${param.comorbidity_panel}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.comorbidity_labelwidth}">&label_width=${param.comorbidity_labelwidth}</c:if><c:if test="${not empty param.comorbidity_height}">&viz_height=${param.comorbidity_height}</c:if><c:if test="${not empty param.topic_description}">&topic_description=${param.topic_description}</c:if>">
+					</div>
+				</c:if>
+				<c:if test="${not empty param.sotrovimab_panel1}">
+					<div id="${param.block}-sotrovimab1" class="" style="display: none;" src="${param.sotrovimab_panel1}?panel=${param.sotrovimab_panel1}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.topic_description}">&topic_description=${param.topic_description}</c:if>">
+					</div>
+				</c:if>
+				<c:if test="${not empty param.sotrovimab_panel2}">
+					<div id="${param.block}-sotrovimab2" class="" style="display: none;" src="${param.sotrovimab_panel2}?panel=${param.sotrovimab_panel2}&block=${param.block}&datatable_div=${param.datatable_div}<c:if test="${not empty param.topic_description}">&topic_description=${param.topic_description}</c:if>">
 					</div>
 				</c:if>
 			</div>
@@ -481,6 +504,19 @@
             }
 		});
 		
+		$('#${param.block}-vaccinationstatus-select').multiselect({
+			onChange: function(option, checked, select) {
+				var options = $('#${param.block}-vaccinationstatus-select');
+		        var selected = [];
+		        $(options).each(function(){
+		            selected.push($(this).val());
+		        });
+		        
+				${param.block}_constrain("vaccinated", selected[0].join('|'));
+			    ${param.block}_refreshHistograms();
+            }
+		});
+		
 		$('#${param.block}-comorbidities-select').multiselect({	
 			onChange: function(option, checked, select) {
 				var options = $('#${param.block}-comorbidities-select');
@@ -530,6 +566,18 @@
             }
 		});
 		
+		$('#${param.block}-sotrovimaboccurrence-select').multiselect({	
+			onChange: function(option, checked, select) {
+				var options = $('#${param.block}-sotrovimaboccurrence-select');
+		        var selected = [];
+		        $(options).each(function(){
+		            selected.push($(this).val());
+		        });
+				${param.block}_constrain("sotrovimaboccurrence",  selected[0].join('|'));
+			    ${param.block}_refreshHistograms();
+            }
+		});
+		
 		$('#${param.block}-diagnosis-select').multiselect({	
 			onChange: function(option, checked, select) {
 				var options = $('#${param.block}-diagnosis-select');
@@ -551,6 +599,19 @@
 		            selected.push($(this).val());
 		        });
 				${param.block}_constrain("comorbidity_number",  selected[0].join('|'));
+			    ${param.block}_refreshHistograms();
+            }
+		});
+		$('#${param.block}-othermeds-select').multiselect({	
+			maxHeight: 300,
+			numberDisplayed: 1,
+			onChange: function(option, checked, select) {
+				var options = $('#${param.block}-othermeds-select');
+		        var selected = [];
+		        $(options).each(function(){
+		            selected.push($(this).val());
+		        });
+				${param.block}_constrain("medications",  selected[0].join('|'));
 			    ${param.block}_refreshHistograms();
             }
 		});
@@ -606,7 +667,11 @@
 		</c:if>
 		<c:if test="${param.vaccinated_filter}">
 			$('#${param.block}-vaccinated-select').multiselect('clearSelection');
-			// are we missing the constrain here ??? 
+			${param.block}_constrain("vaccinated", '');
+		</c:if>
+		<c:if test="${param.vaccinated_filter2}">
+			$('#${param.block}-vaccinationstatus-select').multiselect('clearSelection');
+			${param.block}_constrain("vaccinated", '');
 		</c:if>
 		<c:if test="${param.comorbidities_filter}">
 			$('#${param.block}-comorbidities-select').multiselect('clearSelection');
@@ -615,6 +680,10 @@
 		<c:if test="${param.beforeafter_filter}">
 			$('#${param.block}-symptomoccurrence-select').multiselect('clearSelection');
 			${param.block}_constrain("beforeafter", '');
+		</c:if>
+		<c:if test="${param.beforeaftersotrovimab_filter}">
+			$('#${param.block}-sotrovimaboccurrence-select').multiselect('clearSelection');
+			${param.block}_constrain("sotrovimaboccurrence", '');
 		</c:if>
 		<c:if test="${param.result_filter}">
 			$('#${param.block}-testresult-select').multiselect('clearSelection');
@@ -632,7 +701,12 @@
 			$('#${param.block}-numberofcomorbidities-select').multiselect('clearSelection');
 			${param.block}_constrain("comorbidity_number", '');
 		</c:if>
+		<c:if test="${param.sotrovimabmeds_filter}">
+			$('#${param.block}-othermeds-select').multiselect('clearSelection');
+			${param.block}_constrain("medications", '');
+		</c:if>
 
+		
 		
 		$("#${param.datatable_div}-table").DataTable().search('');
 		$("#${param.datatable_div}-table").DataTable().columns().search('').draw();
@@ -649,6 +723,10 @@
 	var ${param.block}_raceSeverityArray = new Array();
 	var ${param.block}_diagnosisSeverityArray = new Array();
 	var ${param.block}_comorbiditySeverityArray = new Array();
+	var ${param.block}_vaccinatedSeverityArray = new Array();
+	var ${param.block}_medsSeverityArray = new Array();
+	var ${param.block}_sotrovimabMedsArray = new Array();
+	
 	var ${param.block}_comorbidityArray = new Array();
 	
 	var ${param.block}_BeforeAfterArray = new Array();
@@ -666,6 +744,7 @@
 	var ${param.block}_SymptomRaceArray = new Array();
 	var ${param.block}_SymptomEthnicityArray = new Array();
 	var ${param.block}_SymptomObservationArray = new Array();
+	
 
 	var ${param.block}_MedicationArray = new Array();
 	var ${param.block}_DiabetesArray = new Array();
@@ -699,6 +778,11 @@
 	    	${param.block}_refreshraceSeverityArray(data);
 	    	${param.block}_refreshdiagnosisSeverityArray(data);
 	    	${param.block}_refreshcomorbiditySeverityArray(data);
+	    	${param.block}_refreshvaccinatedSeverityArray(data);
+	    	${param.block}_refreshmedsSeverityArray(data);
+	    	${param.block}_refreshsotrovimabMedsArray(data);
+	    	
+	    	
 
 	    	${param.block}_refreshcomorbidityArray(data);
 	    
@@ -777,9 +861,17 @@
 	    if ('${param.block}' === 'med_snap_4') {
 	    	${param.block}_severitycomorbidity_refresh();
 	    }
+	    if ('${param.block}' === 'med_snap_5') {
+	    	${param.block}_severityvaccinated_refresh();
+	    }
+	    if (${param.block}_loaded("sotrovimab1")) {
+	    	${param.block}_sotrovimab1_refresh();
+	    }
+	    if (${param.block}_loaded("sotrovimab2")) {
+	    	${param.block}_sotrovimab2_refresh();
+	    }
 
 	  }
-	
 	
 	function ${param.block}_toggle(selection) {
 		if (selection == "severity") {
@@ -851,6 +943,16 @@
 			$("#${param.block}-raceseverity").css('display', 'none');
 			$("#${param.block}-comorbidity").css('display', 'block');
 //			cache_browser_history("admin", "admin/institutions")
+		}
+		
+		if (selection == "sotrovimab1") {
+			$("#${param.block}-sotrovimab2").css('display', 'none');
+			$("#${param.block}-sotrovimab1").css('display', 'block');
+		}
+		
+		if (selection == "sotrovimab2") {
+			$("#${param.block}-sotrovimab1").css('display', 'none');
+			$("#${param.block}-sotrovimab2").css('display', 'block');
 		}
 		
 		${param.block}_load(selection);
@@ -963,6 +1065,30 @@
 	<jsp:param name="array" value="comorbiditySeverityArray"/>
 	<jsp:param name="primary" value="severity"/>
 	<jsp:param name="secondary" value="numberofcomorbidities"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="medsSeverityArray"/>
+	<jsp:param name="primary" value="severity"/>
+	<jsp:param name="secondary" value="sotrovimaboccurrence"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="sotrovimabMedsArray"/>
+	<jsp:param name="primary" value="medications"/>
+	<jsp:param name="secondary" value="sotrovimaboccurrence"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="vaccinatedSeverityArray"/>
+	<jsp:param name="primary" value="severity"/>
+	<jsp:param name="secondary" value="vaccinated"/>
 </jsp:include>
 
 <jsp:include page="singleHistogram.jsp">
