@@ -95,13 +95,9 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 	${param.block}_datatable.on( 'search.dt', function () {
 		console.log('${param.target_div}-table search', ${param.block}_datatable.search());
 		${param.block}_refreshHistograms();
-		
 		${param.block}_constrain_table();
-		
 		$('#${param.block}_btn_clear').removeClass("no_clear");
 		$('#${param.block}_btn_clear').addClass("show_clear");
-		
-		
 	} );
 
 

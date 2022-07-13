@@ -5,7 +5,7 @@
   						<span class="sr-only">, or patients who have had, a laboratory-confirmed positive COVID-19 PCR or Antigen test, a laboratory-confirmed positive COVID-19 Antibody test, or a Medical visit in which the ICD-10 code for COVID-19 (U07.1) was recorded</span>
 					</a>
 				</span>&nbsp;in the N3C Data Enclave whose patient records included Sotrovimab on any date included 
-				within the Enclave. Data aggregated by Age, Gender, and Severity. Medications were aggregated based on ingredient included in the medication.</p>
+				within the Enclave. Data aggregated by COVID Diagnosis Type and Severity. Medications were aggregated based on ingredient included in the medication.</p>
 </div>
 
 

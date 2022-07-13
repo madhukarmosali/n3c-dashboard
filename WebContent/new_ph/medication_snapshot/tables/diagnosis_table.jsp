@@ -6,13 +6,10 @@ function ${param.block}_constrain_table(filter, constraint) {
 	
 	switch (filter) {
 	case 'severity':
-		table.column(0).search(constraint, true, false, true).draw();	
-		break;
-	case 'age':
 		table.column(1).search(constraint, true, false, true).draw();	
 		break;
-	case 'gender':
-		table.column(2).search(constraint, true, false, true).draw();	
+	case 'diagnosis_type':
+		table.column(0).search(constraint, true, false, true).draw();	
 		break;
 	}
 	
@@ -114,17 +111,14 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
     	order: [[0, 'asc']],
      	columns: [
+        	{ data: 'diagnosis', visible: true, orderable: true },
         	{ data: 'severity', visible: true, orderable: true },
-        	{ data: 'age', visible: true, orderable: true },
-        	{ data: 'gender', visible: true, orderable: true },
-        	{ data: 'patient_display', visible: true, orderable: true, orderData: [4] },
+        	{ data: 'patient_display', visible: true, orderable: true, orderData: [3] },
         	{ data: 'patient_count', visible: false },
-        	{ data: 'age_abbrev', visible: false },
-        	{ data: 'age_seq', visible: false },
-        	{ data: 'gender_abbrev', visible: false },
-        	{ data: 'gender_seq', visible: false },
         	{ data: 'severity_abbrev', visible: false },
-        	{ data: 'severity_seq', visible: false }
+        	{ data: 'severity_seq', visible: false },
+        	{ data: 'diagnosis_abbrev', visible: false },
+        	{ data: 'diagnosis_seq', visible: false }
     	]
 	} );
 

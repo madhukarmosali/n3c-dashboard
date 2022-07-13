@@ -28,6 +28,8 @@ var status_range = ["#455098", "#CD4682", "#a6a6a6"];
 
 var result_range = ["#455098", "#CD4682", "#a6a6a6"];
 
+var diagnosis_range = ["#09405A", "#AD1181", "#8406D1"];
+
 var categorical = ["#09405A", "#AD1181", "#8406D1", "#ffa600", "#ff7155", "#4833B2", "#a6a6a6"];
 var categorical2 = ["#09405A", "#AD1181", "#8406D1", "#ffa600", "#ff7155", "#4833B2", "#a6a6a6", "#09405A", "#AD1181", "#8406D1", "#ffa600", "#ff7155", "#4833B2", "#a6a6a6", "#09405A", "#AD1181", "#8406D1", "#ffa600", "#ff7155", "#4833B2", "#a6a6a6"];
 
@@ -228,4 +230,14 @@ var divergent = ["#5C180A", "#A02A12", "#CE3617", "#ED765E", "#F5B1A3", "#EFEFEF
 </sql:query>
 <c:forEach items="${statuses.rows}" var="row" varStatus="rowCounter">
 	var result_legend2 = ${row.jsonb_pretty};
+</c:forEach>
+
+<sql:query var="statuses" dataSource="jdbc/N3CPublic">
+	select jsonb_pretty(jsonb_agg(done))
+	from (select distinct diagnosis_abbrev as secondary, diagnosis_abbrev as secondary_name, diagnosis_seq
+		  from n3c_dashboard.diagnosis_map order by diagnosis_seq
+		  ) as done;
+</sql:query>
+<c:forEach items="${statuses.rows}" var="row" varStatus="rowCounter">
+	var diagnosis_legend = ${row.jsonb_pretty};
 </c:forEach>

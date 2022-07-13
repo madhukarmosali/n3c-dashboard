@@ -173,7 +173,7 @@
 						</div>	
 						</div>
 					</c:if>
-					<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter2 || not empty param.age_filter4 || not empty param.age_filter5 || not empty param.age_filter6 || not empty param.age_filter7 || not empty param.age_filterpeds || not empty param.age_filterpeds2 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter || not empty param.symptom_filter || not empty param.beforeafter_filter || not empty param.result_filter || not empty param.delay_filter}">
+					<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter2 || not empty param.age_filter4 || not empty param.age_filter5 || not empty param.age_filter6 || not empty param.age_filter7 || not empty param.age_filterpeds || not empty param.age_filterpeds2 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter || not empty param.symptom_filter || not empty param.beforeafter_filter || not empty param.result_filter || not empty param.delay_filter || not empty param.diagnosis_filter}">
 						<div class="mt-2 ml-auto col-12 col-md-6 filter_button_container">
 							<button id="${param.block}_btn_clear" class="btn button dash-filter-btn2 mt-0 no_clear" onclick="${param.block}_filter_clear()"><i class="fas fa-times-circle"></i> Clear Filters</button>
 							<div class="dropdown" style="display: inline-block;">
@@ -252,6 +252,9 @@
 										</c:if>
 										<c:if test="${param.delay_filter}">
 											<jsp:include page="filters/death_delay.jsp"/>
+										</c:if>
+										<c:if test="${param.diagnosis_filter}">
+											<jsp:include page="filters/diagnosis.jsp"/>
 										</c:if>
 									</div>
 			  					</div>
@@ -518,6 +521,18 @@
 			    ${param.block}_refreshHistograms();
             }
 		});
+		
+		$('#${param.block}-diagnosis-select').multiselect({	
+			onChange: function(option, checked, select) {
+				var options = $('#${param.block}-diagnosis-select');
+		        var selected = [];
+		        $(options).each(function(){
+		            selected.push($(this).val());
+		        });
+				${param.block}_constrain("diagnosis_type",  selected[0].join('|'));
+			    ${param.block}_refreshHistograms();
+            }
+		});
 	
 		var mut = new MutationObserver(function(mutations, mut){
 			if($('#${param.block}-block-kpi').find('.multiselect.dropdown-toggle[title!="None selected"]').length !== 0){
@@ -551,6 +566,7 @@
 		$('#${param.block}-symptomoccurrence-select').multiselect('clearSelection');
 		$('#${param.block}-testresult-select').multiselect('clearSelection');
 		$('#${param.block}-delay-select').multiselect('clearSelection');
+		$('#${param.block}-diagnosis-select').multiselect('clearSelection');
 		
 		${param.block}_constrain("severity", '');
 		${param.block}_constrain("age", '');
@@ -562,6 +578,7 @@
 		${param.block}_constrain("beforeafter", '');
 		${param.block}_constrain("result", '');
 		${param.block}_constrain("delay", '');
+		${param.block}_constrain("diagnosis_type", '');
 		
 		$("#${param.datatable_div}-table").DataTable().search('');
 		$("#${param.datatable_div}-table").DataTable().columns().search('').draw();
@@ -576,6 +593,7 @@
 	var ${param.block}_DelayArray = new Array();
 	
 	var ${param.block}_raceSeverityArray = new Array();
+	var ${param.block}_diagnosisSeverityArray = new Array();
 	var ${param.block}_comorbidityArray = new Array();
 	
 	var ${param.block}_BeforeAfterArray = new Array();
@@ -624,6 +642,7 @@
 	    	${param.block}_refreshDelayArray(data);
 	    
 	    	${param.block}_refreshraceSeverityArray(data);
+	    	${param.block}_refreshdiagnosisSeverityArray(data);
 	    	${param.block}_refreshcomorbidityArray(data);
 	    
 	    	${param.block}_refreshBeforeAfterArray(data);
@@ -694,6 +713,9 @@
 	    }
 	    if ('${param.block}' === 'mortality_2') {
 	    	${param.block}_delay_refresh();
+	    }
+	    if ('${param.block}' === 'med_snap_2') {
+	    	${param.block}_severitydiagnosis_refresh();
 	    }
 
 	  }
@@ -864,6 +886,14 @@
 	<jsp:param name="array" value="raceSeverityArray"/>
 	<jsp:param name="primary" value="race"/>
 	<jsp:param name="secondary" value="severity"/>
+</jsp:include>
+
+<jsp:include page="doubleHistogram.jsp">
+	<jsp:param name="block" value="${param.block}"/>
+	<jsp:param name="datatable_div" value="${param.datatable_div}"/>
+	<jsp:param name="array" value="diagnosisSeverityArray"/>
+	<jsp:param name="primary" value="severity"/>
+	<jsp:param name="secondary" value="diagnosis"/>
 </jsp:include>
 
 <jsp:include page="singleHistogram.jsp">

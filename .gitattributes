@@ -237,6 +237,7 @@ WebContent/new_ph/filters/age_peds2.jsp -text
 WebContent/new_ph/filters/beforeafter.jsp -text
 WebContent/new_ph/filters/comorbidities.jsp -text
 WebContent/new_ph/filters/death_delay.jsp -text
+WebContent/new_ph/filters/diagnosis.jsp -text
 WebContent/new_ph/filters/ethnicity.jsp -text
 WebContent/new_ph/filters/gender.jsp -text
 WebContent/new_ph/filters/gender3.jsp -text
@@ -313,6 +314,7 @@ WebContent/new_ph/kpis/block2_kpis/long_total_before.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_total_before_after.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_total_grouped.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_total_ungrouped.jsp -text
+WebContent/new_ph/kpis/block2_kpis/medication_sotrovimab.jsp -text
 WebContent/new_ph/kpis/block2_kpis/mortality.jsp -text
 WebContent/new_ph/kpis/block2_kpis/not_positive.jsp -text
 WebContent/new_ph/kpis/block2_kpis/not_positive_total.jsp -text
@@ -420,12 +422,18 @@ WebContent/new_ph/long_covid/symptom_summary_table.jsp -text
 WebContent/new_ph/long_covid/symptom_ungrouped_table.jsp -text
 WebContent/new_ph/medication_snapshot/age.jsp -text
 WebContent/new_ph/medication_snapshot/feeds/sotrovimab_demo.jsp -text
+WebContent/new_ph/medication_snapshot/feeds/sotrovimab_diagnosis.jsp -text
 WebContent/new_ph/medication_snapshot/gender.jsp -text
+WebContent/new_ph/medication_snapshot/kpis.jsp -text
 WebContent/new_ph/medication_snapshot/med_snap_1.jsp -text
+WebContent/new_ph/medication_snapshot/med_snap_2.jsp -text
 WebContent/new_ph/medication_snapshot/panel.jsp -text
 WebContent/new_ph/medication_snapshot/secondary_text/secondary_1.jsp -text
+WebContent/new_ph/medication_snapshot/secondary_text/secondary_2.jsp -text
 WebContent/new_ph/medication_snapshot/severity.jsp -text
+WebContent/new_ph/medication_snapshot/severity_diagnosis.jsp -text
 WebContent/new_ph/medication_snapshot/tables/aggregated_table.jsp -text
+WebContent/new_ph/medication_snapshot/tables/diagnosis_table.jsp -text
 WebContent/new_ph/medications/feeds/medications.jsp -text
 WebContent/new_ph/medications/feeds/medications_raw.jsp -text
 WebContent/new_ph/medications/kpis.jsp -text

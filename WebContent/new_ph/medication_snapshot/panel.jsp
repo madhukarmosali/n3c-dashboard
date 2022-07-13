@@ -6,19 +6,19 @@
 	<h4 class="viz_color_header">Select a Dashboard to Explore:</h4>
 	<select id="selectMe">
 		<optgroup label="Sotrovimab">
-			<option value="med_snap_1">Treated Patient Demographics</option>
-			<option value="med_snap_2">COVID Diagnosis Type and Severity</option>
+			<option value="med_snap_1">Sotrovimab: Treated Patient Demographics</option>
+			<option value="med_snap_2">Sotrovimab: COVID Diagnosis Type and Severity</option>
 			<option value="med_snap_3">Medications Taken Before and After Sotrovimab</option>
-			<option value="med_snap_4">Comorbidities</option>
-			<option value="med_snap_5">Vaccinations</option>
+			<option value="med_snap_4">Sotrovimab: Comorbidities</option>
+			<option value="med_snap_5">Sotrovimab: Vaccinations</option>
 		</optgroup>
-		<optgroup label="Paxlovid">
-			<option value="med_snap_6">Demographics</option>
-			<option value="med_snap_7">Outcomes</option>
-			<option value="med_snap_8">Conditions</option>
-			<option value="med_snap_9">Medications</option>
-			<option value="med_snap_10">Visits</option>
-		</optgroup>
+<!-- 		<optgroup label="Paxlovid"> -->
+<!-- 			<option value="med_snap_6">Demographics</option> -->
+<!-- 			<option value="med_snap_7">Outcomes</option> -->
+<!-- 			<option value="med_snap_8">Conditions</option> -->
+<!-- 			<option value="med_snap_9">Medications</option> -->
+<!-- 			<option value="med_snap_10">Visits</option> -->
+<!-- 		</optgroup> -->
 	</select>
 </div>
 <div id="frame">

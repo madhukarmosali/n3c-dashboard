@@ -80,9 +80,3 @@
 		${param.frame}
 	</c:otherwise>
 </c:choose>
-
-
-<script>
-console.log("frame tertiary");
-console.log(${param.tertiary_tab});
-</script>
