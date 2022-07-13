@@ -5,7 +5,7 @@ function ${param.block}_constrain_table(filter, constraint) {
 	var table = $('#${param.target_div}-table').DataTable();
 	console.log("${param.block}", filter, constraint)
 	switch (filter) {
-	case 'age_bin':
+	case 'age':
 	    table.column(0).search(constraint, true, false, true).draw();	
 		break;
 	case 'ethnicity':
@@ -78,7 +78,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
     	order: [[0, 'asc']],
      	columns: [
-         	{ data: 'age_bin', visible: true, orderable: true },
+         	{ data: 'age', visible: true, orderable: true },
         	{ data: 'gender', visible: true, orderable: true },
         	{ data: 'observation', visible: true, orderable: true },
            	{ data: 'patient_display', visible: true, orderable: true, orderData: [4] },
