@@ -78,9 +78,9 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 
 	var data = json['rows'];
 
-	${param.block}_datatable = $('#${param.target_div}-table').DataTable( {
+	var ${param.block}_datatable = $('#${param.target_div}-table').DataTable( {
 		initComplete : function() {
-			var input = $('.dataTables_filter input').unbind(),
+			var input = $('#${param.target_div}-table_wrapper .dataTables_filter input').unbind(),
 				self = this.api(),
 	            $searchButton = $('<button>')
 					.text('Search')
@@ -98,7 +98,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 						input.val('');
 						$searchButton.click(); 
 					})
-	        $('.dataTables_filter').append($searchButton, $clearButton);
+	        $('#${param.target_div}-table_wrapper .dataTables_filter').append($searchButton, $clearButton);
 	    },
 		data: data,
        	paging: true,
