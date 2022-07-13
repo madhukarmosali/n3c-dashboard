@@ -81,15 +81,15 @@
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_individual_symptom_clean.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
+			<jsp:param name="symptom" value="${param.kpi_filter}" />
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_tested_positive_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
+			<jsp:param name="symptom" value="${param.kpi_filter}" />
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_in_record_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
+			<jsp:param name="symptom" value="${param.kpi_filter}" />
 		</jsp:include>
 	</c:when>
 	<c:when test="${param.block == 'long_covid_8'}">
@@ -98,15 +98,15 @@
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_individual_symptom_clean.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
+			<jsp:param name="symptom" value="${param.kpi_filter}" />
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_tested_positive_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
+			<jsp:param name="symptom" value="${param.kpi_filter}" />
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_in_record_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
+			<jsp:param name="symptom" value="${param.kpi_filter}" />
 		</jsp:include>
 	</c:when>
 	<c:when test="${param.block == 'long_covid_9'}">
@@ -115,15 +115,15 @@
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_individual_symptom_clean.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
+			<jsp:param name="symptom" value="${param.kpi_filter}" />
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_tested_positive_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
+			<jsp:param name="symptom" value="${param.kpi_filter}" />
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_in_record_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
+			<jsp:param name="symptom" value="${param.kpi_filter}" />
 		</jsp:include>
 	</c:when>
 	<c:when test="${param.block == 'long_covid_10'}">
@@ -132,15 +132,15 @@
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_individual_symptom_clean.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
+			<jsp:param name="symptom" value="${param.kpi_filter}" />
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_tested_positive_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
+			<jsp:param name="symptom" value="${param.kpi_filter}" />
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_in_record_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
+			<jsp:param name="symptom" value="${param.kpi_filter}" />
 		</jsp:include>
 	</c:when>
 	<c:when test="${param.block == 'long_covid_11'}">
@@ -149,15 +149,15 @@
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_individual_symptom_clean.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
+			<jsp:param name="symptom" value="${param.kpi_filter}" />
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_tested_positive_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
+			<jsp:param name="symptom" value="${param.kpi_filter}" />
 		</jsp:include>
 		<jsp:include page="../kpis/block2_kpis/long_in_record_individual_symptom.jsp">
 			<jsp:param name="block" value="${param.block}" />
-			<jsp:param name="symptom" value="${param.symptom}" />
+			<jsp:param name="symptom" value="${param.kpi_filter}" />
 		</jsp:include>
 	</c:when>
 	<c:when test="${param.block == 'long_covid_12'}">

@@ -3,13 +3,18 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 
  <sql:query var="totals" dataSource="jdbc/N3CPublic">
- 	select to_char(sum(count)/1000.0, '999.99')||'k' as patient_count
+  	select
+ 		case
+ 			when sum(count) < 1000 then sum(count)::text
+ 			when sum(count) < 1000000 then to_char(sum(count)/1000.0, '999.99')||'k'
+ 			else to_char(sum(count)/1000000.0, '999.99')||'M'
+ 		end as patient_count
  	from (select 
 			case
 				when (count = '<20' or count is null) then 0
 				else count::int
 			end as count
-			from n3c_questions.${param.comorbidity}_and_covid_summary
+			from n3c_questions.${param.kpi_filter}_and_covid_summary
 			where observation = 'has disease'
 		) as foo
 </sql:query>

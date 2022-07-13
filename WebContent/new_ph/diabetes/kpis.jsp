@@ -5,6 +5,3 @@
 <jsp:include page="../kpis/covid_positive.jsp" >
 	<jsp:param name="block" value="${param.block}"/>
 </jsp:include>
-<div class="panel-body border kpi-limit dash-small-txt">
-	* (see limitations below)
-</div>

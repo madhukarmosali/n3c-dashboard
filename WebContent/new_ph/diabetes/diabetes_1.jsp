@@ -8,7 +8,7 @@
 
 	<jsp:param name="kpis" value="diabetes/kpis.jsp" />
 
-	<jsp:param name="age_filter" value="true" />
+	<jsp:param name="age_filter4" value="true" />
 
 	<jsp:param name="simple_panel" value="diabetes/type_2.jsp" />
 

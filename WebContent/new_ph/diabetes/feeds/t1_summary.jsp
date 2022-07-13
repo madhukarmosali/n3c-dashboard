@@ -14,7 +14,7 @@
 						when (count = '<20' or count is null) then 0
 						else count::int
 					end as patient_count
-				  from n3c_questions.diabetes_t2_full_censored
+				  from n3c_questions.diabetes_t1_full_censored
 		  	) as foo
 		  	natural join n3c_dashboard.age_map4
 		  	natural join n3c_dashboard.gender_map2

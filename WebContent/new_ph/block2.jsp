@@ -129,7 +129,7 @@
 				<div class="row kpi-row">
 					<div id="${param.block}-block-kpi-kpi" class="col-12">
 						<div class="kpi_containter row" style="justify-content: center;">
-							<jsp:include page="${param.kpis}?block=${param.block}&symptom=${param.kpi_filter}"/>
+							<jsp:include page="${param.kpis}?block=${param.block}&kpi_filter=${param.kpi_filter}"/>
 							<div class="kpi-limit"><a onclick="limitlink(); return false;" href="#limitations-section">* See Limitations Below</a></div>
 						</div>
 					</div>
@@ -802,7 +802,7 @@
 	    	${param.block}_refreshSymptomObservationArray(data);
 	    
 	    	${param.block}_refreshMedicationArray(data2);
-	    	${param.block}_refreshDiabetesArray(data);
+	    	${param.block}_refreshDiabetesArray(data2);
 	    
 	    	${param.block}_refreshAgeGenderArray(data2);
 	    	${param.block}_refreshGenderAgeArray(data2);
@@ -837,7 +837,7 @@
 	    if (${param.block}_loaded("ethnicity")) {
 	    	${param.block}_ethnicity_refresh();
 	    }
-	    if (${param.block}_loaded("medication")) {
+	    if ('${param.block}' === "medications_1") {
 	    	${param.block}_medication_refresh();
 	    }
 	    if (${param.block}_loaded("raceseverity")) {
@@ -870,7 +870,9 @@
 	    if (${param.block}_loaded("sotrovimab2")) {
 	    	${param.block}_sotrovimab2_refresh();
 	    }
-
+	    if ('${param.block}' === "diabetes_1" || '${param.block}' === "diabetes_2") {
+	    	${param.block}_refresh();
+	    }
 	  }
 	
 	function ${param.block}_toggle(selection) {

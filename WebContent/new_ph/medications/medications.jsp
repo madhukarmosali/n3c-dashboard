@@ -10,7 +10,7 @@
 function ${param.block}_medication_refresh() {
 	console.log("medication graph", "${param.block}_medication_viz", ${param.block}_MedicationArray);
    	d3.select("#${param.block}_medication_viz").select("svg").remove(); 
-	localHorizontalGroupedStackedBarChart(${param.block}_MedicationArray,"${param.block}_medication_viz", "drug_domain", "concept_set_name", "patient_count", 'age', "Age", age_range, "Drug Class", "Medications");	
+	localHorizontalGroupedStackedBarChart(${param.block}_MedicationArray,"${param.block}_medication_viz", "drug_domain", "concept_set_name", "patient_count", 'age', "Age", age_legend_4, age_range, "Drug Class", "Medications");	
 }
 
 </script>

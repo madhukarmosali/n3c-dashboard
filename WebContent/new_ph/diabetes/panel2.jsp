@@ -6,13 +6,12 @@
 	<h4 class="viz_color_header">Select a Topic to Explore:</h4>
 	<select id="selectMe">
 		<option value="diabetes_1">Type 2</option>
-		<option value="diabetes_2">Type 2: Detailed</option>
-		<option value="diabetes_3">Type 1</option>
-		<option value="diabetes_4">Type 1: Detailed</option>
-		<option value="diabetes_5">Type 1 Diabetes Under the Age of 18</option>
-		<option value="diabetes_6">Type 2 Diabetes Under the Age of 18</option>
+		<option value="diabetes_2">Type 1</option>
+		<option value="diabetes_3">Type 1 Diabetes Under the Age of 18</option>
+		<option value="diabetes_4">Type 2 Diabetes Under the Age of 18</option>
 		<option value="diabetes_5">Type 1 Diabetes Over the Age of 18</option>
 		<option value="diabetes_6">Type 2 Diabetes Over the Age of 18</option>
+		<option disabled hidden="hidden">COVID+ and Hospitalization+++++++++++++</option>
 	</select>
 </div>
 <div id="frame">
@@ -53,7 +52,7 @@ function frame_load(selection) {
 		$this.load("<util:applicationRoot/>/new_ph/diabetes/"+selection+".jsp");
 		frame_crumbs.push(selection);
 	}
-	cache_browser_history("public-health", "public-health/diabetes/"+url_map(selection));
+	cache_browser_history("public-health", "public-health/diabetes-mellitus/"+url_map(selection));
 };
 
 $(document).ready(function () {

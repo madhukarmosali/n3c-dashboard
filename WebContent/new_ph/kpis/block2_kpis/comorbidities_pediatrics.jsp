@@ -9,7 +9,7 @@
 				when (count = '<20' or count is null) then 0
 				else count::int
 			end as count
-			from n3c_questions.${param.comorbidity}_and_covid_summary
+			from n3c_questions.${param.kpi_filter}_and_covid_summary
 			where age_bracket = '<18'and observation = 'has disease'
 		) as foo
 </sql:query>

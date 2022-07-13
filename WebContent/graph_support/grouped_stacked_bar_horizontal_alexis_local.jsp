@@ -19,8 +19,8 @@
 // margin = array: [top, bottom, left, right]
 
 
-function localHorizontalGroupedStackedBarChart(data, domName, primary, secondary, count, stack_group, xaxis_label, colorscale, label1, label2) {
-	
+function localHorizontalGroupedStackedBarChart(data, domName, primary, secondary, count, stack_group, xaxis_label, legend_label, colorscale, label1, label2) {
+	console.log("data array", data)
 	var margin = {top: 100, right: 100, bottom: 50, left: 400},
 		width = 1200 - margin.left - margin.right,
 		height = 1500 - margin.top - margin.bottom;
@@ -215,7 +215,7 @@ console.log("height", height, "data length", data.length)
 			.attr("x", width - 24)
 			.attr("y", 9.5)
 			.attr("dy", "0.32em")
-			.text("${param.legend_label}");
+			.text(legend_label);
 			
 		var legend = g.append("g")
 			.attr("transform", "translate(" + (margin.right) + " ," + (20) + " )")
@@ -268,7 +268,7 @@ console.log("height", height, "data length", data.length)
 				var h = (d.values[0].length) * (y_category(y_defect.bandwidth() - barPadding));
     			return "translate("+ -margin.left +", " + 0 + ")";
   			})
-  			.style("fill", function(d){
+  			.style("fill", function(d, i){
 				return bar_color(d.key);
 			})
   			.attr("height", function(d){
@@ -300,7 +300,7 @@ console.log("height", height, "data length", data.length)
 			.data(function(d) {return d.values;})
 			.enter().append("g")
 			.attr("class",function(d) { return "serie ${param.namespace}" + d.key.replace(/[^A-Za-z0-9]/g, ""); })
-			.attr("fill", function(d, i) { console.log("fill",d,i); return z(d.key); });
+			.attr("fill", function(d, i) { return z(d.key); });
 		
 		serie.selectAll("rect")
 			.data(function(d) {return d; })

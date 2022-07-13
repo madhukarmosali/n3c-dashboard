@@ -2,19 +2,17 @@
 <script>
 
 function ${param.block}_constrain_table(filter, constraint) {
+	var table = $('#${param.target_div}-table').DataTable();
 	console.log("${param.block}", filter, constraint)
 	switch (filter) {
-	case 'race':
-	    $("#${param.datatable_div}-table").DataTable().column(0).search(constraint, true, false, true).draw();	
-		break;
 	case 'age_bin':
-	    $("#${param.datatable_div}-table").DataTable().column(1).search(constraint, true, false, true).draw();	
+	    table.column(0).search(constraint, true, false, true).draw();	
 		break;
 	case 'ethnicity':
-	    $("#${param.datatable_div}-table").DataTable().column(2).search(constraint, true, false, true).draw();	
+	    table.column(1).search(constraint, true, false, true).draw();	
 		break;
-	case 'gender':
-	    $("#${param.datatable_div}-table").DataTable().column(3).search(constraint, true, false, true).draw();	
+	case 'observation':
+	    table.column(2).search(constraint, true, false, true).draw();	
 		break;
 	}
 }
@@ -53,6 +51,28 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 
 	${param.block}_datatable = $('#${param.target_div}-table').DataTable( {
     	data: data,
+    	dom: 'lfr<"datatable_overflow"t>Bip',
+    	buttons: {
+    	    dom: {
+    	      button: {
+    	        tag: 'button',
+    	        className: ''
+    	      }
+    	    },
+    	    buttons: [{
+    	      extend: 'csv',
+    	      className: 'btn btn-sm btn-light',
+    	      titleAttr: 'CSV export.',
+    	      text: 'CSV',
+    	      filename: 'severity_csv_export',
+    	      extension: '.csv'
+    	    }, {
+    	      extend: 'copy',
+    	      className: 'btn btn-sm btn-light',
+    	      titleAttr: 'Copy table data.',
+    	      text: 'Copy'
+    	    }]
+    	},
        	paging: true,
     	pageLength: 10,
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
@@ -71,9 +91,16 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	]
 	} );
 
+	${param.block}_datatable.on( 'search.dt', function () {
+		console.log('${param.target_div}-table search', ${param.block}_datatable.search());
+		${param.block}_refreshHistograms();
+		$('#${param.block}_btn_clear').removeClass("no_clear");
+		$('#${param.block}_btn_clear').addClass("show_clear");
+	} );
+
 	// this is necessary to populate the histograms for the panel's initial D3 rendering
 	${param.block}_refreshHistograms();
-	${param.block}_diabetes_t2_refresh();
+	${param.block}_refresh();
 	
 });
 
