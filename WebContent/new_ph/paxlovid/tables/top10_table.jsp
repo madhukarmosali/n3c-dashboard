@@ -1,7 +1,7 @@
 <%@ taglib prefix="util" uri="http://icts.uiowa.edu/tagUtil"%>
 <script>
 
-$.getJSON("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/topten_condition.jsp", function(data){
+$.getJSON("<util:applicationRoot/>/new_ph/paxlovid/feeds/topten_condition.jsp", function(data){
 		
 	var json = $.parseJSON(JSON.stringify(data));
 

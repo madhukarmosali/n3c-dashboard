@@ -32,7 +32,7 @@ var ${param.container}_margin = {top: 0, right: 0, bottom: 0, left: 0},
 var gap = 4;
 
 // read json data
-d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}", function(error, data) {
+d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(error, data) {
 	if (error) throw error;
 	
 	console.log(data);

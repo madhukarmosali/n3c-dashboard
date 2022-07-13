@@ -19,7 +19,7 @@
 	<jsp:param name="simple_panel" value="paxlovid/gender.jsp" />
 
 	<jsp:param name="datatable" value="paxlovid/demographics_gender_table.jsp" />
-	<jsp:param name="datatable_div" value="medication_snapshot_paxlovid_gender" />
+	<jsp:param name="datatable_div" value="paxlovid_paxlovid_gender" />
 	<jsp:param name="datatable_feed" value="paxlovid/feeds/demographics_gender.jsp" />
 	<jsp:param name="datatable_kpis" value="patient_count" />
 	<jsp:param name="datatable_filtered_kpis" value="patient_count" />

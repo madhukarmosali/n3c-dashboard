@@ -25,7 +25,7 @@ font-size: 14px;
 <script>
 
 
-d3.json("<util:applicationRoot/>/new_ph/medication_snapshot/feeds/${param.feed}", function(error, data_raw) {
+d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(error, data_raw) {
 
 	var min_height = 600;
 	var secondary_range = categorical;
