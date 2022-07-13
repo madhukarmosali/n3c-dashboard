@@ -100,15 +100,19 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 					.click(function() {
 						self.search(input.val()).draw();
 						${param.block}_refreshHistograms();
-						console.log("reached search");
 						${param.block}_constrain_table();
+						$('#${param.block}_table_clear').removeClass("no_clear");
+						$('#${param.block}_table_clear').addClass("show_clear");
 					}),
 				$clearButton = $('<button>')
 					.text('Clear')
 					.attr('class', 'btn btn-sm btn-light')
 					.click(function() {
-						input.val('');
-						$searchButton.click(); 
+						self.search('').draw();
+						${param.block}_refreshHistograms();
+						${param.block}_constrain_table();
+						$('#${param.block}_table_clear').removeClass("show_clear");
+						$('#${param.block}_table_clear').addClass("no_clear");
 					})
 	        $('#${param.target_div}-table_wrapper .dataTables_filter').append($searchButton, $clearButton);
 	    },
