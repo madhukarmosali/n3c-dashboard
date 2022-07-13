@@ -71,9 +71,7 @@
 		<jsp:include page="all_summary/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'MedicationsSnapshots'}">
-		<jsp:include page="panel_qlik.jsp">
-			<jsp:param name="iframe" value="MedicationsSnapshots" />
-		</jsp:include>
+		<jsp:include page="medication_snapshot/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'Paxlovid'}">
 		<jsp:include page="paxlovid/panel2.jsp"/>

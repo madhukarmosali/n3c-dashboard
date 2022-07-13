@@ -419,9 +419,13 @@ WebContent/new_ph/long_covid/symptom_pots_table.jsp -text
 WebContent/new_ph/long_covid/symptom_summary_table.jsp -text
 WebContent/new_ph/long_covid/symptom_ungrouped_table.jsp -text
 WebContent/new_ph/medication_snapshot/age.jsp -text
+WebContent/new_ph/medication_snapshot/feeds/sotrovimab_demo.jsp -text
 WebContent/new_ph/medication_snapshot/gender.jsp -text
+WebContent/new_ph/medication_snapshot/med_snap_1.jsp -text
 WebContent/new_ph/medication_snapshot/panel.jsp -text
 WebContent/new_ph/medication_snapshot/secondary_text/secondary_1.jsp -text
+WebContent/new_ph/medication_snapshot/severity.jsp -text
+WebContent/new_ph/medication_snapshot/tables/aggregated_table.jsp -text
 WebContent/new_ph/medications/feeds/medications.jsp -text
 WebContent/new_ph/medications/feeds/medications_raw.jsp -text
 WebContent/new_ph/medications/kpis.jsp -text
