@@ -422,9 +422,6 @@ WebContent/new_ph/medication_snapshot/age.jsp -text
 WebContent/new_ph/medication_snapshot/gender.jsp -text
 WebContent/new_ph/medication_snapshot/panel.jsp -text
 WebContent/new_ph/medication_snapshot/secondary_text/secondary_1.jsp -text
-WebContent/new_ph/medication_snapshot/vizs/long_bar.jsp -text
-WebContent/new_ph/medication_snapshot/vizs/stacked_bar.jsp -text
-WebContent/new_ph/medication_snapshot/vizs/stacked_bar_conditions.jsp -text
 WebContent/new_ph/medications/feeds/medications.jsp -text
 WebContent/new_ph/medications/feeds/medications_raw.jsp -text
 WebContent/new_ph/medications/kpis.jsp -text
