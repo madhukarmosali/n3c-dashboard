@@ -15,7 +15,7 @@
 	<jsp:param name="simple_panel" value="medication_snapshot/severity_vac.jsp" />
 
 	<jsp:param name="datatable" value="medication_snapshot/tables/vac_table.jsp" />
-	<jsp:param name="datatable_div" value="sotrovimab_comorbidity" />
+	<jsp:param name="datatable_div" value="sotrovimab_vax" />
 	<jsp:param name="datatable_feed" value="medication_snapshot/feeds/sotrovimab_vac.jsp" />
 	<jsp:param name="datatable_kpis" value="patient_count" />
 </jsp:include>
