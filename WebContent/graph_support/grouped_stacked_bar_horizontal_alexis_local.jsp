@@ -215,7 +215,7 @@ console.log("height", height, "data length", data.length)
 			.attr("x", width - 24)
 			.attr("y", 9.5)
 			.attr("dy", "0.32em")
-			.text(legend_label);
+			.text(xaxis_label);
 			
 		var legend = g.append("g")
 			.attr("transform", "translate(" + (margin.right) + " ," + (20) + " )")
@@ -223,7 +223,7 @@ console.log("height", height, "data length", data.length)
 			.attr("font-size", ".8rem")
 			.attr("text-anchor", "end")
 			.selectAll("g")
-			.data(keys.slice())
+			.data(legend_label)
 			.enter().append("g")
 			.attr("transform", function(d, i) {
 				return "translate(0," + i * 20 + ")";
@@ -242,14 +242,14 @@ console.log("height", height, "data length", data.length)
 			.attr("x", width - 19)
 			.attr("width", 19)
 			.attr("height", 19)
-			.attr("fill", z);
+			.attr("fill", function(d, i) { return colorscale[i]; });
 
 		legend.append("text")
 			.attr("x", width - 24)
 			.attr("y", 9.5)
 			.attr("dy", "0.32em")
 			.text(function(d) {
-				return d;
+				return d.secondary;
 		});
 		
 		// Bars ///////////////
@@ -300,7 +300,7 @@ console.log("height", height, "data length", data.length)
 			.data(function(d) {return d.values;})
 			.enter().append("g")
 			.attr("class",function(d) { return "serie ${param.namespace}" + d.key.replace(/[^A-Za-z0-9]/g, ""); })
-			.attr("fill", function(d, i) { return z(d.key); });
+			.attr("fill", function(d, i) { console.log("bar select",d.key, z(d.key)); return z(d.key); });
 		
 		serie.selectAll("rect")
 			.data(function(d) {return d; })
