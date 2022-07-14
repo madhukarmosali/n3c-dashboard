@@ -20,7 +20,6 @@
 
 
 function localHorizontalGroupedStackedBarChart(data, domName, primary, secondary, count, stack_group, xaxis_label, legend_label, colorscale, label1, label2) {
-	console.log("data array", data)
 	var margin = {top: 100, right: 100, bottom: 50, left: 400},
 		width = 1200 - margin.left - margin.right,
 		height = 1500 - margin.top - margin.bottom;
@@ -43,7 +42,7 @@ function localHorizontalGroupedStackedBarChart(data, domName, primary, secondary
 	draw();
 	
 	function draw() {
-console.log("height", height, "data length", data.length)
+
 		var barPadding = 0;
 
 		var x = d3.scaleLinear()
@@ -70,6 +69,7 @@ console.log("height", height, "data length", data.length)
 		
 		var keys = [... new Set(keys_all)];
 
+		var legend_map = d3.map(legend_label, function(d) { return d.secondary_name; });
 		
 		if (stack_group == "age"){
 			function hasNumber(myString) {
@@ -228,15 +228,16 @@ console.log("height", height, "data length", data.length)
 			.attr("transform", function(d, i) {
 				return "translate(0," + i * 20 + ")";
 			})
-			.attr("class", function(d){
-				return "secondary lab" + d.replace(/[^A-Z0-9]/ig, "")}
-			)
-			.on("mouseover", function(d, i) {
-				svg.selectAll(".secondary:not(.lab" + d.replace(/[^A-Z0-9]/ig, "") + ")").style("opacity", "0.05");
-			})
-			.on("mouseout", function(d, i) {
-  				svg.selectAll(".secondary").style("opacity", "1");
-			});
+// 			.attr("class", function(d){
+// 				return "secondary lab" + d.replace(/[^A-Z0-9]/ig, "")}
+// 			)
+// 			.on("mouseover", function(d, i) {
+// 				svg.selectAll(".secondary:not(.lab" + d.replace(/[^A-Z0-9]/ig, "") + ")").style("opacity", "0.05");
+// 			})
+// 			.on("mouseout", function(d, i) {
+//   				svg.selectAll(".secondary").style("opacity", "1");
+// 			})
+			;
 
 		legend.append("rect")
 			.attr("x", width - 19)
@@ -268,7 +269,7 @@ console.log("height", height, "data length", data.length)
 				var h = (d.values[0].length) * (y_category(y_defect.bandwidth() - barPadding));
     			return "translate("+ -margin.left +", " + 0 + ")";
   			})
-  			.style("fill", function(d, i){
+  			.style("fill", function(d){
 				return bar_color(d.key);
 			})
   			.attr("height", function(d){
@@ -300,7 +301,7 @@ console.log("height", height, "data length", data.length)
 			.data(function(d) {return d.values;})
 			.enter().append("g")
 			.attr("class",function(d) { return "serie ${param.namespace}" + d.key.replace(/[^A-Za-z0-9]/g, ""); })
-			.attr("fill", function(d, i) { console.log("bar select",d.key, z(d.key)); return z(d.key); });
+			.attr("fill", function(d) { return colorscale[legend_map.get(d.key).secondary_seq - 1]; });
 		
 		serie.selectAll("rect")
 			.data(function(d) {return d; })
