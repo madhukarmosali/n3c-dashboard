@@ -189,6 +189,11 @@ WebContent/new_ph/all_summary/vaccinated_table.jsp -text
 WebContent/new_ph/barPieToggle.jsp -text
 WebContent/new_ph/block.jsp -text
 WebContent/new_ph/block2.jsp -text
+WebContent/new_ph/cumulative/cumulative_1.jsp -text
+WebContent/new_ph/cumulative/feeds/cumulative_summary.jsp -text
+WebContent/new_ph/cumulative/kpis.jsp -text
+WebContent/new_ph/cumulative/panel.jsp -text
+WebContent/new_ph/cumulative/tables/cumulative_table.jsp -text
 WebContent/new_ph/delayed_mortality/age.jsp -text
 WebContent/new_ph/delayed_mortality/delay.jsp -text
 WebContent/new_ph/delayed_mortality/delayed_table.jsp -text
@@ -301,6 +306,10 @@ WebContent/new_ph/kpis/block2_kpis/covid_first_diagnosis.jsp -text
 WebContent/new_ph/kpis/block2_kpis/covid_positive.jsp -text
 WebContent/new_ph/kpis/block2_kpis/covid_reinfections.jsp -text
 WebContent/new_ph/kpis/block2_kpis/covid_subsequent_test.jsp -text
+WebContent/new_ph/kpis/block2_kpis/cumulative_hisp.jsp -text
+WebContent/new_ph/kpis/block2_kpis/cumulative_non.jsp -text
+WebContent/new_ph/kpis/block2_kpis/cumulative_total.jsp -text
+WebContent/new_ph/kpis/block2_kpis/cumulative_unkn.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_concept.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_icd.jsp -text
 WebContent/new_ph/kpis/block2_kpis/long_icd_summary.jsp -text
@@ -679,6 +688,7 @@ WebContent/resources/DataTables/js/dataTables.semanticui.js -text
 WebContent/resources/DataTables/js/dataTables.semanticui.min.js -text
 WebContent/resources/DataTables/js/jquery.dataTables.js -text
 WebContent/resources/DataTables/js/jquery.dataTables.min.js -text
+WebContent/resources/TableExport.js -text
 WebContent/resources/anime.min.js -text
 WebContent/resources/auth.js -text
 WebContent/resources/bootstrap/.DS_Store -text
@@ -730,6 +740,7 @@ WebContent/resources/d3-scale-radial.js -text
 WebContent/resources/d3-tip.js -text
 WebContent/resources/d3.hive.min.js -text
 WebContent/resources/d3.v4.min.js -text
+WebContent/resources/filesaver.js -text
 WebContent/resources/jquery-colorize.js -text
 WebContent/resources/jquery.hottie.js -text
 WebContent/resources/main_style.css -text

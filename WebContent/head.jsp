@@ -26,6 +26,13 @@
 	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>$.ajaxPrefilter(function( options, originalOptions, jqXHR ) {    options.async = true; });</script>	
 	
+	<!-- table to excel for cumulative table -->
+	<script src="https://cdn.sheetjs.com/xlsx-0.18.9/package/dist/xlsx.full.min.js"></script>
+	<script src="<util:applicationRoot/>/resources/filesaver.js"></script>
+	<script src="<util:applicationRoot/>/resources/TableExport.js"></script>
+	
+	
+	
 	<!-- bootstrap Latest compiled JavaScript -->
 	<script type='text/javascript' src='<util:applicationRoot/>/resources/bootstrap/js/bootstrap.bundle.min.js '></script>
 	

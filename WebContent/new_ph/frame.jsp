@@ -52,9 +52,7 @@
 		<jsp:include page="hlh/panel2.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'hss'}">
-		<jsp:include page="panel_qlik.jsp">
-			<jsp:param name="iframe" value="hss" />
-		</jsp:include>
+		<jsp:include page="cumulative/panel.jsp"/>
 	</c:when>
 	<c:when test="${param.frame == 'long-covid'}">
 		<jsp:include page="long_covid/panel2.jsp?tertiary_tab=${param.tertiary_tab}"/>
