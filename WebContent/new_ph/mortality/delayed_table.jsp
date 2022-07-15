@@ -19,7 +19,6 @@ function ${param.block}_constrain_table(filter, constraint) {
 function ${param.block}_updateKPI(table, column) {
 	var sum_string = '';
 	var sum = table.rows({search:'applied'}).data().pluck(column).sum();
-	console.log(sum);
 	if (sum < 1000) {
 		sumString = sum+'';
 	} else if (sum < 1000000) {
@@ -79,31 +78,32 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 	var data = json['rows'];
 
 	var ${param.block}_datatable = $('#${param.target_div}-table').DataTable( {
-		initComplete : function() {
-			var input = $('#${param.target_div}-table_wrapper .dataTables_filter input').unbind(),
-				self = this.api(),
-	            $searchButton = $('<button>')
-					.text('Search')
-					.attr('class', 'btn btn-sm btn-light')
-					.click(function() {
-						self.search(input.val()).draw();
-						${param.block}_refreshHistograms();
-						${param.block}_constrain_table();
-						$('#${param.block}_table_clear').removeClass("no_clear");
-						$('#${param.block}_table_clear').addClass("show_clear");
-					}),
-				$clearButton = $('<button>')
-					.text('Clear')
-					.attr('class', 'btn btn-sm btn-light')
-					.click(function() {
-						self.search('').draw();
-						${param.block}_refreshHistograms();
-						${param.block}_constrain_table();
-						$('#${param.block}_table_clear').removeClass("show_clear");
-						$('#${param.block}_table_clear').addClass("no_clear");
-					})
-	        $('#${param.target_div}-table_wrapper .dataTables_filter').append($searchButton, $clearButton);
-	    },
+// search/clear button logic instead of datatable default	
+// 		initComplete : function() {
+// 			var input = $('#${param.target_div}-table_wrapper .dataTables_filter input').unbind(),
+// 				self = this.api(),
+// 	            $searchButton = $('<button>')
+// 					.text('Search')
+// 					.attr('class', 'btn btn-sm btn-light')
+// 					.click(function() {
+// 						self.search(input.val()).draw();
+// 						${param.block}_refreshHistograms();
+// 						${param.block}_constrain_table();
+// 						$('#${param.block}_table_clear').removeClass("no_clear");
+// 						$('#${param.block}_table_clear').addClass("show_clear");
+// 					}),
+// 				$clearButton = $('<button>')
+// 					.text('Clear')
+// 					.attr('class', 'btn btn-sm btn-light')
+// 					.click(function() {
+// 						self.search('').draw();
+// 						${param.block}_refreshHistograms();
+// 						${param.block}_constrain_table();
+// 						$('#${param.block}_table_clear').removeClass("show_clear");
+// 						$('#${param.block}_table_clear').addClass("no_clear");
+// 					})
+// 	        $('#${param.target_div}-table_wrapper .dataTables_filter').append($searchButton, $clearButton);
+// 	    },
 		data: data,
 		dom: 'lfr<"datatable_overflow"t>Bip',
     	buttons: {
@@ -133,16 +133,39 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	      text: 'Copy'
     	    }]
     	},
+    	snapshot: null,
        	paging: true,
     	pageLength: 10,
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
     	order: [[3, 'asc']],
      	columns: [
-        	{ data: 'datediff_bw_death_and_hos', visible: true, orderable: true },
+        	{ data: 'datediff_bw_death_and_hos', visible: true, orderable: true, orderData: [3] },
         	{ data: 'patient_display', visible: true, orderable: true, orderData: [2] },
         	{ data: 'patient_count', visible: false },
         	{ data: 'diff_seq', visible: false }
     	]
+	} );
+	
+	// table search logic that distinguishes sort/filter 
+	${param.block}_datatable.on( 'search.dt', function () {
+		${param.block}_refreshHistograms();
+		${param.block}_constrain_table();
+		var snapshot = ${param.block}_datatable
+	     .rows({ search: 'applied', order: 'index'})
+	     .data()
+	     .toArray()
+	     .toString();
+
+	  	var currentSnapshot = ${param.block}_datatable.settings().init().snapshot;
+
+	  	if (currentSnapshot != snapshot) {
+	  		console.log('different snapshot');
+	  		${param.block}_datatable.settings().init().snapshot = snapshot;
+	   		if (currentSnapshot != null) {
+	   			$('#${param.block}_btn_clear').removeClass("no_clear");
+	   			$('#${param.block}_btn_clear').addClass("show_clear");
+	   		}
+	  	}
 	} );
 
 
