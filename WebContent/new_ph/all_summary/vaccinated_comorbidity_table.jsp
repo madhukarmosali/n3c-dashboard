@@ -102,31 +102,6 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 	var data = json['rows'];
 
 	${param.block}_datatable = $('#${param.target_div}-table').DataTable( {
-		initComplete : function() {
-			var input = $('#${param.target_div}-table_wrapper .dataTables_filter input').unbind(),
-				self = this.api(),
-	            $searchButton = $('<button>')
-					.text('Search')
-					.attr('class', 'btn btn-sm btn-light')
-					.click(function() {
-						self.search(input.val()).draw();
-						${param.block}_refreshHistograms();
-						${param.block}_constrain_table();
-						$('#${param.block}_table_clear').removeClass("no_clear");
-						$('#${param.block}_table_clear').addClass("show_clear");
-					}),
-				$clearButton = $('<button>')
-					.text('Clear')
-					.attr('class', 'btn btn-sm btn-light')
-					.click(function() {
-						self.search('').draw();
-						${param.block}_refreshHistograms();
-						${param.block}_constrain_table();
-						$('#${param.block}_table_clear').removeClass("show_clear");
-						$('#${param.block}_table_clear').addClass("no_clear");
-					})
-	        $('#${param.target_div}-table_wrapper .dataTables_filter').append($searchButton, $clearButton);
-	    },
 		data: data,
     	dom: 'lfr<"datatable_overflow"t>Bip',
     	buttons: {
@@ -151,6 +126,10 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	    }]
     	},
        	paging: true,
+       	snapshot: null,
+       	initComplete: function( settings, json ) {
+       	 	settings.oInit.snapshot = $('#${param.target_div}-table').DataTable().rows({order: 'index'}).data().toArray().toString();
+       	  },
     	pageLength: 10,
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
     	order: [[0, 'asc']],
@@ -177,7 +156,24 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	]
 	} );
 
+	// table search logic that distinguishes sort/filter 
+	${param.block}_datatable.on( 'search.dt', function () {
+		var snapshot = ${param.block}_datatable
+	     .rows({ search: 'applied', order: 'index'})
+	     .data()
+	     .toArray()
+	     .toString();
 
+	  	var currentSnapshot = ${param.block}_datatable.settings().init().snapshot;
+
+	  	if (currentSnapshot != snapshot) {
+	  		${param.block}_datatable.settings().init().snapshot = snapshot;
+	  		${param.block}_refreshHistograms();
+			${param.block}_constrain_table();
+	   		$('#${param.block}_btn_clear').removeClass("no_clear");
+	   		$('#${param.block}_btn_clear').addClass("show_clear");
+	  	}
+	} );
 
 	// this is necessary to populate the histograms for the panel's initial D3 rendering
 	${param.block}_refreshHistograms();

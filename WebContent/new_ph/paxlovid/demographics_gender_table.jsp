@@ -105,6 +105,10 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	    }]
     	},
        	paging: true,
+       	snapshot: null,
+       	initComplete: function( settings, json ) {
+       	 	settings.oInit.snapshot = $('#${param.target_div}-table').DataTable().rows({order: 'index'}).data().toArray().toString();
+       	  },
     	pageLength: 10,
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
     	order: [[0, 'asc']],
@@ -118,11 +122,23 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	]
 	} );
 
+	// table search logic that distinguishes sort/filter 
 	${param.block}_datatable.on( 'search.dt', function () {
-		console.log('${param.target_div}-table search', ${param.block}_datatable.search());
-		${param.block}_refreshHistograms();
-		$('#${param.block}_btn_clear').removeClass("no_clear");
-		$('#${param.block}_btn_clear').addClass("show_clear");
+		var snapshot = ${param.block}_datatable
+	     .rows({ search: 'applied', order: 'index'})
+	     .data()
+	     .toArray()
+	     .toString();
+
+	  	var currentSnapshot = ${param.block}_datatable.settings().init().snapshot;
+
+	  	if (currentSnapshot != snapshot) {
+	  		${param.block}_datatable.settings().init().snapshot = snapshot;
+	  		${param.block}_refreshHistograms();
+			${param.block}_constrain_table();
+	   		$('#${param.block}_btn_clear').removeClass("no_clear");
+	   		$('#${param.block}_btn_clear').addClass("show_clear");
+	  	}
 	} );
 
 	// this is necessary to populate the histograms for the panel's initial D3 rendering

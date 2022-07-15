@@ -134,6 +134,9 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	    }]
     	},
     	snapshot: null,
+    	initComplete: function( settings, json ) {
+       	 	settings.oInit.snapshot = $('#${param.target_div}-table').DataTable().rows({order: 'index'}).data().toArray().toString();
+       	  },
        	paging: true,
     	pageLength: 10,
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
@@ -160,10 +163,8 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 
 	  	if (currentSnapshot != snapshot) {
 	  		${param.block}_datatable.settings().init().snapshot = snapshot;
-	   		if (currentSnapshot != null) {
-	   			$('#${param.block}_btn_clear').removeClass("no_clear");
-	   			$('#${param.block}_btn_clear').addClass("show_clear");
-	   		}
+	   		$('#${param.block}_btn_clear').removeClass("no_clear");
+	   		$('#${param.block}_btn_clear').addClass("show_clear");
 	  	}
 	} );
 

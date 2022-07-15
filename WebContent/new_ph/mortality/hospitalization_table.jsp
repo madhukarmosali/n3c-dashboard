@@ -144,6 +144,10 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
     	    }]
     	},
        	paging: true,
+       	snapshot: null,
+       	initComplete: function( settings, json ) {
+       	 	settings.oInit.snapshot = $('#${param.target_div}-table').DataTable().rows({order: 'index'}).data().toArray().toString();
+       	  },
     	pageLength: 10,
     	lengthMenu: [ 10, 25, 50, 75, 100 ],
     	order: [[0, 'asc']],
@@ -177,13 +181,10 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 
 	  	if (currentSnapshot != snapshot) {
 	  		${param.block}_datatable.settings().init().snapshot = snapshot;
-	   		if (currentSnapshot != null) {
-	   			// put these two here if don't want to redraw viz on table sort, otherwise put them up
-	   			${param.block}_refreshHistograms();
-	   			${param.block}_constrain_table();
-	   			$('#${param.block}_btn_clear').removeClass("no_clear");
-	   			$('#${param.block}_btn_clear').addClass("show_clear");
-	   		}
+	  		${param.block}_refreshHistograms();
+			${param.block}_constrain_table();
+	   		$('#${param.block}_btn_clear').removeClass("no_clear");
+	   		$('#${param.block}_btn_clear').addClass("show_clear");
 	  	}
 	} );
 	

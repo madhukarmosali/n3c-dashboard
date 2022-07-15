@@ -23,9 +23,7 @@ font-size: 14px;
 <script>
 
 function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_data, secondary_range = categorical, legend_label, min_height, nofilter, ordered) {
-	
-	console.log('reached this chart');
-	
+
 	var add_filter_text = 1;
 	var filter_icon = " &#xf0b0";
 	if ((nofilter != undefined) && (nofilter == 1) ){
@@ -190,7 +188,6 @@ function localHorizontalStackedBarChart(data, domName, barLabelWidth, legend_dat
 				window[domName.replace(/_[^_]+_[^_]+$/i,'_')+'viz_constrain'](legend_map.get(d[2]), legend_label.replace(/\s/g, "")); 
 			})
 			.on("mouseover", function() { 
-				console.log("reached mouseover");
 				tooltip.style("display", null); 
 			    // Reduce opacity of all rect to 0.2
 			    d3.selectAll("."+domName+"-rect").style("opacity", 0.2)
