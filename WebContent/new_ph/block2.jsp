@@ -106,9 +106,6 @@
 	text-align:center;
 }
 
-.table_search_indicator{
-	color: #007bff;
-}
 </style>
 
 <!-- A block is comprised of a header bar, an optional left column with KPIs and filters, and a main panel
@@ -145,6 +142,13 @@
 					</div>
 				</c:if>
 				
+				<div class="row viz_info_box no_clear alert alert-primary">
+					<span class="filter_info">
+					</span>
+					<button type="button" class="close ml-auto" aria-label="Close">
+  						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
 				<div class="row">
 					<c:if test="${not empty param.severity_panel || not empty param.age_panel || not empty param.gender_panel || not empty param.ethnicity_panel || not empty param.sotrovimab_panel1}">
 						<div class="mt-2 col-12 col-md-6">
@@ -185,7 +189,6 @@
 					</c:if>
 					<c:if test="${not empty param.severity_filter || not empty param.age_filter || not empty param.age_filter2 || not empty param.age_filter4 || not empty param.age_filter5 || not empty param.age_filter6 || not empty param.age_filter7 || not empty param.age_filterpeds || not empty param.age_filterpeds2 || not empty param.race_filter || not empty param.gender_filter || not empty param.ethnicity_filter || not empty param.observation_filter || not empty param.symptom_filter || not empty param.beforeafter_filter || not empty param.result_filter || not empty param.delay_filter || not empty param.diagnosis_filter}">
 						<div class="mt-2 ml-auto col-12 col-md-6 filter_button_container">
-							<small id="${param.block}_table_clear" class="no_clear table_search_indicator"><i class="fas fa-info-circle"></i> Table Search Applied</small>
 							<button id="${param.block}_btn_clear" class="btn button dash-filter-btn2 mt-0 no_clear" onclick="${param.block}_filter_clear()"><i class="fas fa-times-circle"></i> Clear Filters</button>
 							<div class="dropdown" style="display: inline-block;">
 		  						<button data-bs-auto-close="false" class="btn dash-filter-btn dropdown-toggle mt-0 show_filt" type="button" id="${param.block}dropdownMenuButton" data-toggle="" aria-haspopup="true" aria-expanded="false">
@@ -363,6 +366,20 @@
     		      return option.text;
     		   }
 	    });
+	    
+	    setTimeout(function() {
+			if ('${param.block}' === 'peds_summary_2' || '${param.block}' === 'adult_summary_2' || '${param.block}' === 'all_summary_2') {
+				$('#${param.block}-vaccinated-select').multiselect('select', 'True', true);
+				${param.block}_refreshHistograms();
+				${param.block}_constrain_table();
+				$(".viz_info_box .filter_info" ).append('<small class="vaccine_search_indicator"><i class="fas fa-info-circle"></i> Vaccination Status is defaulted to True. Clear filters to reset.</small>');
+				$(".viz_info_box").removeClass('no_clear');
+				$(".viz_info_box .close" ).on('click', function() {
+					$(".viz_info_box").addClass('no_clear');
+				});
+				
+			};
+	    }, 1000);
 	})
 	
 	$('#${param.block}dropdownMenuButton').on('click', function() {
@@ -634,6 +651,8 @@
 				attributeFilter: ['title']
 			});
 		});
+	
+		
 	});
 
 	function ${param.block}_filter_clear() {
