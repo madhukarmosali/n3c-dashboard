@@ -16,7 +16,7 @@ function localPieChart(data, domName, legend_data, range, donutRatio, legend_lab
 	var full_width = $(domName).width(), 
 		width = full_width/2,
 		height = width/1.3,
-		border = 10;
+		border = 0;
 	
 	var margin = {right: 100};
 	var filter_icon = " &#xf0b0";
@@ -83,7 +83,7 @@ function localPieChart(data, domName, legend_data, range, donutRatio, legend_lab
 			
 		var g = svg.append("g")
 			.attr("width", full_width)
-			.attr("transform", "translate(" + full_width / 2 + "," + ((height / 2)+20) + ")");
+			.attr("transform", "translate(" + full_width / 2 + "," + ((height / 2)) + ")");
 
 		data.forEach(function(d) {
 			d.count = +d.count;
@@ -157,7 +157,7 @@ function localPieChart(data, domName, legend_data, range, donutRatio, legend_lab
 		            off = Math.sqrt(Math.pow(ctx - cpx, 2) + Math.pow(cty - cpy, 2))/2;
 		        
 		        // keep labels that go above from overflowing svg
-		        var max = -(height / 2);
+		        var max = -(height / 2)+20;
 		        var translatey = (Math.sin((d.startAngle + d.endAngle - Math.PI) / 2) * (radius + off)) - 20;
 		        if (translatey < max){
 		        	translatey = max;
