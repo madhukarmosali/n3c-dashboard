@@ -27,6 +27,7 @@ font-size: 14px;
 
 d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(error, data_raw) {
 
+	
 	var min_height = 600;
 	var secondary_range = result_range;
 	var legend_label = "COVID Status";
@@ -78,6 +79,8 @@ d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(
 		data = [];
 
 		for (i in data_rows){
+			
+			console.log(JSON.stringify(data_rows[i]));
 			var negativecount = data_rows[i].KnownNegative;
 			var positivecount = data_rows[i].KnownPositive;
 			var unknowncount = data_rows[i].UnknownCovidTestStatus;
@@ -93,7 +96,7 @@ d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(
 			}	
 			var test = '';
 			test = data_rows[i].${param.primary};
-			var trimmedString = test.substring(0, 40);
+			var trimmedString = test.substring(0, 30);
 			if (trimmedString != test){
 				trimmedString = trimmedString + '...'
 			}
@@ -139,12 +142,18 @@ d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(
 		
 		var stackData = myStack(data);
 		
-		y.domain(data.map(function(d) { return d.element; }));					
+		y.domain(data.map(function(d) { return d.element2; }));					
 		x.domain([0, d3.max(data, function(d) { return d.count; })]).nice();	
 
 		
 		//Defines the y axis styles
-		var yAxis = d3.axisLeft(y);
+		var yAxis = d3.axisLeft(y).tickFormat(function(d){
+			var test = d;
+			var trimmedString = test.substring(0, 25);
+			if (trimmedString != test){
+				trimmedString = trimmedString + '...'
+			}
+			return trimmedString});
 	
 		//Appends the y axis
 		var yAxisGroup = g.append("g")
@@ -204,7 +213,7 @@ d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(
 			.data(function(d) { return d; })
 			.enter().append("rect")
 			.attr("class", function(d){ return domName2+"-rect "; })
-			.attr("y", function(d,i) { return y(data[i].element); })
+			.attr("y", function(d,i) { return y(data[i].element2); })
 			.attr("x", function(d) { return x(d[0]); })
 			.attr("width", function(d) {return x(d[1]) - x(d[0]); })
 			.attr("height", y.bandwidth())	
@@ -313,7 +322,7 @@ d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(
 					return 'white';
 				};
 			})
-			.attr("y", function(d,i) { return (y(data[i].element)) + ((y.bandwidth()*paddingInside)/4) + (y.bandwidth()/2) ; })
+			.attr("y", function(d,i) { return (y(data[i].element2)) + ((y.bandwidth()*paddingInside)/4) + (y.bandwidth()/2) ; })
 			.attr("x", function(d) { return (x(d[0])) + 5; })
 			.attr("font-size", "12px");
 		
@@ -325,7 +334,7 @@ d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(
 			.attr("class", "secondary")
 			.style("text-anchor", "start")
 			.style("font-size", "12px")
-			.attr("y", function(d,i) { return (y(data[i].element)) + ((y.bandwidth()*paddingInside)/4) + (y.bandwidth()/2) ; })
+			.attr("y", function(d,i) { return (y(data[i].element2)) + ((y.bandwidth()*paddingInside)/4) + (y.bandwidth()/2) ; })
 			.attr("x", function(d) { return (x(d[3])) + 5; })
 			.text(function(d) {
 				if(d[2] == legend_data[0].secondary){

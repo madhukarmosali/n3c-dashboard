@@ -142,7 +142,7 @@ $.getJSON("<util:applicationRoot/>/new_ph/paxlovid/feeds/topten_drugs_long.jsp",
 			}
 			if (row_med == group){
 	 			var test = row_med;
-	 			var trimmedString = test.substring(0, 40);
+	 			var trimmedString = test.substring(0, 20);
 	 			if (trimmedString != test){
 	 				trimmedString = trimmedString + '...'
 	 			}

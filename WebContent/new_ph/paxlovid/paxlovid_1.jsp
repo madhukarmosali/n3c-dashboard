@@ -21,7 +21,7 @@
 		<div class="col-12 mx-auto mt-2 mb-2 text-center">
 			<h4>Top 20 Most Frequent Conditions Seen Between 6 to 27 Days After Paxlovid Treatment</h4>
 		</div>
-		<div class="col-12 col-md-6 viz" id="condition_viz_1">
+		<div class="col-12 col-lg-6 viz" id="condition_viz_1">
 			Category:
 			<select id="selectCat">
 				<option value="any">Any</option>
@@ -35,7 +35,7 @@
 				<jsp:param name="feed" value="topten_condition.jsp" />
 				<jsp:param name="primary" value="condition" />
 				<jsp:param name="secondary" value="result" />
-				<jsp:param name="textmargin" value="340" />
+				<jsp:param name="textmargin" value="220" />
 			</jsp:include>
 			<div id="condition_viz_pulmonary" style="display: none;"></div>
 			<jsp:include page="vizs/stacked_bar.jsp">
@@ -43,7 +43,7 @@
 				<jsp:param name="feed" value="topten_condition_by_category.jsp?category=pulmonary" />
 				<jsp:param name="primary" value="condition" />
 				<jsp:param name="secondary" value="result" />
-				<jsp:param name="textmargin" value="340" />
+				<jsp:param name="textmargin" value="220" />
 			</jsp:include>
 			<div id="condition_viz_renal" style="display: none;"></div>
 			<jsp:include page="vizs/stacked_bar.jsp">
@@ -51,10 +51,10 @@
 				<jsp:param name="feed" value="topten_condition_by_category.jsp?category=renal" />
 				<jsp:param name="primary" value="condition" />
 				<jsp:param name="secondary" value="result" />
-				<jsp:param name="textmargin" value="340" />
+				<jsp:param name="textmargin" value="220" />
 			</jsp:include>
 		</div>
-		<div class="col-12 col-md-6 viz-table" id="condition_table_1">
+		<div class="col-12 col-lg-6 viz-table" id="condition_table_1">
 			<jsp:include page="tables/top10_table.jsp" flush="true"/>
 		</div>
 	</div>
@@ -62,11 +62,11 @@
 		<div class="col-12 mx-auto mt-2 mb-2 text-center">
 			<h4>All Conditions Seen Between 6 to 27 Days After Paxlovid Treatment </h4>
 		</div>
-		<div class="col-12 col-md-6 viz-table" id="condition_table_2">
+		<div class="col-12 col-lg-6 viz-table" id="condition_table_2">
 			<h5 class="text-center">Total Occurrences Greater Than 20</h5>
 			<jsp:include page="tables/greater_table.jsp" flush="true"/>
 		</div>
-		<div class="col-12 col-md-6 viz-table" id="condition_table_3">
+		<div class="col-12 col-lg-6 viz-table" id="condition_table_3">
 			<h5 class="text-center">Total Occurrences Less Than 20</h5>
 			<jsp:include page="tables/less20_table.jsp" flush="true"/>
 		</div>

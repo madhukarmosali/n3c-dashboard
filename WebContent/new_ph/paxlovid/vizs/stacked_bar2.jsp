@@ -46,7 +46,7 @@ function drawthesebars(datatable_data){
 	    }
 	
 		
-		var margin = { top: 0, right: 100, bottom: 30, left: barLabelWidth },
+		var margin = { top: 20, right: 100, bottom: 30, left: barLabelWidth },
 			width = 1200 - margin.left - margin.right,
 			height = width/2.5 - margin.top - margin.bottom;
 		var maxBarWidth = 280; // width of the bar with the max value

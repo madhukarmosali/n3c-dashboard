@@ -20,8 +20,10 @@
 		<div class="col-12 mx-auto mt-2 mb-2 text-center">
 			<h4>Top 20 Most Frequent Medications Seen Between 6 to 27 Days After Paxlovid Treatment</h4>
 		</div>
-		<div class="col-12 col-md-6 viz" id="drugs_viz_1">
-			<div class="panel-body">
+		
+		
+		<div class="col-12 col-lg-6 viz kpi_section" id="drugs_viz_1">
+			<div class="panel-body" style="text-align:center;">
 				<h6 style="color:#3F50B0;"><i class="fas fa-filter"></i> COVID Status</h6>
 				<select id="drugs_viz-testresult-select" multiple="multiple">
 				<sql:query var="cases" dataSource="jdbc/N3CPublic">
@@ -40,10 +42,10 @@
 				<jsp:param name="table" value="drugs_viz_table" />
 				<jsp:param name="primary" value="medication" />
 				<jsp:param name="secondary" value="result" />
-				<jsp:param name="textmargin" value="400" />
+				<jsp:param name="textmargin" value="220" />
 			</jsp:include>
 		</div>
-		<div class="col-12 col-md-6 viz-table" id="drugs_table_1">
+		<div class="col-12 col-lg-6 viz-table" id="drugs_table_1">
 			<jsp:include page="tables/top10_drugs_table.jsp" flush="true"/>
 		</div>
 	</div>
@@ -51,11 +53,11 @@
 		<div class="col-12 mx-auto mt-2 mb-2 text-center">
 			<h4>All Medications Seen Between 6 to 27 Days After Paxlovid Treatment </h4>
 		</div>
-		<div class="col-12 col-md-6 viz-table" id="drugs_table_2">
+		<div class="col-12 col-lg-6 viz-table" id="drugs_table_2">
 			<h5 class="text-center">Total Occurrences Greater Than 20</h5>
 			<jsp:include page="tables/greater_drugs_table.jsp" flush="true"/>
 		</div>
-		<div class="col-12 col-md-6 viz-table" id="drugs_table_3">
+		<div class="col-12 col-lg-6 viz-table" id="drugs_table_3">
 			<h5 class="text-center">Total Occurrences Less Than 20</h5>
 			<jsp:include page="tables/less20_drugs_table.jsp" flush="true"/>
 		</div>
