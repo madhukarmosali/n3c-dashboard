@@ -141,7 +141,6 @@
 						<h4>${param.topic_title}</h4>
 					</div>
 				</c:if>
-				
 				<div class="row viz_info_box no_clear alert alert-primary">
 					<span class="filter_info">
 					</span>
@@ -149,7 +148,9 @@
   						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
+				
 				<div class="row">
+					
 					<c:if test="${not empty param.severity_panel || not empty param.age_panel || not empty param.gender_panel || not empty param.ethnicity_panel || not empty param.sotrovimab_panel1}">
 						<div class="mt-2 col-12 col-md-6">
 						<div class="viz_options_dropdown">
