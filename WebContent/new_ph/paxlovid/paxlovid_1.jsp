@@ -14,6 +14,11 @@
 
 	<div class="row">
 		<div class="col-12 mx-auto mt-2 mb-2 text-center">
+			<p>All data shown occurred between the first day after the end of the 5-day course of Paxlovid 
+			(i.e., day 6 post-Paxlovid) and three weeks following (i.e., day 27 post-Paxlovid).</p>
+		</div>
+
+		<div class="col-12 mx-auto mt-2 mb-2 text-center">
 			<h4>Top 20 Most Frequent Conditions Seen Between 6 to 27 Days After Paxlovid Treatment</h4>
 		</div>
 		<div class="col-12 col-md-6 viz" id="condition_viz_1">

@@ -9,7 +9,7 @@
 		select to_char(value::int/1000000.0, '999.99')||'M' as count from n3c_admin.enclave_stats where title='covid_positive_patients';
 	</sql:query>
 	<c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
-		<div class="col-4 col-sm-4 kpi-main-col">
+		<div class="col-12 col-sm-4 kpi-main-col">
 			<div class="panel-primary kpi">
 				<div class="kpi-inner">
 					<div class="panel-body">
@@ -24,7 +24,7 @@
 			</div>
 		</div>
 	</c:forEach>
-	<div class="col-4 col-sm-4 kpi-main-col">
+	<div class="col-12 col-sm-4 kpi-main-col">
 		<div class="panel-primary kpi">
 			<div class="kpi-inner">
 				<div class="panel-body">
@@ -48,7 +48,7 @@
 			from n3c_questions.table1_union where demographic_feature='sex') as foo
 </sql:query>
 <c:forEach items="${totals.rows}" var="row" varStatus="rowCounter">
-	<div class="ccol-4 col-sm-4 kpi-main-col">
+	<div class="col-12 col-sm-4 kpi-main-col">
 		<div class="panel-primary kpi">
 			<div class="kpi-inner">
 				<div class="panel-body">
@@ -64,8 +64,4 @@
 	</div>
 </c:forEach>
 </div>
-<div class="row">
-		<div class="col-12 mx-auto mt-2 mb-2 text-center">
-All data shown occurred between the first day after the end of the 5-day course of Paxlovid (i.e., day 6 post-Paxlovid) and three weeks following (i.e., day 27 post-Paxlovid).
-</div>
-</div>
+

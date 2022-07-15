@@ -3,7 +3,12 @@
 
 <sql:query var="severity" dataSource="jdbc/N3CPublic">
 	select jsonb_pretty(jsonb_agg(done))
-	from (select * from (SELECT
+	from (select condition, 
+	COALESCE ("KnownPositive", '0') as "KnownPositive",
+	COALESCE ("UnknownCovidTestStatus", '0') as "UnknownCovidTestStatus",
+	COALESCE ("KnownNegative", '0') as "KnownNegative",
+	total
+	from (SELECT
 		condition_concept_name as condition,
 		MAX(ptct) FILTER (WHERE covid_test_post_pax = 'known positive') AS "KnownPositive",
 		MAX(ptct) FILTER (WHERE covid_test_post_pax = 'unknown covid test status') AS "UnknownCovidTestStatus",

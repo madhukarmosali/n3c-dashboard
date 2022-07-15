@@ -73,9 +73,6 @@ d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(
 	${param.domName}draw();
 
 	function ${param.domName}draw() {
-		
-		
-		
 		data_rows = data_raw.rows;
 		
 		data = [];
@@ -101,7 +98,7 @@ d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(
 				trimmedString = trimmedString + '...'
 			}
 			
-			data.push({'element': trimmedString, 'count': data_rows[i].total, 'secondary': [0, parseInt(positivecount), parseInt(negativecount), parseInt(unknowncount)  ]})
+			data.push({'element': trimmedString, 'element2':test, 'count': data_rows[i].total, 'secondary': [0, parseInt(positivecount), parseInt(negativecount), parseInt(unknowncount)  ]})
 			
 		}
 		
@@ -118,10 +115,7 @@ d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(
 		// get length of longest legend word for tooltip sizing
 
 		var word_length = 7;
-		
-		
 
-		
 		
 		var svg = d3.select("#"+domName2).append("svg")
 			.attr("width", width + margin.left + margin.right)
@@ -134,6 +128,7 @@ d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(
 			.range([0, height-margin.bottom])	
 			.paddingInner(paddingInside)
 			.align(0.1);
+		
 
 		var x = d3.scaleLinear()	
 			.range([0, width - margin.right]);	
@@ -144,14 +139,37 @@ d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(
 		
 		var stackData = myStack(data);
 		
-		
-		
 		y.domain(data.map(function(d) { return d.element; }));					
 		x.domain([0, d3.max(data, function(d) { return d.count; })]).nice();	
-		g.append("g")
-			.attr("class", "axis")
-			.attr("transform", "translate(0,0)") 						
-			.call(d3.axisLeft(y));									
+
+		
+		//Defines the y axis styles
+		var yAxis = d3.axisLeft(y);
+	
+		//Appends the y axis
+		var yAxisGroup = g.append("g")
+			.attr("class", "y axis")
+			.attr("transform", "translate(0,0)")	
+			.call(yAxis);
+		
+		//add y axis tooltip 
+		g.select(".y.axis")
+	    	.selectAll(".tick")
+	    	.on("mouseover", function() { tooltip3.style("display", null); })
+		    .on("mouseout", function() { tooltip3.style("display", "none"); })
+		    .on("mousemove", function(d, i) {
+		    	var label = data[i].element2;
+		    	tooltip3.selectAll("tspan").remove();
+		    	tooltip3.selectAll("rect").attr("width", ((label.length * 8)+10) + 'px');
+		     	var xPosition = d3.mouse(this)[0];
+		     	var yPosition = d3.mouse(this)[1];
+		     	tooltip3.attr("transform", "translate(" + xPosition + "," + (yPosition + y(d)) + ")")
+		     	.selectAll("text")
+		     		.append("tspan")
+		     		.text(label)
+		     		.attr('x', 10)
+  					.attr('dy', 13);
+		    });
 
 		g.append("g")
 			.attr("class", "axis xaxis")
@@ -382,8 +400,24 @@ d3.json("<util:applicationRoot/>/new_ph/paxlovid/feeds/${param.feed}", function(
     		.style("text-anchor", "start")
     		.attr("font-size", "12px")
     		.attr("font-weight", "bold");
-
+  		
+  	// Y axis Tooltip ////// 
+		var tooltip3 = g.append("g")
+    		.attr("class", "graph_tooltip")
+    		.style("display", "none");
 	
+		tooltip3.append("rect")
+			.attr("width", 3)
+			.attr("height", 20)
+			.attr("fill", "white")
+			.style("opacity", 0.7);
+
+  		tooltip3.append("text")
+  			.attr("x", 10)
+			.attr("dy", "1.2em")
+			.style("text-anchor", "start")
+			.attr("font-size", "12px")
+			.attr("font-weight", "bold");
 	
 	};
 
