@@ -167,8 +167,6 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 
 	// table search logic that distinguishes sort/filter 
 	${param.block}_datatable.on( 'search.dt', function () {
-		${param.block}_refreshHistograms();
-		${param.block}_constrain_table();
 		var snapshot = ${param.block}_datatable
 	     .rows({ search: 'applied', order: 'index'})
 	     .data()
@@ -178,9 +176,11 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 	  	var currentSnapshot = ${param.block}_datatable.settings().init().snapshot;
 
 	  	if (currentSnapshot != snapshot) {
-	  		console.log('different snapshot');
 	  		${param.block}_datatable.settings().init().snapshot = snapshot;
 	   		if (currentSnapshot != null) {
+	   			// put these two here if don't want to redraw viz on table sort, otherwise put them up
+	   			${param.block}_refreshHistograms();
+	   			${param.block}_constrain_table();
 	   			$('#${param.block}_btn_clear').removeClass("no_clear");
 	   			$('#${param.block}_btn_clear').addClass("show_clear");
 	   		}

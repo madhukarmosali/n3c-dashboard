@@ -159,7 +159,6 @@ $.getJSON("<util:applicationRoot/>/new_ph/${param.feed}", function(data){
 	  	var currentSnapshot = ${param.block}_datatable.settings().init().snapshot;
 
 	  	if (currentSnapshot != snapshot) {
-	  		console.log('different snapshot');
 	  		${param.block}_datatable.settings().init().snapshot = snapshot;
 	   		if (currentSnapshot != null) {
 	   			$('#${param.block}_btn_clear').removeClass("no_clear");
